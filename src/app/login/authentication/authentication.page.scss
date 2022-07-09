@@ -40,10 +40,8 @@ button:focus{
 
 }
 
-.login-background{
-  //background-image:url("Nations-Direct-Enterprise.png");
-  //background-image:url("assets/imgs/styleNtb/Login_Screen750x1334.jpg"),url("Nations-Direct-Enterprise.png");
-  background-image: url("../../../assets/imgs/styleNtb/Login_Screen-bot.jpg");
+.login-background{  
+  background-image: url("../../../assets/imgs/styleVShare/Login_Screen-bot.jpg");
   background-blend-mode: normal;
   background-position: left !important;
 }
@@ -55,7 +53,7 @@ button:focus{
   !* LANDSCAPE:Samsung Galaxy Tab(7.7 > 12.2)*!
 
   ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/1280x800.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/1280x800.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -76,7 +74,7 @@ button:focus{
   !* LANDSCAPE: Samsung Galaxy Tab(7.7 > 12.2) *!
 
   ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/800x1280.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/800x1280.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -92,7 +90,7 @@ button:focus{
 @media only screen and (max-width: 1024px) and (orientation : landscape) {
   !* LANDSCAPE: Apple iPad 1,2,3,4,Air,Mini, BlackBerry PlayBook, Samsung Galaxy Tab 2(7") *!
   ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/Login_Screen_land1024.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/Login_Screen_land1024.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -102,7 +100,7 @@ button:focus{
     background-attachment: fixed!important;
   }
   .ios ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/Login_Screen_land1024-ios.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/Login_Screen_land1024-ios.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -117,7 +115,7 @@ button:focus{
 !*and (min-width: 768px) Edit at 8.48pm *!
 @media only screen  and (min-width: 1024px){
   !*ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/Login_Screen_land1024.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/Login_Screen_land1024.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -133,7 +131,7 @@ button:focus{
 and (-webkit-device-pixel-ratio:2) and (orientation : portrait)
 {
   ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/800x1280.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/800x1280.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -149,7 +147,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : portrait)
 and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 {
   ion-page ion-content{
-    background-image:url(src/assets/imgs/styleNtb/1280x800.jpg)!important;
+    background-image:url(src/assets/imgs/styleVShare/1280x800.jpg)!important;
     background-size: cover!important;
     -webkit-background-size:cover!important;
     -moz-background-size:cover!important;
@@ -186,7 +184,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 *!
 
 @media only screen and (min-width: 2048px) and (orientation:landscape) {
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2048.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2048.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -202,7 +200,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 1366px) and (min-height: 1024px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land1366.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land1366.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -219,7 +217,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 2048px) and (min-height: 1536px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2048.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2048.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -236,7 +234,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (min-width: 1536px) and (min-height: 2048px ) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -253,7 +251,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 2388px) and (min-height: 1668px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2388.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2388.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -270,7 +268,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (min-width: 1668px) and (min-height: 2388px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -287,7 +285,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (min-width: 1080px) and (min-height: 2160px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -303,7 +301,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 2160px) and (min-height: 1080px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2160.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2160.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -320,7 +318,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (min-width: 1620px) and (min-height: 2160px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -337,7 +335,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen  and (orientation:landscape) and (min-width: 2160px) and (min-height: 1620px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land216020.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land216020.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -353,7 +351,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (min-width: 1668px) and (min-height: 2224px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -369,7 +367,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 2224px) and (min-height:1668px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2224.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2224.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -385,7 +383,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 2732px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/1280x800.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/1280x800.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -403,7 +401,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 !*@media only screen and (orientation:landscape) and (min-width: 2732px) and (min-height: 2048px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2732.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2732.jpg")!important;
     background-size: cover !important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -418,7 +416,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 !*@media only screen and (min-width: 2048px) and (min-height: 2732px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2048.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2048.jpg")!important;
     background-size: cover!important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -435,7 +433,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (min-width: 1600px) and (min-height: 2560px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover!important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -452,7 +450,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 
 @media only screen and (orientation:landscape) and (min-width: 2560px) and (min-height: 1600px) {
 
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2560.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2560.jpg")!important;
     background-size: cover!important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -468,7 +466,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 }
 
 @media only screen and (orientation:landscape) and (min-width: 2960px) and (min-height: 1440px) {
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2960x1440.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen_land2960x1440.jpg")!important;
     background-size: cover!important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
@@ -484,7 +482,7 @@ and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
 }
 
 @media only screen and (min-width: 1440px) and (min-height: 2960px) {
-  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleVShare/Login_Screen.jpg")!important;
     background-size: cover!important;
     -webkit-background-size:cover !important;
     -moz-background-size:cover !important;
