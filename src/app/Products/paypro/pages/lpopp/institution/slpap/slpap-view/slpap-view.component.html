@@ -1,0 +1,136 @@
+<ng-container *ngIf="dataObj" >
+    <ion-list class="ion-no-padding">
+        <ion-list-header lines="full">
+            <ion-label>{{'Institution Details' | translate}}</ion-label>
+        </ion-list-header>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Payments Type' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.paymentsTypeValue || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Agent Code' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.agentCode || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Vessel Reference No' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.vesselReferenceNo || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Type Of Payment' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.typeOfPaymentValue || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ng-container *ngIf="dataObj.typeOfPayment == 'FULLPAYMENT'">
+
+            <ion-item class="ion-no-padding">
+                <ion-label class="ion-no-padding">
+                    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                        {{'Bill Type' | apsTraslate}} </h3>
+                    <p class="text-size-p font-regular ion-text-wrap">
+                        {{ dataObj.billTypeFullValue || '-' }}</p>
+                </ion-label>
+            </ion-item>
+            <ion-item class="ion-no-padding">
+                <ion-label class="ion-no-padding">
+                    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                        {{'Total Amount' | apsTraslate}} </h3>
+                    <p class="text-size-p font-regular ion-text-wrap">
+                        {{ dataObj.totalAmount || '-' }}</p>
+                </ion-label>
+            </ion-item>
+        </ng-container>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.postingReturnReason">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Failure Reason' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.postingReturnReason}}</p>
+            </ion-label>
+        </ion-item>
+
+
+
+    </ion-list>
+
+    <ng-container *ngIf="dataObj.typeOfPayment == 'ADVANCEPAYMENT'">
+        <ion-grid class="background-primary">
+            <ion-row>
+                <ion-col size="12" class="ion-no-padding">
+                    <ion-slides class="ion-no-padding ion-no-margin" #wizardSlider pager="true" ><!--(ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideWillChange)="ionSlideWillChange($event)"-->
+                        <ion-slide class="ion-no-margin ion-no-padding slideBox box-shadow" *ngFor="let det of data.lpoppRequestDets">
+                            <ion-col size="12" class="ion-no-padding" >
+                                <ion-card class="box-shadow ion-no-margin ion-no-padding ">
+                                    <ion-card-content class="ion-text-center ion-no-padding ion-padding-start">
+                                        <ion-grid>
+                                            <ion-row>
+                                                <ion-col>
+                                                    <ion-item class="ion-no-padding">
+                                                        <ion-label class="ion-no-padding">
+                                                            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Bill Type' | apsTraslate}}</h3>
+                                                            <p class="text-size-p font-regular  ion-text-wrap">{{det.billType}}</p>
+                                                        </ion-label>
+                                                    </ion-item>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row>
+                                                <ion-col>
+                                                    <ion-item class="ion-no-padding">
+                                                        <ion-label class="ion-no-padding">
+                                                            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Description'|apsTraslate}}</h3>
+                                                            <p class="text-size-p font-regular  ion-text-wrap">{{det.description}}</p>
+                                                        </ion-label>
+                                                    </ion-item>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row>
+                                                <ion-col>
+                                                    <ion-item class="ion-no-padding">
+                                                        <ion-label class="ion-no-padding">
+                                                            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Amount' | translate}}</h3>
+                                                            <p class="text-size-p font-regular  ion-text-wrap">{{det.amount}}</p>
+                                                        </ion-label>
+                                                    </ion-item>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                    </ion-card-content>
+                                </ion-card>
+                            </ion-col>
+                        </ion-slide>
+                    </ion-slides>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ng-container>
+
+    <ion-list class="ion-no-padding" *ngIf="dataObj.typeOfPayment == 'ADVANCEPAYMENT'">
+
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Total Amount' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ (dataObj.totalAmount |currencyFormat) || '-' }}</p>
+            </ion-label>
+        </ion-item>
+
+    </ion-list>
+
+</ng-container>
+
+

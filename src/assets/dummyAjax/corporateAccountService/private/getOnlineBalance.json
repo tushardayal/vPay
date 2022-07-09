@@ -1,0 +1,15 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [{
+    "id": "qmmbcEhQbn8=",
+    "displayName": "999001900005",
+    "enrichments": {
+      "balance": "90,500.00"
+    }
+  }],
+  "entityIdentifier": "999001900005",
+  "loggable": false
+}

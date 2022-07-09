@@ -1,0 +1,38 @@
+/* Style component 1
+========================================================*/
+.collapsible-header {
+ /* padding: 4px 8px 4px 8px !important;*/
+
+  .default-item {
+    width: 100% !important;
+    margin: 0 !important;
+    border-top: 1px solid rgb(194, 194, 194);
+  }
+ 
+}
+/* Settings Accordion "OPEN" */
+
+.item-accordion {
+  -moz-transition: all 400ms;
+  -ms-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  max-height: 0;
+  display: block !important;
+  overflow: hidden;
+
+  &.active {
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+    -o-transition: all 400ms;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    overflow: visible;
+    max-height: 999px;
+  }
+}
+.ios .margin-half-top20 {
+  margin-top: 10px !important;
+  border-top:red!important;
+}

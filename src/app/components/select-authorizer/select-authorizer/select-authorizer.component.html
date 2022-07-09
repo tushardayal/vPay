@@ -1,0 +1,78 @@
+  <ion-header class="ion-header-transparent">
+    <ion-toolbar class="ion-no-padding">
+      <div class="segment-block">
+        <ion-segment [(ngModel)]="selectorType">
+          <ion-segment-button *ngIf="displaySelectVerifierScreen"  [ngClass]="{'segment-button-unchecked':selectorType !== 'SELECTVERIFIER'}"
+          class="ion-text-capitalize" value="SELECTVERIFIER">
+            <ion-label>{{'lbl_select_verifier' | translate}}</ion-label> 
+          </ion-segment-button>
+          <ion-segment-button  *ngIf="displaySelectAuthScreen" [ngClass]="{'segment-button-unchecked':selectorType !== 'SELECTAUTHORIZER'}"
+          class="ion-text-capitalize" value="SELECTAUTHORIZER">
+            <ion-label> {{'lbl_select_authorizer' | translate}}</ion-label>
+          </ion-segment-button>
+        </ion-segment>  
+      <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content [hidden]="isLoading">
+    <ion-grid *ngIf="displaySelectAuthScreen" [hidden]="selectorType === 'SELECTVERIFIER'">
+      <ion-row class="ion-padding" *ngIf="matrixHeadersMap">
+        <span class="text-size-p">{{'lbl_slab_details:' | translate}} {{ matrixHeadersMap[0] }}</span>
+      </ion-row>  
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-list>
+            <ion-item class="default-item select-auth-header-background ion-no-padding">
+              <ion-checkbox [(ngModel)]="allChecked" style="visibility: hidden" (click)="selectAllUsers(allChecked, usersMatrix)"></ion-checkbox>
+              <ion-label class="text-size-p ion-padding-start">{{'lbl_user_id' | translate}}</ion-label>
+              <ion-label class="text-size-p ion-padding-start">{{'lbl_profile_name' | translate}}</ion-label>
+            </ion-item>
+              <ion-item class="default-item ion-no-padding" 
+              *ngFor="let item of usersMatrix" >
+                <ion-checkbox [(ngModel)]="item.isChecked"  (change)="checkedUser(item.isChecked, usersMatrix)"
+                              [disabled]="(item[7]=='Y' && item[8]=='Y') || (!item.isChecked && validateAuthSlab(item)|async)">
+                </ion-checkbox>
+                <ion-label class="text-size-p ion-padding-start">{{item[1]}}</ion-label>
+                <ion-label class="text-size-p ion-padding-start">{{item[3]}}</ion-label>
+              </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="displaySelectVerifierScreen" [hidden]="selectorType === 'SELECTAUTHORIZER'">
+      <ion-row class="ion-padding">
+        <span class="text-size-p">{{'lbl_no_of_verifier_required:' | translate}} {{ selectAuthObj.verifierCount }}</span>
+      </ion-row>       
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-list>
+            <ion-item class="default-item header-background ion-no-padding">
+              <ion-checkbox [(ngModel)]="allChecked"  style="visibility: hidden" (click)="selectAllUsers(allChecked, verifierList)"></ion-checkbox>
+              <ion-label class="text-size-p ion-padding-start">{{'lbl_user_id' | translate}}</ion-label>
+              <ion-label class="text-size-p ion-padding-start">{{'lbl_profile_name' | translate}}</ion-label>
+            </ion-item>
+              <ion-item class="default-item ion-no-padding" 
+              *ngFor="let item of verifierList" >
+                <ion-checkbox [(ngModel)]="item.isChecked" (click)="checkedUser(item.isChecked, verifierList)"
+                              [disabled]="(item[7]=='Y' && item[8]=='Y') || (!item.isChecked && selectAuthObj.verifierCount==selectedVerifierCount)">
+                </ion-checkbox>
+                <ion-label class="text-size-p ion-padding-start">{{item[3]}}</ion-label>
+                <ion-label class="text-size-p ion-padding-start">{{item[4]}}</ion-label>
+              </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p class="ion-no-padding ion-text-center error-color">{{'lbl_select_auth_note' | translate}}</p>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons slot="end" >
+        <ion-button (click)="closeModal()">{{'lbl_cancel' | translate}}</ion-button>
+        <ion-button [hidden]="selectorType === 'SELECTVERIFIER'" *ngIf="displaySelectAuthScreen" [disabled]="validateSelectAuth()" (click)="submitSelectAuth()">{{'lbl_submit' | translate}}</ion-button>
+        <ion-button [hidden]="selectorType === 'SELECTAUTHORIZER'" *ngIf="displaySelectVerifierScreen" [disabled]="validateSelectVerifier()" (click)="submitSelectVerifier()">{{'lbl_submit' | translate}}</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+

@@ -1,0 +1,97 @@
+.styleVShare {
+
+
+  /* Settings Fonts Size And Icon Size
+      =======================================================
+      =======================================================*/
+
+  --fallback-color: red;
+  --h1-font-size: 24px;
+  --h2-font-size: 20px;
+  --h3-font-size: 17px;
+  --h4-font-size: 16px;
+  --h5-font-size: 15px;
+  --h6-font-size: 12px;
+  --text-font-size: 14px;
+
+  /* Settings Fonts Size Icon
+      =======================================================
+      =======================================================*/
+
+  --icon-size-small: 17px;
+  --icon-size-medium: 22px;
+  --icon-size-large: 32px;
+  --icon-size-extra-large: 48px;
+
+  /* Settings Color Background Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-background-primary: #FFFFFF;
+  --cs-background-secondary: #d6e1e5;
+  --cs-background-accent: #003466;
+  --cs-background-dark: #23282c;
+  --cs-background-border: #B7b9be;
+  --ion-color-success-shade: #28ba62;
+  --cs-background-transparent: rgba(21, 50, 102, 0.5);
+  /* Settings Color Text Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-text-primary: #23282c;
+  --cs-text-secondary: #fff;
+  --cs-text-accent: #FC827B;
+  --cs-text-dark: #003466;
+  --cs-text-light:#959a9e;/*added for light color of menu*/
+
+  /* Settings Size Avatar
+=======================================================
+=======================================================*/
+
+  --size-avatar: 50px;
+
+  /* Settings Size Thumbnail
+=======================================================
+=======================================================*/
+
+  --size-thumbnail: 50px;
+
+  /* Settings Border Radius
+=======================================================
+=======================================================*/
+
+  --border-radius: 8px;
+  /* Settings Color Icon
+=======================================================
+=======================================================*/
+
+  --cs-icon-color-primary: #003466;
+  --cs-icon-color-secondary: #ffffff;
+  --cs-icon-color-accent: #FC827B;
+  --ion-color-colorRed: red;
+
+  --super-tabs-toolbar-background: var(--cs-background-accent);
+  --super-tabs-toolbar: var(--cs-text-secondary);
+  --super-tab-width: 100%;/*added for resolve issue related to iPad and iPad mini SuperTab container width - resolve issue on dashboard and Transactions listing pages*/
+  --st-indicator-color: var(--cs-background-primary);
+
+  ion-toolbar {
+    --background: var(--cs-background-dark);
+    --color: var(--cs-text-secondary);
+  }
+  super-tabs-container {
+    ion-toolbar{
+      --background: var(--cs-background-primary);
+    }
+  }
+  .broadcast-container{
+    ion-toolbar {
+      --background: var(--cs-background-dark);
+      --color: var(--cs-text-secondary);
+    }
+  }
+
+  .stepperGrid{
+    background: var(--cs-background-accent);
+  }
+}

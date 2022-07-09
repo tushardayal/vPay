@@ -1,0 +1,17 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "txnCounts": [{
+    "processName": "Today",
+    "batches": 102,
+    "request": 158
+  }, {
+    "processName": "Current Month",
+    "batches": 187,
+    "request": 3560
+  }],
+  "loggable": false,
+  "entityIdentifier": ""
+}

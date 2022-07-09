@@ -1,0 +1,30 @@
+<form [formGroup]="childForm">
+    <ion-item class="ion-no-padding">
+        <ion-label position="stacked">
+            {{'Voucher Amount'|apsTraslate}}
+            <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="15"
+                   appCurrencyFormat inputmode="decimal" [pattern]="'^[0-9,.]*$'"
+                   formControlName="voucherAmount" name="PaymentId" readonly
+                   type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-no-padding">
+        <ion-label position="stacked">
+            {{'Payment Reference No'|apsTraslate}}
+            <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="15"
+                   formControlName="paymentReferenceNo" name="PaymentId" readonly
+                   type="text"></ion-input>
+    </ion-item>
+    <!--<ion-item class="ion-no-padding" [hidden]="true">
+        <ion-label position="stacked">
+            {{'transactionIdNo'|apsTraslate}}
+            <ion-text color="danger">*</ion-text>
+        </ion-label>
+        <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="15"
+                   formControlName="transactionIdNo" name="PaymentId" readonly
+                   type="text"></ion-input>
+    </ion-item>-->
+</form>

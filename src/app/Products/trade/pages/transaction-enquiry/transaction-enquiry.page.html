@@ -1,0 +1,358 @@
+<app-side-filter (applyFilter)="applyFilter($event)" (changeSelectFilter)="onChangeSelectFilter($event)" [filters]="filters"></app-side-filter>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+        <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            {{pageTitle}}
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="showHelpPage()" *ngIf="listingState === 'success'">
+                <ion-icon class="icon-font-md" name="help-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+            <ion-button (click)="showFilter()">
+                <ion-icon class="icon-font-md" name="funnel" slot="icon-only"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content #contentBox>
+    <!--<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+              pullingIcon="arrow-down-outline"
+              pullingText="{{'lbl_pull_to_refresh' | translate}}"
+              refreshingSpinner="circles"
+              refreshingText="{{'lbl_refreshing' | translate}}">
+      </ion-refresher-content>
+    </ion-refresher>-->
+
+  <app-no-record-found *ngIf="listingState === 'notFound'"></app-no-record-found>
+  
+  <ion-grid class="ion-no-padding" *ngIf="listingState === 'success'">
+    <ion-list  *ngIf="dataItemList && dataItemList.length > 0" #dynamicList class="ion-no-padding ion-padding-end">
+        <ion-item-sliding #sliding *ngFor="let item of dataItemList" class="overflow-visible" disabled="false">
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'LETTEROFCREDIT'">
+                <ion-grid class="ion-no-padding ion-no-margin">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                   <span class="TransactionRefNo">{{item.TransactionRefNo}}</span></h3>
+                                <p class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="LcApplicantName">{{item.LcApplicantName}}</span>
+                                </p>
+                                <p class="text-size-p text-color-light ion-text-wrap">
+                                    <span class="IssueDate">{{item.IssueDate}}</span></p>
+                                <p class="text-size-p text-color-light ion-text-wrap">
+                                    <span class="lCNo">{{item.lCNo}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                  <span class="LcCurrencyCode"><sup class="text-color-light">{{item.LcCurrencyCode}} </sup>
+                                </span> <span class="Amount" appStyleAmount>{{item.Amount}}</span>
+                                </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="LcBeneficiaryName">{{item.LcBeneficiaryName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="ExpiryDate">{{item.ExpiryDate}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'LETTEROFCREDITAMEND'">
+                <ion-grid class="ion-no-padding ion-no-margin">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="TransactionRefNumber">{{item.TransactionRefNumber}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="LcAmendApplicantName">{{item.LcAmendApplicantName}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="IssuanceDate">{{item.IssuanceDate}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="LcNumber">{{item.LcNumber}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="CurrencyCode"><sup class="text-color-light">{{item.CurrencyCode}} </sup>
+                                    </span> <span class="Amount" appStyleAmount>{{item.Amount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="LcAmendBeneficiaryName">{{item.LcAmendBeneficiaryName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                  <span class="ExpiryDate">{{item.ExpiryDate}}</span>
+                                </h5>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="NoOfAmendment">{{item.NoOfAmendment}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'SHIPPINGGUARANTEE'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="TransactionRefNum">{{item.TransactionRefNum}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="SgApplicantName">{{item.SgApplicantName}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="SgNo">{{item.SgNo}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="CurrencyCode">{{item.CurrencyCode}} </span></sup> <span class="SgAmount" appStyleAmount>{{item.SgAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="LcBeneficiaryName">{{item.LcBeneficiaryName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                  <span class="LcNo">{{item.LcNo}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'TRADEBILLACCEPTANCE'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="BillTransactionRefNo">{{item.BillTransactionRefNo}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="Exporter">{{item.Exporter}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="TradeBillDate">{{item.TradeBillDate}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="TradeBillNo">{{item.TradeBillNo}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap">{{'lbl_accepted' | translate}} : <span class="BillAccepted">{{item.BillAccepted}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="CurrencyCode">{{item.CurrencyCode}} </span></sup> <span class="BillAmount" appStyleAmount>{{item.BillAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap"><span class="Importer">{{item.Importer}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                  <span class="TradeBillDueDate">{{item.TradeBillDueDate}}</span>
+                                </h5>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                  <span class="LcNo">{{item.LcNo}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'TRADEBILLPAYMENTREQUEST'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="BillTransactionRefNo">{{item.BillTransactionRefNo}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="Exporter">{{item.Exporter}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="TradeBillDate">{{item.TradeBillDate}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="TradeBillNo">{{item.TradeBillNo}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="LcNo">{{item.LcNo}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="CurrencyCode">{{item.CurrencyCode}} </span></sup> <span class="BillAmount" appStyleAmount>{{item.BillAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap"><span class="Importer">{{item.Importer}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                  <span class="TradeBillDueDate">{{item.TradeBillDueDate}}</span>
+                                </h5>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                  <span class="dAdp">{{item.dAdp}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'OTT'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="BatchNo">{{item.BatchNo}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="ApplicantName">{{item.ApplicantName}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="ProformaInvoiceNo">{{item.ProformaInvoiceNo}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                            <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                <sup class="text-color-light"><span class="PayableCurrencyName">{{item.PayableCurrencyName}} </span></sup> <span class="PayableAmount" appStyleAmount>{{item.PayableAmount}}</span> </h3>
+                            <h6 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                <span class="BeneficiaryName">{{item.BeneficiaryName}}</span></h6></ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'IMPORTREQUESTFINANCE'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="UserRefNo">{{item.UserRefNo}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="PurposeCode">{{item.PurposeCode}}</span>
+                                </h6>
+                                <!--<p class="text-size-p text-color-primary ion-text-wrap"><span class="InterestRate">{{item.InterestRate}}</span></p>-->
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="LoanCurrencyCode">{{item.LoanCurrencyCode}} </span></sup> <span class="LoanAmount" appStyleAmount>{{item.LoanAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap"><span class="ApplicantName">{{item.ApplicantName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="TenureInDays">{{item.TenureInDays}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'BANKGUARANTEE'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="TransactionRefNum">{{item.TransactionRefNum}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="BgBeneficiaryName">{{item.BgBeneficiaryName}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="IssueDate">{{item.IssueDate}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="BgNo">{{item.BgNo}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                  <sup class="text-color-light"><span class="CurrencyCode">{{item.CurrencyCode}} </span></sup> <span class="BgAmount" appStyleAmount>{{item.BgAmount}}</span></h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="BgApplicantName">{{item.BgApplicantName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="ExpiryDate">{{item.ExpiryDate}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'BANKGUARANTEEAMEND'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="TransactionRefNum">{{item.TransactionRefNum}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="BgApplicantName">{{item.BgApplicantName}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="BgRefNo">{{item.BgRefNo}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="IssueDate">{{item.IssueDate}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="CurrencyCode">{{item.CurrencyCode}} </span></sup>  <span class="BgAmount" appStyleAmount>{{item.BgAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap"><span class="BgBeneficiaryName">{{item.BgBeneficiaryName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="NoOfAmendMents">{{item.NoOfAmendMents}}</span>
+                                </h5>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="ExpiryDate">{{item.ExpiryDate}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'TRADEBILLPRESENTMENT'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="TransactionRefNo">{{item.TransactionRefNo}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="LcNumber">{{item.LcNumber}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="InvoiceNumber">{{item.InvoiceNumber}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="TradeBillCurrencyCode">{{item.TradeBillCurrencyCode}} </span></sup> <span class="TradeBillDisplayAmount" appStyleAmount>{{item.TradeBillDisplayAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap"><span class="ImporterName">{{item.ImporterName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="BillDate">{{item.BillDate}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            <ion-item class="ion-no-margin" (tap)="view(item, $event)" *ngIf="selectedProduct === 'EXPORTREQUESTFINANCE'">
+                <ion-grid class="ion-no-padding">
+                    <ion-row>
+                        <ion-col size="6" class="ion-text-left">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <span class="UserRefNo">{{item.UserRefNo}}</span></h3>
+                                <h6 class="text-size-p text-color-primary text-nowrap"><span class="ApplicantName">{{item.ApplicantName}}</span>
+                                </h6>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="LcNumber">{{item.LcNumber}}</span></p>
+                                <p class="text-size-p text-color-primary ion-text-wrap"><span class="InvoiceNumber">{{item.InvoiceNumber}}</span></p>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col size="6" class="ion-text-right">
+                            <ion-label>
+                                <h3 class="text-size-p font-medium text-color-primary ion-text-wrap">
+                                    <sup class="text-color-light"><span class="LoanCurrencyCode">{{item.LoanCurrencyCode}} </span></sup> <span class="LoanAmount" appStyleAmount>{{item.LoanAmount}}</span> </h3>
+                                <h6 class="text-size-p text-color-primary ion-text-wrap"><span class="BuyerDisplayName">{{item.BuyerDisplayName}}</span>
+                                </h6>
+                                <h5 class="text-size-p text-color-primary ion-text-wrap">
+                                    <span class="TenureInDays">{{item.TenureInDays}}</span>
+                                </h5>
+                            </ion-label>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+            
+            <slide-item-actions [item]="item" (onActionClicked)="onActionClicked($event)"></slide-item-actions>
+        </ion-item-sliding>
+    </ion-list>
+</ion-grid>
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'lbl_getting_more_data' | translate}}">
+    </ion-infinite-scroll-content>
+</ion-infinite-scroll> 
+</ion-content>
+

@@ -1,0 +1,167 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{'lbl_authentication' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="transparent background-size login-background" ><!--[ngStyle]="{'background-image': 'url(assets/imgs/'+ environment.themeCategory + '/Login_Screen.jpg)'}"-->
+    <ion-grid class="ion-margin-bottom ion-margin-top">
+        <!--<form class="ion-text-center">-->
+        <ion-card class="ion-no-padding background-primary ion-align-items-center">
+            <ion-card-header class="no-padding-bottom">
+                <h5 class="icon-color-primary ion-no-padding ion-no-margin">{{'lbl_step_ii' | translate}}</h5>
+            </ion-card-header>
+            <ion-card-content class="ion-no-padding background-primary">
+                <ion-item lines="none">
+                    <ion-label><h6>{{'lbl_verification_mode' | translate}}</h6></ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-row>
+                        <ng-container *ngFor="let type of authType$| async">
+                            <ion-col class="ion-margin-end ion-no-padding ion-no-margin"
+                                     *ngIf="type == avaliableAuthTypes.SOFTTOKEN || type == avaliableAuthTypes.SOFTANDHARDTOKEN">
+                                <button class="background-primary "
+                                        [ngClass]="{'selected-avatar': selectedAuthType == avaliableAuthTypes.SOFTTOKEN}" (click)="selectAuthType(avaliableAuthTypes.SOFTTOKEN)">
+                                    <ion-avatar class="ion-no-padding marBot4px mar6px marBot4px"
+                                                [ngClass]="{'box-shadow': selectedAuthType == avaliableAuthTypes.SOFTTOKEN }">
+                                        <ion-icon class="icon-font-md icon-color-primary ion-no-padding"
+                                                  name="mail-outline"></ion-icon>
+                                        <!--<img src="assets/imgs/avatar/15.jpg" alt="pro pic">-->
+                                    </ion-avatar>
+                                    {{'lbl_sms' | translate}}
+                                </button>
+                            </ion-col>
+                            <ion-col class="ion-margin-end ion-no-padding ion-no-margin"
+                                     *ngIf="type == avaliableAuthTypes.HARDTOKEN || type == avaliableAuthTypes.SOFTANDHARDTOKEN">
+                                <button class="background-primary" (click)="selectAuthType(avaliableAuthTypes.HARDTOKEN)"
+                                        [ngClass]="{'box-shadow': selectedAuthType == avaliableAuthTypes.HARDTOKEN ,'selected-avatar': selectedAuthType == avaliableAuthTypes.SOFTTOKEN}">
+                                    <ion-avatar class="ion-no-padding mar4px marBot4px">
+                                        <ion-icon class="icon-font-md icon-color-primary ion-no-padding"
+                                                  name="laptop-outline"></ion-icon>
+                                        <!--<img src="assets/imgs/avatar/15.jpg" alt="pro pic">-->
+                                    </ion-avatar>
+                                    {{'lbl_device' | translate}}
+                                </button>
+                            </ion-col>
+                            <ion-col class="ion-margin-end ion-no-padding ion-no-margin"
+                                     *ngIf="type == avaliableAuthTypes.WEBTOKEN">
+                                <button class="background-primary"  [ngClass]="{'selected-avatar': selectedAuthType == avaliableAuthTypes.SOFTTOKEN}">
+                                    <ion-avatar class="ion-no-padding marBot4px">
+                                        <ion-icon class="icon-font-md icon-color-primary ion-no-padding"
+                                                  name="phone-portrait-outline"></ion-icon>
+                                        <!--<img src="assets/imgs/avatar/15.jpg" alt="pro pic">-->
+                                    </ion-avatar>
+                                    {{'lbl_mobile' | translate}}
+                                </button>
+                            </ion-col>
+                        </ng-container>
+                    </ion-row>
+                </ion-item>
+
+                <div class="clearfix"></div>
+
+                <ion-item class="ion-no-padding ion-no-margin ion-padding-top ion-margin-start ion-margin-end">
+                <ion-row class="ion-no-padding ion-no-margin">
+
+                <ion-col class="transparent ion-no-padding ion-no-margin" size="6">
+                    <!--<ion-label class="text-size-sd text-color-primary font-regular" position="floating">Verification Code</ion-label>-->
+                    <ion-input required inputmode="numeric" type="password" [pattern]="numericPattern"
+                               placeholder="Verification Code" autocomplete="off" [(ngModel)]="otp"  #inputRef='ngModel'></ion-input>
+                </ion-col>
+
+               <!-- <div class="clearfix"></div>-->
+
+                <ion-col class="transparent ion-no-padding ion-no-margin" size="6">
+                    <ion-button class="background-primary ion-text-capitalize text-color-dark text-size-xsp ion-no-padding ion-no-margin button-clear" (click)="generateOTP()"
+                                [disabled]="(resendOTPTImer|async) !=null">
+                        <ion-icon class="text-size-xsp icon-color-primary ion-no-padding ion-no-margin" name="sync-outline"></ion-icon> Resend Code <span *ngIf="(resendOTPTImer|async) !=null"> in {{resendOTPTImer|async|date :'mm:ss'}}</span>
+                    </ion-button>
+                </ion-col>
+                </ion-row>
+                </ion-item>
+
+                <ion-item lines="none" class="ion-no-padding ion-no-margin ion-margin-start ion-margin-end no-padding-top">
+                    <p *ngIf="inputRef.invalid && (inputRef.dirty || inputRef.touched)"
+                           class="error-text error-color text-size-xsp ion-no-padding ion-no-margin">
+                           {{ (otp ? 'lbl_please_enter_valid_verification_code' : 'lbl_enter_verification_code') | translate}}
+                        </p>
+                </ion-item>
+
+                <div class="clearfix"></div>
+                <ng-container *ngIf="showGroupSelection$|async">
+                    <ion-item class="no-padding-top no-padding-bottom " lines="none">
+                        <ion-label class="ion-no-padding"><h6>{{'lbl_login_type' | translate}}</h6></ion-label>
+                    </ion-item>
+                    <ion-item lines="none">
+                        <ion-row>
+                            <ion-col class="ion-margin-end ion-no-padding ion-no-margin">
+                                <button class="background-primary"
+                                        [ngClass]="{'selected-avatar': !selectedGroup.value.id}"
+                                        (click)="normalUser()">
+                                    <ion-avatar class="ion-no-padding mar6px marBot4px"
+                                                [ngClass]="{'box-shadow': !selectedGroup.value.id}">
+                                        <ion-icon class="icon-font-md icon-color-primary ion-no-padding"
+                                                  name="person-outline"></ion-icon>
+                                        <!--<img src="assets/imgs/avatar/15.jpg" alt="pro pic">-->
+                                    </ion-avatar>
+                                    {{'lbl_individual' | translate}}
+                                </button>
+                            </ion-col>
+                            <ion-col class="ion-margin-end ion-no-padding ion-no-margin">
+                                <button class="background-primary" (click)="showGroupSelection()"
+                                        [ngClass]="{'selected-avatar': selectedGroup.value.id}">
+                                    <ion-avatar class="ion-no-padding mar4px marBot4px"
+                                                [ngClass]="{'box-shadow': selectedGroup.value.id != undefined}">
+                                        <ion-icon class="icon-font-md icon-color-primary ion-no-padding"
+                                                  name="people-outline"></ion-icon>
+                                        <!--<img src="assets/imgs/avatar/15.jpg" alt="pro pic">-->
+                                    </ion-avatar>
+                                    {{'lbl_group' | translate}}
+                                </button>
+                            </ion-col>
+                            <!--<ion-col style="border: 1px solid red" class="ion-margin-end">
+                                <ion-avatar>
+                                    <img src="assets/imgs/avatar/15.jpg" alt="pro pic">
+                                </ion-avatar>k
+                                <button class="background-secondary">Individual</button>
+                            </ion-col>
+                            <ion-col style="border: 1px solid red" class="ion-margin-end">
+                                <ion-avatar>
+                                    <img src="assets/imgs/avatar/15.jpg" alt="pro pic">
+                                </ion-avatar>
+                                <button class="background-secondary">Group
+                                </button>
+                            </ion-col>-->
+                        </ion-row>
+                    </ion-item>
+                </ng-container>
+
+                <div class="clearfix"></div>
+
+
+                <ion-row class="ion-padding ion-margin-top">
+
+                    <ion-col class="ion-no-padding" size="6">
+
+                        <ion-button class="background-primary ion-text-capitalize text-color-dark ion-margin-end"
+                                    fill="clear" (click)="resetForm()" >
+                            <ion-icon class="icon-color-primary ion-no-padding icon-font-sm" name="refresh-outline"></ion-icon>
+                            {{'lbl_reset' | translate}}
+                        </ion-button>
+                    </ion-col>
+                    <ion-col class="ion-no-padding" size="6">
+                        <ion-button [disabled]="!otp || inputRef.invalid || (isSubmit|async)" (click)="login()" class="default-button ion-text-capitalize" expand="block">
+                            {{'lbl_login' | translate}}
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+            </ion-card-content>
+        </ion-card>
+        <!--</form>-->
+    </ion-grid>
+</ion-content>
+
+
+

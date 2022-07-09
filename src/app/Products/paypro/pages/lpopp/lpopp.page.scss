@@ -1,0 +1,113 @@
+/* Settings Wizard
+===========================================*/
+ion-slides {
+  height: 100%;
+  position: relative;
+
+  ion-slide {
+    position: relative;
+    align-items: start;
+  }
+
+  // Settings Logo
+  .logo {
+    max-width: 170px;
+    max-height: 40px;
+    margin: 0 auto;
+  }
+}
+
+.active-block{
+  color: var(--cs-text-accent)
+}
+
+ion-avatar{
+  height: 35px;
+  width: 35px;
+  margin: auto;
+}
+
+
+ion-list{
+  width: 100%;
+}
+
+
+.custom-grid{
+  width: 100%;
+  padding: 0px;
+  ion-row{
+    padding: 0px;
+  }
+  ion-col{
+    padding: 0px;
+    padding-top: 4px;
+  }
+}
+.no-max-width{
+  max-width: 100% !important;
+}
+
+.fxRateGrid{
+  ion-label{
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  span{
+    font-size: 12px;
+  }
+  ion-icon{
+    width: 12px;
+  }
+  .fxRateRow ion-row{
+    padding-left: 5px;
+    border-left: 1px solid var(--cs-background-border);
+  }
+}
+.instruction-icon{
+  padding-top: 0.5em;
+}
+
+.confirm-details-card{
+  vertical-align: middle;
+  display: inline-block;
+  margin: 20px 20px;
+  width: 90%;
+  border: 1px solid #000;
+  border-radius: 5%;
+  padding: 10px;
+  color: #000 !important;
+}
+
+ion-input{
+  width: 100% !important;
+}
+
+ion-item{
+  --inner-padding-end: 0px;
+}
+
+.height20{
+  height: 20px !important;
+}
+// .height39{
+//   height: 37px;
+// }
+// .pad0{
+//   padding: 0px;
+// }
+// .height49{
+//   height: 49px;
+// }
+.slideBox{
+  overflow: visible;
+  border: 2px solid var(--cs-background-accent);
+  border-radius: 5px;
+}
+
+
+.bicCodeSearchButton{
+  border-bottom: var(--border);
+}
+

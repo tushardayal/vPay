@@ -1,0 +1,168 @@
+<ng-container *ngIf="dataObj" >
+    <ion-list class="ion-no-padding">
+        <ion-list-header lines="full">
+            <ion-label>{{'Institution Details' | translate}}</ion-label>
+        </ion-list-header>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Taxpayer Identification No (TIN)' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.tin || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Tax Type' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.taxTypeVal || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Taxable Period/Calendar Year' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.taxablePeriod || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Payment Type' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.paymentTypeVal || '-' }}</p>
+            </ion-label>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-grid class="background-primary">
+        <ion-row>
+            <ion-col size="12" class="ion-no-padding">
+                <ion-slides class="ion-no-padding ion-no-margin" #wizardSlider pager="true" ><!--(ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideWillChange)="ionSlideWillChange($event)"-->
+                    <ion-slide class="ion-no-margin ion-no-padding slideBox box-shadow">
+                        <ion-col size="12" class="ion-no-padding" >
+                            <ion-card class="box-shadow ion-no-margin ion-no-padding ">
+                                <ion-card-content class="ion-text-center ion-no-padding ion-padding-start">
+                                    <ion-grid>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-item class="ion-no-padding">
+                                                    <ion-label class="ion-no-padding">
+                                                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Tax Period' | apsTraslate}}</h3>
+                                                        <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.taxPeriod}}</p>
+                                                    </ion-label>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item class="ion-no-padding">
+                                                    <ion-label class="ion-no-padding">
+                                                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Payment Period'|apsTraslate}}</h3>
+                                                        <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.paymentPeriod}}</p>
+                                                    </ion-label>
+                                                </ion-item>
+                                            </ion-col>
+                                        </ion-row>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-item class="ion-no-padding">
+                                                    <ion-label class="ion-no-padding">
+                                                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Due Date' | translate}}</h3>
+                                                        <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.dueDate}}</p>
+                                                    </ion-label>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item class="ion-no-padding">
+                                                    <ion-label class="ion-no-padding">
+                                                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'DIN'|apsTraslate}}</h3>
+                                                        <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.din}}</p>
+                                                    </ion-label>
+                                                </ion-item>
+                                            </ion-col>
+                                        </ion-row>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-item class="ion-no-padding">
+                                                    <ion-label class="ion-no-padding">
+                                                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Payment Period Begin Date' | translate}}</h3>
+                                                        <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.paymentPeriodBeginDate}}</p>
+                                                    </ion-label>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-item class="ion-no-padding">
+                                                    <ion-label class="ion-no-padding">
+                                                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Payment Period End Date'|apsTraslate}}</h3>
+                                                        <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.paymentPeriodEndDate}}</p>
+                                                    </ion-label>
+                                                </ion-item>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-card-content>
+                            </ion-card>
+                        </ion-col>
+                    </ion-slide>
+                </ion-slides>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-list class="ion-no-padding">
+
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Tax Payment Amount' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.taxPaymentAmount || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.paymentType == 'NONSELFASSESSED'">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Penalty Amount' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.penaltyAmount || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.paymentType == 'NONSELFASSESSED'">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Interest Amount' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.interestAmount || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.taxPostingReturnReason">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Tax Payment Failure Reason' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.taxPostingReturnReason || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.penaltyPostingReturnReason">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Penalty Failure Reason' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.penaltyPostingReturnReason || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.interestPostingReturnReason">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'interest Failure Reason' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.interestPostingReturnReason || '-' }}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+</ng-container>
+
+

@@ -1,0 +1,19 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "upcomingEventsDetails": {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "currentDate": "20-Jul-2019",
+    "currentDay": "Saturday",
+    "requests": 6,
+    "loggable": false,
+    "entityIdentifier": ""
+  },
+  "loggable": false,
+  "entityIdentifier": ""
+}

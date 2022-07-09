@@ -1,0 +1,257 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+    <ion-menu-button *ngIf="!backUrl"></ion-menu-button>
+    <ion-back-button *ngIf="backUrl" [defaultHref]="backUrl"></ion-back-button>
+    </ion-buttons>
+   
+    <ion-title>{{'lbl_account_summary' | translate}}</ion-title>
+    <ion-buttons slot="end" class="ion-no-padding">
+      <ion-button *ngIf="env.bankName !=='NTB'" (click)="presentPopover($event)" class="ion-no-padding ion-no-margin">
+        <ion-icon name="logo-usd" class="icon-font-md"></ion-icon>
+      </ion-button>
+        <ion-button *ngIf="tabsArray.type=='CASA'" (click)="showGraph()" class="ion-no-padding ion-no-margin">
+          <ion-icon name="pie-chart-outline" class="icon-font-md"></ion-icon>
+        </ion-button>
+      <ion-button class="ion-no-padding ion-no-margin" *ngIf="false">
+        <ion-icon name="ellipsis-vertical-outline" class="icon-font-md"></ion-icon>
+      </ion-button>
+
+      </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-grid *ngIf="accountsSlideArray.length > 0" class="background-primary">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-slides class="ion-no-padding ion-no-margin" #wizardSlider pager="true" (ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideWillChange)="ionSlideWillChange($event)">
+          <ion-slide *ngFor="let tab of accountsSlideArray" class="ion-no-margin ion-no-padding">
+            <ion-col size="12" class="ion-no-padding" >
+              <ion-card class="box-shadow ion-no-margin ion-no-padding slideBox">
+                <ion-card-content class="ion-text-center">
+                  <h1 class="text-size-md text-color-primary font-regular">{{ tab.displayName }} ({{ tab.noOfAcc }})</h1>
+                  </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <div class="background-secondary alignCenter">
+      <ion-label class="ion-text-wrap text-color-secondary font-regular">{{'lbl_accounts' | translate}}
+      </ion-label>
+    </div>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content pullingIcon="arrow-down-outline" pullingText="{{'lbl_pull_to_refresh' | translate}}" refreshingSpinner="circles"
+                           refreshingText="{{'lbl_refreshing' | translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+    <ion-grid class="ion-no-padding  background-primary ion-padding-bottom" *ngIf="summaryStatus === 'success'" >
+      
+      <ng-container *ngIf="tabsArray.type=='CASA'"  >
+        <ion-row  *ngFor="let account of tabsArray?.accounts; let x = index "
+                    (click)="showDetails(tabsArray?.accounts,x)">
+            <ion-col>
+              <ion-card class="ion-no-padding accountDetailsCard">
+                <ion-row>
+                  <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top">{{'lbl_acc_no' | translate}}</span>
+                  </ion-col>
+                  <ion-col>
+                    <span class="text-color-primary ion-margin-top">{{ account?.accountNo?.value }}</span>
+                  </ion-col>
+                  <ion-col size="0.5">
+                    <ion-icon *ngIf="account.fav" (click)="toggleFav($event,account)" class="fav-item" name="star"></ion-icon>
+                    <ion-icon *ngIf="!account.fav" (click)="toggleFav($event,account)" name="star-outline"></ion-icon>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <span class="text-color-primary ion-margin-top">{{'lbl_acc_type' | translate}}</span>
+                  </ion-col>
+                  <ion-col>
+                <span
+                        class="text-color-primary ion-margin-top">{{ account?.productName?.value || '-'}}</span>
+                  </ion-col>
+                  <ion-col size="0.5">
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <span class="text-color-primary ion-margin-top">{{'lbl_acc_balance' | translate}}</span>
+                  </ion-col>
+                  <ion-col>
+                    <ion-row>
+                      <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top"> {{ account?.currencyCode?.value }}
+                      <span appStyleAmount>{{ account?.availableBalance?.value }}</span></span>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row *ngIf="env.bankName !=='NTB' && exchangeCurrencyCode !== account?.currencyCode?.value">
+                      <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top">
+                      {{exchangeCurrencyCode}}
+                      {{ getConvertedCurrency(account?.availableBalance?.value, account?.currencyCode?.value, exchangeCurrencyCode, account?.accountNo?.value) |  number:'2.2-2'}}</span>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col size="0.5">
+                  </ion-col>
+                </ion-row>
+
+              </ion-card>
+
+            </ion-col>
+
+        </ion-row>
+
+      </ng-container>
+      <ng-container *ngIf="tabsArray.type=='FD'" >
+        <ion-row  *ngFor="let account of tabsArray?.accounts;  let x = index "
+          (click)="showDetails(tabsArray?.accounts,x)">
+          <ion-col>
+            <ion-card class="ion-no-padding accountDetailsCard">
+            <ion-row>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{'lbl_acc_no' | translate}}</span>
+              </ion-col>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{ account?.accountNo?.value }}</span>
+              </ion-col>
+              <ion-col size="0.5">
+                <ion-icon *ngIf="account.fav" (click)="toggleFav($event,account)" class="fav-item" name="star"></ion-icon>
+                <ion-icon *ngIf="!account.fav" (click)="toggleFav($event,account)" name="star-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{'lbl_acc_type' | translate}}</span>
+              </ion-col>
+              <ion-col>
+                <span
+                  class="text-color-primary ion-margin-top">{{ account?.productName?.value || '-'}}</span>
+              </ion-col>
+              <ion-col size="0.5">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{'lbl_acc_balance' | translate}}</span>
+              </ion-col>
+              <ion-col>
+                <ion-row>
+                  <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top"> {{ account?.currencyCode?.value }}
+                      <span appStyleAmount>{{ account?.maturityAmount?.value }}</span></span>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="env.bankName !=='NTB' && exchangeCurrencyCode !== account?.currencyCode?.value">
+                  <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top">
+                      {{exchangeCurrencyCode}}
+                      {{ getConvertedCurrency(account?.maturityAmount?.value, account?.currencyCode?.value, exchangeCurrencyCode, account?.accountNo?.value) |  number:'2.2-2'}}</span>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="0.5">
+              </ion-col>
+            </ion-row>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngIf="tabsArray.type=='LOAN'" >
+        <ion-row  *ngFor="let account of tabsArray?.accounts;  let x = index "
+          (click)="showDetails(tabsArray?.accounts,x)">
+          <ion-col>
+            <ion-card class="ion-no-padding accountDetailsCard">
+            <ion-row>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{'lbl_loan_account_no' | translate}}</span>
+              </ion-col>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{ account?.accountNo?.value }}</span>
+              </ion-col>
+              <ion-col size="0.5">
+                <ion-icon *ngIf="account.fav" (click)="toggleFav($event,account)" class="fav-item" name="star"></ion-icon>
+                <ion-icon *ngIf="!account.fav" (click)="toggleFav($event,account)" name="star-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{'lbl_product' | translate}}</span>
+              </ion-col>
+              <ion-col>
+                <span
+                  class="text-color-primary ion-margin-top">{{ account?.product?.value || '-'}}</span>
+              </ion-col>
+              <ion-col size="0.5">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span class="text-color-primary ion-margin-top">{{'lbl_amount_disbursed' | translate}}</span>
+              </ion-col>
+              <ion-col>
+                <ion-row>
+                  <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top"> {{ account?.currencyCode?.value }}
+                      <span appStyleAmount>{{ account?.disbursedAmt?.value }}</span></span>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="env.bankName !=='NTB' && exchangeCurrencyCode !== account?.currencyCode?.value">
+                  <ion-col class="ion-no-padding">
+                    <span class="text-color-primary ion-margin-top">
+                      {{exchangeCurrencyCode}}
+                      {{ getConvertedCurrency(account?.disbursedAmt?.value, account?.currencyCode?.value, exchangeCurrencyCode, account?.accountNo?.value) |  number:'2.2-2'}}</span>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="0.5">
+              </ion-col>
+            </ion-row>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+    </ion-grid>
+
+    <listing-skeleton *ngIf="summaryStatus === 'loading'"></listing-skeleton>
+    <ng-container *ngIf="summaryStatus === 'notFound' || summaryStatus === 'err'">
+      <app-no-record-found [err]='summaryStatus' (refreshPageEventEmmiter)="doRefresh($event)"></app-no-record-found>
+    </ng-container>
+</ion-content>
+
+<ion-footer *ngIf="tabsArray?.total?.value">
+  <ion-toolbar class="ion-toolbar-footer ion-no-margin ion-no-padding">
+    <ion-grid class="ion-no-padding ">
+      <ion-row>
+        <ion-col class="ion-no-padding text-color-secondary ion-no-margin ion-padding-start ion-padding-end ion-text-wrap ion-footer-div-border">
+         <!-- <p class="ion-text-wrap text-color-primary ion-text-center ion-text-capitalize">-->
+            {{'lbl_total_net_balance' | translate}}
+          <!--</p>-->
+        </ion-col>
+        <ion-col class="ion-no-padding text-color-secondary ion-no-margin ion-padding-start ion-padding-end ion-text-wrap ion-footer-div-border">
+          <!--<p class="ion-text-wrap text-color-primary ion-text-center ion-text-capitalize">-->
+          {{baseCurrencyCode }} <span appStyleAmount>{{ tabsArray?.total?.value | currencyFormat }}</span>
+          <!--</p>-->
+        </ion-col>
+        <ion-col class="ion-no-padding text-color-secondary ion-no-margin ion-padding-start ion-padding-end ion-text-wrap" *ngIf="env.bankName !=='NTB' && baseCurrencyCode !== exchangeCurrencyCode">
+          <!--<p class="ion-text-wrap text-color-primary ion-text-center ion-text-capitalize">-->
+            {{exchangeCurrencyCode}}
+            {{ getConvertedCurrency(tabsArray?.total?.value, baseCurrencyCode,exchangeCurrencyCode,'totalAccount') | number:'2.2-2'}}
+          <!--</p>-->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+

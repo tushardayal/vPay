@@ -1,0 +1,169 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "beneList": [{
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "/LeaMb3qItI=",
+    "beneficiaryCode": "GSBENI001",
+    "beneficiaryName": "GSBENI001",
+    "address1": "asdfasdf",
+    "payeeName": "GS 001",
+    "beneList": [],
+    "email": "ss@wsd.sd",
+    "entityIdentifier": "EntityIdentifier : GSBENI001",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "iLlqvR0/STo=",
+    "beneficiaryCode": "GSBENI002",
+    "beneficiaryName": "GSBENI002",
+    "address1": "asdfasdf",
+    "phoneNo": "-",
+    "faxNo": "-",
+    "pinCode": "-",
+    "payeeName": "GSBENI002",
+    "beneList": [],
+    "accountNo": "1214547845412444",
+    "entityIdentifier": "EntityIdentifier : GSBENI002",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "wccH0GDnhU4=",
+    "beneficiaryCode": "GSBENI003",
+    "beneficiaryName": "GSBENI003",
+    "address1": "asdfsf",
+    "phoneNo": "-",
+    "faxNo": "-",
+    "pinCode": "-",
+    "payeeName": "GSBENI003",
+    "beneList": [],
+    "accountNo": "456454545",
+    "entityIdentifier": "EntityIdentifier : GSBENI003",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "7qoFW2w4rXs=",
+    "beneficiaryCode": "GSBENI004",
+    "beneficiaryName": "GSBENI004",
+    "address1": "sdfsf",
+    "phoneNo": "-",
+    "faxNo": "-",
+    "pinCode": "-",
+    "payeeName": "GSBENI004",
+    "beneList": [],
+    "accountNo": "321534254",
+    "entityIdentifier": "EntityIdentifier : GSBENI004",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "jYa3+dMStGU=",
+    "beneficiaryCode": "RJ123",
+    "beneficiaryName": "ROHIT J",
+    "address1": "synergia",
+    "payeeName": "Rohit J",
+    "beneList": [],
+    "email": "test@gmail.com",
+    "entityIdentifier": "EntityIdentifier : ROHIT J",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "ZRQ7bE8v/OU=",
+    "beneficiaryCode": "TTTT",
+    "beneficiaryName": "SDFSDFDSF",
+    "address1": "sdfsdf",
+    "beneList": [],
+    "email": "test@gmail.com",
+    "entityIdentifier": "EntityIdentifier : SDFSDFDSF",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "bgCR0pUOsDk=",
+    "beneficiaryCode": "SLF",
+    "beneficiaryName": "SRI LANKAN FISHERIES",
+    "address1": "Lotus Road",
+    "address2": "Colombo 1",
+    "address3": "Sri Lanka",
+    "phoneNo": "3941120210",
+    "pinCode": "503",
+    "payeeName": "Sri Lankan Fisheries",
+    "beneList": [],
+    "email": "test@gmail.com",
+    "bankSortCode": "12345",
+    "entityIdentifier": "EntityIdentifier : SRI LANKAN FISHERIES",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "bgCR0pUOsDk=",
+    "beneficiaryCode": "SLF",
+    "beneficiaryName": "SRI LANKAN FISHERIES",
+    "address1": "Lotus Road",
+    "address2": "Colombo 1",
+    "address3": "Sri Lanka",
+    "phoneNo": "1941120210",
+    "pinCode": "503",
+    "payeeName": "Sri Lankan Fisheries",
+    "beneList": [],
+    "email": "test@gmail.com",
+    "entityIdentifier": "EntityIdentifier : SRI LANKAN FISHERIES",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "bgCR0pUOsDk=",
+    "beneficiaryCode": "SLF",
+    "beneficiaryName": "SRI LANKAN FISHERIES",
+    "address1": "Lotus Road",
+    "address2": "Colombo 1",
+    "address3": "Sri Lanka",
+    "phoneNo": "2941120210",
+    "pinCode": "503",
+    "payeeName": "Sri Lankan Fisheries",
+    "beneList": [],
+    "email": "test@gmail.com",
+    "bankSortCode": "54321",
+    "entityIdentifier": "EntityIdentifier : SRI LANKAN FISHERIES",
+    "loggable": false
+  }, {
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "beneficiaryId": "Skvcf5zgunA=",
+    "beneficiaryCode": "TESTTT",
+    "beneficiaryName": "TESTTT",
+    "address1": "sdf",
+    "beneList": [],
+    "entityIdentifier": "EntityIdentifier : TESTTT",
+    "loggable": false
+  }],
+  "entityIdentifier": "EntityIdentifier : null",
+  "loggable": false
+}

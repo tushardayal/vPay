@@ -1,0 +1,14 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "billAmount": "500.00",
+    "billDate": "28-Jul-2019",
+    "billDueDate": "28-Jul-2019"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

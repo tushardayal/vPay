@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="ion-no-padding ion-no-margin" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{lpoppService.pageTitle}} - Intitate</ion-title>
+    <!--<ion-buttons class="ion-no-padding" slot="end">
+
+      <ion-button *ngIf="false" class="ion-no-padding ion-no-margin">
+        <ion-icon class="icon-font-md" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+
+  <!--<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Pull to refresh" refreshingSpinner="circles"
+                           refreshingText="{{'lbl_refreshing' | translate}}">
+    </ion-refresher-content>
+  </ion-refresher>-->
+  <ion-grid  class="ion-no-padding">
+
+    <ion-list class="ion-padding-end">
+      <ion-item (click)="onItemClickFunc(institution, $event)"
+                *ngFor="let institution of institutionTypeList$|async" class="ion-menu-toggle">
+
+        <!--Avatar-->
+        <ion-avatar>
+          <text-avatar class="icon-font-sm font-regular text-color-primary" [color]="institution.color" [text]="institution.displayName"></text-avatar>
+        </ion-avatar>
+        <ion-label class="ion-padding-start">
+          <!--Title and Subtitle-->
+
+          <h5 class="font-medium text-color-primary ion-text-wrap">
+            {{institution.displayName}}</h5>
+          <!--<h5 class="text-size-sm font-regular text-color-primary ion-text-wrap">
+            {{beneficiary.beneficiaryName}}</h5>-->
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  </ion-grid>
+  <listing-skeleton *ngIf="(institutionTypeList$|async) == null"></listing-skeleton>
+  <app-no-record-found *ngIf="(institutionTypeList$|async)?.length === 0" (refreshPageEventEmmiter)="doRefresh($event)"></app-no-record-found>
+</ion-content>
+

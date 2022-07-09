@@ -1,0 +1,109 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [{
+    "id": "bgCR0pUOsDk=",
+    "displayName": "RTGS",
+    "enrichments": {
+      "paymentMethodCode": "EP3",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "micrPrinting": "N",
+      "corporateChequeNoSetAllowed": "false",
+      "Signatory": "AUTHORIZATIONMATRIX",
+      "printing": "false",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "false",
+      "mostlyUsedDebitAccountId": "UbhEoAhwygQ=",
+      "supportingDocFilesize": "20000",
+      "defaultAccountNumber": null,
+      "corporateProductId": "KC8YXP4k9Mo=",
+      "limitAmount": "200000.0",
+      "stationaryType": "0",
+      "minAccountNoLength": "1"
+    }
+  }, {
+    "id": "IK85qrfH/PQ=",
+    "displayName": "Outward Telegraphic Transfer",
+    "enrichments": {
+      "paymentMethodCode": "EP5",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "micrPrinting": "N",
+      "corporateChequeNoSetAllowed": "false",
+      "Signatory": "AUTHORIZATIONMATRIX",
+      "printing": "false",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "true",
+      "mostlyUsedDebitAccountId": "qmmbcEhQbn8=",
+      "supportingDocFilesize": "20000",
+      "defaultAccountNumber": null,
+      "corporateProductId": "KC8YXP4k9Mo=",
+      "limitAmount": "9998959.0",
+      "stationaryType": "0",
+      "minAccountNoLength": "1"
+    }
+  }, {
+    "id": "isEbFz6/ufQ=",
+    "displayName": "Internal Fund Transfer",
+    "enrichments": {
+      "paymentMethodCode": "EP1",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "micrPrinting": "N",
+      "corporateChequeNoSetAllowed": "false",
+      "Signatory": "AUTHORIZATIONMATRIX",
+      "printing": "false",
+      "maxAccountNoLength": "12",
+      "supportingdocument": "true",
+      "mostlyUsedDebitAccountId": "UbhEoAhwygQ=",
+      "supportingDocFilesize": "20000",
+      "defaultAccountNumber": null,
+      "corporateProductId": "KC8YXP4k9Mo=",
+      "limitAmount": "2.525251212E9",
+      "stationaryType": "0",
+      "minAccountNoLength": "12"
+    }
+  }, {
+    "id": "24FbW4TSgDo=",
+    "displayName": "SLIPS",
+    "enrichments": {
+      "paymentMethodCode": "EP17",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "micrPrinting": "N",
+      "corporateChequeNoSetAllowed": "false",
+      "Signatory": "AUTHORIZATIONMATRIX",
+      "printing": "false",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "true",
+      "mostlyUsedDebitAccountId": "mwUsGGO4vYY=",
+      "supportingDocFilesize": "20000",
+      "defaultAccountNumber": null,
+      "corporateProductId": "KC8YXP4k9Mo=",
+      "limitAmount": "8.98656565E8",
+      "stationaryType": "0",
+      "minAccountNoLength": "1"
+    }
+  }, {
+    "id": "v48/IvgHvnU=",
+    "displayName": "CEFTS",
+    "enrichments": {
+      "paymentMethodCode": "EP18",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "micrPrinting": "N",
+      "corporateChequeNoSetAllowed": "false",
+      "Signatory": "AUTHORIZATIONMATRIX",
+      "printing": "false",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "true",
+      "mostlyUsedDebitAccountId": "RnDIo6gSLrs=",
+      "supportingDocFilesize": "20000",
+      "defaultAccountNumber": null,
+      "corporateProductId": "KC8YXP4k9Mo=",
+      "limitAmount": "5.8565656E7",
+      "stationaryType": "0",
+      "minAccountNoLength": "1"
+    }
+  }],
+  "entityIdentifier": "",
+  "loggable": false
+}

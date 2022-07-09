@@ -1,0 +1,159 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BILLPAYMENTHISTORY",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Service Provider",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Consumer Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Bill Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Service Type",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Account Number",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Transaction ID",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Amount",
+    "type": "Amount",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Status",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Fail Reason",
+    "type": "String",
+    "isDisplay": "Y"
+  }],
+  "dataList": [
+    ["sdNejs02mOg=,1", "CHINA NATIONAL PETROLEUM", "Sub001", "-", "Dailog Mobile", "-", "19240719003", "0.00", "-", "Pending", "-"],
+    ["7gIqHs5v7HU=,1", "HINDUSTAN PETROLEUM", "T0008", "-", "Utility1", "-", "19040519001", "0.00", "-", "Pending", "-"],
+    ["ItjGiq8CXy4=,1", "CHINA NATIONAL PETROLEUM", "ABC Postal Services", "-", "Dailog Mobile", "-", "19020319007", "0.00", "-", "Pending", "-"],
+    ["J2M0VbljSYg=,1", "HINDUSTAN PETROLEUM", "Sub006", "-", "Utility1", "-", "19210219004", "0.00", "-", "Pending", "-"],
+    ["g7+IsWvfakk=,1", "HINDUSTAN PETROLEUM", "TTT089", "-", "Utility1", "-", "19210219003", "0.00", "-", "Pending", "-"],
+    ["Is82JPdmxFA=,1", "HINDUSTAN PETROLEUM", "P0001", "-", "Utility1", "-", "19210219002", "0.00", "-", "Pending", "-"],
+    ["0mzxA+1fnJU=,1", "CHINA NATIONAL PETROLEUM", "Sub001", "-", "Dailog Mobile", "-", "19150219001", "0.00", "-", "Pending", "-"],
+    ["axJ0uliQ08U=,1", "HINDUSTAN PETROLEUM", "TESTTT", "-", "Utility1", "-", "19130219005", "0.00", "-", "Pending", "-"],
+    ["WDzB4prqQ1U=,2", "GENERAL MOTORS", "Verizon Networks", "-", "Airtel BROADBAND", "-", "18090219006", "6,000.00", "-", "Pending", "-"]
+  ],
+  "filters": [{
+    "displayName": "Id",
+    "name": "id",
+    "type": "String"
+  }, {
+    "displayName": "Service Provider",
+    "name": "billerName",
+    "type": "String"
+  }, {
+    "displayName": "Consumer Name",
+    "name": "subscriberName",
+    "type": "String"
+  }, {
+    "displayName": "Bill Date",
+    "name": "payDate",
+    "type": "Date"
+  }, {
+    "displayName": "Transaction ID",
+    "name": "transactionReferenceNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 9,
+  "access": ["VIEW"],
+  "links": [
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('sdNejs02mOg=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('7gIqHs5v7HU=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('ItjGiq8CXy4=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('J2M0VbljSYg=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('g7+IsWvfakk=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('Is82JPdmxFA=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('0mzxA+1fnJU=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('axJ0uliQ08U=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "printData('WDzB4prqQ1U=,2')"
+    }]
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

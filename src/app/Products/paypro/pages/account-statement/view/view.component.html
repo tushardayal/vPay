@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="prevUrl"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{data.header}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ng-container *ngFor="let item of data.dataList">
+        <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+        <ion-item *ngIf="item.header && item.isDisplay == 'Y'" class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h5>{{item.header}}</h5>
+                <p *ngIf="!item.cssClass">{{item.value ? item.value : '-'}}</p>
+                <p *ngIf="item.cssClass" [ngClass]="item.cssClass" ><span appStyleAmount>{{item.value ? item.value : '-'}}</span></p>
+            </ion-label>
+        </ion-item>
+        </ion-list>
+    </ng-container>
+</ion-content>

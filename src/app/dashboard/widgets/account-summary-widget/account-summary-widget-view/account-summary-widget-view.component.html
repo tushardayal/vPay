@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-no-padding">
+        <ion-col class="ion-no-padding ion-padding-start">
+          <p class="text-color-secondary ion-no-padding ion-no-margin ion-text-left text-size-p">
+            {{'lbl_account_no.' | translate}}</p>
+        </ion-col>
+        <ion-col class="ion-no-padding ion-padding-end">
+          <p class="text-color-secondary ion-no-padding ion-no-margin ion-text-right text-size-p">
+            {{header}}
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="ion-no-padding" *ngFor="let item of accounts">
+      <ion-grid class="ion-no-padding ion-padding-start">
+        <ion-row class="ion-no-padding no-margin-top">
+          <ion-col>
+            <p class="text-color-primary ion-no-padding ion-no-margin ion-text-left text-size-p">
+              {{item?.accountNo?.value}} - {{item?.currencyCode?.value}}</p>
+          </ion-col>
+          <ion-col>
+            <p *ngIf="accType==='casa'" class="text-color-primary ion-no-padding ion-no-margin ion-text-right text-size-p" appStyleAmount>
+              {{item?.netBalance?.value}}
+            </p>
+            <p *ngIf="accType==='loan'" class="text-color-primary ion-no-padding ion-no-margin ion-text-right text-size-p" appStyleAmount>
+              {{item?.outstandingAmt?.value}}
+            </p>
+            <p *ngIf="accType==='fd'" class="text-color-primary ion-no-padding ion-no-margin ion-text-right text-size-p" appStyleAmount>
+              {{item?.maturityAmount?.value}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button fill="clear" (click)="closeModal()">{{'lbl_close' | translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

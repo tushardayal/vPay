@@ -1,0 +1,78 @@
+<ion-app>
+    <!-- Header -->
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+
+                <ion-button (click)="closeModal()">
+                    <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+                </ion-button>
+
+            </ion-buttons>
+            <ion-title>Remarks</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-content>
+            <ul class="ion-no-margin ion-no-padding">
+                <li>
+                    <!-- List big image Header -->
+                    <div class="collapsible-header ion-no-padding">
+                        <ion-card class="ion-no-padding accountDetailsCard" *ngFor="let remarkGroup of remarksData" (click)="toggleGroup($event,remarkGroup)" >
+                            <ion-row>
+                                <ion-col>
+                                    <span class="ion-margin-top">User ID</span>
+                                </ion-col>
+                                <ion-col>
+                                    <span class="text-color-primary ion-margin-top">{{remarkGroup[0]}}</span>
+                                </ion-col>
+                                <ion-col size="1">
+                                    <ion-icon [name]="remarkGroup.show?'chevron-up-outline':'chevron-down-outline'"
+                                              class="fav-item"></ion-icon>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                    <span class="ion-margin-top">Remark By</span>
+                                </ion-col>
+                                <ion-col>
+                                    <span class="text-color-primary ion-margin-top">{{ remarkGroup[1]}}</span>
+                                </ion-col>
+                                <ion-col size="1"></ion-col>
+                            </ion-row>
+                            <ng-container *ngIf="remarkGroup.show">
+                                <ion-row>
+                                    <ion-col>
+                                        <span class="ion-margin-top">Remarked On</span>
+                                    </ion-col>
+                                    <ion-col>
+                                        <span class="text-color-primary ion-margin-top">{{remarkGroup[3]}}</span>
+                                    </ion-col>
+                                    <ion-col size="1"></ion-col>
+                                </ion-row>
+                                <ion-row >
+                                    <ion-col>
+                                        <span class="ion-margin-top">Remark</span>
+                                    </ion-col>
+                                    <ion-col>
+                                        <span class="text-color-primary ion-margin-top ion-text-wrap">{{remarkGroup[2]}}</span>
+                                    </ion-col>
+                                    <ion-col size="1"></ion-col>
+                                </ion-row>
+                                <!--<ion-row>
+                                    <ion-col class="ion-padding">
+                                        <span class="text-color-primary ion-margin-top">{{ remarkGroup[2]}}</span>
+                                    </ion-col>
+                                </ion-row>-->
+                            </ng-container>
+                        </ion-card>
+                    </div><!-- End List big image Header -->
+                </li>
+            </ul>
+            <listing-skeleton *ngIf="!remarksData"></listing-skeleton>
+            <ng-container *ngIf="(remarksData && remarksData.length == 0)">
+                <app-no-record-found (refreshPageEventEmmiter)="ngOnInit()" [err]=''></app-no-record-found>
+            </ng-container>
+        </ion-content>
+    </ion-content>
+</ion-app>

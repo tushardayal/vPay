@@ -1,0 +1,40 @@
+.slideBox{
+  overflow: visible;
+  border: 2px solid var(--cs-background-accent);
+  border-radius: 5px;
+}
+
+.accountDetailsCard {
+  border: 1px solid #d6e1e5;
+  padding: 0;
+  margin-bottom: 0;
+  padding: 6px;
+  margin: 8px;
+  margin-bottom: 0px;
+}
+
+.accountDetailsCardBorder{
+  border: 1px solid #a8bbc1;
+  margin: 8px;
+}
+
+/*ion-slides{
+  padding-bottom: 20px!important;
+}*/
+.alignCenter{text-align: center}
+
+.ion-toolbar-footer {
+  background: var(--cs-background-secondary) !important;
+  --background: var(--cs-background-secondary) !important;
+  color: var(--cs-text-primary) !important;
+}
+.ion-div-border{
+  border-right: 1px solid var(--cs-background-accent);
+}
+.smallPadding{padding: 0 7px}
+.smallPaddingL{padding-left:7px}
+.smallPaddingR{padding-right:7px}
+
+ion-datetime {
+ padding: 0 0 0 0 !important;
+}

@@ -1,0 +1,20 @@
+<ion-searchbar [(ngModel)]="beneFilterText" class="ion-no-margin ion-no-padding ion-margin-bottom"></ion-searchbar>
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+			<ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Pull to refresh"
+					refreshingSpinner="circles" refreshingText="Refreshing...">
+			</ion-refresher-content>
+	</ion-refresher>
+	<ion-alpha-scroll *ngIf="beneList.length>0"
+    [listData]="beneList | filterBy:['beneficiaryName','beneficiaryCode']:beneFilterText" key="beneficiaryName" [itemTemplate]="alphaScrollItemTemplate" 
+		[currentPageClass]="currentPageClass"></ion-alpha-scroll>
+
+    <listing-skeleton *ngIf="!beneList"></listing-skeleton>
+</ion-content>
+<ng-template #alphaScrollItemTemplate let-item="item" let-index="index" let-currentPageClass="currentPageClass">
+	<ion-item (click)="currentPageClass.onItemClick(item)">
+		<ion-icon class="icon-round icon-font-xs" [ngStyle]="{ 'background':randomColor.getColor(item?.beneficiaryCode) }" name="ios-pin"></ion-icon>
+	  	{{ item?.beneficiaryCode }} - {{item?.beneficiaryName}}
+	</ion-item>
+</ng-template>
+

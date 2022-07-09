@@ -1,0 +1,48 @@
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+<!--                <ion-back-button defaultHref="['/menu/paypro/listing/paypro']"></ion-back-button>-->
+                <ion-button (click)="transactionsSrv.closeModal()">
+                    <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>{{'lbl_view' | translate}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <!-- SWIPE TO DISMISS --COMPONENT 1 -->
+    <ion-content>
+        <div *ngIf="dataObj">
+            <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+                <app-lpopp-common-view [data]="dataObj"></app-lpopp-common-view>
+                <ng-container [ngSwitch]="dataObj.institutionType">
+                    <ng-container *ngSwitchCase="'SLCP'">
+                        <app-slcp-view [data]="dataObj"></app-slcp-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'IRDP'">
+                        <app-irdp-view [data]="dataObj"></app-irdp-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'SLPAP'">
+                        <app-slpap-view [data]="dataObj"></app-slpap-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'EPFP'">
+                        <app-epfp-view [data]="dataObj"></app-epfp-view>
+                    </ng-container>
+                </ng-container>
+                <ion-item class="ion-no-padding" *ngIf="dataObj.rejectReason">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'lbl_reject_reason' | translate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ dataObj.rejectReason || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+            <ion-list class="ion-padding-end ion-padding-start">
+                <maker-checker-details [data]="dataObj"></maker-checker-details>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-app>
+

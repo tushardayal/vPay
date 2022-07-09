@@ -1,0 +1,323 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "OWNACCOUNTTRANSFER",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "Id"
+  }, {
+    "displayName": "Batch No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "BatchNo"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "MakerChannel"
+  }, {
+    "displayName": "Payment Method",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "PaymentMethodName"
+  }, {
+    "displayName": "Credit Account Title",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "BeneAccountTitle"
+  }, {
+    "displayName": "Transaction Date",
+    "type": "Date",
+    "isDisplay": "Y",
+    "methodName": "EntryDate"
+  }, {
+    "displayName": "Debit Account No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "DebitAccountNo"
+  }, {
+    "displayName": "Debit CCY",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "SellCurrencyName"
+  }, {
+    "displayName": "Value Date",
+    "type": "Date",
+    "isDisplay": "N",
+    "methodName": "ActivationDate"
+  }, {
+    "displayName": "Corp Ref No.",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "CorporateRefNo"
+  }, {
+    "displayName": "Debit Amount",
+    "type": "Amount",
+    "isDisplay": "Y",
+    "methodName": "DebitAmount"
+  }, {
+    "displayName": "Credit Account No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "AccountNo"
+  }, {
+    "displayName": "Credit CCY",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "PayableCurrencyName"
+  }, {
+    "displayName": "Credit Amount",
+    "type": "Amount",
+    "isDisplay": "N",
+    "methodName": "PayableAmount"
+  }, {
+    "displayName": "Reject Reason",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "RejectReason"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "ModifiedBy"
+  }, {
+    "displayName": "Modified On",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "ModifiedOn"
+  }],
+  "dataList": [
+    ["AMCGnnjkHMo=,2", "25050819019", "WEB", "RTGS", "sdfasd", "07-Aug-2019", "999001900011", "LKR", "07-Aug-2019", "er", "3,434.00", "9876541230", "LKR", "3,434.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-05 23:04:21.0"],
+    ["enme9PDh4tw=,2", "25050819018", "WEB", "RTGS", "sdfasd", "07-Aug-2019", "999001900011", "LKR", "07-Aug-2019", "4354", "444.00", "9876541230", "LKR", "444.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-05 23:03:42.0"],
+    ["ORjCxnH6c3Y=,2", "25050819015", "WEB", "RTGS", "sdfasd", "07-Aug-2019", "999001900011", "LKR", "07-Aug-2019", "4", "434.00", "9876541230", "LKR", "434.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-05 23:01:34.0"],
+    ["C7XMdJy3OBY=,2", "25050819014", "WEB", "RTGS", "sdfasd", "07-Aug-2019", "999001900011", "LKR", "07-Aug-2019", "r", "434.00", "9876541230", "LKR", "434.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-05 23:00:56.0"],
+    ["/3XQn0DJa2Y=,2", "25050819012", "WEB", "RTGS", "sdfasd", "07-Aug-2019", "999001900011", "LKR", "07-Aug-2019", "frf", "445.00", "9876541230", "LKR", "445.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-05 22:59:35.0"],
+    ["bkdgDdhouyY=,2", "25050819011", "WEB", "RTGS", "sdfasd", "07-Aug-2019", "999001900011", "LKR", "07-Aug-2019", "rwe", "3,454.00", "9876541230", "LKR", "3,454.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-05 22:58:40.0"],
+    ["JViqlRH/q78=,8", "25030819002", "WEB", "SLIPS", "IFT account", "03-Aug-2019", "999001900011", "LKR", "03-Aug-2019", "sdf", "12.00", "212414312311", "LKR", "12.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"x\")'>x</a>", "cnpcmaker1", "2019-08-03 00:00:00.0"],
+    ["Fhw07ATs/Mg=,2", "25310719001", "WEB", "SLIPS", "IFT account", "31-Jul-2019", "999001900001", "LKR", "01-Aug-2019", "SADF", "2,047.00", "212414312311", "LKR", "2,047.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-03 00:00:00.0"],
+    ["Q1xvcW5KOrA=,2", "25270719036", "WEB", "SLIPS", "IFT account", "09-Feb-2019", "999001900001", "LKR", "27-Jul-2019", "asdf", "2,345.00", "212414312311", "LKR", "2,345.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-03 00:00:00.0"],
+    ["VJgRWf09Zk4=,4", "25270719034", "WEB", "SLIPS", "IFT account", "09-Feb-2019", "999001900001", "LKR", "27-Jul-2019", "asdf", "4,568.00", "212414312311", "LKR", "4,568.00", "<a href='javascript:void(0);'class='listLink' onclick='getRejectReasonPopup(\"gd\")'>gd</a>", "cnpcmaker1", "2019-08-03 00:00:00.0"]
+  ],
+  "filters": [{
+    "displayName": "Batch No.",
+    "name": "batchNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Debit Account No.",
+    "name": "debitAccountNo",
+    "type": "String"
+  }, {
+    "displayName": "Value Date",
+    "name": "activationDate",
+    "type": "Date"
+  }],
+  "pageNumber": 1,
+  "totalPages": 5,
+  "totalRecords": 50,
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('AMCGnnjkHMo=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('AMCGnnjkHMo=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('AMCGnnjkHMo=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('enme9PDh4tw=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('enme9PDh4tw=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('enme9PDh4tw=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('ORjCxnH6c3Y=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('ORjCxnH6c3Y=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('ORjCxnH6c3Y=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('C7XMdJy3OBY=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('C7XMdJy3OBY=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('C7XMdJy3OBY=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('/3XQn0DJa2Y=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('/3XQn0DJa2Y=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('/3XQn0DJa2Y=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('bkdgDdhouyY=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('bkdgDdhouyY=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('bkdgDdhouyY=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('JViqlRH/q78=,8')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('JViqlRH/q78=,8')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('JViqlRH/q78=,8')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Fhw07ATs/Mg=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('Fhw07ATs/Mg=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('Fhw07ATs/Mg=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Q1xvcW5KOrA=,2')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('Q1xvcW5KOrA=,2')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('Q1xvcW5KOrA=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('VJgRWf09Zk4=,4')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": "fa fa-paper-plane-o",
+      "url": null,
+      "onClick": "resubmit('VJgRWf09Zk4=,4')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": "fa fa-check-square-o",
+      "url": null,
+      "onClick": "acceptReject('VJgRWf09Zk4=,4')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "SOFTTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{'lbl_select_beneficiary' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <super-tabs [activeTabIndex]="activeTabIndex" #superTabs (tabChange)="onTabChange($event)">
+        <super-tabs-toolbar slot="top" scrollable class="ion-no-padding">
+            <super-tab-button *ngFor="let tab of tabsArray">
+                <ion-label class="">{{tab.displayName}}</ion-label>
+            </super-tab-button>
+        </super-tabs-toolbar>
+        <super-tabs-container>
+        <ng-container *ngFor="let tab of tabsArray; let i=index">
+            <super-tab *ngIf="i===activeTabIndex">
+                <ion-content>
+                    <ion-nav [root]="tab.page"></ion-nav>
+                </ion-content>
+            </super-tab>
+        </ng-container>
+        </super-tabs-container>
+    </super-tabs>
+</ion-content>
+

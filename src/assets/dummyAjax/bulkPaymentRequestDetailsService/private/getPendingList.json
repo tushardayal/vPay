@@ -1,0 +1,149 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BBULKPAYMENTREQUESTDETAILS",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "Id"
+  }, {
+    "displayName": "Value Date",
+    "type": "Date",
+    "isDisplay": "Y",
+    "methodName": "ActivationDate"
+  }, {
+    "displayName": "Debit Account No",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "DebitAccountNo"
+  }, {
+    "displayName": "Account Alias Name",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "DebitAccountName"
+  }, {
+    "displayName": "Payment Type",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "PaymentMethodName"
+  }, {
+    "displayName": "Beneficiary Name",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "BeneficiaryName"
+  }, {
+    "displayName": "Beneficiary Bank",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "BeneBankName"
+  }, {
+    "displayName": "Beneficiary A/c. No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "AccountNo"
+  }, {
+    "displayName": "CCY",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "PayableCurrencyName"
+  }, {
+    "displayName": "Amount",
+    "type": "Amount",
+    "isDisplay": "Y",
+    "methodName": "PayableAmount"
+  }, {
+    "displayName": "Amount (LCY)",
+    "type": "Amount",
+    "isDisplay": "Y",
+    "methodName": "BaseCurrencyAmount"
+  }, {
+    "displayName": "Status",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "StatusOfTransaction"
+  }, {
+    "displayName": "requireVerifier",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "RequireVerifier"
+  }],
+  "dataList": [
+    ["+nGHMT3yiZc=,0", "20-Jan-2018", "999002900003", "ACC03", "Internal Fund Transfer", "SriLankan Broadcasting Corp (SLBC)", "-", "777666555444", "LKR", "41.00", "41.00", "Unverified", "Y"],
+    ["QAnxyRv8mb0=,0", "20-Jan-2018", "999002900003", "ACC03", "Internal Fund Transfer", "SriLankan Broadcasting Corp (SLBC)", "-", "777666555444", "LKR", "42.00", "42.00", "Unverified", "Y"],
+    ["q3zwNqeIlMk=,0", "20-Jan-2018", "999002900003", "ACC03", "Internal Fund Transfer", "SriLankan Broadcasting Corp (SLBC)", "-", "777666555444", "LKR", "43.00", "43.00", "Unverified", "Y"]
+  ],
+  "filters": [{
+    "displayName": "Value Date",
+    "name": "activationDate",
+    "type": "Date"
+  }, {
+    "displayName": "Debit Account No",
+    "name": "debitAccountNo",
+    "type": "String"
+  }, {
+    "displayName": "Payment Type",
+    "name": "paymentMethodName",
+    "type": "String"
+  }, {
+    "displayName": "CCY",
+    "name": "payableCurrencyName",
+    "type": "String"
+  }, {
+    "displayName": "Amount",
+    "name": "payableAmount",
+    "type": "Amount"
+  }],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 3,
+  "access": ["VIEW", "DATA-ENTRY"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('+nGHMT3yiZc=,0')"
+    }, {
+      "index": 0,
+      "displayName": "SelectVerifier",
+      "icon": null,
+      "url": null,
+      "onClick": "selectVerifier('+nGHMT3yiZc=','0','999002900003','T','Zb8iNHx+fQc=')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('QAnxyRv8mb0=,0')"
+    }, {
+      "index": 0,
+      "displayName": "SelectVerifier",
+      "icon": null,
+      "url": null,
+      "onClick": "selectVerifier('QAnxyRv8mb0=','0','999002900003','T','Zb8iNHx+fQc=')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('q3zwNqeIlMk=,0')"
+    }, {
+      "index": 0,
+      "displayName": "SelectVerifier",
+      "icon": null,
+      "url": null,
+      "onClick": "selectVerifier('q3zwNqeIlMk=','0','999002900003','T','Zb8iNHx+fQc=')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "SOFTTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,17 @@
+.broadcast-fab-button {
+  ion-fab-button {
+    border-radius: 0px !important;
+    --border-radius: 35px 0px 0px 35px;
+    padding: 0px;
+    width: 15px;
+    height: 65px;
+    margin-right: -10px;
+    /*--background: var(--cs-background-dark);*/
+  }
+}
+
+.ion-menu-transparent {
+  --background: var(--cs-background-transparent);
+}
+/*ion-toolbar {
+  --background: var(--cs-background-dark);}*/

@@ -1,0 +1,13 @@
+<ion-grid class="background-size">
+  <ion-row>
+    <ion-col size="12" class="ion-align-items-center ion-align-self-center">
+      <div class="ion-text-center" (tap)="refreshPage($event)">
+        <ion-icon class="icon-size" src="assets/svg/document.svg"></ion-icon>
+        <h2 class="text-size-sm text-color-primary font-regular">{{ msg ? msg: 'No Record Found'}}</h2>
+        <h3 [hidden]="noRefresh" class="text-size-sm text-color-primary font-regular">
+          <ion-icon class="icon-font-md" name="refresh-outline"></ion-icon> {{'lbl_tap_to_refresh' | translate}}
+        </h3>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

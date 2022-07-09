@@ -1,0 +1,16 @@
+{
+  "filters": [{
+    "name": "beneficiaryId",
+    "value": "/LeaMb3qItI=",
+    "type": "String"
+  }, {
+    "name": "paymentMethodId",
+    "value": "bgCR0pUOsDk=",
+    "type": "String"
+  }, {
+    "name": "accountNo",
+    "value": "",
+    "type": "String"
+  }],
+  "searchType": "BENEFICIARYDETAILSEARCH"
+}

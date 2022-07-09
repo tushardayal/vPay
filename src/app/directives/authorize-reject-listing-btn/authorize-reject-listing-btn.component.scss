@@ -1,0 +1,26 @@
+.background-secondary-reject {
+  background: #ffffff !important;
+  --background: var(--cs-background-secondary) !important;
+  color: var(--ion-color-danger-shade) !important;
+  margin: 4px 3px!important;
+  line-height: 30pt!important;
+  padding: 2px 5px!important;
+}
+.background-secondary-authorize {
+  background: #ffffff !important;
+  --background: var(--cs-background-secondary) !important;
+  color: var(--ion-color-success-shade) !important;
+  margin: 4px -5px!important;
+  line-height: 30pt!important;
+  padding: 2px 5px!important;
+}
+
+.authorize-btn{
+  margin-right: 100px;
+}
+
+.listing-fab-btn{
+  ion-fab-button {
+    --background: var(--cs-background-accent);
+  }
+}

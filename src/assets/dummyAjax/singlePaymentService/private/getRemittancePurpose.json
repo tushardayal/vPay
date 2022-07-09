@@ -1,0 +1,485 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [{
+    "id": "ixgMZAkSnrM=",
+    "displayName": "IMPORTS",
+    "enrichments": {
+      "remittanceCodeDescription": "1010",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "p1RJwCBno4M=",
+    "displayName": "EXPORTS",
+    "enrichments": {
+      "remittanceCodeDescription": "1020",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "EDEiF2llwN0=",
+    "displayName": "FREIGHT CHARGES",
+    "enrichments": {
+      "remittanceCodeDescription": "2100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "HIMsehod/hw=",
+    "displayName": "INSURANCE SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "2200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "bRr+f+BLqAo=",
+    "displayName": "PASSENGER FARES",
+    "enrichments": {
+      "remittanceCodeDescription": "3100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "LjK7fVXi5Qo=",
+    "displayName": "PORT INCOME/EXPENDITURE",
+    "enrichments": {
+      "remittanceCodeDescription": "3200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "bt6yVE/YS+k=",
+    "displayName": "OTHER MISCELLANEOUS",
+    "enrichments": {
+      "remittanceCodeDescription": "3310",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "MEtRVqGoSQY=",
+    "displayName": "CONSTRUCTION SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "3400",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "GIiScIUR/cs=",
+    "displayName": "TRAVEL/ TOURISM",
+    "enrichments": {
+      "remittanceCodeDescription": "4010",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "NWzJDimuXkA=",
+    "displayName": "TELECOMMUNICATION SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "4030",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "xjNhYv8cZnU=",
+    "displayName": "PROFITS AND DIVIDENDS",
+    "enrichments": {
+      "remittanceCodeDescription": "5100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "fFq993g5frI=",
+    "displayName": "INTEREST INCOME/EXPENDITURE",
+    "enrichments": {
+      "remittanceCodeDescription": "5200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "LAiu010EmIs=",
+    "displayName": "OTHER - INCOME",
+    "enrichments": {
+      "remittanceCodeDescription": "5600",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "6Gci088zql4=",
+    "displayName": "GOVERNMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "6010",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "etV6xgwpTuM=",
+    "displayName": "FINANCIAL SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "7400",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "2ip+GOA1LT8=",
+    "displayName": "MEDICAL SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "7500",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "yHP38xGqUm4=",
+    "displayName": "INFORMATION TECHNOLOGY (BPO, KPO)",
+    "enrichments": {
+      "remittanceCodeDescription": "7550",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "q8RXKvjwZVE=",
+    "displayName": "CONSULTANCY FEES AND SALARIES",
+    "enrichments": {
+      "remittanceCodeDescription": "7840",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "iWOlK3Goi1Y=",
+    "displayName": "EDUCATIONAL EXPENSES",
+    "enrichments": {
+      "remittanceCodeDescription": "7870",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "HpZD7hv56mQ=",
+    "displayName": "OTHER - SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "7880",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "uegG+z5baYI=",
+    "displayName": "WORKER REMITTANCES (COUNTRY WISE)",
+    "enrichments": {
+      "remittanceCodeDescription": "8100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "G2xCE1bfp0I=",
+    "displayName": "MIGRANT TRANSFERS (COUNTRY WISE)",
+    "enrichments": {
+      "remittanceCodeDescription": "8120",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Al81SrAIN9c=",
+    "displayName": "GRANTS",
+    "enrichments": {
+      "remittanceCodeDescription": "8140",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Ypv8+/Cjtn0=",
+    "displayName": "OFFICIAL TRANSFERS",
+    "enrichments": {
+      "remittanceCodeDescription": "8200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "FPuRi96Tgjo=",
+    "displayName": "COMPENSATION PAYMENTS",
+    "enrichments": {
+      "remittanceCodeDescription": "8220",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Gq9cZo4FFJ8=",
+    "displayName": "SIERA/TIERA TRANSACTIONS",
+    "enrichments": {
+      "remittanceCodeDescription": "9100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "WiJ5pFATTmY=",
+    "displayName": "TIERA TRANSACTIONS",
+    "enrichments": {
+      "remittanceCodeDescription": "9110",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "6ryzB0sRkZ8=",
+    "displayName": "LONG TERM LOANS TO GOVERNMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "9200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Nm4XAnu3fLc=",
+    "displayName": "LONG TERM LOANS TO PRIVATE SECTOR",
+    "enrichments": {
+      "remittanceCodeDescription": "9220",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "zHoM3UONa0Q=",
+    "displayName": "SHORT TERM LOANS TO GOVERNMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "9400",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "ejy9hPxkP2c=",
+    "displayName": "SHORT TERM LOANS TO PRIVATE SECTOR",
+    "enrichments": {
+      "remittanceCodeDescription": "9420",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "YBsQQ1erHs0=",
+    "displayName": "DIRECT INVESTMENTS",
+    "enrichments": {
+      "remittanceCodeDescription": "9500",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "7+lMczO2X9M=",
+    "displayName": "OTHER - CAPITAL/FINANCIAL ACCOUNT",
+    "enrichments": {
+      "remittanceCodeDescription": "9990",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "PEtOAmhCEDc=",
+    "displayName": "EDUCATIONAL LOAN REPAYMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "9995",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "wKpRKiwntOY=",
+    "displayName": "IMPORTS",
+    "enrichments": {
+      "remittanceCodeDescription": "1010",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "xpBhhgdClBI=",
+    "displayName": "EXPORTS",
+    "enrichments": {
+      "remittanceCodeDescription": "1020",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "zLni92yJtFA=",
+    "displayName": "FREIGHT CHARGES",
+    "enrichments": {
+      "remittanceCodeDescription": "2100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "PuGRfbhsdwk=",
+    "displayName": "INSURANCE SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "2200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "HOLZK+IdF1A=",
+    "displayName": "PASSENGER FARES",
+    "enrichments": {
+      "remittanceCodeDescription": "3100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "7QGcFowmcyE=",
+    "displayName": "PORT INCOME/EXPENDITURE",
+    "enrichments": {
+      "remittanceCodeDescription": "3200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Mz61zw29yTM=",
+    "displayName": "OTHER MISCELLANEOUS",
+    "enrichments": {
+      "remittanceCodeDescription": "3310",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "G1Z03btDvOI=",
+    "displayName": "CONSTRUCTION SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "3400",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "SYYLdNXCGIw=",
+    "displayName": "TRAVEL/ TOURISM",
+    "enrichments": {
+      "remittanceCodeDescription": "4010",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "v5dIf5tMVtw=",
+    "displayName": "TELECOMMUNICATION SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "4030",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "xKdDz2RHVE0=",
+    "displayName": "PROFITS AND DIVIDENDS",
+    "enrichments": {
+      "remittanceCodeDescription": "5100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "05Gubd+7Kvw=",
+    "displayName": "INTEREST INCOME/EXPENDITURE",
+    "enrichments": {
+      "remittanceCodeDescription": "5200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "WSZgZSLFjvk=",
+    "displayName": "OTHER - INCOME",
+    "enrichments": {
+      "remittanceCodeDescription": "5600",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "p3WZetCMhKo=",
+    "displayName": "GOVERNMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "6010",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "0mzxA+1fnJU=",
+    "displayName": "FINANCIAL SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "7400",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "+vAlL1BFSkU=",
+    "displayName": "MEDICAL SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "7500",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "ZDJjcZL9OiQ=",
+    "displayName": "INFORMATION TECHNOLOGY (BPO, KPO)",
+    "enrichments": {
+      "remittanceCodeDescription": "7550",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Is82JPdmxFA=",
+    "displayName": "CONSULTANCY FEES AND SALARIES",
+    "enrichments": {
+      "remittanceCodeDescription": "7840",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "g7+IsWvfakk=",
+    "displayName": "EDUCATIONAL EXPENSES",
+    "enrichments": {
+      "remittanceCodeDescription": "7870",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "J2M0VbljSYg=",
+    "displayName": "OTHER - SERVICES",
+    "enrichments": {
+      "remittanceCodeDescription": "7880",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "c5oXAQ6LvAg=",
+    "displayName": "WORKER REMITTANCES (COUNTRY WISE)",
+    "enrichments": {
+      "remittanceCodeDescription": "8100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "a1C4bjI5XWs=",
+    "displayName": "MIGRANT TRANSFERS (COUNTRY WISE)",
+    "enrichments": {
+      "remittanceCodeDescription": "8120",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "bVxyCwMm28Q=",
+    "displayName": "GRANTS",
+    "enrichments": {
+      "remittanceCodeDescription": "8140",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "kAulHrzmLOc=",
+    "displayName": "OFFICIAL TRANSFERS",
+    "enrichments": {
+      "remittanceCodeDescription": "8200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "dfKglOt6e+g=",
+    "displayName": "COMPENSATION PAYMENTS",
+    "enrichments": {
+      "remittanceCodeDescription": "8220",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "ZgqhozuSyas=",
+    "displayName": "SIERA/TIERA TRANSACTIONS",
+    "enrichments": {
+      "remittanceCodeDescription": "9100",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "lX/kwVtijcs=",
+    "displayName": "TIERA TRANSACTIONS",
+    "enrichments": {
+      "remittanceCodeDescription": "9110",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "cptp+fl22j4=",
+    "displayName": "LONG TERM LOANS TO GOVERNMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "9200",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "9CAZDleaKDQ=",
+    "displayName": "LONG TERM LOANS TO PRIVATE SECTOR",
+    "enrichments": {
+      "remittanceCodeDescription": "9220",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Ez2GNnWzxBI=",
+    "displayName": "SHORT TERM LOANS TO GOVERNMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "9400",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "95d6qlurOhk=",
+    "displayName": "SHORT TERM LOANS TO PRIVATE SECTOR",
+    "enrichments": {
+      "remittanceCodeDescription": "9420",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "alENin/cGfE=",
+    "displayName": "DIRECT INVESTMENTS",
+    "enrichments": {
+      "remittanceCodeDescription": "9500",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "YEbkA83LQbg=",
+    "displayName": "OTHER - CAPITAL/FINANCIAL ACCOUNT",
+    "enrichments": {
+      "remittanceCodeDescription": "9990",
+      "accountType": "BOTH"
+    }
+  }, {
+    "id": "Tpp0NEI71Ws=",
+    "displayName": "EDUCATIONAL LOAN REPAYMENT",
+    "enrichments": {
+      "remittanceCodeDescription": "9995",
+      "accountType": "BOTH"
+    }
+  }],
+  "entityIdentifier": "",
+  "loggable": false
+}

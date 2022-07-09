@@ -1,0 +1,77 @@
+<ion-header class="background-size">
+  <ion-toolbar>
+    <ng-container *ngIf="!showSearchBar">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{'lbl_account_statement' | translate}}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="showSearchBar=!showSearchBar">
+          <ion-icon name="search" class="icon-font-md"></ion-icon></ion-button>
+          <ion-button (click)="showHelp()">
+            <ion-icon slot="icon-only" name="help-outline" class="icon-font-md"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ng-container>
+    <ng-container>
+      <ion-searchbar
+              slot="start" animated *ngIf="showSearchBar"
+              (ionCancel)="showSearchBar = !showSearchBar"
+              showCancelButton="always"
+              [(ngModel)]="searchText">
+      </ion-searchbar>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #contentBox>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-down-outline"
+            pullingText="{{'lbl_pull_to_refresh' | translate}}"
+            refreshingSpinner="circles"
+            refreshingText="{{'lbl_refreshing' | translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid *ngIf="accountsStatus === 'success'" class="ion-no-padding accountDetailsCardBorder background-primary ion-padding-bottom">
+        <ion-list class="ion-no-padding ion-no-margin no-padding-right">
+         <!--<ion-item class="ion-item-border ion-margin ion-no-padding no-padding-right " >-->
+
+          <ng-container ><!--*ngIf="!userService.isGroupSelected"-->
+            <ion-row #accountStatementEl *ngFor="let item of filterArray(accounts); trackBy: trackByFn; let i = index;"
+                     class="ion-margin ion-no-padding ion-item-border" (click)="showStatement(i)">
+              <ion-col class="ion-no-padding">
+                <p class="text-color-primary ion-no-padding ion-no-margin text-size-p" ><span class="accountNo">{{item.displayName}} - {{item.enrichments.currencyCode}}</span></p>
+                <p class="text-color-primary ion-no-padding ion-no-margin text-size-p" ><span class="group">{{item.enrichments.group}}</span></p>
+                <p class="text-color-light ion-no-padding ion-no-margin text-size-p" ><span class="accountType">{{item.enrichments.accountType}}</span></p>
+              </ion-col>
+              <ion-col size="0.5" class="ion-no-padding">
+                <ion-icon *ngIf="item.fav" (click)="toggleFav($event,item)" class="fav-item favAcc" name="star"></ion-icon>
+                <ion-icon class="favAcc" *ngIf="!item.fav" (click)="toggleFav($event,item)" name="star-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+          <!--<ng-container  *ngIf="userService.isGroupSelected">
+            <ng-container *ngFor="let obj of groupAccounts| keyvalue ">
+              <p>{{obj.key}}</p>
+              <ion-row #accountStatementEl *ngFor="let item of filterArray(accounts)|filterBy:['enrichments.group']:obj.key; trackBy: trackByFn; let i = index;"
+                       class="ion-margin ion-no-padding ion-item-border" (click)="showStatement(i)">
+                <ion-col class="ion-no-padding">
+                  <p class="text-color-primary ion-no-padding ion-no-margin text-size-p" ><span class="accountNo">{{item.displayName}} - {{item.enrichments.currencyCode}}</span></p>
+                  <p class="text-color-primary ion-no-padding ion-no-margin text-size-p" ><span class="accountType">{{item.enrichments.accountType}}</span></p>
+                </ion-col>
+                <ion-col size="0.5" class="ion-no-padding">
+                  <ion-icon *ngIf="item.fav" (click)="toggleFav($event,item)" class="fav-item favAcc" name="star"></ion-icon>
+                  <ion-icon class="favAcc" *ngIf="!item.fav" (click)="toggleFav($event,item)" name="star-outline"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ng-container>
+          </ng-container>-->
+        </ion-list>
+  </ion-grid>
+
+  <listing-skeleton *ngIf="accountsStatus === 'loading'"></listing-skeleton>
+  <ng-container *ngIf="accountsStatus === 'notFound' || accountsStatus === 'err'">
+    <app-no-record-found [err]='accountsStatus' (refreshPageEventEmmiter)="doRefresh($event)"></app-no-record-found>
+  </ng-container>
+</ion-content>

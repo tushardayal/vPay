@@ -1,0 +1,97 @@
+<section>
+    <form [formGroup]="irdpSearchForm">
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Taxpayer Identification Number (TIN)'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="9"
+                       formControlName="tin"
+                       placeholder="{{'Taxpayer Identification Number (TIN)'|apsTraslate}}"
+                       required type="text"></ion-input>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="irdpSearchForm.controls['tin']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Taxpayer Identification Number (TIN)'|apsTraslate}}" >
+        </errorMsg>
+
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Tax type'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-select [interface]="environment.SELECT_INTERFACE"
+                        formControlName="taxType"
+                        class="text-size-p ion-text-capitalize" placeholder="Tax type"><!--(ionChange)="onChangeTaxType()"-->
+                <ion-select-option *ngFor="let item of taxTypes$|async"
+                                   [value]="item"
+                                   class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="irdpSearchForm.controls['taxType']"
+                  errMsg="{{'Please Select'|apsTraslate}} {{'Tax type'|apsTraslate}}" >
+        </errorMsg>
+
+        <!--<ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Taxable Period/Calendar Year'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-select [interface]="environment.SELECT_INTERFACE"
+                        class="text-size-p ion-text-capitalize"
+                        formControlName="taxablePeriod"
+                        placeholder="{{'Taxable Period/Calendar Year'|apsTraslate}}">&lt;!&ndash;(ionChange)="onChangeTaxablePeriod()"&ndash;&gt;
+                <ion-select-option *ngFor="let item of taxablePeriodList$|async"
+                                   [value]="item"
+                                   class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>-->
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Taxable Period/Calendar Year'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="9"
+                       inputmode="numeric" [pattern]="'[0-9]*$'"
+                       formControlName="taxablePeriod"
+                       placeholder="{{'Taxable Period/Calendar Year'|apsTraslate}}"
+                       required type="text"></ion-input>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="irdpSearchForm.controls['taxablePeriod']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Taxable Period/Calendar Year'|apsTraslate}}" >
+        </errorMsg>
+
+
+        <ion-item class="ion-no-padding " lines="none">
+            <ion-label position="stacked">{{'Payment type'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+        </ion-item>
+        <ion-grid class="ion-no-margin ion-no-padding">
+            <ion-radio-group value="paymentType" formControlName="paymentType" ><!--(ionChange)="onChangepaymentType()"-->
+
+                <ion-row>
+                    <ion-col *ngFor="let item of paymentTypeList$|async" size="6" class="ion-no-padding ion-no-margin">
+                        <!--<ion-item class="ion-no-padding ion-no-margin" lines="none">
+                            <ion-chip>
+                                <ion-label class="text-size-p text-color-primary">{{item.displayName}}</ion-label>
+                            </ion-chip>
+                        </ion-item>-->
+                        <ion-item class="ion-no-padding text-size-sd" lines="full">
+                            <ion-label class="ion-padding-start">{{item.displayName}}</ion-label>
+                            <ion-radio mode="md" slot="start" [name]="item.displayName" [value]="item"></ion-radio>
+                        </ion-item>
+                    </ion-col>
+
+            </ion-row>
+            </ion-radio-group>
+
+        </ion-grid>
+
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="irdpSearchForm.controls['paymentType']"
+                  errMsg="{{'Please Select'|apsTraslate}} {{'Payment type'|apsTraslate}}" >
+        </errorMsg>
+
+    </form>
+</section>

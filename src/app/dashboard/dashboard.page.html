@@ -1,0 +1,252 @@
+<ion-app>
+    <!-- Header -->
+    <ion-header>
+        <ion-toolbar>
+            <ng-container *ngIf="!showSearch">
+                <ion-buttons slot="start" class="ion-no-padding ion-no-margin">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>{{'lbl_dashboard' | translate }}</ion-title>
+                <ion-buttons slot="end" class="ion-no-padding">
+                    <!-- <ion-button (click)="showSearch = !showSearch" class="ion-no-padding ion-no-margin">
+                        <ion-icon name="search"></ion-icon>
+                      </ion-button> -->
+                    <ion-button (click)="showNotifications($event)" class="ion-no-padding ion-no-margin">
+                        <ion-icon name="notifications-outline" class="iconPosition icon-font-md"></ion-icon>
+                        <ion-badge slot="end" class="ion-badge-circle">
+                            {{(unreadNotificationCount$| async) || 0}}</ion-badge>
+                    </ion-button>
+                    <ion-button class="ion-no-padding ion-no-margin" *ngIf="false">
+                        <ion-icon name="ellipsis-vertical-outline" class="icon-font-md"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ng-container>
+            <!-- <div *ngIf="showSearch">
+                <ion-searchbar (ionCancel)="showSearch = !showSearch"
+                               animated="true"
+                               showCancelButton="always"></ion-searchbar>
+            </div> -->
+
+        </ion-toolbar>
+
+    </ion-header>
+    <!-- Content -->
+    <ion-content [ngStyle]="{'background-image': 'url(' + item.background + ')'}"
+        class="background-primary background-size">
+
+        <super-tabs #superTabs [activeTabIndex]="activeTabIndex" (tabChange)="onTabChange($event)">
+            <super-tabs-toolbar scrollable slot="top" class="text-color-secondary">
+                <super-tab-button *ngFor="let tab of tabsArray">
+                    <ion-label class="ion-text-capitalize">{{tab.displayName|apsTraslate}}</ion-label>
+                </super-tab-button>
+            </super-tabs-toolbar>
+            <super-tabs-container swipe-enabled="false" class="ion-no-margin ion-no-padding">
+                <super-tab *ngFor="let tab of tabsArray" class="ion-no-margin ion-no-padding">
+
+                    <ion-toolbar class="ion-no-padding background-primary ion-no-margin ion-toolbar2">
+                        <!-- <ion-item lines="none" class="ion-no-margin ion-no-padding">-->
+
+                        <ion-buttons slot="end" class="ion-no-margin ion-no-padding">
+                            <div *ngIf="!showActionBtns" class="ion-no-margin ion-no-padding">
+                                <ion-button (click)="showAllWidgets()" class="ion-no-margin ion-no-padding">
+                                    <ion-icon name="add" slot="icon-only"
+                                        class="icon-color-primary icon-font-md ion-no-margin ion-no-padding"></ion-icon>
+                                </ion-button>
+                                <ion-button (click)="deleteWidgets()" class="ion-no-margin ion-no-padding">
+                                    <ion-icon name="trash" slot="icon-only"
+                                        class="icon-color-primary icon-font-md ion-no-margin ion-no-padding"></ion-icon>
+                                </ion-button>
+                                <ion-button (click)="reorderWidgets()" class="ion-no-margin ion-no-padding">
+                                    <ion-icon name="move" slot="icon-only"
+                                        class="icon-color-primary icon-font-md ion-no-margin ion-no-padding"></ion-icon>
+                                </ion-button>
+                            </div>
+
+                            <div *ngIf="showActionBtns" class="ion-no-margin ion-no-padding">
+                                <ion-button class="ion-no-padding ion-no-margin" (click)="cancleAction()">
+                                    <!-- {{'lbl_cancel' | translate }} -->
+                                    <ion-icon name="close" slot="icon-only"
+                                        class="icon-color-primary icon-font-md ion-no-margin ion-no-padding"></ion-icon>
+                                </ion-button>
+                                <ion-button class="ion-no-padding ion-no-margin" (click)="saveAction()">
+                                    <!-- {{'lbl_save' | translate }} -->
+                                    <ion-icon name="checkmark" slot="icon-only"
+                                        class="icon-color-primary icon-font-md ion-no-margin ion-no-padding"></ion-icon>
+                                </ion-button>
+                            </div>
+
+                        </ion-buttons>
+                        <!--</ion-item>-->
+                    </ion-toolbar>
+                    <div *ngIf="tab.moduleName == 'Payments'" class="ion-no-padding">
+                        <ion-list #dynamicList class="ion-no-padding ion-padding-bottom">
+                            <ion-reorder-group (ionItemReorder)="ionItemReorder($event,tab.moduleName)"
+                                [hidden]="!showActionBtns" [disabled]="disableReorder">
+                                <ng-container *ngFor="let widget of tab.widgetList">
+                                    <ion-reorder *ngIf="['PENDINGTRANSACTIONCOUNT','PROCESSQUEUECOUNT','PROCESSINGTXNCOUNT','ACCOUNTSUMMARY','UPCOMINGEVENTS'].includes(widget.widgetName)">
+                                        <ion-item-sliding [disabled]="disableDelete" #sliding>
+                                            <ion-item-options side="start">
+                                                <ion-item-option (tap)="deleteAction(tab.moduleName,widget)">
+                                                    <ion-toolbar
+                                                        class="ion-no-padding background-primary ion-no-margin ion-toolbar2">
+                                                        <ion-button class="transparent button-top-icon ">
+                                                            <ion-icon name="trash" slot="icon-only"
+                                                                class="icon-color-primary ion-no-margin ion-no-padding icon-font-md">
+                                                            </ion-icon>
+                                                        </ion-button>
+                                                    </ion-toolbar>
+                                                </ion-item-option>
+                                            </ion-item-options>
+                                            <ion-item lines="none"
+                                                class="transparent default-item ion-no-padding ion-no-margin">
+                                                <ion-list class="ion-no-padding ion-no-margin"  *ngIf="showActionBtns">
+                                                    <pending-authorization
+                                                        *ngIf="widget.widgetName == 'PENDINGTRANSACTIONCOUNT' && transactionAuthAvailable">
+                                                    </pending-authorization>
+                                                    <process-queue *ngIf="widget.widgetName == 'PROCESSQUEUECOUNT'">
+                                                    </process-queue>
+                                                    <processing *ngIf="widget.widgetName == 'PROCESSINGTXNCOUNT'">
+                                                    </processing>
+                                                    <account-summary-widget *ngIf="widget.widgetName == 'ACCOUNTSUMMARY'">
+                                                    </account-summary-widget>
+                                                    <calender-events *ngIf="widget.widgetName == 'UPCOMINGEVENTS'">
+                                                    </calender-events>
+                                                </ion-list>
+                                            </ion-item>
+                                        </ion-item-sliding>
+                                    </ion-reorder>
+                                </ng-container>
+                            </ion-reorder-group>
+                        </ion-list>
+                        <ion-list *ngIf="!showActionBtns">
+                            <ng-container *ngFor="let widget of tab.widgetList">
+                                <pending-authorization *ngIf="widget.widgetName == 'PENDINGTRANSACTIONCOUNT' && transactionAuthAvailable">
+                                </pending-authorization>
+                                <process-queue *ngIf="widget.widgetName == 'PROCESSQUEUECOUNT'"></process-queue>
+                                <processing *ngIf="widget.widgetName == 'PROCESSINGTXNCOUNT'"></processing>
+                                <account-summary-widget *ngIf="widget.widgetName == 'ACCOUNTSUMMARY'">
+                                </account-summary-widget>
+                                <calender-events *ngIf="widget.widgetName == 'UPCOMINGEVENTS'"></calender-events>
+                            </ng-container>
+                        </ion-list>
+                        <!-- fab placed to the (vertical) center and end -->
+                        <ion-fab *ngIf="!showActionBtns && tab.widgetList && tab.widgetList.length ==0"
+                            vertical="center" horizontal="center" slot="fixed">
+                            <ion-fab-button (click)="showAllWidgets()" class="fabBtnAccent">
+                                <ion-icon class="icon-font-md" name="add"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+
+                    </div>
+
+                    <div *ngIf="tab.moduleName == 'ImportTrade'" class="ion-no-padding">
+                        <ion-list #dynamicList class="ion-no-padding ion-padding-bottom">
+                            <ion-reorder-group (ionItemReorder)="ionItemReorder($event,tab.moduleName)"
+                                [hidden]="!showActionBtns" [disabled]="disableReorder">
+                                <ng-container *ngFor="let widget of tab.widgetList">
+                                    <ion-reorder *ngIf="['TRANSACTIONWISESUMMARY','TRANSACTIONSTATUSSUMMARY'].includes(widget.widgetName)">
+                                        <ion-item-sliding [disabled]="disableDelete" #sliding>
+                                            <ion-item-options side="start">
+                                                <ion-item-option (tap)="deleteAction(tab.moduleName,widget)">
+                                                    <ion-toolbar
+                                                        class="ion-no-padding background-primary ion-no-margin ion-toolbar2">
+                                                        <ion-button class="transparent button-top-icon ">
+                                                            <ion-icon name="trash" slot="icon-only"
+                                                                class="icon-color-primary ion-no-margin ion-no-padding icon-font-md">
+                                                            </ion-icon>
+                                                        </ion-button>
+                                                    </ion-toolbar>
+                                                </ion-item-option>
+                                            </ion-item-options>
+                                            <ion-item lines="none"
+                                                class="transparent default-item ion-no-padding ion-no-margin">
+                                                <ion-list class="ion-no-padding ion-no-margin" *ngIf="showActionBtns">
+                                                    <transaction-wise-summary
+                                                        *ngIf="widget.widgetName == 'TRANSACTIONWISESUMMARY'">
+                                                    </transaction-wise-summary>
+                                                    <transaction-status-summary
+                                                        *ngIf="widget.widgetName == 'TRANSACTIONSTATUSSUMMARY'">
+                                                    </transaction-status-summary>
+                                                </ion-list>
+                                            </ion-item>
+                                        </ion-item-sliding>
+                                    </ion-reorder>
+                                </ng-container>
+                            </ion-reorder-group>
+                        </ion-list>
+                        <ion-list *ngIf="!showActionBtns">
+                            <ng-container *ngFor="let widget of tab.widgetList">
+                                <transaction-wise-summary *ngIf="widget.widgetName == 'TRANSACTIONWISESUMMARY'">
+                                </transaction-wise-summary>
+                                <transaction-status-summary *ngIf="widget.widgetName == 'TRANSACTIONSTATUSSUMMARY'">
+                                </transaction-status-summary>
+                            </ng-container>
+                        </ion-list>
+                        <!-- fab placed to the (vertical) center and end -->
+                        <ion-fab *ngIf="!showActionBtns && tab.widgetList && tab.widgetList.length ==0"
+                            vertical="center" horizontal="center" slot="fixed">
+                            <ion-fab-button (click)="showAllWidgets()" class="fabBtnAccent">
+                                <ion-icon class="icon-font-md" name="add"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+
+                    </div>
+                    <div *ngIf="tab.moduleName == 'ExportTrade'" class="ion-no-padding">
+                        <ion-list #dynamicList class="ion-no-padding ion-padding-bottom">
+                            <ion-reorder-group (ionItemReorder)="ionItemReorder($event,tab.moduleName)"
+                                [hidden]="!showActionBtns" [disabled]="disableReorder">
+                                <ng-container *ngFor="let widget of tab.widgetList">
+                                    <ion-reorder *ngIf="['TRANSACTIONWISESUMMARY','TRANSACTIONSTATUSSUMMARY'].includes(widget.widgetName)">
+                                            <ion-item-sliding [disabled]="disableDelete" #sliding>
+                                                <ion-item-options side="start">
+                                                    <ion-item-option (tap)="deleteAction(tab.moduleName,widget)">
+                                                        <ion-toolbar
+                                                                class="ion-no-padding background-primary ion-no-margin ion-toolbar2">
+                                                            <ion-button class="transparent button-top-icon ">
+                                                                <ion-icon name="trash" slot="icon-only"
+                                                                          class="icon-color-primary ion-no-margin ion-no-padding icon-font-md">
+                                                                </ion-icon>
+                                                            </ion-button>
+                                                        </ion-toolbar>
+                                                    </ion-item-option>
+                                                </ion-item-options>
+                                                <ion-item lines="none"
+                                                          class="transparent default-item ion-no-padding ion-no-margin">
+                                                    <ion-list class="ion-no-padding ion-no-margin" *ngIf="showActionBtns">
+                                                        <transaction-wise-summary
+                                                                *ngIf="widget.widgetName == 'TRANSACTIONWISESUMMARY'">
+                                                        </transaction-wise-summary>
+                                                        <transaction-status-summary
+                                                                *ngIf="widget.widgetName == 'TRANSACTIONSTATUSSUMMARY'">
+                                                        </transaction-status-summary>
+                                                    </ion-list>
+                                                </ion-item>
+                                            </ion-item-sliding>
+                                    </ion-reorder>
+                                </ng-container>
+                            </ion-reorder-group>
+                        </ion-list>
+                        <ion-list *ngIf="!showActionBtns">
+                            <ng-container *ngFor="let widget of tab.widgetList">
+                                <transaction-wise-summary *ngIf="widget.widgetName == 'TRANSACTIONWISESUMMARY'">
+                                </transaction-wise-summary>
+                                <transaction-status-summary *ngIf="widget.widgetName == 'TRANSACTIONSTATUSSUMMARY'">
+                                </transaction-status-summary>
+                            </ng-container>
+                        </ion-list>
+                        <!-- fab placed to the (vertical) center and end -->
+                        <ion-fab *ngIf="!showActionBtns && tab.widgetList && tab.widgetList.length ==0"
+                            vertical="center" horizontal="center" slot="fixed">
+                            <ion-fab-button (click)="showAllWidgets()" class="fabBtnAccent">
+                                <ion-icon class="icon-font-md" name="add"></ion-icon>
+                            </ion-fab-button>
+                        </ion-fab>
+
+                    </div>
+
+                </super-tab>
+            </super-tabs-container>
+        </super-tabs>
+
+    </ion-content>
+</ion-app>

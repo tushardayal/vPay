@@ -1,0 +1,30 @@
+<ion-header [hidden]="!isModal">
+    <ion-toolbar>
+        <ion-buttons class="ion-no-padding ion-no-margin" slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{'lbl_account_summary' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list class="default-item box-shadow" *ngIf="casaSummary && casaSummary.length > 0">
+        <ion-item lines="none">
+            <ion-label class="text-size-sm text-color-primary font-regular ion-text-capitalize">{{'lbl_corporate' | translate}}</ion-label>
+        </ion-item>
+        <ion-item class="ion-margin-bottom" lines="none">
+            <ion-select class="ion-no-padding fullWidth" multiple="false" [interface]="environment.SELECT_INTERFACE"
+                        [(ngModel)]="selectedCorporate" (ionChange)="onChangeCorporate()">
+                <ion-select-option
+                        *ngFor="let corporate of casaSummary; let i= index" [value]="corporate">{{corporate.customerName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <div style="height: 60%" [hidden]="!(chartDataObj && chartDataObj.length >0)">
+        <canvas #doughnutCanvas></canvas>
+    </div>
+      <listing-skeleton *ngIf="!casaSummary && !chartDataObj"></listing-skeleton>
+                      
+    <app-no-record-found *ngIf="chartDataObj && chartDataObj.length == 0" [err]='' (refreshPageEventEmmiter)="doRefresh()"></app-no-record-found>
+</ion-content>
+

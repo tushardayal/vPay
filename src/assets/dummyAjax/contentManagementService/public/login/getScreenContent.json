@@ -1,0 +1,84 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "loginDetails": {
+    "advertisementDetailsList": [{
+      "default1image": "login.jpg",
+      "default1SystemImageName": "Sys_19Mar2020_1584608160307_login.jpg",
+      "default1clicked": false,
+      "default1url": null,
+      "image1": "",
+      "systemImage1": "",
+      "image1clicked": false,
+      "imageurl": null,
+      "image1effectivefrom": "",
+      "imageeffectivetill": "",
+      "actualImage": "Sys_19Mar2020_1584608160307_login.jpg",
+      "actualClicked": false,
+      "actualUrl": null
+    }],
+    "linksDetailsList": [{
+      "displayName": "Branch Network",
+      "linkType": "LINK",
+      "link": "https://www.nationstrust.com/index.php?position=atm",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    }, {
+      "displayName": "Security Tips",
+      "linkType": "LINK",
+      "link": "https://www.nationstrust.com/online-sec",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    }, {
+      "displayName": "Complaints",
+      "linkType": "LINK",
+      "link": "https://www.nationstrust.com/complains-handling-process",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    }]
+  },
+  "logoutDetails": {
+    "advertisementDetailsList": [{
+      "default1image": "Sys_29Jul2019_1564394378352_Sys_29Jul2019.jpg.jpg",
+      "default1SystemImageName": "Sys_20Aug2019_1566291561787_Sys_29Jul2019_1564394378352_Sys_29Jul2019.jpg.jpg",
+      "default1clicked": false,
+      "default1url": null,
+      "image1": "",
+      "systemImage1": "",
+      "image1clicked": false,
+      "imageurl": null,
+      "image1effectivefrom": "",
+      "imageeffectivetill": "",
+      "actualImage": "Sys_20Aug2019_1566291561787_Sys_29Jul2019_1564394378352_Sys_29Jul2019.jpg.jpg",
+      "actualClicked": false,
+      "actualUrl": null
+    }],
+    "supportingtext": "https://www.nationstrust.com/contact-us",
+    "feeback": "Feedback TEXT",
+    "connectMap": [{
+      "displayname": "Youtube",
+      "link": "https://www.youtube.com/channel/UCarLZ8E9DG0d6n46avsQK0Q",
+      "linkIcon": "btns-icon fa-youtube-square pull-right"
+    }, {
+      "displayname": "Linkedin",
+      "link": "https://in.linkedin.com/company/dfcc-bank",
+      "linkIcon": "btns-icon fa-linkedin-square pull-right"
+    }, {
+      "displayname": "Facebook",
+      "link": "https://www.facebook.com/pages/DFCC-Bank/519899084712635",
+      "linkIcon": "btns-icon icon-facebook pull-right"
+    }, {
+      "displayname": "Twitter",
+      "link": "https://twitter.com/dfcclk?lang=en",
+      "linkIcon": "btns-icon icon-twitter pull-right"
+    }, {
+      "displayname": "Instragram",
+      "link": "",
+      "linkIcon": "btns-icon icon-instagram pull-right"
+    }]
+  },
+  "loggable": false,
+  "entityIdentifier": ""
+}

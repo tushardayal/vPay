@@ -1,0 +1,20 @@
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col class="ion-no-padding" size="12">
+      <ion-list>
+        <ion-list-header>
+          <ion-label>
+            {{'lbl_select_currency' | translate}}
+          </ion-label>
+        </ion-list-header>
+        <ion-radio-group [(ngModel)]="exchangeCurrencyCode" (ionChange)="onChangeCurrency()">
+          <ion-item *ngFor="let item of searchItems">
+            <ion-label>{{item}}</ion-label>
+            <ion-radio mode="md"  [value]="item"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+

@@ -1,0 +1,9 @@
+{
+  "responseStatus": {
+    "message": "MSG_KEY_CREATE_SUCCESSFUL",
+    "status": "0"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

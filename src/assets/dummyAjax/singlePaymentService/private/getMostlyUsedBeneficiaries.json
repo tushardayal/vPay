@@ -1,0 +1,90 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "beneList": [
+    {
+      "responseStatus": {
+        "message": "",
+        "status": "0"
+      },
+      "beneficiaryId": "7SkSwregSwA=",
+      "beneficiaryCode": "SLBC",
+      "beneficiaryName": "BEN1",
+      "address1": "Independence Squaree",
+      "address2": "123",
+      "address3": "Colombo",
+      "phoneNo": "2696329555",
+      "pinCode": "574",
+      "totalTransactions": 2,
+      "beneList": [],
+      "email": "feedback@sblc.com",
+      "mostlyUsedPaymentMethodId": "isEbFz6/ufQ=",
+      "entityIdentifier": "EntityIdentifier : BEN1",
+      "loggable": false
+    },
+    {
+      "responseStatus": {
+        "message": "",
+        "status": "0"
+      },
+      "beneficiaryId": "9LkbOpfSemk=",
+      "beneficiaryCode": "SLBC",
+      "beneficiaryName": "BENE123",
+      "address1": "Independence Squaree",
+      "address2": "123",
+      "address3": "Colombo",
+      "phoneNo": "2696329555",
+      "pinCode": "574",
+      "totalTransactions": 2,
+      "beneList": [],
+      "email": "feedback@sblc.com",
+      "mostlyUsedPaymentMethodId": "isEbFz6/ufQ=",
+      "entityIdentifier": "EntityIdentifier : BENE123",
+      "loggable": false
+    },
+    {
+      "responseStatus": {
+        "message": "",
+        "status": "0"
+      },
+      "beneficiaryId": "dbJ7UbsLXN4=",
+      "beneficiaryCode": "BENE123",
+      "beneficiaryName": "Select",
+      "address1": "asd",
+      "address2": "asd",
+      "address3": "asd",
+      "phoneNo": "9865656565",
+      "payeeName": "BENE123",
+      "totalTransactions": 20,
+      "beneList": [],
+      "accountNo": "1231231231223",
+      "mostlyUsedPaymentMethodId": "24FbW4TSgDo=",
+      "entityIdentifier": "EntityIdentifier : Select",
+      "loggable": false
+    },
+    {
+      "responseStatus": {
+        "message": "",
+        "status": "0"
+      },
+      "beneficiaryId": "weMpIUfSi+o=",
+      "beneficiaryCode": "SLBC",
+      "beneficiaryName": "SriLankan Broadcasting Corp (SLBC)",
+      "address1": "Independence Squaree",
+      "address2": "123",
+      "address3": "Colombo",
+      "phoneNo": "2696329555",
+      "pinCode": "574",
+      "totalTransactions": 4,
+      "beneList": [],
+      "email": "feedback@sblc.com",
+      "mostlyUsedPaymentMethodId": "24FbW4TSgDo=",
+      "entityIdentifier": "EntityIdentifier : SriLankan Broadcasting Corp (SLBC)",
+      "loggable": false
+    }
+  ],
+  "entityIdentifier": "EntityIdentifier : null",
+  "loggable": false
+}

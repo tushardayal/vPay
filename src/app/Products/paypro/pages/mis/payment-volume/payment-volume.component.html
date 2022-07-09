@@ -1,0 +1,8 @@
+<ion-content>
+  <listing-skeleton *ngIf="!paymentChartData && paymentChartData !== null"></listing-skeleton>
+  <app-no-record-found *ngIf="paymentChartData === null" [err]='' (refreshPageEventEmmiter)="doRefresh()"></app-no-record-found>
+  <div style="height: 60%">
+    <canvas #barCanvas></canvas>
+  </div>
+
+</ion-content>

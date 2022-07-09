@@ -1,0 +1,17 @@
+.slideBox{
+  overflow: visible;
+  border: 2px solid var(--cs-background-accent);
+  border-radius: 5px;
+}
+
+ion-slides{
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+ion-list-header{
+  padding: 0;
+  ion-label{
+    font-size: var(--h4-font-size);
+  }
+}

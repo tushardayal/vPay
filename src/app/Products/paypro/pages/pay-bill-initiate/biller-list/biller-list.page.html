@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'lbl_pay_bill' | translate}}</ion-title>
+    <ion-buttons slot="end" class="ion-no-padding">    
+      <ion-button class="ion-no-padding" class="ion-no-padding ion-no-margin" *ngIf="false">
+        <ion-icon class="icon-font-md" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar [(ngModel)]="billerFilterText" class="ion-no-margin ion-no-padding" animated="true"></ion-searchbar>  
+</ion-header>
+  
+  <ion-content>
+    
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+			<ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="{{'lbl_refreshing' | translate}}">
+			</ion-refresher-content>
+	  </ion-refresher>
+    <ion-grid class="ion-no-padding" *ngIf="billerProductList && billerProductList.length != 0" >
+      <ion-list class="ion-padding-end"> 
+        <ion-row class="ion-menu-toggle ">
+          <ion-col col-2 size="6" *ngFor="let billerProduct of billerProductList| filterBy:['billerName']: billerFilterText">
+            <ion-grid class="custom-grid " (click)="onItemClickFunc(billerProduct)">
+              <ion-row >
+                <ion-col >
+                  <ion-avatar class="background-accent" >
+                    <text-avatar class="icon-font-sm font-regular text-color-primary" [color]="billerProduct.color" [text]="billerProduct.billerName"></text-avatar>
+                  </ion-avatar>                  
+                </ion-col>
+              </ion-row>
+              <ion-row  >
+                <ion-col class="ion-text-center ">
+                  <span class="text-size-sm font-regular text-color-primary ion-text-nowrap noWrapFormat" >
+                    {{billerProduct.billerName}}</span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>   
+        </ion-row>          
+      </ion-list>
+    </ion-grid>
+    <listing-skeleton *ngIf="!billerProductList"></listing-skeleton>
+    <ng-container *ngIf="billerProductList && billerProductList.length == 0">
+      <app-no-record-found  (refreshPageEventEmmiter)="doRefresh($event)"></app-no-record-found>
+    </ng-container>  
+  </ion-content>
+
+

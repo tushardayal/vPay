@@ -1,0 +1,72 @@
+<ng-container *ngIf="dataObj" >
+    <ion-list class="ion-no-padding">
+        <ion-list-header lines="full">
+            <ion-label>{{'Institution Details' | translate}}</ion-label>
+        </ion-list-header>
+        <!--<ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Custdec No' | apsTraslate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.custdecNo}}</p>
+            </ion-label>
+        </ion-item>-->
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Amount to be Paid' | apsTraslate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.amountToBePaid}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Office Code' | apsTraslate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.officeCode}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Declaration Code' | translate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.declarationCode}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Registration Year' | translate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.registrationYear}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Registration Serial' | translate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.registrationSerial}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Registration No' | translate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.registrationNo}}</p>
+            </ion-label>
+        </ion-item>
+        <!--<ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Check Reference' | translate}}</h3>
+                <p class="text-size-p font-regular  ion-text-wrap">{{dataObj.checkReference}}</p>
+            </ion-label>
+        </ion-item>-->
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">{{'Company Code' | translate}}</h3>
+                <p class="text-size-p font-regular ion-text-wrap">{{dataObj.companyCode}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.postingReturnReason">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Failure Reason' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.postingReturnReason || '-' }}</p>
+            </ion-label>
+        </ion-item>
+
+    </ion-list>
+</ng-container>
+
+

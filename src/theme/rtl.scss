@@ -1,0 +1,196 @@
+/* SETTINGS RTL STYLE
+=======================================================
+=======================================================*/
+html[dir=rtl] {
+
+  /* SETTINGS DEFAULT BUTTON
+  =======================================================
+  =======================================================*/
+
+  .default-button {
+    box-shadow: -3px 3px 0 var(--cs-background-border) !important;
+
+    &.activated {
+      box-shadow: -3px 3px 0 transparent !important;
+    }
+  }
+
+  /* SETTINGS INPUT
+  =======================================================
+  =======================================================*/
+
+  ion-input {
+    box-shadow: -3px 3px 0 var(--cs-background-border) !important;
+  }
+
+  /* SETTINGS RSEARCH BAR
+  =======================================================
+  =======================================================*/
+
+  ion-searchbar {
+    box-shadow: -3px 3px 0 var(--cs-background-border) !important;
+  }
+
+  /* SETTINGS DATATIME
+  =======================================================
+  =======================================================*/
+
+  ion-datetime {
+    box-shadow: -3px 3px 0 var(--cs-background-border) !important;
+  }
+
+  /* SETTINGS TEXTAREA
+  =======================================================
+  =======================================================*/
+
+  ion-textarea {
+    box-shadow: -3px 3px 0 var(--cs-background-border) !important;
+  }
+
+  /* SETTINGS PADDING AND MARGIN
+  =======================================================
+  =======================================================*/
+
+  .no-padding-right {
+    padding-left: 0 !important;
+  }
+
+  .no-padding-left {
+    padding-right: 0 !important;
+  }
+
+  .no-margin-left {
+    margin-right: 0 !important;
+  }
+
+  .no-margin-right {
+    margin-left: 0 !important;
+  }
+
+  /* SETTINGS CARD
+  =======================================================
+  =======================================================*/
+
+  cs-google-card-list-layout-4 {
+    ion-card {
+      &.background-size {
+        background-position: 40px center !important;
+      }
+
+      .info-section {
+        left: 0 !important;
+        right: unset !important;
+      }
+
+      ion-card-content {
+        right: unset !important;
+        left: 50px !important;
+        transform: translateX(-100%) !important;
+      }
+    }
+  }
+
+  /* SETTINGS FORM
+  =======================================================
+  =======================================================*/
+
+  form {
+    ion-icon {
+      right: unset !important;
+      left: 25px !important;
+    }
+  }
+
+  /* SETTINGS TABS
+  =======================================================
+  =======================================================*/
+
+  ion-tabs {
+    app-tab4 {
+      ion-badge {
+        right: unset !important;
+        left: 0;
+      }
+    }
+
+    app-tab5 {
+      ion-list > ion-item::before {
+        left: auto !important;
+        right: 52px;
+      }
+
+      ion-label {
+        margin: 4px 16px 4px 8px !important;
+      }
+    }
+  }
+
+  /* SETTINGS COMMENTS WITH TIMELINE
+  =======================================================
+  =======================================================*/
+
+  cs-comment-layout-2 {
+    ion-item {
+      &:before {
+        left: unset;
+        right: 52px;
+      }
+
+      ion-label {
+        padding: 8px;
+        margin: 4px 16px 4px 8px !important;
+      }
+    }
+  }
+
+  /* SETTINGS TIMELINE
+  =======================================================
+  =======================================================*/
+
+  cs-timeline-layout-1,
+  cs-timeline-layout-3 {
+    ion-card {
+      &:after {
+        right: -30px;
+        left: unset;
+      }
+
+      &:before {
+        right: -36px;
+        left: unset;
+      }
+    }
+  }
+
+  cs-timeline-layout-2 {
+    .item-thumbnail {
+      &:after {
+        right: -30px;
+        left: unset;
+      }
+
+      &:before {
+        right: -36px;
+        left: unset;
+      }
+    }
+  }
+
+  /* SETTINGS ALERT
+  =======================================================
+  =======================================================*/
+
+  .alert-button-group {
+    padding: 8px 8px 8px 0 !important;
+  }
+
+  /* SETTINGS AcTION SHEET
+  =======================================================
+  =======================================================*/
+
+  cs-action-sheet-layout-2 {
+    .ion-text-left {
+      text-align: right !important;
+    }
+  }
+}

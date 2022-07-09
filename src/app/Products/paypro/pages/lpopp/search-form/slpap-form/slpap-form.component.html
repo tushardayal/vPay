@@ -1,0 +1,51 @@
+<section>
+    <form [formGroup]="slpapSearchForm">
+
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Payments Type'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-select [interface]="environment.SELECT_INTERFACE"
+                        formControlName="paymentsType"
+                        class="text-size-p ion-text-capitalize" placeholder="Payments type"><!--(ionChange)="onChangeTaxType()"-->
+                <ion-select-option *ngFor="let item of paymentsTypeList$|async"
+                                   [value]="item"
+                                   class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="slpapSearchForm.controls['paymentsType']"
+                  errMsg="{{'Please Select'|apsTraslate}} {{'Payments Type'|apsTraslate}}" >
+        </errorMsg>
+
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Agent Code'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="50"
+                       formControlName="agentCode"
+                       placeholder="{{'Agent Code'|apsTraslate}}"
+                       required type="text"></ion-input>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="slpapSearchForm.controls['agentCode']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Agent Code'|apsTraslate}}" >
+        </errorMsg>
+
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Vessel Reference No'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="50"
+                       formControlName="vesselReferenceNo"
+                       placeholder="{{'Vessel Reference No'|apsTraslate}}"
+                       required type="text"></ion-input>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="slpapSearchForm.controls['vesselReferenceNo']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Vessel Reference No'|apsTraslate}}" >
+        </errorMsg>
+
+    </form>
+</section>

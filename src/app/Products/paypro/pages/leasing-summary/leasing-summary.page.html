@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Leasing Summary</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-item *ngIf="userService.isGroupSelected">
+            <!--<ion-label>Corporate</ion-label>-->
+            <ion-select [(ngModel)]="leasingService.selectedCorporate"
+                        (ionChange)="getLeasingSummary()" [interface]="environment.SELECT_INTERFACE">
+                <ion-select-option
+                        *ngFor="let corporate of (leasingService.groupCorprorateList$|async)"
+                        [value]="corporate">{{corporate.displayName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-list *ngIf="summaryData" class="ion-no-padding">
+            <ion-item>
+                <ion-label class="text-size-p">{{"Total Arrears"|apsTraslate}}</ion-label>
+                <p>{{summaryData.totalArrears}}</p>
+            </ion-item>
+            <ion-item>
+                <ion-label class="text-size-p">{{"No Of Agreements"|apsTraslate}}</ion-label>
+                <p>{{summaryData.noOfAgreements}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <ion-grid class="ion-no-padding">
+        <ion-row *ngIf="summaryData != null">
+            <ion-col size="12" class="ion-no-padding">
+                <ion-list class="ion-no-margin">
+                    <ul class="ion-no-margin ion-no-padding">
+                        <li>
+                            <div class="collapsible-header ion-no-padding">
+                                <ion-grid class="ion-padding bottom-border summary-header">
+                                    <ion-row>
+                                        <ion-col *ngFor="let header of summaryData.leasingSummaryHeaders| slice:0:2; let i=index">{{header}}</ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </div>
+                        </li>
+                        <li *ngFor="let group of summaryData.leasingSummaryDetails; index as corpIndex">
+                            <div class="collapsible-header ion-no-padding" >
+                                <ion-card class="ion-no-padding accountDetailsCard" (click)="toggleGroup(group)" [ngClass]="{'open-card': group.show }">
+                                        <ion-grid class="ion-padding bottom-border">
+                                            <ion-row >
+                                                <ion-col><span class="agreementNo" (click)="getDetails(group)">{{group.agreementNo}}</span></ion-col>
+                                                <ion-col>{{group.vehicalNo}}</ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                        <div class="item-accordion" [ngClass]="{'active': group.show }" [hidden]="!group.show">
+                                            <ion-row class="bottom-border" >
+                                                <ion-col>
+                                                    <p class="text-color-primary text-size-p">{{summaryData.leasingSummaryHeaders[2]}}</p>
+                                                    <p class="text-color-light">{{ group.nextDueDate|| '-'}}</p>
+                                                </ion-col>
+                                                <ion-col>
+                                                    <p class="text-color-primary text-size-p">{{summaryData.leasingSummaryHeaders[3]}}</p>
+                                                    <p class="text-color-light">{{ group.rentalValue || '-'}}</p>
+                                                </ion-col>
+                                            </ion-row>
+                                            <ion-row >
+                                                <ion-col>
+                                                    <p class="text-color-primary text-size-p">{{summaryData.leasingSummaryHeaders[4]}}</p>
+                                                    <p class="text-color-light">{{ group.totalArrears || '-'}}</p>
+                                                </ion-col>
+                                            </ion-row>
+                                        </div>
+                                </ion-card>
+                            </div>
+                        </li>
+                    </ul>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

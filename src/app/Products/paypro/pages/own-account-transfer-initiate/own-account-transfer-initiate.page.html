@@ -1,0 +1,437 @@
+<ion-app>
+<app-bic-code-search (onSelectBicCode)="onSelectBicCode($event)"></app-bic-code-search>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'lbl_own_account_transfer' | translate}}</ion-title>
+    <ion-buttons slot="end" class="ion-no-padding">
+    
+      <ion-button class="ion-no-padding ion-no-margin" *ngIf="false">
+        <ion-icon name="ellipsis-vertical-outline" class="icon-font-md"></ion-icon>
+      </ion-button>
+      <ion-button class="ion-no-padding ion-no-margin" (click)="showHelp()" *ngIf="activeTabIndex === 2">
+          <ion-icon slot="icon-only" name="help-outline" class="icon-font-md"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+
+  </ion-toolbar>
+  <ion-grid class="stepperGrid">
+    <ion-row>
+      <ion-col [ngClass]="{'ion-align-self-center': true,'active-block':currIndex==activeTabIndex,'text-color-light':currIndex!=activeTabIndex}" size="4"
+        *ngFor="let item of ionSegmentArray;let currIndex=index">
+        <ion-label class="ion-text-center">
+          <h2 class="text-size-sm ion-text-center">
+            <ion-avatar *ngIf="currIndex==activeTabIndex">
+              <text-avatar [color]="activeColor" [text]="''+item.sectionNo"></text-avatar>
+            </ion-avatar>
+            <ion-avatar *ngIf="currIndex!=activeTabIndex">
+              <text-avatar [color]="item.color" [text]="''+item.sectionNo"></text-avatar>
+            </ion-avatar>
+          </h2>
+          <h2 class="text-size-sm ion-text-center font-regular ion-text-wrap ">{{item.displayName}}</h2>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content fullscreen="true">
+  
+  <ion-slides #wizardSlider pager="false" [options]="{onlyExternal: false}" class="background-size"
+  (ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideReachStart)="ionSlideReachStart($event)"
+  (ionSlideReachEnd)="ionSlideReachEnd($event)">
+    <ion-slide>
+      <ion-content class="ion-padding">
+        <form [formGroup]="paymentDetailsForm">
+          <ion-list >         
+            <ion-item class="ion-no-padding" >
+              <ion-label position="stacked" >{{'lbl_value_date' | translate}}
+                <ion-text color="danger">*</ion-text></ion-label>
+              <ion-datetime [displayFormat]="globalDateFormat" formControlName="valueDate" [min]="minDate" [max]="maxDate"></ion-datetime>
+            </ion-item>
+            <errorMsg class="ion-no-padding ion-no-margin"
+            [control]="paymentDetailsForm.controls['valueDate']"
+             errMsg="{{'lbl_please_select_valid_date' | translate}}">
+            </errorMsg>
+            <ion-item class="ion-no-padding" >
+              <ion-label position="stacked" > {{'lbl_corporate_reference_number' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input type="text" maxlength="13" placeholder="{{'lbl_corporate_reference_number' | translate}}"
+                         class="custom-input ion-no-padding text-size-sd" formControlName="corpRefNo" required></ion-input>
+            </ion-item>
+            <errorMsg class="ion-no-padding ion-no-margin"
+            [control]="paymentDetailsForm.controls['corpRefNo']"
+             errMsg="{{'lbl_provide_corporate_reference_no' | translate}}">
+            </errorMsg>
+            <ng-container *ngIf="oatPaymentMethodApplicable">
+              <ion-item class="ion-no-padding" >
+                <ion-label position="stacked" >{{'lbl_payment_method' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+                <ion-select *ngIf="paymentMethodList?.length>0" (ionChange)="onChangePaymentMethod()" [interface]="environment.SELECT_INTERFACE"
+                   class="text-size-p ion-text-capitalize"
+                  formControlName="selectedPaymentMethod" placeholder="{{'lbl_please_select' | translate}}">
+                  <ion-select-option class="ion-no-padding text-size-p ion-text-capitalize" *ngFor="let item of paymentMethodList" [value]="item">{{item.displayName}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+              <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="paymentDetailsForm.controls['selectedPaymentMethod']"
+              errMsg="{{'lbl_please_select_payment_method' | translate}}" >
+              </errorMsg>
+            </ng-container>
+            <ion-item class="ion-no-padding"  >
+              <ion-label position="stacked" >{{'lbl_debit_account' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+              <ion-select *ngIf="debitAccountsList?.length>0" [interface]="environment.SELECT_INTERFACE"
+                          [interfaceOptions]="{cssClass: 'group-custom-interface'}"
+                (ionChange)="onChangeDebitAccounts()" class="text-size-p ion-text-capitalize"
+                formControlName="selectedCorporateAccount" placeholder="{{'lbl_please_select' | translate}}">
+                <ion-select-option class="ion-no-padding text-size-p ion-text-capitalize" [disabled]="!item.id"
+                                   *ngFor="let item of debitAccountsList" [value]="item">{{item.displayName}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <errorMsg 
+            [control]="paymentDetailsForm.controls['selectedCorporateAccount']"
+            errMsg="{{'lbl_please_select_debit_accounts' | translate}}" >
+            </errorMsg>
+            <ion-item class="ion-no-padding" >
+              <ion-grid class="ion-no-padding ion-no-margin" >
+                <ion-row class="ion-no-padding ion-no-margin">
+                  <ion-col size="4" class="ion-text-left">
+                    <span class="text-size-sd  ion-no-padding">{{'lbl_account_title' | translate}} </span>
+                  </ion-col>
+                  <ion-col size="8" class="ion-text-left">
+                    <span class="text-size-sd ion-no-padding" >{{'lbl_balance_available_for_transaction' | translate}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="ion-no-padding">
+                  <ion-col size="4" class="ion-no-padding ion-text-left">
+                    <span class="text-size-sd  ion-no-padding">{{pForm.selectedCorporateAccount?.value?.enrichments.accountTitle}}<!--{{accountDebitTitle}}-->
+                   </span>
+                  </ion-col>
+                  <ion-col size="8" class=" ion-no-padding ion-text-left">
+                    <span class="text-size-sd ion-no-padding">{{pForm.selectedCorporateAccount?.value?.enrichments.currencyCode}} <span appStyleAmount [amount]="debitbalance">{{debitbalance}}</span></span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid> 
+            </ion-item>
+            <ion-item class="ion-no-padding" >
+              <ion-label position="stacked" >{{'lbl_credit_account' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+              <ion-select [interface]="environment.SELECT_INTERFACE"
+                (ionChange)="onChangeCreditAccounts()" class="text-size-p ion-text-capitalize"
+                formControlName="creditAccount" placeholder="{{'lbl_please_select' | translate}}">
+                <ion-select-option class="ion-no-padding text-size-p ion-text-capitalize"  *ngFor="let item of creditAccountsList" [value]="item">{{item.displayName}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <errorMsg 
+            [control]="paymentDetailsForm.controls['creditAccount']"
+            errMsg="{{'lbl_please_select_credit_account' | translate}}" >
+            </errorMsg>
+            <ion-item class="ion-no-padding" >
+              <ion-grid class="ion-no-padding ion-no-margin" >
+                <ion-row class="ion-no-padding ion-no-margin">
+                  <ion-col size="4" class="ion-text-left">
+                    <span class="text-size-sd  ion-no-padding">{{'lbl_account_title' | translate}} </span>
+                  </ion-col>
+                  <ion-col size="8" class="ion-text-left">
+                    <span class="text-size-sd ion-no-padding">{{'lbl_account_balance' | translate}}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="ion-no-padding">
+                  <ion-col size="4" class="ion-no-padding ion-text-left">
+                    <span class="text-size-sd  ion-no-padding">{{pForm.creditAccount?.value?.enrichments.accountTitle}} <!--{{accountCreditTitle}}-->
+                   </span>
+                  </ion-col>
+                  <ion-col size="8" class=" ion-no-padding ion-text-left">
+                    <span class="text-size-sd ion-no-padding" >{{pForm.creditAccount?.value?.enrichments.currencyCode}} <span appStyleAmount [amount]="creditbalance">{{creditbalance}}</span></span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid> 
+            </ion-item>            
+            <ion-item  class="ion-no-padding" >
+              <ion-grid  class="custom-grid">
+                <ion-row class="ion-align-items-center ion-no-padding ion-no-margin">
+                  <ion-col size="{{fxRateApplicable?9:12}}">
+                    <ion-item  class="ion-no-padding ion-no-margin">
+                      <ion-row class="ion-no-padding ion-no-margin">
+                        <ion-label position="stacked" >{{'lbl_transfer_amount' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+                       </ion-row>
+                       <ion-row class="ion-no-padding ion-no-margin">
+                         <ion-col size="2" class="ion-no-padding ion-no-margin">
+                            <ion-input type="text" readonly formControlName="selectedCreditCurrency"></ion-input>
+                         </ion-col>
+                         <ion-col size="10" class="ion-no-padding ion-no-margin">
+                          <ion-input formControlName="payableAmount"  type="text" inputmode="decimal"  placeholder="0.00" autocomplete="off"
+                            (onAmountFormat)="changePayableAmount($event)" appCurrencyFormat>
+                          </ion-input>                     
+                         </ion-col>
+                       </ion-row>                        
+                    </ion-item>
+                    <errorMsg class="ion-no-padding ion-no-margin"
+                    [control]="paymentDetailsForm.controls['payableAmount']" 
+                    errMsg="{{'lbl_please_enter_valid_transfer_amount' | translate}}" >
+                  </errorMsg>
+                    <ion-item class="ion-no-padding ion-no-margin">
+                      <ion-row class="ion-no-padding ion-no-margin">
+                        <ion-label position="stacked" >{{'lbl_debit_amount' | translate}} </ion-label>
+                      </ion-row>
+                      <ion-row class="ion-no-padding ion-no-margin height20">
+                        <ion-col size="2" class="ion-no-padding ion-no-margin">
+                          <ion-input type="text" readonly formControlName='selectedDebitCurrency' class="custom-input"></ion-input>
+                        </ion-col>
+                        <ion-col size="10" class="ion-no-padding ion-no-margin">
+                          <ion-input formControlName="debitAmount" type="text" inputmode="decimal" placeholder="0.00" class="custom-input" autocomplete="off"
+                          (onAmountFormat)="changeDebitAmount()" appCurrencyFormat></ion-input>
+                        </ion-col>`
+                      </ion-row>
+                     
+                    </ion-item>
+                    <errorMsg class="ion-no-padding ion-no-margin"
+                    [control]="paymentDetailsForm.controls['debitAmount']"
+                    errMsg="{{'lbl_please_enter_valid_debit_amount' | translate}}">
+                  </errorMsg>
+                  </ion-col>
+                  <ion-col size="{{fxRateApplicable?3:0}}" class="fxRateGrid">
+                    <ion-row class="fxRateRow">
+                      <ion-col class="ion-align-self-center ion-padding-top">
+                        <ion-row>
+                          <ion-label position="fixed">{{'lbl_fx_rate' | translate}}</ion-label>
+                        </ion-row>
+                        <ion-row>
+                          <span>
+                            {{ paymentDetailsForm.controls['selectedCreditCurrency'].value?.displayName}}
+                            {{fxRate}}</span>
+                        </ion-row>
+                        <ion-row>
+                          <ion-col class="ion-align-self-start">
+                            <ion-icon  size="small" class="icon-font-xs"  name="swap-vertical-outline"></ion-icon>
+                          </ion-col>
+                          <ion-col class="ion-align-self-end">
+                            <ion-icon size="small" class="icon-font-xs" (click)="showDealNoAlert()" name="thumbs-up">
+                            </ion-icon>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                          <span>
+                            {{ paymentDetailsForm.controls['selectedCorporateAccount'].value?.enrichments?.currencyCode}}
+                            {{'lbl_1' | translate}}
+                          </span>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content class="ion-padding">
+        <form [formGroup]="beneDetailsForm">
+          <ion-list >
+            <ion-item class="ion-no-padding" >
+              <ion-label position="stacked" >{{'lbl_remarks' | translate}} </ion-label>
+              <ion-input formControlName="remarks" type="text" placeholder="{{'lbl_remarks' | translate}}" class="custom-input ion-no-padding text-size-sd"></ion-input>
+            </ion-item>
+            <ng-template [ngIf]="['EP3','EP5','EP17','EP18'].includes(selectedPaymentmethodCode)">
+              <ion-item class="ion-no-padding"  formArrayName="paymentInstructions">
+                <ion-label position="stacked" >{{'lbl_payment_instruction' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+                <ion-grid  class="custom-grid" *ngFor="let item of beneDetailsForm.get('paymentInstructions')?.controls;let i=index">
+                  <ion-row>
+                    <ion-col size="11">
+                      <ion-input placeholder="{{'lbl_payment_instruction' | translate}}" [formControlName]="i" type="text"  class="custom-input ion-no-padding text-size-sd"></ion-input>
+                    </ion-col>
+                    <ion-col size="1" class="ion-justify-content-around">
+                      <ion-icon *ngIf="i==0 && beneDetailsForm.get('paymentInstructions')?.controls.length<4"
+                                (click)="addPaymentInstruction()"
+                                class="icon-font-md icon-color-primary ion-align-self-center " name="add-circle">
+                      </ion-icon>
+                      <ion-icon *ngIf="i!=0" (click)="removePaymentInstruction(i)"
+                                class="icon-font-md icon-color-primary ion-align-self-center " name="trash">
+                      </ion-icon>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+              <errorMsg class="ion-no-padding ion-no-margin"
+                        [control]="beneDetailsForm.controls['paymentInstructions']"
+                        errMsg="Please Enter Payment Instruction" >
+              </errorMsg>
+            </ng-template>
+          <!-- <payment-methods-template *ngIf="!showBenificaryDetails"
+            [formGroup]="beneDetailsForm.controls['paymentMethodGroup']"
+            [paymentMethod]="beneDetailsForm.get('selectedPaymentMethodBenificiary').value?.enrichments?.paymentMethodCode"
+            [dataObj]="{
+              selectedBeneficiary:selectedBeneficiary,
+              beneficiaryPaymentMethodMapDetails:beneficiaryPaymentMethodMapDetails,
+              chagreUrl:  oatService.CONSTANTS.GET_CHARGE_TYPES,
+              remittanceUrl: oatService.CONSTANTS.GET_REMITTANCE_PURPOSE
+            }"
+            ></payment-methods-template>-->
+              <div formGroupName="paymentMethodGroup">
+                  <div *ngIf="pForm.selectedPaymentMethod.valid">
+                      <ng-template  [ngIf]="['EP17','EP3','EP5','EP18'].includes(selectedPaymentmethodCode)">
+                        <ion-item class="ion-no-padding"  >
+                          <ion-label [hidden]="['EP3','EP5'].includes(selectedPaymentmethodCode)" position="stacked" >{{'lbl_beneficiary_bank' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+                          <ion-label [hidden]="['EP17','EP18'].includes(selectedPaymentmethodCode)" position="stacked" >{{'lbl_bic_code' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+                          <ion-grid  class="custom-grid">
+                            <ion-row>
+                              <ion-col size="11">
+                                <ion-input type="text" formControlName="bicCode" *ngIf="['EP3','EP5'].includes(selectedPaymentmethodCode)"
+                                    [value]="bicCodeDetails.swiftCode" readonly
+                                    class="custom-input ion-no-padding text-size-p" >
+                                </ion-input>
+                                <ion-input type="text" formControlName="beneficiaryBank" *ngIf="['EP17','EP18'].includes(selectedPaymentmethodCode)"
+                                    [value]="bicCodeDetails.bankName" readonly
+                                    class="custom-input ion-no-padding text-size-p" >
+                                </ion-input>
+                              </ion-col>
+                              <ion-col size="1" class="ion-justify-content-around">
+                                <ion-icon (click)="openBicCode()" class="icon-font-md icon-color-primary ion-align-self-center " name="search-outline">
+                                </ion-icon>                               
+                              </ion-col>
+                            </ion-row>
+                          </ion-grid>
+                        </ion-item>
+                        <ion-item  class="ion-no-padding" *ngIf="['EP3','EP5'].includes(selectedPaymentmethodCode)" >
+                          <ion-label position="stacked">{{'lbl_beneficiary_bank' | translate}}</ion-label>
+                          <ion-input type="text" formControlName="beneficiaryBank"
+                                     [value]="bicCodeDetails.bankName"  class="custom-input ion-no-padding text-size-sd" readonly>
+                          </ion-input>
+                        </ion-item>
+                        <ion-item  class="ion-no-padding">
+                          <ion-label position="stacked" >{{'lbl_beneficiary_bank_branch' | translate}}</ion-label>
+                          <ion-input type="text" formControlName="beneficiaryBankBranch"
+                                     [value]="bicCodeDetails.branchName"  class="custom-input ion-no-padding text-size-sd" readonly>
+                          </ion-input>
+                        </ion-item>
+                      </ng-template>
+
+                      <ng-template [ngIf]="['EP3','EP5'].includes(selectedPaymentmethodCode)">
+                          <ion-item  class="ion-no-padding">
+                              <ion-label position="stacked" >{{'lbl_charge' | translate}} <ion-text  color="danger">*</ion-text></ion-label>
+                              <ion-select *ngIf="changesList.length > 0"  placeholder="{{'lbl_please_select' | translate}}" class="text-size-p" [interface]="environment.SELECT_INTERFACE"
+                                          (ionChange)="onChangeChargeType()" formControlName="selectedChargeTypes">
+                                  <ion-select-option *ngFor="let item of changesList; trackBy:identify" [value]="item" class="ion-no-padding text-size-p">
+                                      {{item.displayName}}
+                                  </ion-select-option>
+                              </ion-select>
+                          </ion-item>
+                          <errorMsg [control]="paymentMethodDetForm.selectedChargeTypes"
+                                    errMsg="{{'lbl_please_select_charge' | translate}}">
+                          </errorMsg>
+                      </ng-template>
+                      <ng-template [ngIf]="['EP17','EP5','EP3'].includes(selectedPaymentmethodCode)">
+                          <ion-item  class="ion-no-padding">
+                              <ion-label position="stacked" >{{'lbl_remittance_purpose' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+                              <ion-select *ngIf="remittancePurposeList.length>0"  placeholder="{{'lbl_please_select' | translate}}" class="text-size-p" [interface]="environment.SELECT_INTERFACE"
+                                          (ionChange)="onChangeRemittance()" formControlName="selectedRemittancePurpose">
+                                  <ion-select-option *ngFor="let item of remittancePurposeList; trackBy:identify" [value]="item"
+                                  class="ion-no-padding text-size-p">
+                                      {{item.displayName}}
+                                  </ion-select-option>
+                              </ion-select>
+                          </ion-item>
+                          <errorMsg [control]="paymentMethodDetForm.selectedRemittancePurpose"
+                                    errMsg="{{'lbl_please_select_remittance_purpose' | translate}}">
+                          </errorMsg>
+                      </ng-template>
+                  </div>
+              </div>
+            <ion-item class="ion-no-padding"  *ngIf="supportingDocApplicable">
+              <ion-label position="stacked">{{'lbl_supporting_documents' | translate}}  <ion-text *ngIf="showMandatory" color="danger">*</ion-text>
+              </ion-label>
+              <app-file-upload formControlName="uploadFileDataName" (change)="onFileSelect($event)"></app-file-upload>
+              <!--<ion-input type="file" formControlName="uploadFileDataName" name="uploadFileDataName"
+                [required]="showMandatory == true"
+                 placeholder="{{'lbl_please_select' | translate}}" class="custom-input ion-no-padding text-size-sd"
+              ></ion-input>&lt;!&ndash;[appFileValidator]="beneDetailsForm.get('selectedPaymentMethodBenificiary').value?.enrichments"&ndash;&gt;-->
+            </ion-item>
+            <errorMsg class="ion-no-padding ion-no-margin"
+                [control]="beneDetailsForm.controls['uploadFileDataName']"
+                errMsg="{{'lbl_please_select_valid_supporting_documents' | translate}}">
+              </errorMsg>
+            <ion-item class="ion-no-padding" *ngIf="makerRemarksApplicable">
+              <ion-label position="stacked" > {{'lbl_enter_maker_remarks' | translate}} </ion-label>
+              <ion-textarea placeholder="{{'lbl_enter_maker_remarks' | translate}}"
+                         class="custom-input ion-no-padding text-size-sd" formControlName="makerRemarks" ></ion-textarea>
+            </ion-item>
+          </ion-list>
+        </form>
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-content #contentBox>
+        <ion-grid >
+          <ion-row class="ion-justify-content-center" #receiptEl>
+            <ion-col>
+              <ion-card class=" transparent background-size slideBox box-shadow">
+                <ion-card-content class="transparent ion-text-center ">
+                  <h6 class="text-size-sm text-color-primary ">
+                     <span class="valueDate">{{paymentDetailsForm.get('valueDate').value | date : 'dd-MMM-yyyy'}}</span>
+                  </h6>
+
+                  <h3 class="text-size-md font-medium text-color-primary ">
+                    <span class="paymentMethod">{{paymentDetailsForm.get('selectedPaymentMethod').value?.displayName}}</span></h3>
+                  <!--<h6 class="text-size-sm text-color-primary">{{'lbl_to' | translate}}</h6>-->
+                  <!--<h3 class="text-size-md font-medium text-color-primary">{{paymentDetailsForm.get('corpRefNo').value}}</h3>-->
+                    <ng-container class="ion-padding-bottom"><!--*ngIf="paymentDetailsForm.get('selectedCorporateAccount').value?.enrichments?.currencyCode != paymentDetailsForm.get('selectedCreditCurrency').value?.displayName"-->
+                      <h6 class="text-size-sm text-color-primary">{{'lbl_from' | translate}}</h6>
+                       <h6 class="text-size-sm text-color-primary">
+                         {{'lbl_acc' | translate}} <span class="debitAccount">{{paymentDetailsForm.get('selectedCorporateAccount').value?.displayName?.split('-')[0]}}</span>
+                         <br>
+                         <span class="debitAmount">{{paymentDetailsForm.get('selectedCorporateAccount').value?.enrichments?.currencyCode}}
+                           <span [innerHtml]="showDebitAmount"></span></span></h6>
+                        <h6 class="text-size-sm text-color-primary">{{'lbl_to' | translate}}</h6>
+                    <h6 class="text-size-sm text-color-primary">
+                      {{'lbl_acc' | translate}}  <span class="creditAccount">{{paymentDetailsForm.get('creditAccount').value?.displayName?.split('-')[0]}}</span>
+                      <br>
+                      <span class="transferAmount">{{paymentDetailsForm.get('creditAccount').value?.enrichments?.currencyCode}}
+                        <span [innerHtml]="showPayableAmount"></span></span>  </h6>
+                  </ng-container>
+                  <!--<ng-container *ngIf="paymentDetailsForm.get('selectedCorporateAccount').value?.enrichments?.currencyCode == paymentDetailsForm.get('creditAccount').value?.enrichments?.currencyCode">
+                    <h6 class="text-size-sm text-color-primary">
+                      <span class="transferAmount">{{ paymentDetailsForm.get('creditAccount').value?.enrichments?.currencyCode }} {{paymentDetailsForm.get('payableAmount').value}} </span>
+                      From Acc - {{}}
+                      <span class="debitAccount">{{paymentDetailsForm.get('selectedCorporateAccount').value?.displayName?.split('-')[0]}}</span>  </h6>
+
+                  </ng-container>-->
+                  <h3 class="text-size-md font-medium text-color-primary "><span class="corpRefNo">{{paymentDetailsForm.get('corpRefNo').value}}</span></h3>
+                  </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-center ion-padding ">
+            <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+              <ion-button class="default-button ion-text-capitalize" [disabled]="creatingRecord" expand="block" (click)="onPreviousFunc()" shape="round">
+                {{'lbl_cancel' | translate}}
+              </ion-button>
+            </ion-col>
+            <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+              <ion-button class="default-button ion-text-capitalize" [disabled]="creatingRecord || beneDetailsForm.invalid || paymentDetailsForm.invalid" expand="block" (click)="verifyDetails()" shape="round">
+                {{'lbl_submit' | translate}}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer class="ion-no-border" *ngIf="activeTabIndex!=2">
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-text-capitalize  ion-padding" (click)="onPreviousFunc()" *ngIf="activeTabIndex!=0">
+      Previous
+    </ion-buttons>
+    <ion-buttons slot="end" class="ion-text-capitalize ion-padding" (click)="onNextFunc()" *ngIf="activeTabIndex!=2">
+      Next
+    </ion-buttons>
+    <ion-buttons slot="end" class="ion-text-capitalize ion-padding" (click)="onFinishFunc($event)" *ngIf="activeTabIndex==2">
+      Finish
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+</ion-app>

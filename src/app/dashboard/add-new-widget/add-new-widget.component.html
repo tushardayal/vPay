@@ -1,0 +1,31 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+
+        <ion-button (click)="closeModal()">
+          <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+
+      </ion-buttons>
+      <ion-title>{{'lbl_all_widgets' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list class="ion-no-padding ion-no-margin">
+      <div (click)="addNewWidgets(widget.widgetName)" *ngFor="let widget of allWidgetsList">
+        <pending-authorization *ngIf="widget.widgetName =='PENDINGTRANSACTIONCOUNT'"></pending-authorization>
+        <process-queue *ngIf="widget.widgetName =='PROCESSQUEUECOUNT'"></process-queue>
+        <processing *ngIf="widget.widgetName == 'PROCESSINGTXNCOUNT'"></processing>
+        <account-summary-widget *ngIf="widget.widgetName == 'ACCOUNTSUMMARY'"></account-summary-widget>
+        <calender-events *ngIf="widget.widgetName == 'UPCOMINGEVENTS'"></calender-events>
+        <transaction-wise-summary *ngIf="widget.widgetName == 'TRANSACTIONWISESUMMARY'"></transaction-wise-summary>
+        <transaction-status-summary *ngIf="widget.widgetName == 'TRANSACTIONSTATUSSUMMARY'">
+        </transaction-status-summary>
+      </div>
+    </ion-list>
+    <app-no-record-found *ngIf="allWidgetsList.length === 0" [noRefresh]="true" msg="{{'lbl_no_widgets_available_to_add' | translate }}"></app-no-record-found>
+  </ion-content>
+</ion-app>
+

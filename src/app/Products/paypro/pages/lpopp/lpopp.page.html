@@ -1,0 +1,253 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons class="ion-no-padding ion-no-margin" slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{this.lpoppService.pageTitle}} - <span class="text-size-sm">{{headerText ? headerText : 'Intitate'}}</span></ion-title>
+        <ion-buttons class="ion-no-padding" slot="end">
+
+            <ion-button *ngIf="false" class="ion-no-padding ion-no-margin" class="ion-no-padding">
+                <ion-icon class="icon-font-md" name="ellipsis-vertical-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+    <ion-grid class="stepperGrid">
+        <ion-row>
+            <ion-col
+                    *ngFor="let item of ionSegmentArray;let currIndex=index"
+                    [ngClass]="{'ion-align-self-center': true,'active-block':currIndex==activeTabIndex,'text-color-light':currIndex!=activeTabIndex}"
+                    size="4">
+                <ion-label class="ion-text-center">
+                    <h2 class="text-size-sm ion-text-center">
+                        <ion-avatar *ngIf="currIndex==activeTabIndex">
+                            <text-avatar [color]="activeColor" [text]="''+item.sectionNo"></text-avatar>
+                        </ion-avatar>
+                        <ion-avatar *ngIf="currIndex!=activeTabIndex">
+                            <text-avatar [color]="item.color" [text]="''+item.sectionNo"></text-avatar>
+                        </ion-avatar>
+                    </h2>
+                    <h2 class="text-size-sm ion-text-center font-regular ion-text-wrap ">{{item.displayName}}</h2>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+<ion-content fullscreen="true">
+
+    <ion-slides #wizardSlider (ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideReachEnd)="ionSlideReachEnd($event)" (ionSlideReachStart)="ionSlideReachStart($event)"
+                [options]="{onlyExternal: false}" class="background-size"
+                pager="false">
+        <ion-slide>
+            <ion-content class="ion-padding no-padding-top" *ngIf="paymentDetailsForm" >
+                <form [formGroup]="paymentDetailsForm">
+                    <ion-item class="ion-no-padding">
+                        <ion-label position="stacked">{{'lbl_value_date' | translate}}
+                            <ion-text color="danger">*</ion-text>
+                        </ion-label>
+                        <ion-datetime [displayFormat]="globalDateFormat" formControlName="valueDate" readonly></ion-datetime>
+                    </ion-item>
+                    <ion-item class="ion-no-padding" *ngIf="institutionTypeList?.length > 0">
+                        <ion-label position="floating">Institution Type
+                            <ion-text color="danger">*</ion-text>
+                        </ion-label>
+                        <ion-select (ionChange)="onChangeInstitution()"
+                                    [interface]="environment.SELECT_INTERFACE"
+                                    formControlName="institutionType"
+                                    class="text-size-p ion-text-capitalize"
+                                    placeholder="{{'lbl_please_select' | translate}}">
+                            <ion-select-option
+                                    *ngFor="let item of institutionTypeList"
+                                    [value]="item" class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                            </ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <errorMsg class="ion-no-padding ion-no-margin"
+                              [control]="paymentDetailsForm.controls['institutionType']"
+                              errMsg="{{'Please Select'|apsTraslate}} {{'Institution Type'|apsTraslate}}" >
+                    </errorMsg>
+                    <ion-item class="ion-no-padding" *ngIf="debitAccountList$|async">
+                        <ion-label position="floating">Debit from account
+                            <ion-text color="danger">*</ion-text>
+                        </ion-label>
+                        <ion-select (ionChange)="onChangeDebitAccount()"
+                                    [interface]="environment.SELECT_INTERFACE"
+                                    formControlName="debitAccount"
+                                    class="text-size-p ion-text-capitalize"
+                                    [interfaceOptions]="{cssClass: 'group-custom-interface'}"
+                                    placeholder="{{'lbl_please_select' | translate}}">
+                            <ion-select-option *ngFor="let item of debitAccountList$|async" [disabled]="!item.id"
+                                               [value]="item" class="ion-no-padding text-size-p ion-text-capitalize">
+                                {{item.displayName}} <span *ngIf="item.enrichments">- {{item.enrichments?.currencyCode}}</span>
+                            </ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <errorMsg class="ion-no-padding ion-no-margin"
+                              [control]="paymentDetailsForm.controls['debitAccount']"
+                              errMsg="{{'Please Select'|apsTraslate}} {{'Debit from account'|apsTraslate}}" >
+                    </errorMsg>
+                </form>
+                <ng-container [ngSwitch]="institutionType?.id">
+                    <ng-container *ngSwitchCase="'IRDP'">
+                        <app-irdp-form  #selectedInstitutionSearchForm></app-irdp-form>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'SLPAP'">
+                        <app-slpap-form  #selectedInstitutionSearchForm></app-slpap-form>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'EPFP'">
+                        <app-epfp-form #selectedInstitutionSearchForm></app-epfp-form>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'CICTP'">
+                        <ion-item class="ion-no-padding ">
+                            <ion-label position="floating">Search By
+                                <ion-text color="danger">*</ion-text>
+                            </ion-label>
+                            <ion-select *ngIf="cictpSearchByList?.length>0" [(ngModel)]="cictpSearchBy"
+                                        [interface]="environment.SELECT_INTERFACE"
+                                        class="text-size-p ion-text-capitalize" placeholder="Tax type">
+                                <ion-select-option *ngFor="let item of cictpSearchByList"
+                                                   [value]="item"
+                                                   class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                                </ion-select-option>
+                            </ion-select>
+                        </ion-item>
+
+                        <ng-container *ngIf="cictpSearchBy">
+                            <ion-item *ngIf="cictpSearchBy.id ==='CustdecNo'" class="ion-no-padding ">
+                                <ion-label position="floating"> CustdecNo
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="13" placeholder="CustdecNo"
+                                           required type="text"></ion-input>
+                            </ion-item>
+                            <ion-item *ngIf="cictpSearchBy.id ==='containerNo'" class="ion-no-padding ">
+                                <ion-label position="floating"> Container No
+                                    <ion-text color="danger">*</ion-text>
+                                </ion-label>
+                                <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="13" placeholder="Container No"
+                                           required type="text"></ion-input>
+                            </ion-item>
+                        </ng-container>
+                        <!--<ion-row class="ion-justify-content-center">
+                                <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+                                    <ion-button class="default-button ion-text-capitalize" expand="block" (click)="getContainersList()" shape="round">
+                                        Fetch details
+                                    </ion-button>
+                                </ion-col>
+                                <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+                                    <ion-button class="default-button ion-text-capitalize" expand="block" (click)="verifyDetails()" shape="round">
+                                        Reset
+                                    </ion-button>
+                                </ion-col>
+                            </ion-row>-->
+                    </ng-container>
+                </ng-container>
+            </ion-content>
+        </ion-slide>
+        <ion-slide><!--Slide2 -->
+            <ion-content class="ion-padding" *ngIf="institutionType?.id">
+                <ng-container [ngSwitch]="institutionType?.id">
+                    <ng-container *ngSwitchCase="'SLCP'">
+                        <app-slcp #selectedInstitutionType></app-slcp>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'IRDP'">
+                        <app-irdp #selectedInstitutionType></app-irdp>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'SLPAP'">
+                        <app-slpap #selectedInstitutionType></app-slpap>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'EPFP'">
+                        <app-epfp #selectedInstitutionType></app-epfp>
+                    </ng-container>
+                    <!--<ng-container *ngSwitchDefault>
+                        &lt;!&ndash;<app-lpopp-modal (transactionData)="setTransactionData($event)"
+                                         [institution]="institutionType"></app-lpopp-modal>&ndash;&gt;
+                        <app-det-listing #selectedInstitutionType></app-det-listing>
+                    </ng-container>-->
+                </ng-container>
+            </ion-content>
+        </ion-slide>
+        <ion-slide><!--Slide3-->
+            <ion-content [ngSwitch]="institutionType?.id" class="ion-no-padding" *ngIf="activeTabIndex == 2">
+                <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+                    <app-lpopp-common-view [data]="lpoppService.lpoppData"></app-lpopp-common-view>
+                    <ng-container *ngSwitchCase="'SLCP'">
+                        <app-slcp-view [data]="lpoppService.lpoppData"></app-slcp-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'IRDP'">
+                        <app-irdp-view [data]="lpoppService.lpoppData"></app-irdp-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'SLPAP'">
+                        <app-slpap-view [data]="lpoppService.lpoppData"></app-slpap-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'EPFP'">
+                        <app-epfp-view [data]="lpoppService.lpoppData"></app-epfp-view>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'CICTP'">
+                        <!--<ion-list class="">
+                            &lt;!&ndash;<ion-item lines="none" class="ion-no-padding">
+                                <ion-button size="small" style="width: 100%" expand="block" (click)="refetch()">Re-fetch details</ion-button>
+                            </ion-item>&ndash;&gt;
+                            <ion-item-group *ngFor="let transaction of transactionData; index as i">
+                                <ion-item-divider class="ion-no-padding">
+                                    <ion-label class="ion-text-center text-color-primary"
+                                               style="width: 100%">{{transaction[0].displayName}}
+                                        - {{transaction[0].value}}</ion-label>
+                                </ion-item-divider>
+
+                                <ion-item *ngFor="let item of transaction| slice:1:transaction.length"
+                                          class="ion-no-padding">
+                                    <ion-label class="ion-no-padding">
+                                        <h3 class="text-color-primary font-regular ion-text-wrap">{{item.displayName}}</h3>
+                                        <p class="text-size-p font-regular text-color-primary ion-text-wrap">{{item.value}}</p>
+                                    </ion-label>
+                                </ion-item>
+                            </ion-item-group>
+                            <ion-item-divider class="ion-no-padding">
+                                <ion-item class="ion-no-padding" style="width: 100%">
+                                    <ion-label><strong>Grand Total</strong></ion-label>
+                                    <ion-note color="primary" slot="end"><h4>{{cictpTransactionTotal| currency:'':''}}</h4>
+                                    </ion-note>
+                                </ion-item>
+                            </ion-item-divider>
+                        </ion-list>-->
+                    </ng-container>
+                </ion-list>
+                <ion-grid>
+                    <ion-row class="ion-justify-content-center ion-padding ">
+                        <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+                            <ion-button (click)="onPreviousFunc()" [disabled]="lpoppService.creatingRecord$|async"
+                                        class="default-button ion-text-capitalize" expand="block" shape="round">
+                                {{'lbl_cancel' | translate}}
+                            </ion-button>
+                        </ion-col>
+                        <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+                            <ion-button (click)="verifyDetails()" [disabled]="lpoppService.creatingRecord$|async"
+                                        class="default-button ion-text-capitalize" expand="block" shape="round">
+                                {{'lbl_submit' | translate}}
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-content>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
+
+<ion-footer *ngIf="activeTabIndex!=2" class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons *ngIf="activeTabIndex!=0" class="ion-text-capitalize  ion-padding" slot="start" >
+            <ion-button (click)="onPreviousFunc()"
+                        class="ion-no-padding ion-no-margin">Previous</ion-button>
+        </ion-buttons>
+        <ion-buttons  *ngIf="activeTabIndex!=2" class="ion-text-capitalize ion-padding" slot="end" >
+            <ion-button (click)="onNextFunc()"
+                        class="ion-no-padding ion-no-margin">Next</ion-button><!--[disabled]="validatedNxtBtn()"-->
+        </ion-buttons>
+        <ion-buttons  *ngIf="activeTabIndex==2" class="ion-text-capitalize ion-padding"  slot="end">
+            <ion-button (click)="onFinishFunc($event)"
+                  class="ion-no-padding ion-no-margin">Finish</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>
+

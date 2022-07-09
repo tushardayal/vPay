@@ -1,0 +1,30 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [{
+    "id": "LETTEROFCREDIT",
+    "displayName": "Letter of Credit"
+  }, {
+    "id": "LETTEROFCREDITAMEND",
+    "displayName": "Letter of Credit Amend"
+  }, {
+    "id": "SHIPPINGGUARANTEE",
+    "displayName": "Shipping Guarantee"
+  }, {
+    "id": "TRADEBILLACCEPTANCE",
+    "displayName": "Bill Acceptance"
+  }, {
+    "id": "TRADEBILLPAYMENTREQUEST",
+    "displayName": "Bill Payment And Apply Finance"
+  }, {
+    "id": "IMPORTREQUESTFINANCE",
+    "displayName": "Request Finance - Import"
+  }, {
+    "id": "OTT",
+    "displayName": "OTT Request"
+  }],
+  "entityIdentifier": "",
+  "loggable": false
+}

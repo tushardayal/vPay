@@ -1,0 +1,18 @@
+ion-list {
+  /*
+    padding-bottom: 0px;
+    padding-right: 16px;
+  }*/
+  ion-item-sliding{
+    background: var(--cs-background-accent);
+  }
+
+  ion-item{
+    --inner-padding-end: 0px!important;
+    --inner-padding-top: 5px!important;
+    --inner-padding-bottom: 5px!important;
+  }
+
+}
+sup{top:-0.2em!important;}
+.spanBorder{display:inline-block; border: 1px solid #e20883; padding: 0 4px}

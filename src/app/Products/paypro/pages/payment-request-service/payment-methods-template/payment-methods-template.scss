@@ -1,0 +1,22 @@
+
+ion-input{
+  width: 100% !important;
+}
+ion-item{
+  --inner-padding-end: 0px;
+}
+.bicCodeSearchButton{
+  border-bottom: var(--border);
+}
+
+.custom-grid{
+  width: 100%;
+  padding: 0px;
+  ion-row{
+    padding: 0px;
+  }
+  ion-col{
+    padding: 0px;
+    padding-top: 4px;
+  }
+}

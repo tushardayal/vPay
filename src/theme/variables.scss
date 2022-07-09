@@ -1,0 +1,1283 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+//////////////////////////////////////////////////
+// Theme: Ionic  UI Theme/Template App - Letto
+// Web Site: https://csform.com/
+// Author: CSFORM
+// Email support:  dev@csform.com
+//////////////////////////////////////////////////
+/** Ionic CSS Variables **/
+
+:root {
+
+  /* Settings Fonts Size And Icon Size
+      =======================================================
+      =======================================================*/
+
+  --fallback-color: #e20883;
+  --h1-font-size: 24px;
+  --h2-font-size: 20px;
+  --h3-font-size: 17px;
+  --h4-font-size: 16px;
+  --h5-font-size: 15px;
+  --h6-font-size: 12px;
+  --text-font-size: 14px;
+
+  /* Settings Fonts Size Icon
+      =======================================================
+      =======================================================*/
+
+  --icon-size-small: 17px;
+  --icon-size-medium: 22px;
+  --icon-size-large: 32px;
+  --icon-size-extra-large: 48px;
+
+  /* Settings Color Background Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-background-primary: #FFFFFF;
+  --cs-background-secondary: #d6e1e5;
+  --cs-background-accent: #003466;
+  --cs-background-dark: #23282c;
+  --cs-background-border: #B7b9be;
+  --ion-color-success-shade: #10a6dc;
+
+  /* Settings Color Text Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-text-primary: #23282c;
+  --cs-text-secondary: #fff;
+  --cs-text-accent: #e20883;
+  --cs-text-dark: #003466;
+  --cs-text-light:#959a9e;/*added for light color of menu*/
+
+  /* Settings Size Avatar
+=======================================================
+=======================================================*/
+
+  --size-avatar: 50px;
+
+  /* Settings Size Thumbnail
+=======================================================
+=======================================================*/
+
+  --size-thumbnail: 50px;
+
+  /* Settings Border Radius
+=======================================================
+=======================================================*/
+
+  --border-radius: 8px;
+  /* Settings Color Icon
+=======================================================
+=======================================================*/
+
+  --cs-icon-color-primary: #003466;
+  --cs-icon-color-secondary: #ffffff;
+  --cs-icon-color-accent: #e20883;
+  --ion-color-colorRed: #e20883;
+
+  --super-tabs-toolbar-background: var(--cs-background-accent);
+  --super-tabs-toolbar: var(--cs-text-secondary);
+  --super-tab-width: 100%;/*added for resolve issue related to iPad and iPad mini SuperTab container width - resolve issue on dashboard and Transactions listing pages*/
+  --st-indicator-color: var(--cs-background-primary);
+
+}
+
+// Oder Color Combination
+
+@import "themes-color/pomegranate";
+@import "themes-color/vida-loca";
+@import "themes-color/lochmara";
+@import "themes-color/meteor";
+
+@import "themes-color/styleNtb";
+@import "themes-color/styleVShare";
+@import "themes-color/tote-mole";
+@import "themes-color/tropical-rain-forest";
+@import "themes-color/congress-blue";
+@import "themes-color/brown";
+@import "themes-color/jazzberry-jam";
+
+/* Setting Avatar
+=======================================================
+=======================================================*/
+
+ion-avatar {
+  height: var(--size-avatar, 50px);
+  width: var(--size-avatar, 50px);
+  margin: 4px 0;
+  overflow: visible;
+}
+
+.ios {
+  ion-avatar {
+    margin: 4px 0;
+  }
+}
+
+/* Setting Thumbnail
+=======================================================
+=======================================================*/
+
+ion-thumbnail {
+  height: var(--size-thumbnail, 50px);
+  width: var(--size-thumbnail, 50px);
+}
+
+.ios {
+  ion-thumbnail {
+    margin: 4px 0;
+  }
+}
+
+/* SETTINGS ION-HEADER
+=======================================================
+=======================================================*/
+
+.header-md:after {
+  background-image: none !important;
+}
+
+/* SETTINGS TOOLBAR
+=======================================================
+=======================================================*/
+
+ion-toolbar {
+  --background: var(--cs-background-dark);
+  --color: var(--cs-text-secondary);
+  --border-color: transparent;
+
+  [slot=start] {
+    margin-inline-end: 0;
+  }
+
+  ion-back-button,
+  ion-menu-button {
+    --background-focused: transparent !important;
+    --background-hover: transparent !important;
+    --color: var(--cs-text-secondary) !important;
+    --color-hover: var(--cs-text-accent) !important;
+    --color-focused: var(--cs-text-accent) !important;
+  }
+
+  ion-title {
+    font-weight: 400 !important;
+    font-size: var(--h4-font-size,16px) !important;
+  }
+}
+
+/* INCLUDE FONTS
+=======================================================
+=======================================================*/
+@import "fontello";
+@import "fonts";
+@import "rtl";
+@import "animation";
+
+body {
+  --ion-font-family: 'Roboto', sans-serif;
+  font-weight: normal!important;
+  font-style: normal;
+  font-size: var(--text-font-size)!important;
+  color: var(--cs-text-primary) !important;
+}
+
+/* SETTINGS FONT SIZE
+=======================================================
+=======================================================*/
+
+.text-size-xl {
+  font-size: var(--h1-font-size, 24px) !important;
+  line-height: 29px;
+  /*letter-spacing: 1px;*/
+}
+
+.text-size-lg {
+  font-size: var(--h2-font-size, 20px) !important;
+  line-height: 27px;
+  /*letter-spacing: 1px;*/
+}
+
+.text-size-md {
+  font-size: var(--h3-font-size, 17px) !important;
+  line-height: 22px;
+  /*letter-spacing: 1px;*/
+}
+
+.text-size-xs {
+  font-size: var(--h4-font-size, 16px) !important;
+  line-height: 20px;
+  /*letter-spacing: 1px;*/
+}
+
+.text-size-sm {
+  font-size: var(--h5-font-size, 15px) !important;
+  line-height: 18px;
+  /*letter-spacing: 1px;*/
+}
+
+.text-size-sd {
+  font-size: var(--h6-font-size, 12px) !important;
+  line-height: 18px;
+ /* letter-spacing: 1px;*/
+}
+
+.text-size-p {
+  font-size: var(--text-font-size, 14px) !important;
+  line-height: 20px;
+  /*letter-spacing: 1px;*/
+}
+
+.text-nowrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* SETTINGS FONT WEIGHT
+=======================================================
+=======================================================*/
+
+.font-light {
+  font-weight: 300 !important;
+}
+
+.font-regular {
+  font-weight: 400 !important;
+}
+
+.font-medium {
+  font-weight: 700 !important;
+}
+
+.font-bold {
+  font-weight: 900 !important;
+}
+
+/* SETTINGS COLOR
+=======================================================
+=======================================================*/
+
+.text-color-primary {
+  color: var(--cs-text-primary) !important;
+}
+
+.text-color-secondary {
+  color: var(--cs-text-secondary) !important;
+}
+
+.text-color-accent {
+  color: var(--cs-text-accent) !important;
+}
+
+.text-color-light {
+  color: var(--cs-text-light) !important; /*added for light color of menu*/
+}
+
+.text-color-dark {
+  color: var(--cs-text-dark) !important;
+}
+.error-color {
+  color: #e20883 !important;
+}
+
+/* SETTINGS ICON COLOR
+=======================================================
+=======================================================*/
+
+.icon-color-primary {
+  color: var(--cs-icon-color-primary) !important;
+}
+
+.icon-color-secondary {
+  color: var(--cs-text-secondary) !important;
+}
+
+.icon-color-accent {
+  color: var(--cs-icon-color-accent) !important;
+}
+
+/* SETTINGS ICON FONT
+=======================================================
+=======================================================*/
+.icon-font-xsm {
+  font-size: var(--icon-size-small, 14px) !important;
+}
+
+.icon-font-sm {
+  font-size: var(--icon-size-small, 17px) !important;
+}
+
+.icon-font-md {
+  font-size: var(--icon-size-medium, 22px) !important;
+}
+
+.icon-font-lg {
+  font-size: var(--icon-size-large, 32px) !important;
+}
+
+.icon-font-xl {
+  font-size: var(--icon-size-extra-large, 48px) !important;
+}
+
+/* SETTINGS ICON ROUND
+=======================================================
+=======================================================*/
+
+.icon-round {
+  padding: 10px;
+  background: var(--cs-background-accent,);
+  border-radius: 50%;
+}
+
+/* SETTINGS COLOR BACKGROUND OUR APP
+=======================================================
+=======================================================*/
+
+ion-page {
+  background: var(--cs-background-primary);
+}
+
+ion-content {
+  --background: var(--cs-background-primary);
+}
+
+ion-list {
+  padding-top: 0 !important;
+  background: var(--cs-background-primary) !important;
+}
+
+ion-list-header {
+  background: var(--cs-background-primary) !important;
+}
+
+/* SETTINGS ITEM SLIDING
+=======================================================
+=======================================================*/
+
+.ios {
+  ion-item-options {
+    border: none;
+  }
+}
+
+ion-item-option {
+  --background: var(--cs-background-primary);
+  width: auto;
+}
+
+/* SETTINGS ITEM
+=======================================================
+=======================================================*/
+
+ion-item {
+  --background-hover: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --ripple-color: transparent;
+
+  [slot=start] {
+    margin-inline-end: 0 !important;
+  }
+}
+
+.default-item {
+  --background-hover: transparent;
+  --background: var(--cs-background-primary);
+  background: var(--cs-background-primary) !important;
+  /*margin: 8px;*/
+ /* width: calc(100% - 14px) !important;*/ /*comment for menu right space hide*/
+  border-radius: 0;
+  overflow: hidden;
+
+}
+.ion-item-border{
+  border: 1px solid var(--cs-background-border);
+  padding: 4px!important;
+}
+
+
+ion-item-divider {
+  --background: var(--cs-background-secondary);
+  border: none;
+
+  [slot=start]{
+    margin-inline-end: 0 !important;
+  }
+}
+
+/* SETTINGS MAIN MENU
+=======================================================
+=======================================================*/
+
+.ion-menu-toggle,
+ion-menu-toggle {
+  .icon-small {
+    margin-right: 10px;
+  }
+
+  ion-label {
+    overflow: hidden !important;
+
+    h1 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+/* SETTINGS BUTTON SIZE
+=======================================================
+=======================================================*/
+
+ion-button {
+  --ripple-color: transparent !important;
+  --opacity: 1;
+  margin: 0;
+}
+
+.default-button {
+  --color: var(--cs-text-secondary);
+  --background: var(--cs-background-accent);
+  background: var(--cs-background-accent);
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --box-shadow: none;
+  /*margin: 3px;*/
+  border-radius: 3px;
+  --border-radius: 3px;
+  font-size: var(--h5-font-size);
+  height: auto;
+  border: 1px solid var(--cs-background-border);
+  /*--background-hover: var(--cs-background-primary) !important;
+  --color-focused: var(--cs-text-accent) !important;
+  --color-activated: var(--cs-text-accent) !important;
+  --color-hover: var(--cs-text-accent) !important;*/
+  //box-shadow: 3px 3px 0 var(--cs-background-border) !important;
+
+  &.activated {
+    box-shadow: 3px 3px 0 transparent !important;
+  }
+}
+
+.button-top-icon {
+  height: auto;
+  --background-hover: transparent;
+
+  ion-label {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.button-icon {
+  --background: transparent !important;
+  --color: var(--cs-text-primary) !important;
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  font-size: var(--h5-font-size, 15px) !important;
+  font-weight: 400 !important;
+  --box-shadow: none;
+  --background-hover: transparent !important;
+  --color-focused: var(--cs-text-primary) !important;
+  --color-activated: var(--cs-text-primary) !important;
+  --color-hover: var(--cs-text-primary) !important;
+
+  [slot=start] {
+    margin-inline-end: 8px !important;
+  }
+
+  [slot=end] {
+    margin-inline-start: 8px !important;
+  }
+}
+
+.button-clear {
+  --background: transparent !important;
+  --color: var(--cs-text-secondary)!important;
+  --box-shadow: none;
+  font-size: var(--text-size-p,14px) !important;
+  font-weight: 300 !important;
+  --background-hover: transparent !important;
+  --color-hover: var(--cs-text-primary)!important;
+  --color-activated: var(--cs-text-primary)!important;
+  --color-focused: var(--cs-text-primary)!important;
+}
+
+ion-ripple-effect {
+  color: transparent;
+}
+
+/* SETTINGS INPUT FIELD
+=======================================================
+=======================================================*/
+
+ion-input {
+  --placeholder-color: var(--cs-text-primary) !important;
+  --color: var(--cs-text-primary) !important;
+  --placeholder-opacity: 0.5 !important; /*for opacity of placeholder*/
+  font-size: var(--text-size-p, 14px) !important;
+  /*box-shadow: 3px 3px 0 var(--cs-background-border) !important;
+  border-radius: 24px;
+  --border-radius: 24px;
+  border: 3px solid var(--cs-background-border);*/
+  /*background: var(--cs-background-primary) !important;*/
+  /*border-bottom: 1px solid var(--cs-background-border);*/
+  /*margin: 8px 16px 16px;*/
+  width: calc(100% - 32px) !important;
+  --padding-bottom: 0!important;
+}
+/*added mew class for border, because placeholder border conflicted at the time of data validation.*/
+ion-input {
+  &.custom-input {
+    border-bottom: none !important;
+  }
+}
+/* SETTINGS TEXTAREA
+=======================================================
+=======================================================*/
+
+ion-textarea {
+  --placeholder-color: var(--cs-text-primary) !important;
+  /*--color: var(--cs-text-accent) !important;*/
+  --color: var(--cs-text-primary) !important;
+  /*--placeholder-opacity: 1 !important;*/
+  --placeholder-opacity: 0.5 !important; /*for opacity of placeholder*/
+}
+
+/* SETTINGS CHECK BOX
+=======================================================
+=======================================================*/
+
+ion-checkbox {
+  --background: transparent;
+  --background-checked: var(--cs-background-accent);
+  --border-color-checked: var(--cs-background-accent);
+  --border-color: var(--cs-background-dark);
+  /*--border-radius: 4px;
+  --border-width: 2px;*/
+  --checkmark-color: var(--cs-text-secondary);
+}
+
+/* SETTINGS TOOGLE
+=======================================================
+=======================================================*/
+
+ion-toggle {
+  /*--background: var(--cs-background-secondary);*/
+  --background-checked: var(--cs-background-accent);
+  --handle-background: var(--cs-background-primary);
+  --handle-background-checked: var(--cs-background-primary);
+  padding-inline-start: 4px;
+  padding-inline-end: 4px;
+}
+
+/* SETTINGS RADIO
+=======================================================
+=======================================================*/
+
+ion-radio {
+  --color: var(--cs-background-dark);
+  --color-checked: var(--cs-background-accent);
+}
+
+/* SETTINGS TABS
+=======================================================
+=======================================================*/
+
+ion-tab-bar {
+  --background: var(--cs-background-primary);
+  --border: none;
+}
+
+ion-tab-button {
+  font-size: var(--h5-font-size, 15px);
+  --color: var(--cs-text-primary);
+  --color-selected: var(--cs-text-accent);
+  --ripple-color: transparent;
+}
+
+/* SETTINGS RANGE
+=======================================================
+=======================================================*/
+
+ion-range {
+  --knob-background: var(--cs-background-accent);
+  --bar-background-active: var(--cs-background-accent);
+  --bar-background: var(--cs-background-dark);
+  --pin-background: var(--cs-background-accent);
+}
+
+/* SETTINGS ION-BADGE
+=======================================================
+=======================================================*/
+
+ion-badge {
+  --background: var(--cs-background-accent);
+  --color: var(--cs-text-secondary);
+  --padding-bottom: 15px;
+  --padding-end: 12px;
+  --padding-start: 12px;
+  --padding-top: 15px;
+  border-radius: 0;
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--h5-font-size, 15px);
+  line-height: 14px;
+}
+
+
+ion-chip {
+  --color: var(--cs-text-secondary);
+  line-height: 1px;
+
+  &.activated {
+    background: transparent !important;
+
+    ion-ripple-effect {
+      display: none !important;
+    }
+  }
+}
+
+/* SETTINGS SEARCHBAR
+=======================================================
+=======================================================*/
+/* using default searchbar css */
+ion-searchbar {
+  background: var(--cs-background-primary) !important;
+  --background: var(--cs-background-primary) !important;
+  --cancel-button-color: var(--cs-text-primary) !important;
+  --clear-button-color: var(--cs-text-primary) !important;
+  --color: var(--cs-text-primary) !important;
+  --icon-color: var(--cs-text-primary) !important;
+  --placeholder-color: var(--cs-text-primary) !important;
+  --placeholder-opacity: 1 !important;
+  /*box-shadow: 3px 3px 0 var(--cs-background-border) !important;*/
+  border-radius: 0px;
+  //--border-radius: 24px;
+  border: 1px solid var(--cs-background-border);
+  background: var(--cs-background-primary) !important;
+  //margin: 8px 16px 16px;
+  //width: calc(100% - 32px) !important;
+
+  input {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+}
+
+
+
+/*using default searchbar css*/
+ion-searchbar1 {
+  background: var(--cs-background-primary) !important;
+  --background: var(--cs-background-primary) !important;
+  --cancel-button-color: var(--cs-text-primary) !important;
+  --clear-button-color: var(--cs-text-primary) !important;
+  --color: var(--cs-text-primary) !important;
+  --icon-color: var(--cs-text-primary) !important;
+  --placeholder-color: var(--cs-text-primary) !important;
+  --placeholder-opacity: 1 !important;
+  box-shadow: 3px 3px 0 var(--cs-background-border) !important;
+  border-radius: 4px;
+  --border-radius: 4px;
+  border: 3px solid var(--cs-background-border);
+  background: var(--cs-background-primary) !important;
+  margin: 8px 16px 8px;
+  width: calc(100% - 32px) !important;
+
+  input {
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+}
+
+
+/* SETTINGS SEGMENTS
+=======================================================
+=======================================================*/
+
+ion-segment-button {
+  --ripple-color: transparent;
+  --color: var(--cs-text-primary);
+  --color-checked: var(--cs-text-accent);
+  --background-checked: transparent;
+}
+
+/* SETTINGS SEGMENTS FOR IOS
+=======================================================
+=======================================================*/
+
+.ios {
+  ion-segment {
+    min-height: 65px !important;
+
+    ion-segment-button {
+      border-color: transparent !important;
+      max-width: none !important;
+      min-width: 100px !important;
+    }
+  }
+
+  .segment-button-checked {
+    border-bottom: 2px solid var(--cs-background-accent) !important;
+  }
+}
+
+/* SETTINGS WIZARD
+=======================================================
+=======================================================*/
+.swiper-pagination-bullet{
+  border: 1px solid var(--cs-background-dark);
+  background: var(--cs-background-dark);
+}
+.swiper-pagination-bullet-active {
+  --bullet-background: var(--cs-background-accent) !important;
+  background: var(--bullet-background) !important;
+  border: 1px solid var(--bullet-background);
+}
+.swiper-pagination.swiper-pagination-bullets {
+  bottom:0px !important;
+}
+
+/*cs-wizard-layout-1 {
+  .swiper-pagination-bullet-active {
+    --bullet-background: var(--cs-background-dark) !important;
+    background: var(--bullet-background) !important;
+  }
+
+  .swiper-pagination.swiper-pagination-bullets {
+    top: 30px !important;
+    bottom: 30px !important;
+  }
+}
+
+cs-wizard-layout-2 {
+  .swiper-pagination-bullet-active {
+    --bullet-background: var(--cs-background-dark) !important;
+    background: var(--bullet-background) !important;
+  }
+
+  .swiper-pagination.swiper-pagination-bullets {
+    top: 10px !important;
+    bottom: 10px !important;
+  }
+}
+
+cs-wizard-layout-3 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 80px !important;
+  }
+}
+
+cs-wizard-layout-4 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 15px !important;
+  }
+}
+
+cs-profile-layout-2 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: -35px !important;
+  }
+}
+
+cs-profile-layout-4 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+}
+
+cs-action-sheet-layout-2 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 5px !important;
+  }
+}*/
+
+/* Default Overview Ionic Section
+=======================================================
+=======================================================*/
+
+.background-size {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+[slot=end] {
+  margin-inline-start: 0;
+}
+
+/*[slot=start] {
+  margin-inline-end: 14px;
+}
+
+.ios {
+  [slot=start] {
+    margin-inline-end: 14px;
+  }
+}*/
+
+.no-margin-top {
+  margin-top: 0 !important;
+}
+
+.padding-half {
+  padding: 8px!important;
+}
+.margin-half {
+  margin: 8px!important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.margin-half-left {
+  margin-left: 8px!important;
+}
+.margin-half-top {
+  margin-top: 8px!important;
+}
+.margin-half-bottom {
+  margin-bottom: 8px!important
+}
+
+.margin-half-right {
+  margin-right:8px!important
+}
+
+html[dir=ltr] {
+  .no-padding-left {
+    padding-left: 0 !important;
+  }
+
+  .no-padding-right {
+    padding-right: 0 !important;
+  }
+
+  .no-margin-left {
+    margin-left: 0 !important;
+  }
+
+  .no-margin-bottom {
+    margin-bottom: 0 !important;
+  }
+}
+
+.border-radius {
+  border-radius: 8px;
+  --border-radius: 8px;
+}
+
+.no-border-radius {
+  border-radius: 0;
+  --border-radius: 0;
+}
+
+.background-primary {
+  --background: var(--cs-background-primary);
+  background: var(--cs-background-primary);
+}
+
+.background-secondary {
+  background: var(--cs-background-secondary) !important;
+  --background: var(--cs-background-secondary) !important;
+}
+
+.background-accent {
+  --background: var(--cs-background-accent);
+  background: var(--cs-background-accent);
+}
+
+.background-dark {
+  --background: var(--cs-background-dark);
+  background: var(--cs-background-dark);
+}
+
+.transparent {
+  --background: transparent;
+  background: transparent;
+}
+
+.no-box-shadow {
+  box-shadow: none !important;
+}
+
+.box-shadow {
+  box-shadow: 0 1px 10px rgba(199, 199, 204, 1) !important;
+  position: relative;
+  z-index: 999;
+}
+
+.clearfix {
+  display: block;
+  clear: both;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.z-index-1 {
+  position: relative;
+  z-index: 999;
+}
+
+/* Settings Spinner
+================================================
+================================================*/
+
+ion-spinner {
+  width: 40px;
+  height: 40px;
+  color: var(--cs-background-accent) !important;
+}
+
+cs-spinner {
+  &.svg-size {
+    font-size: 45px;
+    color: var(--cs-background-accent) !important;
+    stroke: var(--cs-background-accent) !important;
+    fill: var(--cs-background-accent) !important;
+  }
+}
+
+/* Settings Reorder Group
+================================================
+================================================*/
+
+ion-reorder-group {
+  ion-item {
+    --inner-padding-end: 0 !important;
+  }
+
+  ion-reorder {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    background: var(--cs-background-accent) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Settings Picker
+================================================
+================================================*/
+
+ion-picker {
+  --background: var(--cs-background-primary);
+
+  .picker-button {
+    color: var(--cs-text-accent);
+  }
+
+  .picker-opt {
+    color: var(--cs-text-primary);
+  }
+
+  .picker-opt-selected {
+    color: var(--cs-text-accent);
+  }
+}
+
+/* Settings Datatime
+================================================
+================================================*/
+
+ion-datetime {
+  /*--placeholder-color: var(--cs-text-primary) !important;*/
+  padding: 10px 0 0 0!important;
+  font-size:small;
+}
+
+/* Settings Select
+================================================
+================================================*/
+
+ion-select {
+  color: var(--cs-text-primary) !important;
+}
+
+/* Settings Alert
+================================================
+================================================*/
+
+ion-alert {
+  .alert-wrapper {
+    background: var(--cs-background-primary) !important;
+
+    .alert-head {
+      border-bottom: 1px solid var(--cs-background-border);/*added this for generic alert-header*/
+      .alert-title {
+        font-size:  var(--text-font-size, 14px) !important; /*decrase font size*/
+        font-weight: bold !important;/*added bold for differentiate  */
+        color: var(--cs-text-primary) !important;
+      }
+
+      .alert-sub-title {
+        font-size:  var(--text-font-size, 14px) !important;/*decrase font size*/
+        font-weight: bold !important; /*added bold for differentiate */
+        color: var(--cs-text-primary) !important;
+      }
+    }
+
+    .alert-message {
+      /*padding-top: 10px !important;!*added space for differentiate *!*//*commented by chitra*/
+      color: var(--cs-text-dark) !important;
+      font-weight: bold !important;
+      font-size: var(--text-font-size, 14px);/*decrase font size*/
+    }
+
+    .alert-radio-group {
+      // border-top: 1px solid var(--cs-background-border); /*comments this for generic and added into .alert-head*/
+      border-top: none; /*comments this for generic and added into .alert-head*/
+      border-bottom: none;
+      
+/*added new class for adjest middle data of alert*/
+      .alert-radio-label.sc-ion-alert-md {
+        padding-inline-start: 25px !important;
+        padding-inline-end: 4px !important;
+      }
+      .alert-radio-icon.sc-ion-alert-md {
+        left: 15px !important;        
+      }
+      .alert-tappable.sc-ion-alert-md {
+        height: 35px !important;
+      }
+      .alert-radio-label {
+        font-size: var(--text-font-size, 14px) !important;/*decrase font size*/
+        font-weight: 300 !important;
+        color: var(--cs-text-primary) !important;
+      }
+
+      .alert-radio-inner {
+        border-color: var(--cs-background-accent) !important;
+      }
+
+      .alert-radio-icon {
+        border-color: var(--cs-background-dark) !important;
+      }
+
+      .alert-radio-inner.sc-ion-alert-md {
+        background-color: var(--cs-background-accent) !important;
+      }
+
+      [aria-checked=true] .alert-radio-icon {
+        border-color: var(--cs-background-accent) !important;
+      }
+
+      [aria-checked=true] .alert-radio-label {
+        color: var(--cs-text-primary) !important;
+      }
+    }
+
+    .alert-checkbox-group {
+      border-top: 1px solid var(--cs-background-border);
+      border-bottom: none;
+
+      .alert-checkbox-label {
+        font-size: var(--h5-font-size, 15px) !important;
+        font-weight: 300 !important;
+        color: var(--cs-text-primary) !important;
+      }
+
+      .alert-checkbox-icon {
+        border-color: var(--cs-background-dark) !important;
+      }
+
+      [aria-checked=true] .alert-checkbox-label {
+        color: var(--cs-text-primary) !important;
+      }
+
+      [aria-checked=true] .alert-checkbox-icon {
+        background: var(--cs-background-accent) !important;
+        border-color: var(--cs-background-accent) !important;
+      }
+    }
+
+    .alert-button-group {
+      background: var(--cs-background-accent) !important;
+
+      .alert-button {
+        font-size: var(--h5-font-size, 15px) !important;
+        font-weight: 400 !important;
+        color: var(--cs-text-secondary) !important;
+      }
+    }
+  }
+}
+
+/* Settings Popover
+================================================
+================================================*/
+
+ion-select-popover {
+  background: var(--cs-background-primary) !important;
+  padding: 0 10px;
+
+  ion-list {
+    padding: 0 !important;
+    background: transparent !important;
+
+    ion-item {
+      --background: transparent;
+      --border-color: var(--cs-background-border);
+
+
+      ion-label {
+        font-size: var(--h6-font-size) !important;
+        font-weight: 300 !important;
+        color: var(--cs-text-primary) !important;
+        white-space: normal !important;
+      }
+    }
+  }
+}
+
+/* Settings Action Sheet
+================================================
+================================================*/
+
+ion-action-sheet {
+  --background: var(--cs-background-primary) !important;
+  --background-selected: var(--cs-background-primary) !important;
+  --background-activated: var(--cs-background-secondary) !important;
+  --color: var(--cs-text-primary) !important;
+
+  .action-sheet-button {
+    font-size: var(--h6-font-size) !important;
+    font-weight: 400 !important;
+  }
+
+  .action-sheet-group-cancel {
+    background: var(--cs-background-accent) !important;
+
+    .action-sheet-cancel {
+      .sc-ion-action-sheet-md {
+        color: var(--cs-text-secondary);
+        background: transparent;
+      }
+    }
+  }
+
+  .action-sheet-destructive {
+    color: var(--cs-text-primary) !important;
+  }
+}
+
+/* Settings Alert Info
+================================================
+================================================*/
+
+.info-dialog {
+  text-align: center;
+
+  .alert-head {
+    text-align: center;
+  }
+}
+
+/* Settings Alert Warning
+================================================
+================================================*/
+
+.alert-warning {
+  text-align: center;
+
+  .alert-head {
+    text-align: center;
+  }
+
+  .alert-button-group {
+    padding: 8px 0 8px 8px !important;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: var(--h5-font-size, 15px);
+    border: none !important;
+
+    .alert-button-inner {
+      text-align: center;
+      color: var(--cs-text-secondary) !important;
+    }
+  }
+}
+
+/* Settings Alert Subscribe
+================================================
+================================================*/
+
+.alert-subscribe,
+.basic-dialog {
+  .alert-input {
+    background: transparent;
+    color: var(--cs-text-primary);
+    border-bottom: 1px solid var(--cs-background-border) !important;
+  }
+
+  .alert-input:focus {
+    border-color: var(--cs-background-accent) !important;
+  }
+
+  .alert-input.sc-ion-alert-ios {
+    border: none;
+    border-radius: 0;
+  }
+/*edit for popup 3 action buttons*/
+  .alert-button-group-vertical.sc-ion-alert-md {
+     flex-direction: initial !important; 
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  .alert-button-group.sc-ion-alert-md {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  } /*END edit for popup 3 action buttons*/
+}
+/*selected List Type Listing*/
+.select-listing-action-sheet{
+  .selected-list-type{
+    background: var(--cs-background-border);
+  }
+    button > span {
+      justify-content: flex-start !important;
+    }
+}
+
+/*multi select functionality Listing*/
+.auth-selected-item{
+  --background: var(--cs-background-secondary);
+}
+
+.error-text{
+  font-size: 75%;
+}
+/*accept reject message popup message spacing alignment- below class use in listing.service.ts*/
+.rejectReasonMsgBox {
+  .alert-input-group{padding-top: 0!important; margin: 0!important;}
+  .alert-message{padding-bottom: 0!important;}
+}
+.rejectReasonMsgBox .alert-message.sc-ion-alert-md, .alert-input-group.sc-ion-alert-md{padding-left: 14px!important; padding-right: 14px!important;}
+
+/*End*/
+.stepperGrid{
+  background: var(--cs-background-accent);
+}

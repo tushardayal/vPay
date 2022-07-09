@@ -1,0 +1,9 @@
+{
+  "responseStatus": {
+    "message": "Payment request with batch no. 01211019066 and amount LKR 34.00 successfully initiated",
+    "status": "0"
+    
+  },
+  "loggable": false,
+  "entityIdentifier": ""
+}

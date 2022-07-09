@@ -1,0 +1,15 @@
+{
+  "filters": [{
+    "name": "debitAmount",
+    "value": "11,211.00",
+    "type": "String"
+  }, {
+    "name": "creditCurrencyId",
+    "value": "isEbFz6/ufQ=",
+    "type": "String"
+  }, {
+    "name": "debitCurrencyId",
+    "value": "isEbFz6/ufQ=",
+    "type": "String"
+  }]
+}

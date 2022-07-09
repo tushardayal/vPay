@@ -1,0 +1,15 @@
+{
+  "filters": [{
+    "name": "accountNo",
+    "value": "999001900005",
+    "type": "String"
+  }, {
+    "name": "currencyCode",
+    "value": "USD",
+    "type": "String"
+  }, {
+    "name": "accountId",
+    "value": "qmmbcEhQbn8=",
+    "type": "String"
+  }]
+}

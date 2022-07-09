@@ -1,0 +1,276 @@
+.styleNtb {
+
+
+  /* Settings Fonts Size And Icon Size
+      =======================================================
+      =======================================================*/
+
+  --fallback-color: #e20883;
+  --h1-font-size: 24px;
+  --h2-font-size: 20px;
+  --h3-font-size: 17px;
+  --h4-font-size: 16px;
+  --h5-font-size: 15px;
+  --h6-font-size: 12px;
+  --text-font-size: 14px;
+
+  /* Settings Fonts Size Icon
+      =======================================================
+      =======================================================*/
+
+  --icon-size-small: 17px;
+  --icon-size-medium: 22px;
+  --icon-size-large: 32px;
+  --icon-size-extra-large: 48px;
+
+  /* Settings Color Background Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-background-primary: #FFFFFF;
+  --cs-background-secondary: #10a6dc;
+  --cs-background-accent: #10a6dc;
+  --cs-background-dark: #ffffff;
+  --cs-background-border: #B7b9be;
+  /*--ion-color-success-shade: #e20883;*/
+  --ion-color-success-shade: #10a6dc!important;
+  --ion-color-danger-shade: #e20883!important;
+  --cs-background-transparent: rgba(21, 50, 102, 0.5);
+  --cs-highlight-color:#e20883!important;
+
+  /* Settings Color Text Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-text-primary: #23282c;
+  --cs-text-secondary: #fff;
+  --cs-text-accent: #e20883;
+  --cs-text-dark: #003466;
+  --cs-text-light:#959a9e;/*added for light color of menu*/
+  --cs-text-blue:#10a6dc;
+
+  /* Settings Size Avatar
+=======================================================
+=======================================================*/
+
+  --size-avatar: 50px;
+
+  /* Settings Size Thumbnail
+=======================================================
+=======================================================*/
+
+  --size-thumbnail: 50px;
+
+  /* Settings Border Radius
+=======================================================
+=======================================================*/
+
+  --border-radius: 8px;
+  /* Settings Color Icon
+=======================================================
+=======================================================*/
+
+  --cs-icon-color-primary: #10a6dc;
+  --cs-icon-color-secondary: #ffffff;
+  /*--cs-icon-color-accent: #7565c0;*/
+  --cs-icon-color-accent: #e20883;
+  --ion-color-colorRed: #e20883;
+
+  --super-tabs-toolbar-background: var(--cs-background-primary) !important;
+  --super-tabs-toolbar: green !important;//var(--cs-text-secondary);
+  --super-tab-width: 100% !important;/*added for resolve issue related to iPad and iPad mini SuperTab container width - resolve issue on dashboard and Transactions listing pages*/
+  --st-indicator-color: var(--cs-highlight-color) !important;
+  --st-label-color-active: var(--cs-text-blue) !important;
+  --st-label-color-inactive: var(--cs-text-blue) !important;
+
+
+  ion-toolbar {
+    --background: var(--cs-background-accent);
+    --color: var(--cs-text-secondary);
+    /*text-align:center;*/
+  }
+  super-tabs-container {
+    ion-toolbar{
+      --background: var(--cs-background-primary);
+      boredr:1px solid red;
+    }
+  }
+  .broadcast-container{
+    ion-toolbar {
+      /*--background: var(--cs-background-dark);*/
+      --color: var(--cs-text-secondary);
+    }
+  }
+  .stepperGrid{
+    background: var(--cs-background-dark);
+    border-bottom: 1px solid #d5d2d2!important;
+  }
+  ion-item {
+    --highlight-color-invalid: #e20883 !important;
+    --highlight-color-valid: #10a6dc !important;
+  }
+  .credit-amt{
+    color: #10a6dc !important;
+  }
+
+  .debit-amt{
+    color: #e20883 !important;
+  }
+  .error-color {
+    color:#e20883!important;
+  }
+  .ion-color-danger{
+    --ion-color-danger: var(--ion-color-danger-shade) !important;
+  }
+  .ion-color-success{
+    --ion-color-success: var(--ion-color-success-shade) !important;
+  }
+}
+.text-blue{
+  color:var(--cs-text-blue) !important;
+}
+ion-card-title{
+  color:var(--cs-text-secondary)!important;
+}
+.line-bottom{
+  border: bottom #959a9e !important;
+}
+
+
+ion-radio {
+ --color: var(--cs-background-transparent)!important; 
+}
+
+ion-item-divider {
+  --background: var(--cs-background-primary)!important;
+  border: none !important
+}
+
+.swiper-pagination-bullet {
+  background: var(--cs-background-border)!important; /*#424040 !important;*/
+}
+
+ion-checkbox {
+  --border-color: var(--cs-background-border)!important;
+  }
+
+/*------------------*/
+
+ion-picker {
+  font-size: var(--text-size-p)!important;
+  font-style: normal!important;
+  font-family: Roboto!important;
+}
+
+.picker-columns{
+  background-color: #f1fbfc !important;
+}
+
+.picker-toolbar{
+  background: var(--cs-background-accent) !important;
+  color: var(--cs-text-secondary) !important;
+  font-style: normal!important;
+}
+
+.picker-toolbar-button{
+  margin-right: 14% !important;
+  margin-left: 12% !important;
+
+}
+
+.picker-button {
+  color: var(--cs-text-secondary) !important;
+  /* margin-left: 32px!important;
+   margin-right: 32px!important;*/
+  font-style: normal!important;
+}
+
+.picker-opt {
+  font-size: 12px!important;
+  font-style: normal!important;
+  color: #666666!important;
+}
+
+ion-picker .picker-opt-selected {
+  color: var(--cs-text-secondary) !important;
+}
+
+.picker-opt-selected{
+  background: var(--cs-background-accent) !important;
+  color: #ffffff! important;
+  border-radius:10px;
+  margin: 0!important;
+}
+
+.picker-toolbar.sc-ion-picker-md {
+  justify-content: center!important;
+}
+
+.picker-toolbar {
+  justify-content: center!important;
+  color:#fff!important;
+  font-size: 12px!important;
+}
+
+.picker-toolbar-button.sc-ion-picker-ios:first-child {
+  font-weight: normal!important;
+  text-align: center!important;
+  margin-left: 10px!important;
+}
+
+.picker-toolbar-button.sc-ion-picker-ios:last-child {
+  font-weight: normal!important;
+  text-align: center!important;
+  /*margin-right: 15px!important;*/
+}
+
+/*
+.picker-toolbar-button.sc-ion-picker-ios:last-child .picker-button.sc-ion-picker-ios*/
+
+/*ion-action-sheet*/
+
+
+/* Settings Action Sheet
+  ================================================
+  ================================================*/
+
+ion-action-sheet {
+  --background: var(--cs-background-primary) !important;
+  --background-selected: var(--cs-background-primary) !important;
+  --background-activated: var(--cs-background-secondary) !important;
+  --color: var(--cs-text-primary) !important;
+
+  .action-sheet-button {
+    font-size: var(--h6-font-size) !important;
+    font-weight: 400 !important;
+    color: var(--cs-text-blue) !important;
+  }
+
+  .action-sheet-icon.sc-ion-action-sheet-md{
+    color: var(--cs-text-blue) !important;
+  }
+
+  .action-sheet-title{
+    background: var(--cs-background-accent) !important;
+    color:#FFFFFF!important;
+    font-size: 16px!important;
+    text-align: center!important;
+  }
+
+  .action-sheet-group-cancel {
+    /* background: var(--cs-background-accent) !important;*/
+    margin:8px 0 8px 0!important;
+
+    .action-sheet-cancel {
+      .sc-ion-action-sheet-md {
+        color: var(--cs-text-blue) !important;
+        background: var(--cs-background-primary)!important;
+      }
+    }
+  }
+
+  .action-sheet-destructive {
+    color: var(--cs-text-primary) !important;
+  }
+}
+

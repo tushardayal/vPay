@@ -1,0 +1,109 @@
+<form [formGroup]="slcpForm">
+
+  <ion-list class="">
+    <!--<ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Custdec No'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" class="custom-input" formControlName="custdecNo" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Custdec No'|apsTraslate}}" ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['custdecNo']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Custdec No'|apsTraslate}}" >
+    </errorMsg>-->
+
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Amount to be Paid'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" class="custom-input" maxlength="50" formControlName="amountToBePaid"
+                 appCurrencyFormat inputmode="decimal" [pattern]="'^[0-9,.]*$'"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Amount to be Paid'|apsTraslate}}" ></ion-input><!--appInputTextFormat [patternType]="'amount'"-->
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['amountToBePaid']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Amount to be Paid'|apsTraslate}}" >
+    </errorMsg>
+
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Office Code'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" class="custom-input" formControlName="officeCode" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Office Code'|apsTraslate}} " ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['officeCode']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Office Code'|apsTraslate}}" >
+    </errorMsg>
+
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Declaration Code'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" class="custom-input" formControlName="declarationCode" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Declaration Code'|apsTraslate}} " ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['declarationCode']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Declaration Code'|apsTraslate}}" >
+    </errorMsg>
+
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Registration Year'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" inputmode="numeric" class="custom-input" formControlName="registrationYear"
+                 maxlength="4" minlength="4" [pattern]="'[0-9]*$'"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Registration Year'|apsTraslate}}"></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['registrationYear']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Registration Year'|apsTraslate}}" >
+    </errorMsg>
+    <div class="validation-errors"
+         *ngIf="slcpForm.controls['registrationYear']?.invalid && slcpForm.controls['registrationYear']?.touched">
+      <div class="error-message ion-text-left" *ngIf="slcpForm.controls['registrationYear']?.errors?.minlength">
+        <span class="invalid-span text-size-sd ion-no-padding ion-no-margin error-color" >
+          {{'Registration Year Must Be Minimum 4 digits'|apsTraslate}}
+        </span>
+      </div>
+    </div>
+    
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Registration Serial'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" class="custom-input" formControlName="registrationSerial" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Registration Serial'|apsTraslate}}" ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['registrationSerial']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Registration Serial'|apsTraslate}}" >
+    </errorMsg>
+
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Registration No'|apsTraslate}} <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" class="custom-input" formControlName="registrationNo" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Registration No'|apsTraslate}} " ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['registrationNo']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Registration No'|apsTraslate}}" >
+    </errorMsg>
+
+    <!--<ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Check Reference'|apsTraslate}} </ion-label>
+      <ion-input type="text" class="custom-input" formControlName="checkReference" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Check Reference'|apsTraslate}} " ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['checkReference']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Check Reference'|apsTraslate}}" >
+    </errorMsg>-->
+
+    <ion-item class="ion-no-padding">
+      <ion-label position="stacked">{{'Company Code'|apsTraslate}} <!--<ion-text color="danger">*</ion-text>--></ion-label>
+      <ion-input type="text" class="custom-input" formControlName="companyCode" maxlength="50"
+                 placeholder="{{'Enter'|apsTraslate}} {{'Company Code'|apsTraslate}} " ></ion-input>
+    </ion-item>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="slcpForm.controls['companyCode']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Company Code'|apsTraslate}}" >
+    </errorMsg>
+    <br>
+    <ion-button (click)="validatePayment()" [disabled]="slcpForm.invalid || isValidatedFromAPI"
+                class="default-button ion-text-capitalize" expand="block" shape="round">
+      {{'Validate' | apsTraslate}}
+    </ion-button>
+  </ion-list>
+</form>

@@ -1,0 +1,30 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "broadcastMessages": [{
+      "briefMessage": "Policy for new users",
+      "messageDescription": "This is a message for new users. "
+    }, {
+      "briefMessage": "Broadcast Message For Corporate",
+      "messageDescription": "Hello Corporate User Offline,\r\n\r\nWelcome To NTB Corporate Portal\r\n\r\nRegards,\r\nNTB"
+    }, {
+      "briefMessage": "Broadcast Message For Corporate",
+      "messageDescription": "Hello Corporate User Offline,\r\n\r\nWelcome To NTB Corporate Portal\r\n\r\nRegards,\r\nNTB"
+    }, {
+      "briefMessage": "Broadcast Message For Corporate",
+      "messageDescription": "Hello Corporate User Offline,\r\n\r\nWelcome To NTB Corporate Portal\r\n\r\nRegards,\r\nNTB"
+    }, {
+      "briefMessage": "Broadcast Message For Corporate",
+      "messageDescription": "Hello Corporate User Offline,\r\n\r\nWelcome To NTB Corporate Portal\r\n\r\nRegards,\r\nNTB"
+    }, {
+      "briefMessage": "Broadcast Message For Corporate",
+      "messageDescription": "Hello Corporate User Offline,\r\n\r\nWelcome To NTB Corporate Portal\r\n\r\nRegards,\r\nNTB"
+    }]
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

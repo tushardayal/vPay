@@ -1,0 +1,23 @@
+.custom-grid{
+  width: 100%;
+  padding: 0px;
+  ion-row{
+    padding: 0px;
+  }
+  ion-col{
+    padding: 0px;
+    padding-top: 4px;
+  }
+  ion-input {     
+    border-bottom: none !important;
+    width: calc(100% - 0px) !important;
+  }
+  .sc-ion-input-md-h {
+     --padding-top: 0px !important;
+  }
+}
+ion-datetime {
+  --placeholder-color: var(--cs-text-primary) !important;
+  padding: 0px 0 0 0 !important;
+  font-size: small;
+}

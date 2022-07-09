@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="[backUrl]"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{'lbl_all_bills' | translate}}</ion-title>        
+    </ion-toolbar> 
+    <ion-searchbar [(ngModel)]="productFilterText" class="ion-no-margin ion-no-padding" animated="true" ></ion-searchbar> 
+    <div class="background-secondary ion-text-center"  *ngIf="billList">
+        <ion-label class="text-color-secondary font-regular ion-text-nowrap noWrapFormat">{{billList.billerName}}
+        </ion-label>
+    </div>
+</ion-header>
+    
+    <ion-content>
+        
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="{{'lbl_refreshing' | translate}}...">
+            </ion-refresher-content>
+        </ion-refresher>
+
+        <ion-grid class="ion-no-padding accountDetailsCardBorder background-primary ion-padding-bottom"  *ngIf="dataItemList != 0">           
+            <ion-row  *ngFor="let item of dataItemList | filterBy :['referenceFieldValue1','currencyCode','billAmount','consumerDetails']: productFilterText; let x = index"
+            (click)="onItemClickFunc(item)">
+            <ion-col>
+              <ion-grid class="ion-no-padding accountDetailsCard">
+                <ion-row *ngIf="item.billerIntegration =='Online'">
+                    <ion-col size='4' class="ion-no-padding">
+                        <span class="text-color-primary ion-margin-top">{{'lbl_due_date' | translate}}</span>
+                    </ion-col>
+                    <ion-col size='7' >
+                        <span class="text-color-primary ion-margin-top">{{item.dueDate}}</span>
+                    </ion-col>
+                    <ion-col size="0.5">                       
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size='4' class="ion-no-padding">
+                        <span class="text-color-primary ion-margin-top">{{'lbl_consumer_name' | translate}}</span>
+                    </ion-col>
+                    <ion-col size='7'>
+                        <span class="text-color-primary ion-margin-top ion-text-wrap">{{item.consumerDetails}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size='4' class="ion-no-padding">
+                        <span class="text-color-primary ion-margin-top">{{'lbl_consumer_no' | translate}}</span>
+                    </ion-col>
+                    <ion-col size='7'>
+                        <span class="text-color-primary ion-margin-top ion-text-wrap">{{item.referenceFieldValue1}}</span>
+                    </ion-col>
+                    <ion-col size="0.5">
+                        <ion-icon *ngIf="item.billerIntegration =='Online' && item.billAmount =='-'"
+                        (click)="fetchNow(item.id, x, item.referenceFieldValue1)"
+                         class="text-size-md"  name="download-outline"></ion-icon>
+                    </ion-col>
+                </ion-row>
+                <ion-row *ngIf="item.billerIntegration =='Online'">
+                    <ion-col size='4' class="ion-no-padding">
+                        <span class="text-color-primary ion-margin-top">{{'lbl_bill_amount' | translate}}</span>
+                    </ion-col>
+                    <ion-col size='7'>
+                        <span class="text-color-primary ion-margin-top">{{item.currencyCode}} <span appStyleAmount [amount]="item.billAmount">{{item.billAmount}}</span></span>
+                    </ion-col>
+                    <ion-col size="0.5">                        
+                    </ion-col>
+                </ion-row>
+              </ion-grid>  
+            </ion-col>  
+          </ion-row>
+      </ion-grid>      
+      <listing-skeleton *ngIf="(loading$|async) ==true"></listing-skeleton>
+      <ng-container *ngIf="dataItemList.length == undefined || dataItemList.length == 0">
+        <app-no-record-found [err]='dataItemList.length == 0' (refreshPageEventEmmiter)="doRefresh($event)"></app-no-record-found>
+      </ng-container>
+     
+ </ion-content>
+<!-- <ion-app></ion-app> -->
+

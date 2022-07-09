@@ -1,0 +1,12 @@
+<div [formGroup]="formGroup">
+  <ion-item class="ion-no-padding">
+    <ion-label position="stacked">{{'lbl_beneficiary_account_no' | translate}}</ion-label>
+    <ion-input type="text" formControlName="beneficiaryPaymentMethodMapDetails.accountNo" [value]="formData.beneficiaryPaymentMethodMapDetails?.accountNo" 
+    class="custom-input ion-no-padding text-size-p" readonly></ion-input>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label position="stacked">{{'lbl_beneficiary_address' | translate}}</ion-label>
+    <ion-input type="text" formControlName="selectedBeneficiary.address"  class="custom-input ion-no-padding text-size-p" readonly></ion-input>
+  </ion-item>
+</div>
+

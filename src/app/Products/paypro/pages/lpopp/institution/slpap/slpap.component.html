@@ -1,0 +1,66 @@
+<form [formGroup]="childForm">
+    <ion-item class="ion-no-padding " lines="none">
+        <ion-label position="stacked">{{'Type Of Payment'|apsTraslate}}
+            <ion-text color="danger">*</ion-text>
+        </ion-label>
+    </ion-item>
+    <ion-grid class="ion-no-margin ion-no-padding">
+        <ion-radio-group value="typeOfPayment" formControlName="typeOfPayment" (ionChange)="resetData()"><!--(ionChange)="onChangepaymentType()"-->
+            <ion-row>
+                <ion-col *ngFor="let item of typeOfPaymentList$|async" size="6">
+                    <ion-item class="ion-no-padding text-size-sd" lines="full">
+                        <ion-label class="ion-padding-start">{{item.displayName}}</ion-label>
+                        <ion-radio mode="md" slot="start" [name]="item.displayName" [value]="item"></ion-radio>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-radio-group>
+    </ion-grid>
+    <errorMsg class="ion-no-padding ion-no-margin"
+              [control]="childForm.controls['typeOfPayment']"
+              errMsg="{{'Please Enter'|apsTraslate}} {{'Type Of Payment'|apsTraslate}}" >
+    </errorMsg>
+
+    <ng-container *ngIf="typeOfPayment?.id == 'FULLPAYMENT'">
+        <ion-item class="ion-no-padding ">
+            <ion-label position="stacked">{{'Bill Type'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-select [interface]="environment.SELECT_INTERFACE"
+                        formControlName="billTypeFull"
+                        class="text-size-p ion-text-capitalize" placeholder="Tax type"><!--(ionChange)="onChangeTaxType()"-->
+                <ion-select-option *ngFor="let item of billTypeFullList"
+                                   [value]="item"
+                                   class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="childForm.controls['billTypeFull']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Bill Type'|apsTraslate}}" >
+        </errorMsg>
+
+
+        <ion-item class="ion-no-padding">
+            <ion-label position="stacked">
+                {{'Total Amount'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="9"
+                       formControlName="totalAmount" name="totalAmount"
+                       appCurrencyFormat inputmode="decimal" [pattern]="'^[0-9,.]*$'"
+                       type="text"></ion-input>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="childForm.controls['totalAmount']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Total Amount'|apsTraslate}}" >
+        </errorMsg>
+    </ng-container>
+
+    <ng-container *ngIf="typeOfPayment?.id == 'ADVANCEPAYMENT'">
+        <app-det-listing #detListingComponent></app-det-listing>
+    </ng-container>
+
+
+
+</form>

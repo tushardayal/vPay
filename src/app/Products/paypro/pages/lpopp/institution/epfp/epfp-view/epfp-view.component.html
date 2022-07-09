@@ -1,0 +1,87 @@
+<ng-container *ngIf="dataObj" >
+    <ion-list class="ion-no-padding">
+        <ion-list-header lines="full">
+            <ion-label>{{'Institution Details' | translate}}</ion-label>
+        </ion-list-header>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Payment Id' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.paymentIdNo || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Voucher Amount' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.voucherAmount || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Payment Reference No' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.paymentReferenceNo || '-' }}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="dataObj.postingReturnReason">
+            <ion-label class="ion-no-padding">
+                <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                    {{'Failure Reason' | apsTraslate}} </h3>
+                <p class="text-size-p font-regular ion-text-wrap">
+                    {{ dataObj.postingReturnReason || '-' }}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ng-container>
+<!--
+<ion-grid class="background-primary">
+    <ion-row>
+        <ion-col class="ion-no-padding" size="12">
+            <ion-slides #wizardSlider class="ion-no-padding ion-no-margin" pager="true">
+                &lt;!&ndash;(ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideWillChange)="ionSlideWillChange($event)"&ndash;&gt;
+                <ion-slide class="ion-no-margin ion-no-padding slideBox box-shadow">
+                    <ion-col class="ion-no-padding" size="12">
+                        <ion-card class="box-shadow ion-no-margin ion-no-padding ">
+                            <ion-card-content class="ion-text-center ion-no-padding ion-padding-start ">
+                                <ion-grid>
+                                    <ion-row>
+                                        <ion-col>
+                                            <ion-item class="ion-no-padding">
+                                                <ion-label class="ion-no-padding">
+                                                    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                                                        {{'Payment Id' | apsTraslate}} </h3>
+                                                    <p class="text-size-p font-regular ion-text-wrap">
+                                                        {{ dataObj.paymentIdNo || '-' }}</p>
+                                                </ion-label>
+                                            </ion-item>
+                                            <ion-item class="ion-no-padding">
+                                                <ion-label class="ion-no-padding">
+                                                    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                                                        {{'Voucher Amount' | apsTraslate}} </h3>
+                                                    <p class="text-size-p font-regular ion-text-wrap">
+                                                        {{ dataObj.voucherAmount || '-' }}</p>
+                                                </ion-label>
+                                            </ion-item>
+                                            <ion-item class="ion-no-padding">
+                                                <ion-label class="ion-no-padding">
+                                                    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                                                        {{'Payment Reference No' | apsTraslate}} </h3>
+                                                    <p class="text-size-p font-regular ion-text-wrap">
+                                                        {{ dataObj.paymentReferenceNo || '-' }}</p>
+                                                </ion-label>
+                                            </ion-item>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-slide>
+            </ion-slides>
+        </ion-col>
+    </ion-row>
+</ion-grid>-->

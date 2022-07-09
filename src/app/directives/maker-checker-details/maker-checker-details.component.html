@@ -1,0 +1,87 @@
+<ng-container *ngIf="showMakerCheckerDet">
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h4 class="font-bold text-color-primary ion-text-wrap">
+        {{'lbl_maker_checker_details' | translate}}
+      </h4>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+        {{'lbl_maker' | translate}}</h3>
+      <p class="text-size-xm font-regular  ion-text-wrap">
+        {{data.makerName}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+        {{'lbl_maker_date_time' | translate}}</h3>
+      <p class="text-size-xm font-regular  ion-text-wrap">
+        {{data.modifiedOn}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+        {{'lbl_maker_channel' | translate}}</h3>
+      <p class="text-size-xm font-regular  ion-text-wrap">
+        {{data.makerChannel}}</p>
+    </ion-label>
+  </ion-item>
+  <ng-container *ngIf="data.verifiedBy">
+    <ion-item class="ion-no-padding">
+      <ion-label class="ion-no-padding">
+        <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+          {{'lbl_verifier' | translate}}</h3>
+        <p class="text-size-xm font-regular  ion-text-wrap">
+          {{data.verifiedBy}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item class="ion-no-padding">
+      <ion-label class="ion-no-padding">
+        <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+          {{'lbl_verify_date_time' | translate}}</h3>
+        <p class="text-size-xm font-regular ion-text-wrap">
+          {{data.verifiedOn}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item class="ion-no-padding" *ngIf="data.verifierChannel">
+      <ion-label class="ion-no-padding">
+        <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+          {{'lbl_verifier_channel' | translate}}</h3>
+        <p class="text-size-xm font-regular ion-text-wrap">
+          {{data.verifierChannel}}</p>
+
+      </ion-label>
+    </ion-item>
+  </ng-container>
+  <ng-container *ngIf="data.checkerName">
+    <ion-item class="ion-no-padding">
+      <ion-label class="ion-no-padding">
+        <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+          {{'lbl_checker' | translate}}</h3>
+        <p class="text-size-xm font-regular ion-text-wrap">
+          {{data.checkerName}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item class="ion-no-padding">
+      <ion-label class="ion-no-padding">
+        <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+          {{'lbl_checker_date_time' | translate}}</h3>
+        <p class="text-size-xm font-regular  ion-text-wrap">
+          {{data.checkedOn}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item class="ion-no-padding" *ngIf="data.checkerChannel">
+      <ion-label class="ion-no-padding">
+        <h3 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+          {{'lbl_checker_channel' | translate}}</h3>
+        <p class="text-size-xm font-regular ion-text-wrap">
+          {{data.checkerChannel}}</p>
+      </ion-label>
+    </ion-item>
+  </ng-container>
+
+</ng-container>

@@ -1,0 +1,26 @@
+ion-avatar {
+    height:40px; //var(--size-avatar, 72px);
+    width:40px; //var(--size-avatar, 72px);
+    margin: auto;
+  }
+  .ion-alpha-scroll .scroll-content::-webkit-scrollbar {
+    display: none;
+  }
+  .custom-grid{
+    width: 100%;
+    padding: 5px;
+    ion-row{
+      padding: 0px;
+    }
+    ion-col{
+      padding: 0px;
+      padding-top: 10px;
+    }
+    
+  }
+  
+  .noWrapFormat {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block;
+  }

@@ -1,0 +1,146 @@
+<ion-content #contentBox>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+              pullingIcon="arrow-down-outline"
+              pullingText="{{'lbl_pull_to_refresh' | translate}}"
+              refreshingSpinner="circles"
+              refreshingText="{{'lbl_refreshing' | translate}}">
+      </ion-refresher-content>
+    </ion-refresher>
+    <ion-grid class="ion-no-padding">
+        <ion-list *ngIf="dataItemList" #dynamicList class="ion-no-padding ion-padding-end ion-padding-start">
+            <ion-item-sliding #sliding *ngFor="let item of dataItemList" class="overflow-visible" disabled="false">
+                <ion-item *ngIf="listingService.currentListType.key === 'PENDINGLIST'" class="ion-no-padding" (tap)="view(item, $event)" (press)="selectItem(item)"
+                    [ngClass]="{'auth-selected-item':item.selected}">
+                    <ion-grid class="ion-no-padding ion-no-margin" [fixed]="true">
+                        <ion-row>
+                            <ion-col size="6" class="ion-text-left">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="batchNo">{{item.batchNo}}</span> - <span class="spanBorder noOfTxns">{{item.noOfTxns}}</span></h3>
+                                    <p class="text-size-p  ion-text-wrap">
+                                    <span class="uploadedBy">{{item.uploadedBy}}</span> </p>
+                                    <p class="text-size-p text-color-light ion-text-wrap"><span class="transactionDate">{{item.transactionDate}}</span></p>
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" class="ion-text-right">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="transactionStatus">{{item.transactionStatus}}</span></h3>
+                                    <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                        <span class="amountInLCY" appStyleAmount>{{item.amountIn}}</span>
+                                    </h6>
+                                    <h5 class="text-size-p text-color-primary  text-color-light ion-text-wrap" >
+                                        <span class="customerFileName" [ngClass]="{'ion-text-nowrap':!item.showFullName}">{{item.customerFileName}}</span>
+                                    </h5>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+                <ion-item *ngIf="listingService.currentListType.key === 'AUTHORIZEDLIST'" class="ion-no-padding" (tap)="view(item, $event)"
+                    [ngClass]="{'auth-selected-item':item.selected}">
+                    <ion-grid class="ion-no-padding ion-no-margin">
+                        <ion-row>
+                            <ion-col size="6" class="ion-text-left">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="batchNo">{{item.batchNo}}</span> - <span class="spanBorder noOfTxns">{{item.noOfTxns}}</span></h3>
+                                    <p class="text-size-p  ion-text-wrap">
+                                        <span class="requestBy">{{item.requestBy}}</span> </p>
+                                    <p class="text-size-p ion-text-wrap"><span class="transactionDate">{{item.transactionDate}}</span></p>
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" class="ion-text-right">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap ion-page-invisible">
+                                        <span class="">{{item.requestBy}}</span></h3>
+                                    <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                        <span class="amountInLCY" appStyleAmount>{{item.txnValue}}</span>
+                                    </h6>
+                                    <h5 class="text-size-p text-color-primary  text-color-light ion-text-wrap" >
+                                        <span class="customerFileName" [ngClass]="{'ion-text-nowrap':!item.showFullName}">{{item.customerFileName}}</span>
+                                    </h5>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <!--<ion-row >
+                            <ion-col size="12" class="ion-text-left">
+                                <ion-label>
+                                    <h5 class="text-size-p text-color-primary  text-color-light ion-text-wrap" >
+                                        <span class="customerFileName" [ngClass]="{'ion-text-nowrap':!item.showFullName}">{{item.customerFileName}}</span>
+                                    </h5>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>-->
+                    </ion-grid>
+                </ion-item>
+                <ion-item *ngIf="listingService.currentListType.key === 'REJECTLIST'" class="ion-no-padding" (tap)="view(item, $event)"
+                    [ngClass]="{'auth-selected-item':item.selected}">
+                    <ion-grid class="ion-no-padding ion-no-margin">
+                        <ion-row>
+                            <ion-col size="6" class="ion-text-left">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="batchNo">{{item.batchNo}}</span> - <span class="spanBorder noOfTxns">{{item.noOfTxns}}</span></h3>
+                                    <p class="text-size-p  ion-text-wrap">
+                                    <span class="uploadedBy">{{item.uploadedBy}}</span> </p>
+                                    <p class="text-size-p text-color-light ion-text-wrap"><span class="transactionDate">{{item.transactionDate}}</span></p>
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" class="ion-text-right">
+                                <ion-label>
+                                    <!--<h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="transactionStatus">Rejected</span></h3>-->
+                                    <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                        <span class="amountInLCY" appStyleAmount>{{item.txnValue}}</span>
+                                    </h6>
+                                    <h5 class="text-size-p text-color-primary  text-color-light ion-text-wrap" >
+                                        <span class="customerFileName" [ngClass]="{'ion-text-nowrap':!item.showFullName}">{{item.customerFileName}}</span>
+                                    </h5>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+                <ion-item *ngIf="listingService.currentListType.key === 'BANKREJECTLIST'" class="ion-no-padding" (tap)="view(item, $event)"
+                    [ngClass]="{'auth-selected-item':item.selected}">
+                    <ion-grid class="ion-no-padding ion-no-margin">
+                        <ion-row>
+                            <ion-col size="6" class="ion-text-left">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="batchNo">{{item.batchNo}}</span> - <span class="spanBorder noOfTxns">{{item.noOfTxns}}</span></h3>
+                                    <p class="text-size-p ion-text-wrap"><span class="transactionDate">{{item.transactionDate}}</span></p>
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" class="ion-text-right">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="requestBy">{{item.requestBy}}</span></h3>
+                                    <h6 class="text-size-p text-color-primary ion-text-wrap">
+                                        <span class="amountInLCY" appStyleAmount>{{item.amountIn}}</span>
+                                    </h6>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row >
+                            <ion-col size="12" class="ion-text-left">
+                                <ion-label>
+                                    <h5 class="text-size-p text-color-primary  text-color-light ion-text-wrap" >
+                                        <span class="customerFileName" [ngClass]="{'ion-text-nowrap':!item.showFullName}">{{item.customerFileName}}</span>
+                                    </h5>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+                <slide-item-actions [item]="item" (onActionClicked)="onActionClicked($event)"></slide-item-actions>
+            </ion-item-sliding>
+        </ion-list>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreData($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'lbl_getting_more_data' | translate}}">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-grid>
+</ion-content>

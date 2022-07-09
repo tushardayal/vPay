@@ -1,0 +1,34 @@
+.ion-header-transparent{
+  ion-toolbar{
+    --background: transparent;
+  }
+}
+.select-auth-header-background{
+  --background: var(--cs-background-secondary);
+  --inner-padding: 0px;
+}
+.text-size-xs{
+  font-size: var(--text-font-size);
+}
+.segment-button-unchecked {
+  border-bottom: 2px solid var(--cs-background-accent) !important;
+}
+ion-segment-button {
+  --color-checked: var(--cs-text-dark);
+}
+ion-checkbox{
+  margin: 10px !important;
+}
+ion-progress-bar{
+  --progress-background: var(--cs-background-accent) 
+}
+.ion-padding {
+  --padding-start: var(--ion-padding, 10px) !important;
+  --padding-end: var(--ion-padding, 10px) !important;
+  --padding-top: var(--ion-padding, 10px) !important;
+  --padding-bottom: var(--ion-padding, 10px) !important;
+  padding-left: var(--ion-padding, 10px) !important;
+  padding-right: var(--ion-padding, 10px) !important;
+  padding-top: var(--ion-padding, 10px) !important;
+  padding-bottom: var(--ion-padding, 10px) !important;
+}

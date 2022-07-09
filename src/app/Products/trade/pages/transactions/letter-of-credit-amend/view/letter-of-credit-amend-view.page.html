@@ -1,0 +1,442 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button  *ngIf="backButtonLink" [defaultHref]="backButtonLink"></ion-back-button>
+        <ion-button  *ngIf="!backButtonLink" (click)="transactionsSrv.closeModal()">
+          <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{'lbl_view' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- SWIPE TO DISMISS --COMPONENT 1 -->
+  <ion-content>
+    <div *ngIf="lcDetails">
+      <ion-list  class="ion-no-padding ion-padding-end ion-padding-start">
+        <ion-text color="danger">
+          <p class="text-size-sd"><ion-icon name="information-circle-outline"></ion-icon> Kindly refer the page in Web to get the Complete View</p>
+        </ion-text>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason != null || lcDetails.cancelReason != undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_no_of_amendment' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.noOfAmendment  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_type_of_lc' | translate}} </h3>
+            <ion-grid class="ion-no-padding ion-no-margin">
+              <ion-row class="ion-no-padding ion-no-margin">
+                <ion-col *ngFor="let item of typeOfDocument" class="ion-no-padding ion-no-margin">
+                  <ion-item class="ion-no-padding ion-no-margin" lines="none">
+                    <ion-chip>
+                      <ion-icon name="checkbox-outline" color="primary"></ion-icon>
+                      <ion-label class="text-size-p text-color-primary">{{item}}</ion-label>
+                    </ion-chip>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_amount' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.currencyCode  || '-' }} <span appStyleAmount>{{ lcDetails.amount | currencyFormat }}</span>
+            </p>
+          </ion-label>
+        </ion-item>
+          <ion-item class="ion-no-padding" *ngIf="lcDetails.increaseOfDocCreditAmount">
+            <ion-label class="ion-no-padding">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_increase_in_documentary_credit' | translate}} </h3>
+              <p class="text-size-p font-regular  ion-text-wrap" appStyleAmount>
+                {{ lcDetails.increaseOfDocCreditAmount ||'-' }}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding" *ngIf="lcDetails.decreaseOfDocCreditAmount">
+            <ion-label class="ion-no-padding">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_decrease_in_documentary_credit' | translate}} </h3>
+              <p class="text-size-p font-regular  ion-text-wrap" appStyleAmount>
+                {{ lcDetails.decreaseOfDocCreditAmount ||'-' }}
+              </p>
+            </ion-label>
+          </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_max_tolerance%' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.maxTolerancePercent  ||'-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_min_tolerance%' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.minTolerancePercent  ||'-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <!--<ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_back_to_back_lc' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.backToBackLc || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <!--<ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_lc_number' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.lcNumber || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <!--<ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_revolving_lc' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.revolvingLc  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <!--<ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_reinstate_in_days' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.reinstateInDays  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_maximum_number_of_installment' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.maxNoOfInstallments  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_expiry_date' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.expiryDate  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_place_of_expiry' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.placeOfExpiry  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h4 class="font-bold text-color-primary ion-text-wrap">
+              {{'lbl_beneficiary_details' | translate}}</h4>
+          </ion-label>
+        </ion-item>
+        <!--<ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_beneficiary_code' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneficiaryCode || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_beneficiary_name' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneficiaryName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_beneficiary_address' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.address1 || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.beneficiary?.address2" class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.address2 || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.beneficiary?.address3" class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.address3 || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_country' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.countryName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <!--<ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_bank_swift_code' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneBankSwiftCode || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_beneficiary_bank' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.bankName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_bank_address' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneBankAddress1 || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.beneficiary?.beneBankAddress2"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneBankAddress2 || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.beneficiary?.beneBankAddress3"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneBankAddress3 || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.beneficiary?.beneBankAddress4"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneBankAddress4 || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <!--<ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_beneficiary_account_no' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.beneficiary?.beneficiaryAccountNo || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h4 class="font-bold text-color-primary ion-text-wrap">
+              {{'lbl_payment_details' | translate}}</h4>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason != null || lcDetails.cancelReason!= undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_credit_available_with' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.creditAvailableWith?.displayName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_credit_available_by' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.creditAvailableBy?.displayName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_draft_at' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.draftAt || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_confirmation_instruction' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.confirmingInstructions?.displayName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_account_no' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ dataObj.tradeAccountNo || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason != null || lcDetails.cancelReason!= undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_bank_name' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.bankName || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.chargesSet && lcDetails.chargesSet.length > 0">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_charges' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.chargesSet[0].charges || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.chargesSet[1]?.charges"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.chargesSet[1]?.charges || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.chargesSet[2]?.charges"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.chargesSet[2]?.charges || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.chargesSet[3]?.charges"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.chargesSet[3]?.charges || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" *ngIf="lcDetails.chargesSet && lcDetails.chargesSet.length > 0">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_charges_to_be_borne_by' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ (lcDetails?.chargesSet[0]?.chargesBourneBy|titlecase) || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.chargesSet[1]?.chargesBourneBy"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ (lcDetails?.chargesSet[1]?.chargesBourneBy|titlecase) || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.chargesSet[2]?.chargesBourneBy"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ (lcDetails?.chargesSet[2]?.chargesBourneBy|titlecase) || '-' }}
+            </p>
+            <p *ngIf="lcDetails?.chargesSet[3]?.chargesBourneBy"
+               class="text-size-p font-regular  ion-text-wrap">
+              {{ (lcDetails?.chargesSet[3]?.chargesBourneBy|titlecase) || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h4 class="font-bold text-color-primary ion-text-wrap">
+              {{'lbl_shipping_details' | translate}}</h4>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_latest_date_of_shipment' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.latestDateOfShipping  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_port_of_loading_/_airport_of_departure' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.portOfLoading  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_port_of_discharge_/_airport_of_destination' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.portOfDischarge  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <!--<ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_trans_shipment' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.transShipment || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <!--<ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_partial_shipment' | translate}} </h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.partialShipment || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_terms_of_shipment' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.termsOfShipment?.displayName  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'Period of Presentation' | apsTraslate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails?.periodOfPresentation || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>
+
+        <!--<ion-item class="ion-no-padding" *ngIf="lcDetails.cancelReason == null || lcDetails.cancelReason == undefined">
+          <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{'lbl_cancel_reason' | translate}}</h3>
+            <p class="text-size-p font-regular  ion-text-wrap">
+              {{ lcDetails.cancelReason  || '-' }}
+            </p>
+          </ion-label>
+        </ion-item>-->
+      </ion-list>
+      <ion-list class="ion-padding-end ion-padding-start">
+        <maker-checker-details [data]="dataObj"></maker-checker-details>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-app>
+

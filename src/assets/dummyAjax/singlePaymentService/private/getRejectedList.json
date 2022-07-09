@@ -1,0 +1,246 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BSINGLEPAYMENTREQUEST",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Batch No.",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Payment Method",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Beneficiary Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Transaction Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Value Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Currency",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Amount",
+    "type": "Amount",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Reject Reason",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Debit Account No",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Modified On",
+    "type": "String",
+    "isDisplay": "N"
+  }],
+  "dataList": [
+    ["iV8JZ08NlX0=,3", "01030719007", "WEB", "Book Transfer", "ben test", "03-Jul-2019", "04-Jul-2019", "LKR", "1,678.00", "Test", "jiomaker1", "0001003000001", "2019-07-03 15:31:33.0"],
+    ["16O39W9TU2s=,3", "01030719004", "MOBILE", "Book Transfer", "BENE123", "03-Jul-2019", "04-Jul-2019", "LKR", "100.00", "Hh", "jiomaker1", "0001003000007", "2019-07-03 14:37:58.0"],
+    ["gKnmUgNCyYI=,3", "01190619014", "WEB", "RTGS", "RTGS Test Ben", "19-Jun-2019", "19-Jun-2019", "LKR", "1,223.00", "111", "jiomaker1", "0001003000001", "2019-06-19 13:56:32.0"],
+    ["2ecGhUWg20c=,3", "01311218148", "WEB", "Book Transfer", "SriLankan Broadcasting Corp (SLBC)", "31-Dec-2018", "31-Dec-2018", "LKR", "1,200.00", "qwe", "jiomaker1", "0001003000001", "2018-12-31 16:07:30.0"],
+    ["Ym2uOEzUCjQ=,5", "01311218147", "WEB", "Book Transfer", "SriLankan Broadcasting Corp (SLBC)", "31-Dec-2018", "31-Dec-2018", "LKR", "9,000.00", "wertwerqwer", "jiomaker1", "0001003000001", "2018-12-31 16:06:36.0"],
+    ["ZFGQ04uppHM=,3", "01311218034", "WEB", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "31-Dec-2018", "31-Dec-2018", "LKR", "654.32", "Test Reject dec", "jiomaker1", "0001003000001", "2018-12-31 14:03:26.0"],
+    ["6lx+1FiMQmY=,3", "01211118009", "MOBILE", "RTGS", "SRILANKAN BROADCASTING CORP (SLBC)", "21-Nov-2018", "21-Nov-2018", "LKR", "100.00", "Jd", "jiomaker1", "0001003000001", "2018-11-21 13:25:02.0"],
+    ["CdTtrT/VsDw=,3", "01301018009", "WEB", "Book Transfer", "SriLankan Broadcasting Corp (SLBC)", "30-Oct-2018", "30-Oct-2018", "LKR", "100.00", "test", "jiomaker1", "0001003000007", "2018-10-30 12:44:47.0"]
+  ],
+  "filters": [{
+    "displayName": "Batch No.",
+    "name": "batchNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Beneficiary Name",
+    "name": "beneficiaryName",
+    "type": "String"
+  }],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 8,
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('iV8JZ08NlX0=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('iV8JZ08NlX0=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('iV8JZ08NlX0=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('16O39W9TU2s=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('16O39W9TU2s=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('16O39W9TU2s=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('gKnmUgNCyYI=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('gKnmUgNCyYI=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('gKnmUgNCyYI=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('2ecGhUWg20c=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('2ecGhUWg20c=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('2ecGhUWg20c=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Ym2uOEzUCjQ=,5')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('Ym2uOEzUCjQ=,5')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('Ym2uOEzUCjQ=,5')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('ZFGQ04uppHM=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('ZFGQ04uppHM=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('ZFGQ04uppHM=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('6lx+1FiMQmY=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('6lx+1FiMQmY=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('6lx+1FiMQmY=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('CdTtrT/VsDw=,3')"
+    }, {
+      "index": 8,
+      "displayName": "Resubmit",
+      "icon": null,
+      "url": null,
+      "onClick": "resubmit('CdTtrT/VsDw=,3')"
+    }, {
+      "index": 9,
+      "displayName": "AcceptRejection",
+      "icon": null,
+      "url": null,
+      "onClick": "acceptReject('CdTtrT/VsDw=,3')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "HARDTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

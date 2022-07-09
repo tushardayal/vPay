@@ -1,0 +1,72 @@
+/*  #Style Time Line -- Timeline With Avatar
+===========================================*/
+
+.item-thumbnail {
+  overflow: visible;
+  position: relative;
+
+  &:after {
+    content: "";
+    width: 1px;
+    top: 10px;
+    left: -21px;
+    bottom: -24px;
+    position: absolute;
+    background-color: var(--cs-background-border);
+  }
+
+  &:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--cs-background-accent);
+    top: 0;
+    left: -27px;
+    position: absolute;
+    z-index: 999;
+  }
+}
+
+/*ion-col > .item-thumbnail:last-child {
+  &:after {
+    display: none;
+  }
+}*/
+/*
+
+!*  # Style Time Line -- Timeline With Cards
+===========================================*!
+ion-card {
+  overflow: visible;
+  position: relative;
+
+  &:after {
+    content: "";
+    width: 1px;
+    top: 10px;
+    left: -30px;
+    bottom: -24px;
+    position: absolute;
+    background-color:var(--cs-background-border);
+  }
+
+  &:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--cs-background-accent);
+    top: 0;
+    left: -36px;
+    position: absolute;
+    z-index: 999;
+  }
+}
+
+ion-col > ion-card:last-child {
+  &:after {
+    display: none;
+  }
+}
+*/

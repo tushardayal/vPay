@@ -1,0 +1,58 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "portfolioTotal": "-2,055,547.76",
+    "accTypeWiseMap": {
+      "COMMERCIAL LOAN -SME": {
+        "displayName": "COMMERCIAL LOAN -SME",
+        "currencyWiseResponseList": [{
+          "displayName": "LKR",
+          "accounts": [{
+            "accountNo": "0001003000016",
+            "accountBalance": "2,810,374.00",
+            "availableBalanceBaseCurrency": "2,810,374.00"
+          }, {
+            "accountNo": "0001003000017",
+            "accountBalance": "1,810,374.00",
+            "availableBalanceBaseCurrency": "1,810,374.00"
+          }],
+          "currencyWiseTotal": "4,620,748.00"
+        }]
+      },
+      "SAVINGS - FLOAT": {
+        "displayName": "SAVINGS - FLOAT",
+        "currencyWiseResponseList": [{
+          "displayName": "LKR",
+          "accounts": [{
+            "accountNo": "0001003000001",
+            "accountBalance": "944,343.52",
+            "availableBalanceBaseCurrency": "944,343.52"
+          }, {
+            "accountNo": "0001003000003",
+            "accountBalance": "944,343.52",
+            "availableBalanceBaseCurrency": "944,343.52"
+          }],
+          "currencyWiseTotal": "1,888,687.04"
+        }]
+      },
+      "SAVINGS ACCOUNT": {
+        "displayName": "SAVINGS ACCOUNT",
+        "currencyWiseResponseList": [{
+          "displayName": "LKR",
+          "accounts": [{
+            "accountNo": "0001003000001",
+            "accountBalance": "676,513.20",
+            "availableBalanceBaseCurrency": "676,513.20"
+          }],
+          "currencyWiseTotal": "676,513.20"
+        }]
+      }
+    }
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

@@ -1,0 +1,27 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [{
+    "id": "GBP",
+    "displayName": "42.25"
+  }, {
+    "id": "INR",
+    "displayName": "2.5"
+  }, {
+    "id": "TND",
+    "displayName": "52.5"
+  }, {
+    "id": "JPY",
+    "displayName": "33.25"
+  }, {
+    "id": "SGD",
+    "displayName": "33.25"
+  }, {
+    "id": "USD",
+    "displayName": "20.0"
+  }],
+  "entityIdentifier": "",
+  "loggable": false
+}

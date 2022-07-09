@@ -1,0 +1,21 @@
+{
+  "responseStatus": {
+    "message": "Payment request with batch no. 01211019066 and amount LKR 34.00 successfully initiated",
+    "status": "0"
+  },
+  "dataMap": {
+    "displaySelectVerifierScreen": true,
+    "batchNo": "01211019066",
+    "corporateProductId": "KC8YXP4k9Mo=",
+    "debitAccountId": "UbhEoAhwygQ=",
+    "payableCurrencyName": "LKR",
+    "displaySelectAuthScreen": true,
+    "authLevel": "T",
+    "payableAmount": "34.00",
+    "referenceId": "7V2Oqdl4mnY=",
+    "verifierAuthLevel": null
+  },
+  "entityIdentifier": "BatchNo : null",
+  "entity": "BSINGLEPAYMENTREQUEST",
+  "loggable": false
+}

@@ -1,0 +1,19 @@
+/*.select-full-width {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+  }
+
+  ion-row {
+    border-bottom: 1px solid var(--cs-background-secondary);
+  }*/
+
+ion-select {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  text-align: center;
+}
+.widgetBorder{
+  border: 1px solid var(--cs-background-secondary);
+}

@@ -1,0 +1,540 @@
+ion-content {
+/*offset-top: -56px !important;*/
+
+  ion-grid,
+  ion-row {
+    //height: 100%;
+
+    img {
+      max-width: 150px;
+      max-height: 139px;
+      margin: 0 auto;
+    }
+
+    ion-item {
+      --inner-padding-end: 0;
+    }
+
+    form {
+      ion-item {
+        ion-icon {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          z-index: 999;
+        }
+
+        ion-label {
+          //transform: none;
+          flex: none !important;
+          min-width: auto !important;
+          width: auto !important;
+        }
+      }
+    }
+
+    .facebook-button {
+      --color: var(--cs-text-primary);
+      border: 3px solid var(--cs-background-border);
+      --color-focused: var(--cs-text-primary) !important;
+      --color-activated: var(--cs-text-primary) !important;
+      --color-hover: var(--cs-text-primary) !important;
+    }
+  }
+  .button-native {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+}
+
+
+.topmargin-top{
+  margin-top: 46%!important;
+}
+
+
+
+  .ios .topmargin-top{
+    margin-top:80% !important;}
+
+
+
+.login-background{
+  //background-image:url("Nations-Direct-Enterprise.png");
+  //background-image:url("assets/imgs/styleNtb/Login_Screen750x1334.jpg"),url("Nations-Direct-Enterprise.png");
+  background-image: url("../../../assets/imgs/styleNtb/Login_Screen-bot.jpg");
+  background-blend-mode: normal;
+  background-position: left !important;
+}
+.login-logo-padding{
+  padding: 20% 20% 5% 20%;
+}
+
+
+/*mediaQuery*/ /*Samsung Galaxy Tab 2*/
+/*
+
+@media only screen and (max-width: 1280px) and (orientation : landscape) {
+  !* LANDSCAPE:Samsung Galaxy Tab(7.7 > 12.2)*!
+
+  ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/1280x800.jpg)!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+  .topmargin-top{
+    margin-top: 14%!important;}
+
+  .ios .topmargin-top{
+    margin-top: 18%!important;}
+
+}
+
+@media only screen and (min-height: 800px) and (orientation : portrait) {
+  !* LANDSCAPE: Samsung Galaxy Tab(7.7 > 12.2) *!
+
+  ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/800x1280.jpg);
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+  !*.topmargin-top{
+    margin-top: 62%!important;}*!
+}
+
+@media only screen and (max-width: 1024px) and (orientation : landscape) {
+  !* LANDSCAPE: Apple iPad 1,2,3,4,Air,Mini, BlackBerry PlayBook, Samsung Galaxy Tab 2(7") *!
+  ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/Login_Screen_land1024.jpg)!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+  .ios ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/Login_Screen_land1024-ios.jpg)!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+}
+
+!*and (min-width: 768px) Edit at 8.48pm *!
+@media only screen  and (min-width: 1024px){
+  !*ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/Login_Screen_land1024.jpg)!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+*!
+}
+
+@media only screen and (min-device-width: 800px) and (max-device-height: 1280px)
+and (-webkit-device-pixel-ratio:2) and (orientation : portrait)
+{
+  ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/800x1280.jpg)!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+}
+
+@media only screen and (min-device-width: 1280px) and (max-device-height: 800px)
+and (-webkit-device-pixel-ratio:2) and (orientation : landscape)
+{
+  ion-page ion-content{
+    background-image:url(src/assets/imgs/styleNtb/1280x800.jpg)!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+}
+
+@media (min-height: 1440px) and (max-height: 1536px)
+{
+  .topmargin-top{
+    margin-top: 25%!important;}
+}
+@media (max-height: 800px) and (max-height: 1280px)
+{
+  !*.topmargin-top{
+    margin-top: 75%!important;}*!
+}
+
+
+
+!*mediaQuery*!!*IOS*!
+
+!*
+@media only screen and (max-width: 1024px) and (orientation : landscape) {
+  !* LANDSCAPE: Apple iPad 1,2,3,4,Air,Mini, BlackBerry PlayBook, Samsung Galaxy Tab 2(7") *!
+  .ios .topmargin-top{
+    margin-top:24%!important;}
+
+}
+*!
+
+@media only screen and (min-width: 2048px) and (orientation:landscape) {
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2048.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+  .ios .topmargin-top{
+    margin-top: 20%!important;}
+
+}
+
+@media only screen and (orientation:landscape) and (min-width: 1366px) and (min-height: 1024px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land1366.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:24%!important;}
+
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2048px) and (min-height: 1536px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2048.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:26%!important;}
+
+}
+
+@media only screen and (min-width: 1536px) and (min-height: 2048px ) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:50%!important;}
+
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2388px) and (min-height: 1668px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2388.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:22%!important;}
+
+}
+
+@media only screen and (min-width: 1668px) and (min-height: 2388px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:55%!important;}
+
+}
+
+@media only screen and (min-width: 1080px) and (min-height: 2160px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:65%!important;}
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2160px) and (min-height: 1080px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2160.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:15%!important;}
+
+}
+
+@media only screen and (min-width: 1620px) and (min-height: 2160px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:55%!important;}
+
+}
+
+@media only screen  and (orientation:landscape) and (min-width: 2160px) and (min-height: 1620px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land216020.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:25%!important;}
+}
+
+@media only screen and (min-width: 1668px) and (min-height: 2224px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:55%!important;}
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2224px) and (min-height:1668px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2224.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:20%!important;}
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2732px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/1280x800.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top {
+    margin-top: 20%!important;
+  }
+}
+
+
+!*@media only screen and (orientation:landscape) and (min-width: 2732px) and (min-height: 2048px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2732.jpg")!important;
+    background-size: cover !important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+
+}*!
+
+!*@media only screen and (min-width: 2048px) and (min-height: 2732px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2048.jpg")!important;
+    background-size: cover!important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top {
+    margin-top: 40%!important;
+  }
+}*!
+
+@media only screen and (min-width: 1600px) and (min-height: 2560px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg")!important;
+    background-size: cover!important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top {
+    margin-top: 60%!important;
+  }
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2560px) and (min-height: 1600px) {
+
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2560.jpg")!important;
+    background-size: cover!important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:23%!important;}
+
+}
+
+@media only screen and (orientation:landscape) and (min-width: 2960px) and (min-height: 1440px) {
+  ion-page ion-content{ background-image: url("src/assets/imgs/styleNtb/Login_Screen_land2960x1440.jpg")!important;
+    background-size: cover!important;
+    -webkit-background-size:cover !important;
+    -moz-background-size:cover !important;
+    -o-background-size:cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+  .ios .topmargin-top{
+    margin-top:16% !important;}
+
+}
+
+@media only screen and (min-width: 1440px) and (min-height: 2960px) {
+  ion-page ion-content {
+    background-image: url("src/assets/imgs/styleNtb/Login_Screen.jpg") !important;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+  }
+}
+
+
+!*@media only screen and (max-width: 1024px) and (orientation : landscape) {*!
+@media only screen and (min-width:750px) and (max-height:1334px) {
+
+  .ios ion-page ion-content{
+    background-image:url("src/assets/imgs/styleNtb/Login_Screen750x1334.jpg")!important;
+    background-size: cover!important;
+    -webkit-background-size:cover!important;
+    -moz-background-size:cover!important;
+    -o-background-size:cover!important;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-attachment: fixed!important;
+  }
+
+}
+
+
+*/

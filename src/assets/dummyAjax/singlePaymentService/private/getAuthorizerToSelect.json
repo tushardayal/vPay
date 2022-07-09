@@ -1,0 +1,27 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "usersMatrix": [
+      ["o31bemZ9xxs=", "cnpcchecker4", "nvkaVrSpwKo=", "Administrator", "1", "cnpc checker4", "", "N", "N"],
+      ["aY8dQ1n4+4I=", "chingchong", "nvkaVrSpwKo=", "Administrator", "1", "ching chong", "", "N", "N"],
+      ["j3rFrBFFiDk=", "cnpcchecker1", "nvkaVrSpwKo=", "Administrator", "1", "cnpc checker1", "", "Y", "Y"],
+      ["szz4EumOU3o=", "cnpcchecker5", "nvkaVrSpwKo=", "Administrator", "1", "cnpc checker5", "", "N", "N"],
+      ["vHOHyBMu7/Y=", "cnpcchecker3", "sHUKnLh1G8g=", "OPERATIONS", "1", "cnpc checker3", "", "Y", "Y"]
+    ],
+    "matrixHeadersMap": ["Administrator(1) and OPERATIONS(1)", 1, {
+      "143": {
+        "Administrator": "1",
+        "OPERATIONS": "1"
+      }
+    }],
+    "verifierList": [],
+    "recordListType": null,
+    "selectorType": "SELECTAUTHORIZER"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

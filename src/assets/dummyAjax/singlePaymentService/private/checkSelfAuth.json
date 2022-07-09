@@ -1,0 +1,14 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "selectedAuthType": "SOFTTOKEN",
+    "isUserSelfAuth": false,
+    "isHoliday": false
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

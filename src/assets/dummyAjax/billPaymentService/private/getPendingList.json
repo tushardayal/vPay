@@ -1,0 +1,370 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BILLPAYMENT",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Consumer Details",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Outstanding Balance",
+    "type": "Amount",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Payable Amount",
+    "type": "Amount",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Due Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Payment Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Debit Account No",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Last Action",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Biller Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Product Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Reference Field 1",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Reference Field 1",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Reference Field Value 1",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Biller Integration",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Bill Payment Status",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Auth Level",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Last Action",
+    "type": "String",
+    "isDisplay": "Y"
+  }],
+  "dataList": [
+    ["it9Mzjv2bWI=,2", "Sahi870Consu11<br>7804", "MOBILE", "500.00", "500.00", "19-Jul-2019", "19-Jul-2019", "0001003000001", "Update", "HEROCYCLES", "P91CODE75N", "Value<br>7804", "Value", "7804", "jiomaker1", "Online", "Pending For Auth", "M", "Update"],
+    ["VPTuGV2H57A=,2", "Sahi619Consu183<br>4001", "MOBILE", "200.00", "200.00", "19-Jul-2019", "19-Jul-2019", "0001003000001", "Update", "PLATINUM EVARA", "OFFLINEMULPAYMENT", "erwr<br>4001", "erwr", "4001", "jiomaker1", "Offline", "Pending For Auth", "M", "Update"],
+    ["qgOYEgGl3B0=,2", "Sahi651Consu35<br>4418", "WEB", "500.00", "500.00", "07-Jun-2019", "07-Jun-2019", "0001003000001", "Update", "PLATINUM EVARA", "ONLINEEXACT", "Name<br>4418", "Name", "4418", "jiomaker1", "Online", "Pending For Auth", "M", "Update"],
+    ["vPLq/EhoUV8=,1", "sfasdf<br>6456244234", "WEB", "-", "400.00", "-", "31-Dec-2018", "0001003000001", "Create", "RELIANCE DIGITAL", "Online Mobile Payment", "Mobile Number<br>6456244234", "Mobile Number", "6456244234", "jiomaker1", "Online", "Pending For Auth", "M", "Create"],
+    ["jYm0Np75ZKE=,1", "Sandesh1<br>2834623123", "WEB", "-", "400.00", "-", "31-Dec-2018", "0001003000001", "Create", "RELIANCE DIGITAL", "Online Mobile Payment", "Mobile Number<br>2834623123", "Mobile Number", "2834623123", "jiomaker1", "Online", "Pending For Auth", "M", "Create"],
+    ["m0I5cUDYnjU=,2", "Sahi112Consu474<br>1539", "MOBILE", "500.00", "500.00", "31-Dec-2018", "31-Dec-2018", "0001003000001", "Update", "PLATINUM EVARA", "ONLINEMUL", "dgdfg<br>1539", "dgdfg", "1539", "jioChecker1", "Online", "Pending For Auth", "M", "Update"],
+    ["gFjPwTIxVh4=,2", "Sahi712Consu712<br>793", "MOBILE", "500.00", "500.00", "31-Dec-2018", "31-Dec-2018", "0001003000001", "Update", "PLATINUM EVARA", "ONLINEPARTIAL", "dasd<br>793", "dasd", "793", "jiomaker1", "Online", "Pending For Auth", "M", "Update"],
+    ["O39NQFo9vAQ=,1", "Testi<br>57567567", "WEB", "-", "20.10", "-", "31-Dec-2018", "0001003000001", "Create", "RELIANCE DIGITAL", "Online Mobile Payment", "Mobile Number<br>57567567", "Mobile Number", "57567567", "jiomaker1", "Online", "Pending For Auth", "M", "Create"],
+    ["1utZC1tvqDQ=,1", "TestTes<br>797897", "WEB", "-", "880.00", "-", "31-Dec-2018", "0001003000001", "Create", "RELIANCE DIGITAL", "Bill Presentment", "FlatandWing<br>797897", "FlatandWing", "797897", "jiomaker1", "Offline", "Pending For Auth", "M", "Create"],
+    ["LevFPa8W4Nc=,1", "TestTe<br>345345345", "WEB", "-", "550.00", "-", "31-Dec-2018", "0001003000001", "Create", "RELIANCE DIGITAL", "Offline Payment Light Bill", "Consumer No<br>345345345", "Consumer No", "345345345", "jiomaker1", "Offline", "Pending For Auth", "M", "Create"]
+  ],
+  "filters": [{
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Due Date",
+    "name": "billDueDate",
+    "type": "Date"
+  }, {
+    "displayName": "Biller Name",
+    "name": "billerName",
+    "type": "String"
+  }, {
+    "displayName": "Product Name",
+    "name": "productName",
+    "type": "String"
+  }, {
+    "displayName": "Consumer Name",
+    "name": "subscriberName",
+    "type": "String"
+  }, {
+    "displayName": "Consumer No",
+    "name": "referenceFieldValue1",
+    "type": "String"
+  }],
+  "pageNumber": 1,
+  "totalPages": 2,
+  "totalRecords": 12,
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('it9Mzjv2bWI=,2')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('it9Mzjv2bWI=,2')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('it9Mzjv2bWI=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('VPTuGV2H57A=,2')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('VPTuGV2H57A=,2')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('VPTuGV2H57A=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('qgOYEgGl3B0=,2')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('qgOYEgGl3B0=,2')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('qgOYEgGl3B0=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('vPLq/EhoUV8=,1')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('vPLq/EhoUV8=,1')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('vPLq/EhoUV8=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('jYm0Np75ZKE=,1')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('jYm0Np75ZKE=,1')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('jYm0Np75ZKE=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('m0I5cUDYnjU=,2')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('gFjPwTIxVh4=,2')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('gFjPwTIxVh4=,2')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('gFjPwTIxVh4=,2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('O39NQFo9vAQ=,1')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('O39NQFo9vAQ=,1')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('O39NQFo9vAQ=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('1utZC1tvqDQ=,1')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('1utZC1tvqDQ=,1')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('1utZC1tvqDQ=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('LevFPa8W4Nc=,1')"
+    }, {
+      "index": 2,
+      "displayName": null,
+      "icon": null,
+      "url": null,
+      "onClick": null
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('LevFPa8W4Nc=,1')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('LevFPa8W4Nc=,1')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "HARDTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

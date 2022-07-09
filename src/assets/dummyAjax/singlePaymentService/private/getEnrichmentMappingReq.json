@@ -1,0 +1,11 @@
+{
+  "filters": [{
+    "name": "corporateProductId",
+    "value": "KC8YXP4k9Mo=",
+    "type": "String"
+  }, {
+    "name": "corporateId",
+    "value": "q0Btgp1ITQc=",
+    "type": "String"
+  }]
+}

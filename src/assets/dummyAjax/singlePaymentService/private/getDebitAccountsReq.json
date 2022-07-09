@@ -1,0 +1,11 @@
+{
+  "filters": [{
+    "name": "corporateProductId",
+    "value": "KC8YXP4k9Mo=",
+    "type": "String"
+  }, {
+    "name": "paymentMethodId",
+    "value": "bgCR0pUOsDk=",
+    "type": "String"
+  }]
+}

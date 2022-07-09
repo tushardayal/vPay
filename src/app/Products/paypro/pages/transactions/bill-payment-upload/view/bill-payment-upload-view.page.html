@@ -1,0 +1,111 @@
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+<!--                <ion-back-button defaultHref="['/menu/paypro/listing/paypro']"></ion-back-button>-->
+                <ion-button (click)="transactionsSrv.closeModal()">
+                    <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>{{'lbl_view' | translate}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <!-- SWIPE TO DISMISS --COMPONENT 1 -->
+    <ion-content>
+        <ng-container *ngIf="billUploadData">
+            <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+                <ion-item *ngFor="let obj of billUploadData" class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{obj.displayName}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ obj.value || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+            <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+                <maker-checker-details [data]="billUploadData"></maker-checker-details>
+            </ion-list>
+        </ng-container>
+        <ng-container *ngIf="paymentDetails">
+            <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h4 class="font-bold text-color-primary ion-text-wrap">
+                            {{'lbl_payment_details' | translate}}</h4>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Biller Name'|apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.billerName || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Product Name'|apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.productName || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{paymentDetails.referenceField1}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.referenceFieldvalue1 || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Consumer Name' | apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.consumerName || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Bill Amount' | apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{paymentDetails.payableCurrency}} <span appStyleAmount [amount]="paymentDetails.billAmount">{{ paymentDetails.billAmount || '-' }}</span></p>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Due Date' | apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.dueDate || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Payment Date' | apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.paymentDate || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                            {{'Debit Account / IBAN' | apsTraslate}} </h3>
+                        <p class="text-size-p font-regular  ion-text-wrap">
+                            {{ paymentDetails.debitAccountNo || '-' }}</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+            <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+                <maker-checker-details [data]="paymentDetails"></maker-checker-details>
+            </ion-list>
+        </ng-container>
+    </ion-content>
+</ion-app>
+

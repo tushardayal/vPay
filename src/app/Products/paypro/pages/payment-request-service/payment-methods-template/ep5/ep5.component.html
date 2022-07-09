@@ -1,0 +1,131 @@
+<div [formGroup]="formGroup">
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+        {{'lbl_beneficiary_account' | translate}} </h3>
+      <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+        {{ formData.beneficiaryPaymentMethodMapDetails?.accountNo }}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+        {{'lbl_beneficiary_bic' | translate}} </h3>
+      <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+        {{ formData.beneficiaryPaymentMethodMapDetails?.swiftCode || '-'}}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+        {{'lbl_beneficiary_bank' | translate}} </h3>
+      <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+        {{ formData.beneficiaryPaymentMethodMapDetails?.bank || '-' }}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+        {{'lbl_beneficiary_bank_branch' | translate}} </h3>
+      <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+        {{ formData.beneficiaryPaymentMethodMapDetails?.branch || '-' }}</p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+        {{'lbl_beneficiary_address' | translate}} </h3>
+      <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+        {{ formData.beneficiaryPaymentMethodMapDetails?.address1 || "-"}} ,
+        {{ formData.beneficiaryPaymentMethodMapDetails?.address2 || "-" }} ,
+        {{ formData.beneficiaryPaymentMethodMapDetails?.address3 || "-"}}
+      </p>
+    </ion-label>
+  </ion-item>
+  <ion-item class="ion-no-padding" *ngIf="formGroup.controls['beneficiaryPaymentMethodMapDetails.sortCode']">
+    <ion-label position="stacked">{{'lbl_bank_sort_code' | translate}}</ion-label>
+    <ion-input type="text" formControlName="beneficiaryPaymentMethodMapDetails.sortCode" class="custom-input ion-no-padding text-size-p">
+    </ion-input>
+  </ion-item>
+  <ion-item class="ion-no-padding">
+    <ion-label position="stacked">{{'lbl_charge' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+    <ion-select *ngIf="chargeTypes?.length>0" placeholder="{{'lbl_please_select' | translate}}" (ionChange)="onChangeChargeType()" [interface]="environment.SELECT_INTERFACE"
+      formControlName="selectedChargeTypes" class="text-size-p">
+      <ion-select-option class="text-size-p" *ngFor="let item of chargeTypes; trackBy:identify" [value]="item">
+        {{item.displayName}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <errorMsg  [control]="formGroup.controls['selectedChargeTypes']" errMsg="{{'lbl_please_select_charge' | translate}}">
+  </errorMsg>
+  <ion-item class="ion-no-padding">
+    <ion-label position="stacked">{{'lbl_remittance_purpose' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+    <ion-select *ngIf="remittancePurpose?.length>0" placeholder="{{'lbl_please_select' | translate}}" (ionChange)="onChangeRemittance()" [interface]="environment.SELECT_INTERFACE"
+      formControlName="selectedRemittancePurpose" class="text-size-p">
+      <ion-select-option class="text-size-p" *ngFor="let item of remittancePurpose; trackBy:identify" [value]="item">
+        {{item.displayName}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <errorMsg [control]="formGroup.controls['selectedRemittancePurpose']"
+    errMsg="{{'lbl_please_select_remittance_purpose' | translate}}">
+  </errorMsg>
+
+  <ion-item class="ion-no-padding">
+    <ion-label class="ion-no-padding">
+      <h4 class="font-bold text-color-primary ion-text-wrap">
+        {{'lbl_intermediary_bank_details' | translate}}
+      </h4>
+   </ion-label>
+ </ion-item>
+ <ion-item class="ion-no-padding" *ngIf="formData.beneficiaryPaymentMethodMapDetails?.intermediaryBicCode">
+  <ion-label position="stacked">{{'lbl_bic_code' | translate}}</ion-label>
+  <ion-grid  class="custom-grid">
+    <ion-row>
+      <ion-col size="11">
+        <ion-input type="text" formControlName="beneficiaryPaymentMethodMapDetails.intermediaryBicCode"
+       placeholder="{{'lbl_bic_code' | translate}}"
+       class="custom-input ion-no-padding text-size-p" ></ion-input>
+      </ion-col>
+      <ion-col size="1" class="ion-justify-content-around">
+        <ion-icon (click)="openBicCode()" class="icon-font-md icon-color-primary ion-align-self-center " name="search-outline">
+        </ion-icon>                               
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+<ion-item class="ion-no-padding" *ngIf="formGroup.controls['beneficiaryPaymentMethodMapDetails.intermediarySortCode']">
+  <ion-label position="stacked">{{'lbl_sort_code' | translate}}</ion-label>
+  <ion-input type="text" formControlName="beneficiaryPaymentMethodMapDetails.intermediarySortCode"
+    placeholder="{{'lbl_sort_code' | translate}}"  class="custom-input ion-no-padding text-size-p"></ion-input>
+</ion-item>
+<div *ngIf="formData.beneficiaryPaymentMethodMapDetails?.intermediaryBicCode">
+<ion-item class="ion-no-padding">
+  <ion-label class="ion-no-padding">
+    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+      {{'lbl_bank_name' | translate}} </h3>
+    <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+      {{ formData.beneficiaryPaymentMethodMapDetails?.intermediaryBank }}</p>
+  </ion-label>
+</ion-item>
+<ion-item class="ion-no-padding">
+  <ion-label class="ion-no-padding">
+    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+      {{'lbl_branch_name' | translate}}</h3>
+    <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+      {{ formData.beneficiaryPaymentMethodMapDetails?.intermediaryBranchName }}</p>
+  </ion-label>
+</ion-item>
+<ion-item class="ion-no-padding">
+  <ion-label class="ion-no-padding">
+    <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+      {{'lbl_intermediary_bank_address' | translate}} </h3>
+    <p class="text-size-p font-regular text-color-primary ion-text-wrap">
+      {{ formData.beneficiaryPaymentMethodMapDetails?.intermediaryBankAddress1 || "-"}},
+      {{ formData.beneficiaryPaymentMethodMapDetails?.intermediaryBankAddress2 || "-"}},
+      {{ formData.beneficiaryPaymentMethodMapDetails?.intermediaryBankAddress3 || "-"}}</p>
+  </ion-label>
+</ion-item>
+</div>
+</div>
+

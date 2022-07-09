@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'lbl_logout' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="transparent background-size" [ngStyle]="{'background-image': 'url(assets/imgs/'+ environment.themeCategory + '/Exit_Screen.jpg)'}" style="background-size:cover">
+  <ion-grid class="ion-align-items-center ion-margin-vertical ion-padding-vertical">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col class="ion-align-items-center">
+       <!-- <ion-button class="default-button ion-text-capitalize" expand="block" (click)="redirectToLogin()">
+          Login
+        </ion-button>-->
+        <!--<ion-img src="./assets/imgs/logo/icash-text-logo-white.png"></ion-img> --><ion-col>
+        <ion-button class="default-button ion-text-capitalize background-primary text-color-primary font-regular" expand="block" (click)="redirectToLogin()">
+          {{'lbl_login' | translate}}
+        </ion-button>
+
+      </ion-col>
+
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<ion-footer class="background-accent">
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <!--<ion-button class="default-button ion-text-capitalize background-primary text-color-primary font-regular" expand="block" (click)="redirectToLogin()">
+          {{'lbl_login' | translate}}
+        </ion-button>-->
+
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+

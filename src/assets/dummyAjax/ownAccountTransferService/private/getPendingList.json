@@ -1,0 +1,161 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "OWNACCOUNTTRANSFER",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "Id"
+  }, {
+    "displayName": "Batch No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "BatchNo"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "MakerChannel"
+  }, {
+    "displayName": "Payment Method",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "PaymentMethodName"
+  }, {
+    "displayName": "Credit Account Title",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "BeneAccountTitle"
+  }, {
+    "displayName": "Transaction Date",
+    "type": "Date",
+    "isDisplay": "Y",
+    "methodName": "EntryDate"
+  }, {
+    "displayName": "Debit Account No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "DebitAccountNo"
+  }, {
+    "displayName": "Debit CCY",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "SellCurrencyName"
+  }, {
+    "displayName": "Value Date",
+    "type": "Date",
+    "isDisplay": "N",
+    "methodName": "ActivationDate"
+  }, {
+    "displayName": "Corp Ref No.",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "CorporateRefNo"
+  }, {
+    "displayName": "Debit Amount",
+    "type": "Amount",
+    "isDisplay": "Y",
+    "methodName": "DebitAmount"
+  }, {
+    "displayName": "Credit Account No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "AccountNo"
+  }, {
+    "displayName": "Credit CCY",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "PayableCurrencyName"
+  }, {
+    "displayName": "Credit Amount",
+    "type": "Amount",
+    "isDisplay": "N",
+    "methodName": "PayableAmount"
+  }, {
+    "displayName": "Status",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "UIStatus"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "ModifiedBy"
+  }, {
+    "displayName": "Modified On",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "ModifiedOn"
+  }],
+  "dataList": [
+    ["50SNX0YTaDI=,3", "25270719035", "WEB", "SLIPS", "IFT account", "09-Feb-2019", "999001900001", "LKR", "27-Jul-2019", "asdf", "2,458.00", "212414312311", "LKR", "2,458.00", "Unauthorized", "cnpcmaker1", "2019-08-03 00:00:00.0"]
+  ],
+  "filters": [{
+    "displayName": "Batch No.",
+    "name": "batchNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Debit Account No.",
+    "name": "debitAccountNo",
+    "type": "String"
+  }, {
+    "displayName": "Value Date",
+    "name": "activationDate",
+    "type": "Date"
+  }],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 1,
+  "access": ["VIEW", "DATA-ENTRY"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('50SNX0YTaDI=,3')"
+    }, {
+      "index": 2,
+      "displayName": "Edit",
+      "icon": "fa fa-pencil",
+      "url": null,
+      "onClick": "edit('50SNX0YTaDI=,3')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('50SNX0YTaDI=,3')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "icons-view-authorizer",
+      "url": null,
+      "onClick": "nextAuthorizer('50SNX0YTaDI=,3','B','T','unauthorized','cnpcmaker1','03-Aug-2019 00:00:00')"
+    }, {
+      "index": 0,
+      "displayName": "SelectAuthorizer",
+      "icon": null,
+      "url": null,
+      "onClick": "selectAuthorizer('50SNX0YTaDI=','3','mwUsGGO4vYY=','T','null')"
+    }, {
+      "index": 1,
+      "displayName": "SelectVerifier",
+      "icon": null,
+      "url": null,
+      "onClick": "selectVerifier('8smzU/bkDdM=','1','','T','','SINGLE')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "SOFTTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

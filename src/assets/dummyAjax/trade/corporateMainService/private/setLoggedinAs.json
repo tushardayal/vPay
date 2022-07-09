@@ -1,0 +1,12 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "TRADE_SELECTDED_LOGIN": "IMPORT"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

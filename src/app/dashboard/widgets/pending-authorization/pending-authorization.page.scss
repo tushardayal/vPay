@@ -1,0 +1,10 @@
+/* Style component 1
+========================================================*/
+.scroll-x{
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+.widgetBorder{  
+  border: 1px solid var(--cs-background-secondary);
+
+}

@@ -1,0 +1,135 @@
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button [defaultHref]="[backUrl]"></ion-back-button>
+            </ion-buttons>
+            <ion-title>{{'lbl_pay_bill' | translate}}</ion-title>        
+        </ion-toolbar> 
+        <div class="background-secondary ion-text-center ">
+          <ion-label class="ion-text-wrap text-color-secondary font-regular">{{dataObj.billerName}}
+          </ion-label>
+        </div> 
+    </ion-header>    
+    <ion-content>   
+      <form [formGroup]="paymentForm">
+        <ion-list *ngIf="dataObj !==undefined" class="ion-no-padding ion-padding-end ion-padding-start ">         
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h4 class="font-bold text-color-primary ion-text-wrap">
+                {{'lbl_consumer_details' | translate}}</h4>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_consumer_no' | translate}} </h3>
+              <p class="text-size-p font-regular  ion-text-wrap">
+                {{dataObj.referenceFieldValue1  || '-'}}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_consumer_name' | translate}} </h3>
+              <p class="text-size-p font-regular ion-text-wrap">
+                {{dataObj.consumerDetails  || '-'}} 
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+               {{'lbl_outstanding_balance' | translate}} </h3>
+              <p class="text-size-p font-regular ion-text-wrap" appStyleAmount [amount]="dataObj.billAmount">
+                {{ dataObj.billAmount }}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_due_date' | translate}} </h3>
+              <p class="text-size-p font-regular  ion-text-wrap">
+                {{ dataObj.dueDate }}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h4 class="font-bold text-color-primary ion-text-wrap">
+                {{'lbl_account_details' | translate}}</h4>             
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_payable_date' | translate}} </h3>            
+                <ion-datetime [displayFormat]="globalDateFormat" 
+                class="ion-no-padding text-size-p font-regular text-color-primary ion-text-wrap" formControlName="valueDate" [min]="minDate"></ion-datetime>                
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'lbl_debit_account' | translate}} </h3>              
+            </ion-label>
+            <ion-select *ngIf="debitAccountsList?.length>0" [interface]="environment.SELECT_INTERFACE"
+              (ionChange)="onChangeDebitAccounts()" class="ion-no-padding ion-no-margin text-size-p"
+              formControlName="selectedCorporateAccount" placeholder="Please Select">
+              <ion-select-option class="ion-no-padding text-size-p text-color-primary" 
+              *ngFor="let item of debitAccountsList" [value]="item">{{item.displayName}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="ion-no-padding ion-no-margin">
+            <ion-label  class="ion-no-padding ion-no-margin">
+              <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+               {{'lbl_balance' | translate}} </h3>
+              <p class="text-size-p font-regular ion-text-wrap">
+                {{corpCurrencyCode || '-'}} {{selectedCorporateAccountBalance || '-'}}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item class="ion-no-padding">
+            <ion-grid class="custom-grid" lines="none" >                 
+              <ion-row  class="ion-no-padding ion-no-margin">
+                <span class="text-size-p text-color-primary font-regular ion-text-wrap">
+                  {{'lbl_payment_amount' | translate}} <ion-text color="danger">*</ion-text></span>
+               </ion-row>
+              <ion-row  lines="none" class="ion-no-padding ion-no-margin">
+                <ion-col size="2" class="ion-no-padding ion-no-margin">
+                  <ion-input type="text" readonly formControlName="selectedCorporateCurrencyCode"></ion-input>
+                </ion-col>
+                <ion-col size="10" class="ion-no-padding ion-no-margin">
+                  <ion-input formControlName="payableAmount"  type="text" inputmode="decimal"  placeholder="0.00" appCurrencyFormat>
+                  </ion-input>
+                </ion-col>
+              </ion-row>             
+            </ion-grid>            
+          </ion-item>
+          <errorMsg class="ion-no-padding ion-no-margin"
+          [control]="paymentForm.controls['payableAmount']" 
+          errMsg="Please Enter valid Payable Amount" >
+        </errorMsg>
+          <ion-row class="ion-justify-content-center ion-padding ">
+            <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+              <ion-button class="default-button ion-text-capitalize" expand="block" (click)="onPreviousFunc()" shape="round">
+                {{'lbl_cancel' | translate}}
+              </ion-button>
+            </ion-col>
+            <ion-col class="shadow-box text-size-sm text-color-secondary ion-text-center" size="6">
+              <ion-button class="default-button ion-text-capitalize" expand="block" (click)="verifyDetails()" shape="round">
+                {{'lbl_submit' | translate}}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+        <!--<ion-list class="ion-padding-end ion-padding-start">
+          <maker-checker-details [data]="dataObj"></maker-checker-details>
+        </ion-list>-->
+      </form>           
+    </ion-content>
+</ion-app>
+

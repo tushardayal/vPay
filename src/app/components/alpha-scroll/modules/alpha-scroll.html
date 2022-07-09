@@ -1,0 +1,41 @@
+
+    <section class="alpha-list-wrapper" #wrapper>
+      <ion-list class="ion-alpha-list" #list>
+        <ion-item-divider
+          id="scroll-letter-↑"
+          style="display:none"
+          *ngIf="headerTemplate != null"
+          >↑</ion-item-divider
+        >
+        <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
+        <div *ngFor="let item of sortedItems">
+          <ion-item-divider
+            id="scroll-letter-{{ item.letter }}"
+            *ngIf="item.isDivider"
+            >{{ item.letter }}</ion-item-divider
+          >
+          <ng-template
+            [ngTemplateOutlet]="itemTemplate"
+            [ngTemplateOutletContext]="{
+              item: item,
+              currentPageClass: currentPageClass
+            }"
+            *ngIf="!item.isDivider"
+          >
+          </ng-template>
+        </div>
+      </ion-list>
+    </section>
+    <ul
+      class="ion-alpha-sidebar"
+      [ngStyle]="calculateDimensionsForSidebar()"
+      #sidebar
+    >
+      <li
+        *ngFor="let alpha of alphabet"
+        [hidden]="!alpha.isActive"
+        [class]="setAlphaClass(alpha)"
+      >
+        <a>{{ alpha.letter }}</a>
+      </li>
+    </ul>

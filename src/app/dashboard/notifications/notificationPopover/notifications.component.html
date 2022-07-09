@@ -1,0 +1,27 @@
+<ion-grid class="ion-no-padding">
+
+     <!-- <ion-list class="ion-padding-end">-->
+        <ng-container class="ion-no-padding" *ngIf="(notificationData$ | async) != null">
+          <ion-list-header class="ion-item-border background-secondary ion-no-padding">
+            <p class="text-color-dark font-medium ion-padding-start background-secondary ion-no-padding ion-padding-start ion-padding-end">{{'lbl_you_have' | translate}} {{(notificationData$| async)?.onlineAlertDetails?.length}} {{'lbl_new_notification' | translate}}</p>
+
+          </ion-list-header>
+            <ion-item class="ion-item-border ion-no-border-top ion-text-capitalize" lines="none" (click)="viewNotificationGroup(notificationGroup)"
+                    *ngFor="let notificationGroup of (notificationData$| async)?.onlineAlertDetails">
+                <!-- <ion-badge slot="start" class="ion-padding">{{notificationGroup.unReadCount}}</ion-badge> -->
+                <p class="text-size-p font-regular text-color-primary ion-text-wrap ion-no-padding ion-padding-start">
+                  {{notificationGroup.referenceEntityName}}</p>
+                <ion-badge slot="end" class="ion-padding">{{notificationGroup.unReadCount}}</ion-badge>
+            </ion-item>
+          <ion-item (click)="seeAllNotification()">
+            <ion-label>
+              <p class="text-size-sm font-medium text-color-accent ion-text-wrap">
+               {{'lbl__see_all_notifications' | translate}}
+              </p>
+            </ion-label>
+          </ion-item>
+        </ng-container>
+     <!-- </ion-list>
+-->
+</ion-grid>
+

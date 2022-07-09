@@ -1,0 +1,13 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "ISDEAL": "N",
+    "ISDEALSETYES": "N"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

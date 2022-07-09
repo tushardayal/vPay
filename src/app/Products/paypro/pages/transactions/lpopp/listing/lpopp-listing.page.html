@@ -1,0 +1,57 @@
+<ion-content #contentBox>
+    <ion-refresher (ionRefresh)="doRefresh($event)" slot="fixed">
+        <ion-refresher-content
+                pullingIcon="arrow-down-outline"
+                pullingText="{{'lbl_pull_to_refresh' | translate}}"
+                refreshingSpinner="circles"
+                refreshingText="{{'lbl_refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-grid class="ion-no-padding">
+        <ion-list #dynamicList *ngIf="dataItemList && dataItemList.length > 0"
+                  class="ion-no-padding ion-padding-end ion-padding-start">
+            <ion-item-sliding #sliding *ngFor="let item of dataItemList" class="overflow-visible" disabled="false">
+                <ion-item (press)="selectItem(item)" (tap)="view(item, $event)" [ngClass]="{'auth-selected-item':item.selected}"
+                          class="ion-no-padding">
+                    <ion-grid class="ion-no-padding ion-no-margin">
+                        <ion-row>
+                            <!--<p>{{dataItemList|json}}</p>-->
+                            <ion-col class="ion-text-left" size="6">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap">
+                                        <span class="batchNo">{{item.batchNo}}</span></h3>
+                                    <p class="text-size-p  text-nowrap "> <span class="debitAccountNo">
+                                        {{item.debitAccountNo}}</span>
+                                    <p class="text-size-p text-color-primary ion-text-wrap ">
+                                        <span class="amount"><span appStyleAmount> {{item.totalAmount}}</span></span>
+                                    </p>
+                                    <p class="text-size-p text-color-light ion-text-wrap ">
+                                        <span class="valueDate">{{item.valueDate}}</span></p>
+                                </ion-label>
+                            </ion-col>
+                            <ion-col class="ion-text-right" size="6">
+                                <ion-label>
+                                    <h3 class="text-size-p font-bold text-color-primary ion-text-wrap ">
+                                        <span class="uiStatus">{{item.uiStatus}}</span></h3>
+                                    <!--<p class="text-size-p  text-nowrap "> <span class="beneficiaryName">
+                                        {{item.beneficiaryName}}</span>
+                                    </p>-->
+                                    <p class="text-size-p ion-text-wrap ">
+                                        <span class="institutionType">{{item.institutionType}}</span>
+                                    </p>
+
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+                <slide-item-actions (onActionClicked)="onActionClicked($event)" [item]="item"></slide-item-actions>
+            </ion-item-sliding>
+        </ion-list>
+        <ion-infinite-scroll (ionInfinite)="loadMoreData($event)" threshold="100px">
+            <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                         loadingText="{{'lbl_getting_more_data' | translate }}">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-grid>
+</ion-content>

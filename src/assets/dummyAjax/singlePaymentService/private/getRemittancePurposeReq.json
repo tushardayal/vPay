@@ -1,0 +1,11 @@
+{
+  "filters": [{
+    "name": "charge",
+    "value": "SHA",
+    "type": "String"
+  }, {
+    "name": "accountLabel",
+    "value": "ACCOUNTNO",
+    "type": "String"
+  }]
+}

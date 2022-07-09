@@ -1,0 +1,51 @@
+<ion-app>
+    <app-side-filter (changeSelectFilter)="onChangeSelectFilter($event)" (applyFilter)="applyFilter($event)" [filters]="filters"></app-side-filter>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+                {{'lbl_transaction_query' | translate}}
+            </ion-title>
+            <ion-buttons slot="end">
+                <ion-button (click)="showFilter()">
+                    <ion-icon class="icon-font-md" name="funnel" slot="icon-only"></ion-icon>
+                </ion-button>
+                <ion-button (click)="showHelpPage()">
+                    <ion-icon slot="icon-only"
+                              name="help-outline"
+                              class="icon-font-md"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    
+    <ion-content class="ion-no-padding">
+        <super-tabs #txnQueryTabs  [activeTabIndex]="activeTabIndex" *ngIf="tabsArray?.length > 0" (tabChange)="onTabChange($event)">
+            <super-tabs-toolbar slot="top" scrollable class="ion-no-padding">
+                <super-tab-button *ngFor="let tab of tabsArray" [tab]="tab.url" >
+                    <ion-label class="icon-color-primay">{{tab.displayName}}</ion-label>
+                </super-tab-button>
+            </super-tabs-toolbar>   
+            <super-tabs-container swipe-enabled="false">
+            <ng-container *ngFor="let tab of tabsArray; let i=index">
+                <super-tab *ngIf="i===activeTabIndex">
+                    <ion-content >           
+                        <ion-nav [root]="tab.page"></ion-nav>                        
+                    </ion-content>
+                </super-tab>
+            </ng-container>
+            </super-tabs-container>        
+        </super-tabs>       
+        <!-- <ion-tabs #txnQueryTabs  class="ion-no-padding">
+            <ion-tab-bar slot="top" selectedTab="selectedTab" class="background-accent  ion-no-padding">
+                <ion-tab-button *ngFor="let tab of tabsArray" [tab]="tab.url" (click)="onTabChange(tab.url)">
+                    <ion-label class="text-color-secondary text-size-p ion-text-nowrap">{{tab.displayName}}</ion-label>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </ion-tabs> -->
+        <app-no-record-found *ngIf="tabsArray?.length == 0"></app-no-record-found>
+    </ion-content>
+</ion-app>
+

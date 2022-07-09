@@ -1,0 +1,24 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "usersMatrix": [],
+    "matrixHeadersMap": [],
+    "verifierList": [
+      [100009, "cnpc", "maker2", "cnpcmaker2", 100004, "B", "2", "N", "N"],
+      [100010, "cnpc", "maker3", "cnpcmaker3", 100004, "B", "2", "N", "N"],
+      [100011, "cnpc", "maker4", "cnpcmaker4", 100004, "B", "2", "N", "N"],
+      [100333, "cnpc", "Verifier1", "cnpcver1", 100001, "B", "2", "N", "N"],
+      [100334, "cnpc", "Verifier2", "cnpcver2", 100001, "B", "2", "N", "N"],
+      [100335, "cnpc", "Verifier3", "cnpcver3", 100001, "B", "2", "N", "N"],
+      [100336, "cnpc", "Verifier4", "cnpcver4", 100001, "B", "2", "N", "N"]
+    ],
+    "recordListType": "SINGLE",
+    "selectorType": "SELECTVERIFIER"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

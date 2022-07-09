@@ -1,0 +1,59 @@
+/*ion-grid,
+ion-row {
+  height: 100%;
+}*/
+
+/*.summaryWidth{
+  flex: 1;
+}*/
+
+/*.summaryWidth{
+  width: 100%;
+}*/
+
+/*!*for ipad width start*!
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  .summaryWidth{
+    flex: 1;
+    -webkit-flex: 0 0 66%;
+  }
+}
+!*for ipad width end*!*/
+
+/*this is use for widgets width -  'ion-item-sliding' > overwrite width for ion-item width (auto to 100%) > item list */
+ion-list{width: 100%;}
+/*End*/
+
+
+.ion-toolbar2{
+height: 40px!important;
+
+
+}
+/*below class use for notification counter*/
+.ion-badge-circle {
+  background-color: #e20883;
+  position: absolute;
+  top: -2px;
+  right: -7px;
+  border-radius: 100%;
+  color: #ffffff;
+  padding: 2px !important;
+  margin: 2px !important;
+  width: 18px;
+  height: 18px;
+  font-weight: 400!important;
+  font-size: var(--h6-font-size, 12px)!important;
+ /* line-height: 11px!important;*/
+}
+
+.iconPosition {
+position: relative;
+}
+
+.fabBtnAccent{
+  --background: var(--cs-background-accent);
+}
+/*End - below class use for notification counter*/

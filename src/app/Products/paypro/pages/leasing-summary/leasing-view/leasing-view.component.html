@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{'Leasing Details'|apsTraslate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list class="ion-no-padding ion-padding-end ion-padding-start">
+        <ng-container *ngFor="let details of viewData$|async">
+            <ion-list-header *ngIf="details.label">
+                <h5 class="font-bold">{{details.label}}</h5>
+            </ion-list-header>
+            <ng-container *ngFor="let item of details.data">
+                <ion-item *ngIf="item.header && item.isDisplay == 'Y'" class="ion-no-padding">
+                    <ion-label class="ion-no-padding">
+                        <h5>{{item.header}}</h5>
+                        <p class="text-color-light">{{item.value ? item.value : '-'}}</p>
+                    </ion-label>
+                </ion-item>
+                <ng-container *ngIf="item.make?.header && item.make?.isDisplay == 'Y'
+                                        && item.model?.header && item.model?.isDisplay == 'Y'">
+                    <ion-grid>
+                        <ion-row class="open-card">
+                            <ion-col>{{item.make.header}}</ion-col>
+                            <ion-col>{{item.model.header}}</ion-col>
+                        </ion-row>
+                        <ion-row >
+                            <ion-col>{{item.make.value}}</ion-col>
+                            <ion-col>{{item.model.value}}</ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </ion-list>
+</ion-content>
+

@@ -1,0 +1,79 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [{
+    "id": "24FbW4TSgDo=",
+    "displayName": "SLIPS",
+    "enrichments": {
+      "paymentMethodCode": "EP17",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "true",
+      "supportingDocFilesize": "20000",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "limitAmount": "8.98656565E8",
+      "oatPaymentMethodApplicable": "Y",
+      "printing": "false",
+      "minAccountNoLength": "6"
+    }
+  }, {
+    "id": "isEbFz6/ufQ=",
+    "displayName": "Internal Fund Transfer",
+    "enrichments": {
+      "paymentMethodCode": "EP1",
+      "maxAccountNoLength": "12",
+      "supportingdocument": "true",
+      "supportingDocFilesize": "20000",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "limitAmount": "2.525251212E9",
+      "oatPaymentMethodApplicable": "Y",
+      "printing": "false",
+      "minAccountNoLength": "12"
+    }
+  }, {
+    "id": "bgCR0pUOsDk=",
+    "displayName": "RTGS",
+    "enrichments": {
+      "paymentMethodCode": "EP3",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "false",
+      "supportingDocFilesize": "20000",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "limitAmount": "200000.0",
+      "oatPaymentMethodApplicable": "Y",
+      "printing": "false",
+      "minAccountNoLength": "6"
+    }
+  }, {
+    "id": "IK85qrfH/PQ=",
+    "displayName": "Outward Telegraphic Transfer",
+    "enrichments": {
+      "paymentMethodCode": "EP5",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "false",
+      "supportingDocFilesize": "20000",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "limitAmount": "9998959.0",
+      "oatPaymentMethodApplicable": "Y",
+      "printing": "false",
+      "minAccountNoLength": "6"
+    }
+  }, {
+    "id": "v48/IvgHvnU=",
+    "displayName": "CEFTS",
+    "enrichments": {
+      "paymentMethodCode": "EP18",
+      "maxAccountNoLength": "16",
+      "supportingdocument": "true",
+      "supportingDocFilesize": "20000",
+      "supportingDocFileExt": "jpg,jpeg,gif,png,xls,xlsx,doc,docx,txt,tiff,tif,pdf",
+      "limitAmount": "5.8565656E7",
+      "oatPaymentMethodApplicable": "Y",
+      "printing": "false",
+      "minAccountNoLength": "6"
+    }
+  }],
+  "entityIdentifier": "",
+  "loggable": false
+}

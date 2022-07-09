@@ -1,0 +1,36 @@
+<ion-card
+  class="no-border-radius widgetBorder ion-no-padding ion-no-margin ion-margin-start ion-margin-end ion-margin-top">
+  <ion-card-header class="padding-half background-secondary">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="11">
+          <ion-card-title class="text-size-p ion-text-capitalize">{{'lbl_transaction_status_summary' | translate}}
+          </ion-card-title>
+        </ion-col>
+        <ion-col size="1">
+          <ion-buttons (tap)="refreshPage()">
+            <ion-icon name="refresh-outline" class="icon-color-primary icon-font-md"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+  <ion-card-content class="ion-no-padding">
+    <ion-item class="ion-no-padding ion-no-margin margin-half-left margin-half-right" lines="none">
+      <ion-select *ngIf="frequencyData?.length>0" (ionChange)="onChangedFrequency()" [interface]="environment.SELECT_INTERFACE"
+        class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize"
+        [(ngModel)]="frequency" placeholder="Please Select">
+        <ion-select-option class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize"
+          *ngFor="let item of frequencyData" [value]="item">{{item.displayName}}
+        </ion-select-option>
+      </ion-select><!--[selectedText]="item?.displayName" -->
+    </ion-item>
+    <div>
+      <canvas #barCanvas class="chartCanvas"></canvas>
+    </div>
+
+
+  </ion-card-content>
+
+</ion-card>
+

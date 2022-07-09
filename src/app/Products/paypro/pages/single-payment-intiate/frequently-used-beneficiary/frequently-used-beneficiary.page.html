@@ -1,0 +1,38 @@
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-down-outline" pullingText="Pull to refresh" refreshingSpinner="circles"
+            refreshingText="{{'lbl_refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-grid *ngIf="beneListLoaded" class="ion-no-padding">
+
+                <ion-list class="ion-padding-end">
+                    <!--Header-->
+                    <!--<ion-list-header>
+                        <ion-label class="ion-padding-top ion-padding-bottom">
+                            <h1 class="text-size-md font-regular text-color-accent ion-no-margin">{{data.header}}</h1>
+                        </ion-label>
+                    </ion-list-header>-->
+                    <ion-item (click)="onItemClickFunc(beneficiary, $event)"
+                        *ngFor="let beneficiary of beneficiaries$|async" class="ion-menu-toggle">
+
+                        <!--Avatar-->
+                        <ion-avatar>
+                            <text-avatar class="icon-font-sm font-regular text-color-primary" [color]="beneficiary.color" [text]="beneficiary.beneficiaryCode"></text-avatar>
+                        </ion-avatar>
+                        <ion-label class="ion-padding-start">
+                        <!--Title and Subtitle-->
+
+                            <h5 class="font-medium text-color-primary ion-text-wrap">
+                                {{beneficiary.beneficiaryCode}}</h5>
+                            <h5 class="text-size-sm font-regular text-color-primary ion-text-wrap">
+                                {{beneficiary.beneficiaryName}}</h5>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+
+    </ion-grid>
+    <listing-skeleton *ngIf="!beneListLoaded"></listing-skeleton>
+
+</ion-content>

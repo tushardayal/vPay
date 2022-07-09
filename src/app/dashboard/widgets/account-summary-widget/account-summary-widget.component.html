@@ -1,0 +1,102 @@
+<ion-card
+  class="no-border-radius widgetBorder ion-no-padding ion-no-margin ion-margin-start ion-margin-end ion-margin-top">
+
+  <ion-card-header class="padding-half background-secondary">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="11">
+          <ion-card-title class="text-size-p  ion-text-capitalize">{{'lbl_account_summary' | translate}}
+          </ion-card-title>
+        </ion-col>
+        <ion-col size="1">
+          <ion-buttons (tap)="refreshPage()">
+            <ion-icon name="refresh-outline" class="icon-color-primary icon-font-md "></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+
+  <ion-card-content *ngIf="!isLoading" class="ion-no-padding">
+    <ion-list >
+      <ion-item class="ion-no-padding ion-no-margin margin-half-left margin-half-right"
+        *ngIf="availableCorporate && availableCorporate.length > 0">
+        <ion-select (ionChange)="onChangeGroupMethod()" [interface]="environment.SELECT_INTERFACE"
+          class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize" [(ngModel)]="selectedCorporate"
+          placeholder="Please Select">
+          <ion-select-option class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize"
+            *ngFor="let item of availableCorporate" [value]="item">{{item.displayName}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-margin margin-half-left margin-half-right"
+        *ngIf="accountSummaryTypeList && accountSummaryTypeList.length > 0">
+        <ion-select (ionChange)="onChangeAccTypeMethod()" [interface]="environment.SELECT_INTERFACE"
+          class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize" [(ngModel)]="selectedAccountType"
+          placeholder="Please Select">
+          <ion-select-option class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize"
+            *ngFor="let item of accountSummaryTypeList" [value]="item">{{item}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="ion-no-padding ion-no-margin margin-half-left margin-half-right"
+        *ngIf="selectedAccountType">
+        <ion-select [interface]="environment.SELECT_INTERFACE"
+          class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize" [(ngModel)]="selectedAccountCurrency"
+          placeholder="Please Select">
+          <ion-select-option class="ion-no-padding ion-no-margin text-size-p ion-text-capitalize"
+            *ngFor="let item of accountSummaryTypeMap[selectedAccountType]?.currencyList" [value]="item">{{item}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-grid class="ion-no-padding" *ngIf="selectedAccountCurrency">
+      <ion-row class="padding-half">
+        <ion-col >
+          <p class="text-color-primary text-nowrap ion-no-padding ion-no-margin ion-text-left text-size-p">
+            {{'lbl_currency_(no._of_accounts)' | translate}}</p>
+        </ion-col>
+        <ion-col >
+          <p class="text-color-primary text-nowrap ion-no-padding ion-no-margin ion-text-right text-size-p">
+            {{accountSummaryTypeMap[selectedAccountType]['availableBalance']['header']}}
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="padding-half no-padding-top  no-margin-top">
+        <ion-col (click)="viewAccounts(accountSummaryTypeMap[selectedAccountType])">
+          <p class="text-color-primary text-nowrap ion-no-padding ion-no-margin ion-text-left text-size-p">
+            {{selectedAccountCurrency}}({{accountSummaryTypeMap[selectedAccountType]
+              .currencyGroupMap[selectedAccountCurrency]?.length}})</p>
+        </ion-col>
+        <ion-col >
+          <p class="text-color-primary text-nowrap ion-no-padding ion-no-margin ion-text-right text-size-p" 
+          appStyleAmount  [amount]="accountSummaryTypeMap[selectedAccountType]['availableBalance'][selectedAccountCurrency]">
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="ion-no-padding"
+          *ngIf="(!accountSummaryTypeMap || accountSummaryTypeMap === {} || !accountSummaryTypeList || (accountSummaryTypeList && accountSummaryTypeList.length === 0 )) && !isLoading">
+      <ion-row>
+        <ion-col size="12" class="ion-padding-vertical text-size-sm text-color-primary ion-text-center">
+          {{'lbl_no_data_found' | translate}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  <listing-skeleton *ngIf="isLoading" [itemsCount]="1"></listing-skeleton>
+  <ion-card-header class="padding-half background-secondary" *ngIf="selectedAccountCurrency && selectedAccountType">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card-title class="text-size-p  ion-text-capitalize" >
+            {{'lbl_portfolio_balance' | translate}} ({{baseCurrencyCode}})
+          </ion-card-title>
+        </ion-col>
+        <ion-col>
+          <p class=" text-color-secondary text-nowrap ion-no-padding ion-no-margin ion-text-right text-size-p" appStyleAmount [amount]="portfolioBalance">
+            </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+</ion-card>

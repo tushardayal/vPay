@@ -1,0 +1,274 @@
+<ion-app>
+    <!-- Header -->
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+
+                <ion-button (click)="closeModal()">
+                    <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+                </ion-button>
+
+            </ion-buttons>
+            <ion-title>Receipt</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <listing-skeleton *ngIf="!lpoppReceipts"></listing-skeleton>
+        <ng-container *ngIf="(lpoppReceipts && lpoppReceipts.length == 0)">
+            <app-no-record-found (refreshPageEventEmmiter)="ngOnInit()" [err]=''></app-no-record-found>
+        </ng-container>
+        <div>
+            <ng-container *ngIf="(lpoppReceipts && lpoppReceipts.length > 0)">
+                <div #printEl id="printableData">
+                    <ng-container *ngFor="let receiptData of lpoppReceipts">
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <img [src]="'assets/imgs/'+ environment.themeCategory + '/bank_cfe_bankLogo.png'"
+                                         alt="Bank Logo"/>
+                                </ion-col>
+                            </ion-row>
+                            <table>
+                                <tr class="receipt-row">
+                                    <td>Paid By</td>
+                                    <td>:</td>
+                                    <td>{{receiptData.paidBy}}</td>
+                                </tr>
+                                <tr class="receipt-row">
+                                    <td>Bank & Account No</td>
+                                    <td>:</td>
+                                    <td>{{receiptData.customerbankName}} [{{receiptData.customerAccNo}}]</td>
+                                </tr>
+                                <tr class="receipt-row">
+                                    <td>Paid to</td>
+                                    <td>:</td>
+                                    <td>{{receiptData.paidTo}}</td>
+                                </tr>
+                                <tr class="receipt-row">
+                                    <td>Bank & Account No</td>
+                                    <td>:</td>
+                                    <td>{{receiptData.instituteBankName}} [{{receiptData.instituteAccNo}}]</td>
+                                </tr>
+                                <tr class="receipt-row">
+                                    <td>Payment Method</td>
+                                    <td>:</td>
+                                    <td>{{receiptData.paymentMethod}}</td>
+                                </tr>
+                                <tr class="receipt-row">
+                                    <td>Payment Date</td>
+                                    <td>:</td>
+                                    <td>{{receiptData.paymentDate}}</td>
+                                </tr>
+                                <tr *ngIf="receiptData.receiptStatus == 'FAILED'" class="receipt-row">
+                                    <td size="3">Payment Status</td>
+                                    <td>:</td>
+                                    <td>
+                                        <span *ngIf="receiptData.receiptStatus == 'PAID'">Payment is Successfully Processed</span>
+                                        <span *ngIf="receiptData.receiptStatus == 'FAILED'" class="error-msg">Payment is Failed</span>
+                                    </td>
+                                </tr>
+
+                                <ng-container [ngSwitch]="receiptDataResponse?.receiptType">
+                                    <ng-container *ngSwitchCase="'IRDP'">
+                                        <tr class="receipt-row">
+                                            <td>Payment Amount Type</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.paymentAmountType}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Amount</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.amount}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>NDE Batch No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.batchNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Payment Type</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.paymentType}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>DIN</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.din}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Tax Type</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.taxType}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Tax Period</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.taxablePeriod}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Acknowledgement NO</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.acknowledgementNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>STAN</td>
+                                            <td>:</td>
+                                            <td>123456{{receiptData.stanCode}}</td>
+                                        </tr>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'SLPAP'">
+                                        <tr class="receipt-row">
+                                            <td>Bill Type</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.billType}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Amount</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.amount}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>NDE Batch No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.batchNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Payment Type</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.paymentsType}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Agent Code</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.agentCode}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Vessel Reference</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.vesselReferenceNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Receipt No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.receiptNo}}</td>
+                                        </tr>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'EPFP'">
+                                        <tr class="receipt-row">
+                                            <td>Amount</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.amount}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>NDE Batch No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.batchNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Zone Code</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.zoneCode}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Employer No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.employerNumber}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Contribution Period</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.contributionPeriod}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Submission Number</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.submissionNumber}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Payment Reference</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.paymentReferenceNo}}</td>
+                                        </tr>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'SLCP'">
+                                        <tr class="receipt-row">
+                                            <td>Amount</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.amount}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>NDE Batch No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.batchNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Receipt No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.receiptNo}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Receipt Date</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.receiptDate}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>CusDec Details</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Office Code</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.officeCode}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Registration Year</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.registrationYear}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Registration Serial</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.registrationSerial}}</td>
+                                        </tr>
+                                        <tr class="receipt-row">
+                                            <td>Registration No</td>
+                                            <td>:</td>
+                                            <td>{{receiptData.registrationNo}}</td>
+                                        </tr>
+                                    </ng-container>
+                                </ng-container>
+                            </table>
+
+                            <ng-container *ngIf="receiptDataResponse?.receiptType === 'EPFP'">
+                                <p><u>{{epfCutOffLbl}}</u></p>
+                                <p>{{epfMsg}}</p>
+                            </ng-container>
+                            <div class="receipt-footer">
+                                <p class="receipt-row"><span>Nations Trust Bank PLC-PQ118</span><br><span>No/ 242, Union Place, Colombo 02, Sri Lanka</span><br><br><span>This is a computer-generated advice, no signature required.</span>
+                                </p>
+                            </div>
+                        </ion-grid>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+
+
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar>
+            <!--<ion-buttons slot="start">
+                <ion-button (click)="createPdfData()" >
+                    &lt;!&ndash;<ion-icon class="ion-font-md" name="trash" slot="icon-only"></ion-icon>&ndash;&gt;
+                    <label>Create Receipt</label>
+                </ion-button>
+            </ion-buttons>-->
+            <ion-buttons slot="end">
+                <ion-button (click)="printPage()">
+                    <!--<ion-icon class="ion-font-md" name="trash" slot="icon-only"></ion-icon>-->
+                    <label>Print Receipt</label>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-footer>
+</ion-app>

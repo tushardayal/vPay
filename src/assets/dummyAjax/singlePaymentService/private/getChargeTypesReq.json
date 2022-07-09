@@ -1,0 +1,7 @@
+{
+  "filters": [{
+    "name": "paymentMethod",
+    "value": "EP3",
+    "type": "String"
+  }]
+}

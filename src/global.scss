@@ -1,0 +1,100 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+.select-authorizer-modal {
+  --height: 70%;
+  --width: 75%;
+  .modal-wrapper{
+    border-radius: 4px;
+    -webkit-box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+  }
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
+}
+
+.option-group-interface .alert-wrapper .alert-radio-button-disabled .alert-radio-icon {
+  display: none;
+}
+
+.option-group-interface .alert-wrapper .alert-radio-button-disabled .alert-radio-label {
+  color: var(--cs-text-accent) !important;
+}
+
+.helpPageModal {
+  .modal-wrapper {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+  }
+  .active-element {
+    box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 9999;
+    border-radius: 2px;
+  }
+  .fabBtn {
+    z-index: 10000;
+    ion-button, ion-fab-button{
+      --background: var(--cs-background-accent);
+      margin: 2px;
+    }
+    ion-text{
+      font-size: 10px;
+      --color: var(--cs-text-secondary);
+    }
+    ion-icon {
+      --color: var(--cs-text-secondary);
+    }
+  }
+  .help-container {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    // clip-path: url(#clippedEl);
+    // mask: url(#maskid);
+  }
+  .help-card{
+    border-radius: 2px;
+    z-index: 10000;
+    width: fit-content;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    padding-bottom: 0px;
+    .content {
+      padding: 0px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+  }
+  .help-footer{
+    z-index: 10000;
+  }
+}
+
+.credit-amt{
+  color: #10a6dc !important;
+}
+
+.debit-amt{
+  color: #e20883 !important;
+}
+
+
+/* Popover Interface: select : hide radio btn for group  */
+.group-custom-interface .select-interface-option {
+    .radio-disabled{
+      display: none;
+    }
+}
+@media only screen and (min-width: 768px) and (min-height: 768px){
+  .aps-modal-height90 .modal-wrapper {
+    height: 90%;
+  }
+}

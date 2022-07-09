@@ -1,0 +1,121 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "creditCurrencies": [{
+      "id": "LeN5wdxkTjQ=",
+      "displayName": "AED"
+    }, {
+      "id": "XMpg/tMwAOk=",
+      "displayName": "AUD"
+    }, {
+      "id": "YguQxR5h+x8=",
+      "displayName": "GBP"
+    }, {
+      "id": "IL2KGpJX7sI=",
+      "displayName": "HKD"
+    }, {
+      "id": "9V4x34l40cw=",
+      "displayName": "INR"
+    }, {
+      "id": "xoE7+AGvk3o=",
+      "displayName": "KWD"
+    }, {
+      "id": "isEbFz6/ufQ=",
+      "displayName": "LKR"
+    }, {
+      "id": "6KR1f8nOhZ8=",
+      "displayName": "PKR"
+    }, {
+      "id": "axJ0uliQ08U=",
+      "displayName": "SAR"
+    }, {
+      "id": "18JpevO5sOg=",
+      "displayName": "SGD"
+    }, {
+      "id": "UUiJMfrw/0M=",
+      "displayName": "TND"
+    }, {
+      "id": "gzhfrFf4380=",
+      "displayName": "USD"
+    }],
+    "debitAccounts": [{
+      "id": "qmmbcEhQbn8=",
+      "displayName": "999001900005-USD",
+      "enrichments": {
+        "balance": "",
+        "accountTitle": "ACC05",
+        "accountType": "Current and Savings Account updated",
+        "currencyId": "gzhfrFf4380=",
+        "corporateAccountAlias": null,
+        "currencyCode": "USD",
+        "iBanNumber": null
+      }
+    }, {
+      "id": "jYa3+dMStGU=",
+      "displayName": "999001900006-GBP",
+      "enrichments": {
+        "balance": "",
+        "accountTitle": "ACC06",
+        "accountType": "Current and Savings Account updated",
+        "currencyId": "YguQxR5h+x8=",
+        "corporateAccountAlias": null,
+        "currencyCode": "GBP",
+        "iBanNumber": null
+      }
+    }, {
+      "id": "VSWUXMR3EL8=",
+      "displayName": "999001900007-INR",
+      "enrichments": {
+        "balance": "",
+        "accountTitle": "ACC07",
+        "accountType": "Current and Savings Account updated",
+        "currencyId": "9V4x34l40cw=",
+        "corporateAccountAlias": null,
+        "currencyCode": "INR",
+        "iBanNumber": null
+      }
+    }, {
+      "id": "UbhEoAhwygQ=",
+      "displayName": "999001900011-LKR",
+      "enrichments": {
+        "balance": "",
+        "accountTitle": "ACC11",
+        "accountType": "Current and Savings Account updated",
+        "currencyId": "isEbFz6/ufQ=",
+        "corporateAccountAlias": null,
+        "currencyCode": "LKR",
+        "iBanNumber": null
+      }
+    }, {
+      "id": "qFDlRiaGg10=",
+      "displayName": "999001900015-INR",
+      "enrichments": {
+        "balance": "",
+        "accountTitle": "ACC15",
+        "accountType": "Current and Savings Account updated",
+        "currencyId": "9V4x34l40cw=",
+        "corporateAccountAlias": null,
+        "currencyCode": "INR",
+        "iBanNumber": null
+      }
+    }, {
+      "id": "RnDIo6gSLrs=",
+      "displayName": "999001900016-LKR",
+      "enrichments": {
+        "balance": "",
+        "accountTitle": "ACC16",
+        "accountType": "Current and Savings Account updated",
+        "currencyId": "isEbFz6/ufQ=",
+        "corporateAccountAlias": null,
+        "currencyCode": "LKR",
+        "iBanNumber": null
+      }
+    }]
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

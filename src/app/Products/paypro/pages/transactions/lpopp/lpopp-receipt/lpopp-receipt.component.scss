@@ -1,0 +1,36 @@
+.receipt-footer{
+  padding-bottom: 20px;
+}
+.receipt-footer .receipt-row{
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+  margin-top: 30px;
+  border-top: 1px solid;
+  padding-top: 10px;
+}
+
+//@media print {
+  /*.receipt-footer .receipt-row {
+    margin-top: 30px;
+    padding-top: 10px;
+  }*/
+
+//}
+.receipt-row {
+  margin: 5px 0px 5px 10px;
+  width: 100%;
+}
+#printableData{
+  max-height: none !important;
+  width: 100%;
+  border: 1.8px solid;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  padding: 8px;
+}

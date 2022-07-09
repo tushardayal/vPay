@@ -1,0 +1,12 @@
+{
+  "filters": [{
+    "name": "moduleCode",
+    "value": "BSINGLEPAYMENTREQUEST",
+    "type": "String"
+  }, {
+    "displayName": "Beneficiary Id",
+    "name": "beneficiaryId",
+    "type": "String",
+    "value": "/LeaMb3qItI="
+  }]
+}

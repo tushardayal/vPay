@@ -1,0 +1,1054 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "modules": [
+    {
+      "index": 2,
+      "moduleId": "puzEZCXC/HA=",
+      "moduleName": "Payments",
+      "menus": [
+        {
+          "displayName": "Account Summary",
+          "id": "4001",
+          "url": "menu/paypro/account-summary",
+          "entityName": "ACCOUNTSUMMARY",
+          "access": [
+            "VIEW"
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other"
+        },
+        {
+          "displayName": "Account Statement",
+          "id": "4002",
+          "url": "menu/paypro/account-statement",
+          "entityName": "ACCOUNTSTATEMENTDOWNLOAD",
+          "access": [
+            "VIEW",
+            "EXECUTE"
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other"
+        },
+        {
+          "displayName": "Transactions",
+          "id": "3000",
+          "url": "menu/paypro/listing/paypro",
+          "entityName": "TRANSACTIONS",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY",
+            "AUTHORIZE",
+            "EXECUTE"
+          ],
+          "menus": [
+            {
+              "displayName": "Own Account Transfer",
+              "id": "3027",
+              "url": "OwnAccountTransferListingPage",
+              "entityName": "OWNACCOUNTTRANSFER",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "ownAccountTransferService",
+              "defaultURL": "PENDINGLIST"
+            },
+            {
+              "displayName": "Single Payment Request",
+              "id": "3012",
+              "url": "SinglePaymentListPage",
+              "entityName": "BSINGLEPAYMENTREQUEST",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "EXECUTE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  },
+                  {
+                    "displayName": "Bank Rejected List",
+                    "url": "/private/getBranchRejectedList",
+                    "access": "VIEW",
+                    "key": "BANKREJECTLIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "singlePaymentService",
+              "defaultURL": "PENDINGLIST"
+            },
+            {
+              "displayName": "Bulk Payment",
+              "id": "3012",
+              "url": "BulkPaymentPage",
+              "entityName": "BBULKPAYMENTREQUEST",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  },
+                  {
+                    "displayName": "Bank Rejected List",
+                    "url": "/private/getBranchRejectedList",
+                    "access": "VIEW",
+                    "key": "BANKREJECTLIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "bulkPaymentService",
+              "defaultURL": "PENDINGLIST"
+            },
+            {
+              "displayName": "Bill Payment",
+              "id": "3012",
+              "url": "BillPaymentPage",
+              "entityName": "BILLPAYMENT",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "EXECUTE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "billPaymentService",
+              "defaultURL": "PENDINGLIST"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Tabs"
+        },
+        {
+          "displayName": "Own Account Transfer",
+          "id": "3027",
+          "url": "menu/paypro/own-account-transfer-initiate",
+          "entityName": "OWNACCOUNTTRANSFER",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY"
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other"
+        },
+        {
+          "displayName": "Single Payment Request",
+          "id": "3012",
+          "url": "menu/paypro/single-payment-intiate",
+          "entityName": "BSINGLEPAYMENTREQUEST",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY",
+            "EXECUTE"
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other"
+        },
+        {
+          "displayName": "LPOPP Payment Request",
+          "id": "3013",
+          "url": "menu/paypro/lpopp",
+          "entityName": "BSINGLEPAYMENTREQUEST",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY",
+            "EXECUTE"
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other"
+        },
+        {
+          "displayName": "Pay Bill",
+          "id": "4017",
+          "url": "menu/paypro/pay-bill-initiate",
+          "entityName": "BILLPAYMENT",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY",
+            "EXECUTE"
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other"
+        },
+        {
+          "displayName": "Transaction Query",
+          "id": "6000",
+          "url": "menu/paypro/transaction-query",
+          "entityName": "PROCESS",
+          "access": [
+            "EXECUTE"
+          ],
+          "menus": [
+            {
+              "displayName": "Transaction Query",
+              "id": "6003",
+              "url": "payment-transaction-query",
+              "entityName": "INSTRUMENTQUERY",
+              "access": [
+                "EXECUTE"
+              ],
+              "menuCategory": "Other"
+            },
+            {
+              "displayName": "Bill Payment History",
+              "id": "4022",
+              "url": "bill-payment-history",
+              "entityName": "BILLPAYMENTHISTORY",
+              "access": [
+                "VIEW"
+              ],
+              "menuCategory": "Other"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Tabs"
+        },
+        {
+          "displayName": "MIS",
+          "id": "8600",
+          "url": "menu/paypro/mis",
+          "entityName": "PROCESS",
+          "access": [
+            "EXECUTE"
+          ],
+          "menus": [
+            /*{
+              "displayName": "Account Summary",
+              "id": "4001",
+              "url": "AccountSummaryGraphComponent",
+              "entityName": "ACCOUNTSUMMARY",
+              "access": [
+                "VIEW"
+              ],
+              "menuCategory": "Other"
+            },*/
+            {
+              "displayName": "Payment Volume",
+              "id": "4022",
+              "url": "PaymentVolumeComponent",
+              "entityName": "TRANSACTIONS",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE",
+                "EXECUTE"
+              ],
+              "menuCategory": "Other"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Tabs"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "moduleId": "8TP24AhiMiw=",
+      "moduleName": "Trade",
+      "menus": [
+        {
+          "displayName": "Transactions",
+          "id": "17041",
+          "url": "menu/import-trade/listing/trade",
+          "entityName": "IMPORTTRANSACTIONS",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY",
+            "AUTHORIZE"
+          ],
+          "menus": [
+            {
+              "displayName": "Letter of Credit",
+              "id": "17042",
+              "url": "LetterOfCreditListingPage",
+              "entityName": "LETTEROFCREDIT",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/letterOfCreditService",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            },
+            {
+              "displayName": "Letter of Credit Amend",
+              "id": "17043",
+              "entityName": "LETTEROFCREDITAMEND",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/letterOfCreditAmendService",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            },
+            {
+              "displayName": "Shipping Guarantee",
+              "id": "17044",
+              "entityName": "SHIPPINGGUARANTEE",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/shippingGuaranteeService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            },
+            {
+              "displayName": "Bill Acceptance",
+              "id": "17045",
+              "entityName": "TRADEBILLACCEPTANCE",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/billAcceptanceService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            },
+            {
+              "displayName": "Bill Payment and Apply Finance",
+              "id": "17046",
+              "entityName": "TRADEBILLPAYMENTREQUEST",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/billPaymentService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            },
+            {
+              "displayName": "Request Finance - Import",
+              "id": "17047",
+              "entityName": "IMPORTREQUESTFINANCE",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/importRequestFinanceService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            },
+            {
+              "displayName": "Outward Telegraphic Transfer",
+              "id": "17048",
+              "entityName": "OTT",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "ottPaymentService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "IMPORT"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Tabs",
+          "allowCorporateVsGroup": "false",
+          "belongsTo": "IMPORT"
+        },
+        {
+          "displayName": "Transaction Enquiry",
+          "id": "17121",
+          "url": "menu/import-trade/transaction-enquiry",
+          "entityName": "ENQUIRY",
+          "access": [
+            "VIEW",
+            "EXECUTE"
+          ],
+          "menus": [
+            {
+              "displayName": "Transaction Enquiry",
+              "id": "17122",
+              "url": "",
+              "entityName": "TRANSACTIONENQUIRY",
+              "access": [
+                "VIEW",
+                "EXECUTE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Enquiry",
+                    "url": "#/trade/transactionquery/transquery",
+                    "access": "EXECUTE",
+                    "key": "QUERY",
+                    "hide": "N",
+                    "icon": null
+                  }
+                ]
+              },
+              "serviceUrl": "trade/transactionEnquiry",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other",
+          "allowCorporateVsGroup": "false",
+          "belongsTo": "IMPORT"
+        },
+        {
+          "displayName": "Transactions",
+          "id": "17081",
+          "url": "menu/export-trade/listing/trade",
+          "entityName": "EXPORTTRANSACTIONS",
+          "access": [
+            "VIEW",
+            "DATA-ENTRY",
+            "AUTHORIZE"
+          ],
+          "menus": [
+            {
+              "displayName": "Bank Guarantee",
+              "id": "17082",
+              "entityName": "BANKGUARANTEE",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/bankGuaranteeService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "EXPORT"
+            },
+            {
+              "displayName": "Bank Guarantee Amend",
+              "id": "17083",
+              "entityName": "BANKGUARANTEEAMEND",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/bgAmendService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "EXPORT"
+            },
+            {
+              "displayName": "Bill Presentment",
+              "id": "17085",
+              "entityName": "TRADEBILLPRESENTMENT",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/billPresentmentService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "EXPORT"
+            },
+            {
+              "displayName": "Request Finance - Export",
+              "id": "17086",
+              "entityName": "EXPORTREQUESTFINANCE",
+              "access": [
+                "VIEW",
+                "DATA-ENTRY",
+                "AUTHORIZE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Pending Authorization List",
+                    "url": "/private/getPendingList",
+                    "access": "VIEW",
+                    "key": "PENDINGLIST",
+                    "hide": "N",
+                    "icon": "time"
+                  },
+                  {
+                    "displayName": "Review List",
+                    "url": "/private/getAuthorizedList",
+                    "access": "VIEW",
+                    "key": "AUTHORIZEDLIST",
+                    "hide": "N",
+                    "icon": "checkmark-circle-outline"
+                  },
+                  {
+                    "displayName": "Rejected List",
+                    "url": "/private/getRejectedList",
+                    "access": "VIEW",
+                    "key": "REJECTLIST",
+                    "hide": "N",
+                    "icon": "trash-bin-outline"
+                  },
+                  {
+                    "displayName": "Repair List",
+                    "url": "/private/getRepairQueueList",
+                    "access": "VIEW",
+                    "key": "REPAIRQUEUELIST",
+                    "hide": "N",
+                    "icon": "close-circle-outline"
+                  }
+                ]
+              },
+              "serviceUrl": "trade/exportRequestFinanceService",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false",
+              "defaultURL": "PENDINGLIST",
+              "belongsTo": "EXPORT"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Tabs",
+          "allowCorporateVsGroup": "false",
+          "belongsTo": "EXPORT"
+        },
+        {
+          "displayName": "Transaction Enquiry",
+          "id": "17121",
+          "url": "menu/export-trade/transaction-enquiry",
+          "entityName": "ENQUIRY",
+          "access": [
+            "VIEW",
+            "EXECUTE"
+          ],
+          "menus": [
+            {
+              "displayName": "Transaction Enquiry",
+              "id": "17122",
+              "url": "",
+              "entityName": "TRANSACTIONENQUIRY",
+              "access": [
+                "VIEW",
+                "EXECUTE"
+              ],
+              "menuCategory": "Other",
+              "menuLinksDetail": {
+                "link": [
+                  {
+                    "displayName": "Enquiry",
+                    "url": "#/trade/transactionquery/transquery",
+                    "access": "EXECUTE",
+                    "key": "QUERY",
+                    "hide": "N",
+                    "icon": null
+                  }
+                ]
+              },
+              "serviceUrl": "trade/transactionEnquiry",
+              "isCorporateEnable": "false",
+              "allowCorporateVsGroup": "false"
+            }
+          ],
+          "faIcon": "icon-arrow-right",
+          "menuCategory": "Other",
+          "allowCorporateVsGroup": "false",
+          "belongsTo": "EXPORT"
+        }
+      ]
+    }
+  ],
+  "entityIdentifier": "EntityIdentifier : null",
+  "loggable": false
+}

@@ -1,0 +1,25 @@
+<ion-fab class="listing-fab-btn" vertical="bottom" horizontal="end" slot="fixed" *ngIf="multiSelectMode == false">
+  <ion-fab-button (click)="presentActionSheet()">
+    <ng-container *ngFor="let types of avaliableLists">
+      <ion-icon *ngIf="selectedListType.key == types.key" [name]="types.icon"></ion-icon>
+    </ng-container>
+  </ion-fab-button>
+</ion-fab>
+
+<div *ngIf="multiSelectMode == true">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-no-padding ion-no-margin ion-padding-start authorize-btn">
+    <ion-fab-button color="success" (click)="authorize()" class="ion-no-padding ion-no-margin ion-color-success">
+      <ion-icon class="icon-font-md" name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+    <span class="background-secondary-authorize">{{transactionSrv.isVerifierSelect? 'Verify' : 'Authorize'}}</span>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-no-padding ion-no-margin ion-padding-end">
+    <ion-fab-button color="danger" (click)="reject()" class="ion-color-danger">
+      <ion-icon class="icon-font-md" name="close-outline"></ion-icon>
+    </ion-fab-button>
+    <span class="background-secondary-reject">{{transactionSrv.isVerifierSelect? 'Decline' : 'Reject'}}</span>
+    <!-- <ion-fab-button (click)="presentActionSheet()">
+                  <ion-icon name="close"></ion-icon>
+              </ion-fab-button>-->
+  </ion-fab>
+</div>

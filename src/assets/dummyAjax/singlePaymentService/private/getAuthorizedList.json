@@ -1,0 +1,196 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BSINGLEPAYMENTREQUEST",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Batch No.",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Payment Method",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Beneficiary Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Transaction Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Value Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Currency",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Amount",
+    "type": "Amount",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Status",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Debit Account No",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Modified On",
+    "type": "String",
+    "isDisplay": "N"
+  }],
+  "dataList": [
+    ["KM+JIIw/z0s=,5", "01200719363", "WEB", "CEFTS", "adsd", "20-Jul-2019", "20-Jul-2019", "LKR", "1.00", "Authorized", "jioMaker2", "0001003000003", "2019-07-20 17:40:42.0"],
+    ["VY1h8bBMkzA=,5", "01200719354", "WEB", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "54.00", "Authorized", "jioMaker2", "0001003000001", "2019-07-20 12:54:04.0"],
+    ["afY3KXsL2Wo=,1", "01200719342", "WEB", "SLIPS", "ff", "20-Jul-2019", "20-Jul-2019", "LKR", "120.00", "Authorized", "jioChecker1", "0001003000003", "2019-07-20 11:08:18.0"],
+    ["6XYXFYnzlys=,1", "01200719341", "WEB", "Cashiers Order", "PAYEETEST", "20-Jul-2019", "20-Jul-2019", "LKR", "123.00", "Authorized", "jioChecker1", "0001003000003", "2019-07-20 10:51:16.0"],
+    ["yJJT27gp6o4=,1", "01200719340", "WEB", "Cashiers Order", "PAYEETEST", "20-Jul-2019", "20-Jul-2019", "LKR", "12.00", "Authorized", "jioChecker1", "0001003000002", "2019-07-20 10:28:58.0"],
+    ["wPLnDjK+A5E=,1", "01200719339", "WEB", "Cashiers Order", "PAYEETEST", "20-Jul-2019", "20-Jul-2019", "LKR", "12.00", "Authorized", "jioChecker1", "0001003000003", "2019-07-20 10:25:11.0"],
+    ["8Y9f16Y62BQ=,1", "01200719338", "WEB", "Cashiers Order", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "12.00", "Authorized", "jioChecker1", "0001003000002", "2019-07-20 10:14:57.0"],
+    ["Y0lhK1XhlZ8=,6", "01200719301", "WEB", "CEFTS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "45.00", "Authorized", "jioMaker2", "0001003000002", "2019-07-20 18:14:55.0"],
+    ["Ell8QGOvAGI=,6", "01200719275", "WEB", "SLIPS", "bvnbvn", "20-Jul-2019", "20-Jul-2019", "LKR", "23.00", "Authorized", "jioMaker2", "0001003000003", "2019-07-20 18:11:16.0"],
+    ["fHVoZHYLQNY=,6", "01200719274", "WEB", "CEFTS", "ghfghfgsf", "20-Jul-2019", "20-Jul-2019", "LKR", "44.00", "Authorized", "jioMaker2", "0001003000002", "2019-07-20 18:14:23.0"]
+  ],
+  "filters": [{
+    "displayName": "Batch No.",
+    "name": "batchNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Beneficiary Name",
+    "name": "beneficiaryName",
+    "type": "String"
+  }],
+  "pageNumber": 1,
+  "totalPages": 22,
+  "totalRecords": 220,
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('KM+JIIw/z0s=,5')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('KM+JIIw/z0s=,5','B','T','authorized','jioMaker2','20-Jul-2019 17:40:42')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('VY1h8bBMkzA=,5')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('VY1h8bBMkzA=,5','B','T','authorized','jioMaker2','20-Jul-2019 12:54:04')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('afY3KXsL2Wo=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('6XYXFYnzlys=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('yJJT27gp6o4=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('wPLnDjK+A5E=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('8Y9f16Y62BQ=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Y0lhK1XhlZ8=,6')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('Y0lhK1XhlZ8=,6','B','T','authorized','jioMaker2','20-Jul-2019 18:14:55')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Ell8QGOvAGI=,6')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('Ell8QGOvAGI=,6','B','T','authorized','jioMaker2','20-Jul-2019 18:11:16')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('fHVoZHYLQNY=,6')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('fHVoZHYLQNY=,6','B','T','authorized','jioMaker2','20-Jul-2019 18:14:23')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "HARDTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

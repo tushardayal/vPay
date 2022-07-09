@@ -1,0 +1,38 @@
+{
+    "responseStatus": {
+      "message": "",
+      "status": "0"
+    },
+    "dataList": [
+      {
+        "id": "UbhEoAhwygQ=",
+        "displayName": "999001900011",
+        "enrichments": {
+          "country": null,
+          "Iban": "999001900011",
+          "address3": null,
+          "address2": null,
+          "city": null,
+          "accountTitle": "ACC11",
+          "bankType": "Internal",
+          "address1": null,
+          "accountType": "Current and Savings Account updated",
+          "slipsCeftBranchCode": null,
+          "branchName": "",
+          "bankName": "NTB Bank",
+          "slipsCeftBankName": null,
+          "corporateAccountAlias": null,
+          "slipsCeftBranchName": null,
+          "slipsCeftBankCode": null,
+          "BicCode": null,
+          "balance": "",
+          "location": null,
+          "state": null,
+          "currencyId": "isEbFz6/ufQ=",
+          "currencyCode": "LKR"
+        }
+      }
+    ],
+    "entityIdentifier": "999001900011",
+    "loggable": false
+  }

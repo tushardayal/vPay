@@ -1,0 +1,78 @@
+/* Profile 1
+========================================*/
+.active {
+  color: var(--cs-icon-color-accent) !important;
+}
+
+.profile-info {
+  ion-card {
+    .background-size {
+      height: 160px;
+      position: relative;
+    }
+
+    ion-card-content {
+      margin: -100px 16px 16px;
+      padding-top: 80px;
+      background: var(--cs-background-primary);
+
+      .avatar-section {
+        position: absolute;
+        top: -60px;
+        z-index: 9999;
+        left: 0;
+        right: 0;
+
+        ion-thumbnail {
+          width: 120px !important;
+          height: 120px !important;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .social-share {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+  }
+}
+
+.profile-content {
+  .background-size {
+    position: relative;
+    height: 400px;
+
+    ion-card-header {
+      position: absolute;
+      z-index: 999;
+      top: 0;
+    }
+
+    ion-card-content {
+      position: absolute;
+      z-index: 999;
+      bottom: 0;
+    }
+  }
+
+  .slider {
+    padding: 0 0 0 12px;
+    overflow-x: scroll;
+    display: -webkit-inline-box;
+    display: flex;
+    flex-direction: row;
+
+    ion-card {
+      position: relative;
+      width: 200px;
+      margin: 8px 4px;
+      flex: none;
+    }
+  }
+}
+
+.topmargin-top{
+  margin-top: 50px!important;
+}

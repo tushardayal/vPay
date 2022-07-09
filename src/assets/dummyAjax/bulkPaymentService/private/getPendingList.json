@@ -1,0 +1,428 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BBULKPAYMENTREQUEST",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "Id"
+  }, {
+    "displayName": "Txn Date",
+    "type": "Date",
+    "isDisplay": "Y",
+    "methodName": "EntryDate"
+  }, {
+    "displayName": "Batch No.",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "BatchNo",
+    "maskingType": "PREFIX",
+    "maskingChar": "**",
+    "showUnMaskCharLength": "3",
+    "isMakingRequired": "N"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "MakerChannel"
+  }, {
+    "displayName": "Customer File Name",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "UploadFileName"
+  }, {
+    "displayName": "No. Of Txns",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "TotalRequest"
+  }, {
+    "displayName": "Amount In (LCY)",
+    "type": "Amount",
+    "isDisplay": "Y",
+    "methodName": "BaseTotalCurrencyAmount"
+  }, {
+    "displayName": "Uploaded By",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "ModifiedBy"
+  }, {
+    "displayName": "Upload Date Time",
+    "type": "Date",
+    "isDisplay": "Y",
+    "methodName": "ModifiedOn"
+  }, {
+    "displayName": "Txn Value",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "PayAmount"
+  }, {
+    "displayName": "Status",
+    "type": "String",
+    "isDisplay": "Y",
+    "methodName": "StatusOfBatch"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "ModifiedBy"
+  }, {
+    "displayName": "Modified On",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "ModifiedOn"
+  }, {
+    "displayName": "Upload Status",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "UploadStatus"
+  }, {
+    "displayName": "Beneficiary Name",
+    "type": "String",
+    "isDisplay": "N",
+    "methodName": "BeneficiaryName",
+    "maskingType": "SUFFIX",
+    "maskingChar": "*****",
+    "showUnMaskCharLength": "1",
+    "isMakingRequired": "Y"
+  }, {
+    "displayName": "Amount",
+    "type": "Amount",
+    "isDisplay": "N",
+    "methodName": "PayAmount",
+    "maskingType": "SUFFIX",
+    "maskingChar": "*****",
+    "showUnMaskCharLength": "1",
+    "isMakingRequired": "Y"
+  }],
+  "dataList": [
+    ["r3RHrDLZRyg=,0", "07-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"r3RHrDLZRyg=,0\",\"null\")'>01050819161</a>", "WEB", "XMLTEMPREQ_FROMUPLOAD_02-Apr-2020.xml", "0", "0.00", "rodsmaker1", "05-Aug-2019 16:31:59", "0.00", "Unverified", "rodsmaker1", "2019-08-05 16:31:59.0", "E", "-", "0.00"],
+    ["JyvFR6R6jpg=,1", "04-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"JyvFR6R6jpg=,1\",\"null\")'>01040819022</a>", "WEB", "RODSPAYREQ  RODSPAYREQ1.xlsx", "0", "0.00", "rodsmaker1", "04-Aug-2019 15:00:05", "0.00", "Unverified", "rodsmaker1", "2019-08-04 15:00:05.0", "E", "-", "0.00"],
+    ["RpgbpvcnNMw=,0", "04-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"RpgbpvcnNMw=,0\",\"null\")'>01040819021</a>", "WEB", "XMLTEMPLAY.xls", "0", "0.00", "rodsmaker1", "04-Aug-2019 14:38:22", "0.00", "Unverified", "rodsmaker1", "2019-08-04 14:38:22.0", "E", "-", "0.00"],
+    ["Jw9z2EO1KJU=,4", "03-Aug-2019", "01030819329", "WEB", "RODSPAYREQ_08Jan2019_CCK.xls", "2", "41.00", "rodsmaker1", "03-Aug-2019 09:44:50", "41.00", "create", "rodsmaker1", "2019-08-03 09:44:50.0", "S", "-", "41.00"],
+    ["g4z667mdqAg=,1", "03-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"g4z667mdqAg=,1\",\"null\")'>01030819247</a>", "WEB", "XMLTEMPREQ_20-Dec-2019.xml", "0", "0.00", "rodsmaker1", "03-Aug-2019 12:35:44", "0.00", "Unverified", "rodsmaker1", "2019-08-03 12:35:44.0", "E", "-", "0.00"],
+    ["BALZptTJdHE=,3", "03-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"BALZptTJdHE=,3\",\"null\")'>01030819241</a>", "WEB", "XMLHDEFTEM_18-12-2019.xml", "0", "0.00", "rodsmaker1", "03-Aug-2019 12:24:44", "0.00", "Unverified", "rodsmaker1", "2019-08-03 12:24:44.0", "E", "-", "0.00"],
+    ["/8hg112MLf0=,2", "03-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"/8hg112MLf0=,2\",\"null\")'>01030819236</a>", "WEB", "XMLTEMPREQ_01.xml", "3", "126.00", "rodsmaker1", "03-Aug-2019 10:09:33", "126.00", "Unverified", "rodsmaker1", "2019-08-03 10:09:33.0", "S", "-", "126.00"],
+    ["4PKOzSzgGFA=,1", "03-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"4PKOzSzgGFA=,1\",\"null\")'>01030819234</a>", "WEB", "XMLTEMPREQ.xml", "1", "41.00", "rodsmaker1", "03-Aug-2019 09:51:44", "41.00", "Unverified", "rodsmaker1", "2019-08-03 09:51:44.0", "S", "-", "41.00"],
+    ["7A+SUL7RYsM=,1", "03-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"7A+SUL7RYsM=,1\",\"null\")'>01030819172</a>", "WEB", "XMLTEMPLAY_16-12-2019.xml", "2", "85.00", "rodsmaker1", "03-Aug-2019 10:38:27", "85.00", "Unverified", "rodsmaker1", "2019-08-03 10:38:27.0", "S", "-", "85.00"],
+    ["ach6zx2Ud5c=,1", "03-Aug-2019", "<a href='javascript:void(0);' class='listLink' onclick='getBatchDetails(\"ach6zx2Ud5c=,1\",\"null\")'>01030819092</a>", "WEB", "XMLTEMPLAY.xml", "1", "42.00", "rodsmaker1", "03-Aug-2019 12:53:10", "42.00", "Unverified", "rodsmaker1", "2019-08-03 12:53:10.0", "S", "-", "42.00"]
+  ],
+  "filters": [{
+    "displayName": "Txn Date",
+    "name": "entryDate",
+    "type": "Date"
+  }, {
+    "displayName": "Batch No.",
+    "name": "batchNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Customer File Name",
+    "name": "uploadFileName",
+    "type": "String"
+  }, {
+    "displayName": "No. Of Txns",
+    "name": "totalRequest",
+    "type": "String"
+  }, {
+    "displayName": "Beneficiary Name",
+    "name": "beneficiaryName",
+    "type": "String"
+  }],
+  "pageNumber": 1,
+  "totalPages": 2,
+  "totalRecords": 12,
+  "access": ["VIEW", "DATA-ENTRY"],
+  "links": [
+    [{
+      "index": 0,
+      "displayName": "View Error",
+      "icon": "fa fa-exclamation-circle",
+      "url": null,
+      "onClick": "viewError('r3RHrDLZRyg=')"
+    }, {
+      "index": 0,
+      "displayName": "Re-upload",
+      "icon": "fa fa-upload",
+      "url": null,
+      "onClick": "reupload('r3RHrDLZRyg=')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('r3RHrDLZRyg=,0')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View Error",
+      "icon": "fa fa-exclamation-circle",
+      "url": null,
+      "onClick": "viewError('JyvFR6R6jpg=')"
+    }, {
+      "index": 0,
+      "displayName": "Re-upload",
+      "icon": "fa fa-upload",
+      "url": null,
+      "onClick": "reupload('JyvFR6R6jpg=')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('JyvFR6R6jpg=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View Error",
+      "icon": "fa fa-exclamation-circle",
+      "url": null,
+      "onClick": "viewError('RpgbpvcnNMw=')"
+    }, {
+      "index": 0,
+      "displayName": "Re-upload",
+      "icon": "fa fa-upload",
+      "url": null,
+      "onClick": "reupload('RpgbpvcnNMw=')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('RpgbpvcnNMw=,0')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Jw9z2EO1KJU=,4')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('Jw9z2EO1KJU=,4')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "icons-view-authorizer",
+      "url": null,
+      "onClick": "nextAuthorizer('Jw9z2EO1KJU=,4','B','B','unauthorized','rodsmaker1','03-Aug-2019 09:44:50')"
+    }, {
+      "index": 0,
+      "displayName": "SelectAuthorizer",
+      "icon": null,
+      "url": null,
+      "onClick": "selectAuthorizer('Jw9z2EO1KJU=','4','null','B','jd/IvfA9spo=')"
+    }, {
+      "index": 1000,
+      "displayName": "Currency",
+      "icon": null,
+      "url": null,
+      "onClick": "currencyLink('Jw9z2EO1KJU=','4')"
+    }, {
+      "index": 1001,
+      "displayName": "Print",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "print('Jw9z2EO1KJU=','4')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View Error",
+      "icon": "fa fa-exclamation-circle",
+      "url": null,
+      "onClick": "viewError('g4z667mdqAg=')"
+    }, {
+      "index": 0,
+      "displayName": "Re-upload",
+      "icon": "fa fa-upload",
+      "url": null,
+      "onClick": "reupload('g4z667mdqAg=')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('g4z667mdqAg=,1')"
+    }],
+    [{
+      "index": 0,
+      "displayName": "View Error",
+      "icon": "fa fa-exclamation-circle",
+      "url": null,
+      "onClick": "viewError('BALZptTJdHE=')"
+    }, {
+      "index": 0,
+      "displayName": "Re-upload",
+      "icon": "fa fa-upload",
+      "url": null,
+      "onClick": "reupload('BALZptTJdHE=')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('BALZptTJdHE=,3')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('/8hg112MLf0=,2')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('/8hg112MLf0=,2')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "icons-view-authorizer",
+      "url": null,
+      "onClick": "nextAuthorizer('/8hg112MLf0=,2','B','B','unauthorized','rodsmaker1','03-Aug-2019 10:09:33')"
+    }, {
+      "index": 0,
+      "displayName": "SelectAuthorizer",
+      "icon": null,
+      "url": null,
+      "onClick": "selectAuthorizer('/8hg112MLf0=','2','null','B','Zb8iNHx+fQc=')"
+    }, {
+      "index": 1000,
+      "displayName": "Currency",
+      "icon": null,
+      "url": null,
+      "onClick": "currencyLink('/8hg112MLf0=','2')"
+    }, {
+      "index": 1001,
+      "displayName": "Print",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "print('/8hg112MLf0=','2')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('4PKOzSzgGFA=,1')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('4PKOzSzgGFA=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "icons-view-authorizer",
+      "url": null,
+      "onClick": "nextAuthorizer('4PKOzSzgGFA=,1','B','B','unauthorized','rodsmaker1','03-Aug-2019 09:51:44')"
+    }, {
+      "index": 0,
+      "displayName": "SelectAuthorizer",
+      "icon": null,
+      "url": null,
+      "onClick": "selectAuthorizer('4PKOzSzgGFA=','1','null','B','Zb8iNHx+fQc=')"
+    }, {
+      "index": 1000,
+      "displayName": "Currency",
+      "icon": null,
+      "url": null,
+      "onClick": "currencyLink('4PKOzSzgGFA=','1')"
+    }, {
+      "index": 1001,
+      "displayName": "Print",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "print('4PKOzSzgGFA=','1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('7A+SUL7RYsM=,1')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('7A+SUL7RYsM=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "icons-view-authorizer",
+      "url": null,
+      "onClick": "nextAuthorizer('7A+SUL7RYsM=,1','B','B','unauthorized','rodsmaker1','03-Aug-2019 10:38:27')"
+    }, {
+      "index": 0,
+      "displayName": "SelectAuthorizer",
+      "icon": null,
+      "url": null,
+      "onClick": "selectAuthorizer('7A+SUL7RYsM=','1','null','B','+G9Lz98hfVw=')"
+    }, {
+      "index": 1000,
+      "displayName": "Currency",
+      "icon": null,
+      "url": null,
+      "onClick": "currencyLink('7A+SUL7RYsM=','1')"
+    }, {
+      "index": 1001,
+      "displayName": "Print",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "print('7A+SUL7RYsM=','1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('ach6zx2Ud5c=,1')"
+    }, {
+      "index": 5,
+      "displayName": "Delete",
+      "icon": "fa fa-times-circle-o",
+      "url": null,
+      "onClick": "delete('ach6zx2Ud5c=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "icons-view-authorizer",
+      "url": null,
+      "onClick": "nextAuthorizer('ach6zx2Ud5c=,1','B','B','unauthorized','rodsmaker1','03-Aug-2019 12:53:10')"
+    }, {
+      "index": 0,
+      "displayName": "SelectAuthorizer",
+      "icon": null,
+      "url": null,
+      "onClick": "selectAuthorizer('ach6zx2Ud5c=','1','null','B','+G9Lz98hfVw=')"
+    }, {
+      "index": 1000,
+      "displayName": "Currency",
+      "icon": null,
+      "url": null,
+      "onClick": "currencyLink('ach6zx2Ud5c=','1')"
+    }, {
+      "index": 1001,
+      "displayName": "Print",
+      "icon": "fa fa-print",
+      "url": null,
+      "onClick": "print('ach6zx2Ud5c=','1')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "SOFTTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

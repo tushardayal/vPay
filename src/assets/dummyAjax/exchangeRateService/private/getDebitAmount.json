@@ -1,0 +1,16 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataMap": {
+    "fxRate": 0.6,
+    "drCcyDecimal": 2,
+    "crCcyDecimal": 2,
+    "debitAmount": "39,039.00",
+    "creditAmount": "234,234.00"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

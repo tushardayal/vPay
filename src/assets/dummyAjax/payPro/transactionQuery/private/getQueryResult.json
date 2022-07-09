@@ -1,0 +1,182 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "INSTRUMENTQUERYREQUEST",
+  "headers": [
+    {
+      "displayName": "Id",
+      "type": "String",
+      "isDisplay": "N"
+    },
+    {
+      "displayName": "Payment Method Code",
+      "type": "String",
+      "isDisplay": "N"
+    },
+    {
+      "displayName": "Batch No.",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Value Date",
+      "type": "Date",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Channel",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Payment Type",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Beneficiary",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Instrument Date",
+      "type": "Date",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Instrument No.",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Debit Account No.",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Amount",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Status of Instrument",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Reject Reason",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Action",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Module Type",
+      "type": "String",
+      "isDisplay": "N"
+    }
+  ],
+  "dataList": [
+    [
+      "+mNYNtQwnC8=,0",
+      "PP6",
+      "01180719104",
+      "18-Jul-2019",
+      "WEB",
+      "Cashiers Order",
+      "Sri Lankan Fisheries",
+      "-",
+      "120135",
+      "999001900001",
+      "LKR 12.00",
+      "Unverified",
+      "-",
+      "-",
+      "PAYMENTRQUEST"
+    ],
+    [
+      "fA/z3mgBHzc=,0",
+      "PP6",
+      "01180719103",
+      "18-Jul-2019",
+      "WEB",
+      "Cashiers Order",
+      "Sri Lankan Fisheries",
+      "-",
+      "120134",
+      "999001900001",
+      "LKR 12.00",
+      "Unverified",
+      "-",
+      "-",
+      "PAYMENTRQUEST"
+    ],
+    [
+      "1rt3XrCj6vw=,0",
+      "PP6",
+      "01020319043",
+      "02-Mar-2019",
+      "WEB",
+      "Cashiers Order",
+      "Sri Lankan Fisheries",
+      "02-Mar-2019",
+      "120103",
+      "999001900001",
+      "LKR 12.12",
+      "Failed",
+      "-",
+      "-",
+      "PAYMENTRQUEST"
+    ],
+    [
+      "t/TgaDDGPVE=,0",
+      "PP6",
+      "01050219015",
+      "06-Feb-2019",
+      "WEB",
+      "Cashiers Order",
+      "Sri Lankan Fisheries",
+      "05-Feb-2019",
+      "-",
+      "999001900001",
+      "LKR 12.00",
+      "Unverified",
+      "-",
+      "-",
+      "PAYMENTRQUEST"
+    ]
+  ],
+  "filters": [
+    {
+      "displayName": "Batch No.",
+      "name": "batchNo",
+      "type": "String"
+    },
+    {
+      "displayName": "Channel",
+      "name": "channel",
+      "type": "String"
+    },
+    {
+      "displayName": "Beneficiary",
+      "name": "beneficiaryName",
+      "type": "String"
+    }
+  ],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 4,
+  "links": [
+    [],
+    [],
+    [],
+    []
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,37 @@
+export const appConstants = {
+  dateFormat: "DD-MMM-YYYY",
+  otpTimeOutInSec: 180,
+  idleTimeout: 600000,
+  appAndroidVersion: "1.0.0",
+  appIOSVersion: "1.0.0",
+  requestDateFormat: 'dd-MMM-yyyy',
+  authRemarksApplicableEntities: ['OWNACCOUNTTRANSFER', 'BSINGLEPAYMENTREQUEST'],
+  IS_ENCRYPTION_REQUIRED: true,
+  baseCurrencyCode: 'LKR',
+  USE_ACTIVATION_PROCESS: true,
+  GEN_AUTHOTP: 'authenticationService/private/generateOTP',
+  GEN_AUTHOTPDATA: {pageFrom: 'AUTHORIZATION'},
+  TEMP_VAR: [],
+  ALLOWED_SUPPORT_DOC_FILES: ['jpg', 'jpeg', 'zip', 'gif', 'png', 'xls', 'xlsx', 'doc', 'docx', 'txt', 'tiff', 'tif', 'pdf', 'xml'],
+  USE_METHODNAME_IN_LISTING: ['LPOPPREQUEST']
+};
+declare function setPublicKeyMap(publicKeyMap: any);
+const publicKeyMap = {
+  Key_2 : '{"kty" : "RSA" , "extractable" : true, "n" : "3AwLK-a1CXtY1KHHJzQHcEHabY3XdwGpYGCAqN6HfgwCFqjilusX591RqhPs0Z7jbAUAPgiwhaKBaHfF5v4eUSgoh9Qb3rDIVBsHN7s-20p-ETGLcZW--Z4Bz79VEl_OLTY7UcrD1bmr5uOyWyTi0jLCArNmFVnRTsV9YsbOUVqA7i_2rwD_LcyBbbgvVxSbNYilEUgk6eGvqyX0H_kgMhCC-2OknM3L1StnhqgeChDS6-UFDJDs1E03s4JrG6fqqlXK-Lg6ZiujgXiJgSXQii-wLrY8fr4gTPu1BZ6p9m8DdrTjYxZnSct7MVEhEx47zvrym7r0z6795AZNytM3JQ" , "e" : "AQAB"}',
+  Key_1 : '{"kty" : "RSA" , "extractable" : true, "n" : "v4l7Bn3jlIRGJ5qcIfXdQUitPabTXSNsBZZBQ04hAeFHqtk7kcRK_71Nl5q-OkSO99X0CQd8RmERCCBr58NGgoX35wyWXMySlUHf6ZWCRBDbM_GGHCYUHbR9ARALaDGepfRRzTFPuwQ7-srZnCr29ZY9Pvyj2atIMStNQRqNiP9yxPA1cIDyJ5PR_78IkDGUzUYAo47D72_Q7Yubm2rqyC9i7j4MXbVPnScYea0fhFnqe885smc0dVQ9AeBD6GVX2Il_m53-U4QFamZuOjmmdUKjdh89ZDshSTH87zaaWDLxoN01wVWb7NPWoMrOadrCO5Vs1OAV2DDTTWEhofTakQ" , "e" : "AQAB"}',
+  Key_3 : '{"kty" : "RSA" , "extractable" : true, "n" : "zKyLRAc9rJ9S4q5RE9ys6r_2QHv_V95A0bGs7eJmST1oSM5v36CD56bEd3kWtxB4hvmp_HqRaiPORqB4fU2KwaVZ6Z03soELbF7UAFrsjCf0hPy7Swp7VcrFHRpxIC6_KoEuW8e3qAO0MVKZ_t6ULQH_WwSKj0mhnZYFNt3i_YjD84ctFA0RiGEOCOU6Udj5HHXn7mgOW6Nj_HpbnIFLPBL6RrmPPynHXpwo-h-2hPS41rie-gehgLheqiB3v99b-c8FK5ibFyHSkokELANJiQcQaU6KPr3UiZxvGZF2M3ecExXTWC7ikXdS-AOGNBw9guO9BUzROCF02BQjPQqcxQ" , "e" : "AQAB"}',
+  Key_4 : '{"kty" : "RSA" , "extractable" : true, "n" : "tnzflM9Psqy1ru7e0rwyZG2Y0UIPL0c1vWHPuPhEgKJCe60P3tLV5psxslPg1Ar4l8zK_W1mvU_CUv3E0iRrXRxPDGsqv72dDc56dAAxRianAnRBp1fpX2rLkT_FVyeFAPyNfdidvKRTyzt5SpMBwWmez6IcDiUqM1tf8YK0VDi-1oI7EaHNu7gNAfntw3C8plx-wfOsdZVKEGc-7KY9ew-TQgeBcmFcjo7p4KtOXc5vXojMAJK6wyQIeXkSrMTFlnL662X0yGvsVAIdgIZ4zAPOtqk2GnExB50cyMVu-6HLGaFkuDSAez5_i1gGuGPfQstzaMcY4SiZ4vr_sPoaAQ" , "e" : "AQAB"}',
+  Key_6 : '{"kty" : "RSA" , "extractable" : true, "n" : "9YBu4YOz5cfg7Up4Zhq8qkOP51S4XL19watUXE0_uhXbBF8vvC3L15reb09yB9C03Ji6nfKjGu8Vp-goXZVlRJAccJ7wnDmoTIWT0JiKMpqe8XdoXva1rI6tROtvr8pMihOupZUznqED4UqQ875k2-qH-cmrEtlbv5xNxlpyAaQ7hqoyxAuwUWFDaOgkNp9qXh5XO6z8ZQO4KhbwGYkknZaIbfhshHnE0IA36qMLwGEgtHPDG98fsmuZvhnF92ZQAe7wFImwSVSYqZiHGCd6N8HPMz-JoWla6X-z7EU6SfeR7c11YS4v7elsfZCl4vKuNDVzLThXOcHE0xPoWnOuLQ" , "e" : "AQAB"}',
+  Key_5 : '{"kty" : "RSA" , "extractable" : true, "n" : "r9F1vKyHuWKWH3DQD020zmEbJJJO2DCD78KrJ-frUow0ghMtUs1ffZB2Dw-ACL1F6foJFpViPgU5sLE1l-U1jbqNsXqPX45sO5-d7VLF3mj4tEo6hE189h4PGjhhwsnDN356Irpz17BaQ4_J4vZlP9PY030alu7bZxC2Vy2XYI4jDNoCgBZBPkVzBjK26vflOqI9-y13NE6NohFHdddxywNcZzkm62BLyF5ZtPIC_n_VEC2ZWKVYWMlDta7P_otoBeK6ChBu7WsU3VkY7dr2Y3YVt1mGWAbKltkRCREecilQDL3d1DpaWXXoHbaRQ8TWUYzEpAcMp0otZcDvk2USCQ" , "e" : "AQAB"}',
+  Key_8 : '{"kty" : "RSA" , "extractable" : true, "n" : "w7AnDO-2O55EdJ4MZ-guN4dQKHZATZ-XMLL-PRabl_w3oViT6WHPxg-eCBnrgfEPB-K3rb3lmogQElOwD79dtk133OJN8K6CNXd_M0_U-rbQsYEbVmCCjycVdMHx1Nvba8ABadQi8Yo1OcS_tDdVg_6-cQ_pb3T9fj9M4U5zumiFzDXZDf0bz0LXboX9Kj3_e2Fcdja_OWwhF9TcRDduQkFqAB3AQtVNhi_6p7_7guxtX9IyuZOZ8l6QyPLo0BcXqnsuMylBHWbqnqGawDq9aZjRaNRtF1UyI71QwBHhH7p88y3--qkbujb8SHjV0VX66tPpA801k-bBcI0hTphX9Q" , "e" : "AQAB"}',
+  Key_9 : '{"kty" : "RSA" , "extractable" : true, "n" : "uBW0hMwPzpMopamQYwVNbWxbcheJG0xNIyd7Es6ZAYBwjrxB_Dc0bJsw-OOpFOKuRshdTLJlWtpT8OWelNpVgHDrbGemn0TmN59IxqY4lVlpE348qyFpeyE6D3WBiWhu4ZenEZlSKvclD3wD1_cSz9ybnaXV4YZjxc7m01AxgeEWjRvFt_ic8PH4tlChhFRBIlkIaD4371VDuRAV2b7dh2nBH9GnwsGinVA6vPq5gce5gYQhAiFRoOSuarHRoRNWTIeVKO2QBNXtIs8F5Bo3vsxzknsGEh6MbA-PGoW0imK3p8pbrNdYg5bRkwmC3pY3JNDZNKKRyeSdepJfB8DDhQ" , "e" : "AQAB"}',
+  Key_7 : '{"kty" : "RSA" , "extractable" : true, "n" : "rT9g4YWXDCOKNHH8ueLL5q00OP2dd0Vhby5jMgAInnwy60oxUMCs_mxc5fdfSan_1CxCSgtqtGQHH_rYBtYN5HwnylGWGn9ryhKJUQcWZxGKDYYHH_XKMJ61HTJupbAYrDegAL5RULZ3AeoRGOcy4LgBGhQjjVrVr6EIh-gWPz04tbJ8mye33irZDjg994i7EF8EoBmcorxlZcIgbVQCU3nwlX4FoILNemLDcqb2UJzlIqv-tRDydnVZvucoXemObbiW6Vdr5DdBShnY2asR27S8LCk9kPHzJm3d4eH3PHA4ArRtD4l3DE0kBTaRr4Ecf61fBIQSMkwQIE5GoAfD5Q" , "e" : "AQAB"}',
+  Key_10 : '{"kty" : "RSA" , "extractable" : true, "n" : "22JoE1_N_s9-waku9GV7Bd3mp1LUq3kY9HHn0fzIV4i54MVENiFoy0ui6WWY6UIRQG2IGbjBI7tyeSRmAn6zYN9qHehkf50P5uD1ddtq2qHohRWK79fKj83aZqZgvLHrqc72fROT0LeRrlwPY6LUDU8IMpBLeKqzx7V9-cnbFu0x9ft2XUr69iFAX4cbrIWeH3ayC_zXh297lglydtNLVUb589kZK3WefSiJxL9EHXdGyeH8v8Uv2DaZ9n60L0XfgFkRnaqPip3-h4bw8Do4UeRE6dqFt0cgKRUOmtwsNHl3rOCkPBn8l0U_1Y2_9R-ZEWptwdI4DCMicWoq0CupUQ" , "e" : "AQAB"}',
+  Key_11 : '{"kty" : "RSA" , "extractable" : true, "n" : "yIvexaZoFrbCD35aGkDeSYMYDdYwaCxM2bhbOVdRTf8RGcbS7aZ2m__E-JMKjb7winNxzyR3WWI37BuMGnjIHKJqsIhesuxIREozgmY1mKoc-X8wabt58W8nIrIg_27G74mNfNn_rRx_SLMDvNIFvMQIoJ5-oW0SweW13slHV9YyCIwiFqnKSjS56deaeZNtfceU_DzpN6dxylhDTUPdmrX5G00lWj1DYkgRNNcDoIysvkMmdQfLHMx1qJd4TlVScs2y6olzJpG63hIm3n2CbUyVMuaknexiBvIIdJKOjfrYJ9nHEg8phaDNoXSrqoe7KI9NZf3vEqMQvvJgOcPYJQ" , "e" : "AQAB"}',
+  Key_12 : '{"kty" : "RSA" , "extractable" : true, "n" : "yCY2ayHzIbmVlvexEfWhMW5WQIIYPqPLMltq1pxI5GDXcS0fXLRAwC1Bbq0joZ1p6HFwJITYAw-G_CFr3KM8yvkL_sxVU69HVNZrwbaiOkJf_XAW1e28byqgN_970QhyfIQOzX-MD_Obm1sZfnO86-3m26FGUXSgBL0iCd9whtJGrcdO-sbmMuzBWwbe4rRufT8nV12NyfVNzl0nm45w9yfal5sTB89Hmu5Mj5egODyN3Lem9VuGLT815Oq9v_tIIqAhgAfoF-gtqrSOobWacop-V9z6sEewjTG72txtGl62wF43uL1M50hb1Zj4LDyKOdtKtTPjd2bnJZB7gi919Q" , "e" : "AQAB"}',
+  Key_13 : '{"kty" : "RSA" , "extractable" : true, "n" : "yj6JaFt03AXosvl2lKHZs2yhPynOclPFhsVKw042mANyowtOsHbY-y4bESJXOXg7hNGcvJ89y8OsriMymQz38crTdUOYDbWa4khRBUVUsNFin2AybRRCO42PxvL5mJlraoP4zGjecBc1GfmfdPUhxFnBYCMWm70-jjl682eUQzagxmMEUysNQR9fAdndpKNvQeYDrADAla5cZGQtQPRQY9Oa8An_vf25sqjcf2hNCfef4dtP9M9YwUxHG2ZtURW_FxAV_Q7Pd1kBu5_cWxkqXz1RKwoJRXuFFSmcwGP68yzCZysD7gom2UXQjNjQGVaNc5zmc3RolJDzG7QjCKo9HQ" , "e" : "AQAB"}',
+  Key_14 : '{"kty" : "RSA" , "extractable" : true, "n" : "4HbJ8HRe6EF1fAwj7gBq3TAsSABP52BgNMRI6j_N6WXpjVzSIA9b_BOQnp7XTWyTpT803_TgVtjTZmFpPx5gq1Yd6gtrGVrjFI9W0EwjnbSOijRPb5yRIBqru5Oh826aABqmiW2-AlIChTCqEJPKOVXv-jbM1QNm5FioKyqmTMvpERF4GnA0rrSHoyjJ4r0flB9oK-CKlRDRZK1PM94gdVNE4Hb8qi9nE8F3791agX9BNA6XfGSTGxniHLlJLCAGonSKtoGeBSTeY3f9fnMJqTsRZ5iR3pxrXrAVkgq4_sBnrEee17wr0yLtDJ0g_5ha4KVj23dzLwLIfQugkJRusQ" , "e" : "AQAB"}',
+  Key_15 : '{"kty" : "RSA" , "extractable" : true, "n" : "zL3vQ9gs5-yuosUZrxa7BGHi6tKlFG0DkRm9z4FW8O_GR_dk5vBuyBx_gn0_9DPoYvJ943CTvpYlW_wxt49FjjUANMD2Xkj4iNfMKSe3xVI4obfnJUMoS7s_FfqVUO-aWZKPin5pHsaZ6zmLLBSgkzuUURslO8hLoDPanO3f09HN-S0xk9ZapzoblNo8DDXjAtbTatIaQTJn17qPCm-wtMaRz6APnqYxXMIEuBB_024U-C1lfIvIJitWtPabwiOW_TTwHWTVmUb_sxdnkuE9S0oQRVVMz4kOUsEgTVsQs8U-L0P6gNBilW8kp5SygmdzVjaCgweea3y5zrzl2zXviQ" , "e" : "AQAB"}'
+};
+//setPublicKeyMap(publicKeyMap);
+export const graphColorCodes = ['#0093d0', '#8884bc', '#b5b4aa', '#7565c0', '#504486', '#27aedf', '#ae9dc8', '#c1bab0', '#847caa', '#8acef2', '#72699e', '#57c0e6', '#006da3', '#deddd8', '#968eb6', '#2e52a0', '#c7c8ca', '#a0c7d3', '#c1bab0', '#3690bc', '#eae7f1', '#4c92ce', '#c4d6ee', '#00a8bd', '#8884bc', '#adb2b7'];

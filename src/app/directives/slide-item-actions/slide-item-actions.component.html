@@ -1,0 +1,15 @@
+<ion-item-options [disabled]="disableSlide" side="end">
+  <ion-item-option (click)="actionClicked($event,action.onClick,item)" *ngFor="let action of actions"
+    class="background-accent">
+    <ion-button fill="clear">
+      <ion-icon [hidden]="action.text" class="icon-font-md icon-color-secondary" [name]="action.icon"></ion-icon>
+      <ion-text [hidden]="!action.text"  class="icon-font-p icon-color-secondary" >{{action.displayName}}</ion-text>
+    </ion-button>
+  </ion-item-option>
+  <ion-item-option (click)="showMoreActions($event)" *ngIf="moreActions.length > 0"
+    class="background-accent">
+    <ion-button fill="clear" >
+      <ion-icon class="icon-font-md icon-color-secondary" name="ellipsis-horizontal-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-item-option>
+</ion-item-options>

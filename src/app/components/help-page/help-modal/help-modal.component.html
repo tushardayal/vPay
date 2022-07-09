@@ -1,0 +1,63 @@
+<div class="help-container" (click)="clickBackdrop($event)">
+  <span #spanEl [class]="'active-element'">
+  </span>
+  <ion-card #helpcard class="background-accent help-card ion-no-margin">
+    <ion-card-content class="content">
+      <ion-buttons>
+        <!-- <ion-button slot="start" [disabled]="activeElementIndex === 0" (click)="prevElement($event)" >
+          <ion-icon class="lg-icon text-color-dark" name="chevron-back-outline">
+          </ion-icon>
+        </ion-button> -->
+        <ion-text class="text-size-sd text-color-secondary font-regular ion-padding-start ion-padding-end">
+          {{ inputData[activeElementIndex]?.text }}
+        </ion-text>
+        <!-- <ion-button slot="end"  [disabled]="activeElementIndex === (inputData.length - 1)" (click)="nextElement($event)">
+          <ion-icon class="lg-icon text-color-dark"
+            name="chevron-forward-outline"></ion-icon>
+        </ion-button> -->
+        <!-- <ion-button (click)="closeModal()">
+          <p class="card-text text-color-dark" >Finish</p>
+        </ion-button> -->
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+</div>
+ <!-- <ion-fab class="fabBtn" vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button  [disabled]="activeElementIndex === 0"  (click)="prevElement()">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
+
+<ion-fab class="fabBtn" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-buttons>
+    <ion-fab-button  [disabled]="activeElementIndex === 0"  (click)="prevElement()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button [disabled]="activeElementIndex === (inputData.length - 1)" (click)="nextElement($event)">
+     <ion-icon name="chevron-forward-outline"></ion-icon>
+   </ion-fab-button>
+   <!-- <ion-fab-button *ngIf="activeElementIndex === (inputData.length - 1)" (click)="closeModal()">
+     <ion-text >Finish</ion-text>
+   </ion-fab-button> -->
+  </ion-buttons>
+</ion-fab> 
+<!-- 
+<ion-footer class="ion-no-border help-footer" #helpFooter>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-text-capitalize" >
+      <ion-button  (click)="prevElement()" [disabled]="activeElementIndex === 0" >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" class="ion-text-capitalize" *ngIf="activeElementIndex < (inputData.length - 1)">
+      <ion-button (click)="nextElement()" >
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" class="ion-text-capitalize" *ngIf="activeElementIndex === (inputData.length - 1)">
+     <ion-button  (click)="closeModal()" >
+      {{'lbl_finish' | translate}}
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer> -->

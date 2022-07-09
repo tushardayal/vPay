@@ -1,0 +1,38 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button [defaultHref]="['/dashboard']"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{'lbl_all_notification' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="transparent">
+
+    <ion-grid class="ion-no-padding">
+
+          <ion-list class="ion-padding-end">
+            <!--Header-->
+            <ion-list-header>
+            <h3 class="text-size-sm text-color-primary ion-text-wrap">{{'lbl_inbox' | translate }} - {{(notificationData$ |async)?.onlineAlertDetails?.length}} {{'lbl_new_message' | translate}}</h3>
+            </ion-list-header>
+            <!-- Content List -->
+            <ng-container *ngIf="(notificationData$ | async) != null">
+              <ion-item  (click)="viewNotificationGroup(notification)"
+                        *ngFor="let notification of (notificationData$ |async)?.onlineAlertDetails">
+                <ion-label class="ion-no-padding">
+                  <h4 class="font-medium text-color-primary ion-text-wrap">{{notification.referenceEntityName}}</h4>
+                </ion-label>
+                <ion-note class="text-size-sm text-color-accent" slot="end">{{notification.count}}</ion-note>
+              </ion-item>
+            </ng-container>
+          </ion-list>
+
+    </ion-grid>
+
+
+  </ion-content>
+</ion-app>
+

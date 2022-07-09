@@ -1,0 +1,8 @@
+<ion-content>
+    <app-payment-transaction-query
+            *ngIf="(selectedProduct$|async) == 'PAYMENTREQUEST'">
+    </app-payment-transaction-query>
+    <app-lpopp-transaction-query
+            *ngIf="(selectedProduct$|async) == 'LPOPPREQUEST'">
+    </app-lpopp-transaction-query>
+</ion-content>

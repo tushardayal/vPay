@@ -1,0 +1,11 @@
+.ion-alpha-scroll .scroll-content::-webkit-scrollbar {
+  display: none;
+}
+.icon-round {
+  padding: 5px;
+  background: var(--cs-background-accent);
+  border-radius: 50%;
+  width: 1px;
+  height: 1px;
+  margin-right: 5px;
+}

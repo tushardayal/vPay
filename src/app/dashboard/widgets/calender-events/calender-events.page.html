@@ -1,0 +1,41 @@
+<ion-card class="no-border-radius widgetBorder ion-no-padding ion-no-margin ion-margin-start ion-margin-end ion-margin-top">
+  <ion-card-header class="padding-half background-secondary">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="11">
+          <ion-card-title class="text-size-p  ion-text-capitalize">{{'lbl_calender_event' | translate}}</ion-card-title></ion-col>
+        <ion-col size="1">
+           <ion-buttons (tap)="refreshPage()">       
+              <ion-icon name="refresh-outline" class="icon-color-primary icon-font-md"></ion-icon>
+            </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+  <ion-card-content class="ion-no-padding ion-no-margin">
+    <ion-grid class="ion-no-padding">
+    <ion-row class="padding-half" *ngIf="data$ | async as value">
+      <ion-col size="1">
+        <span><ion-icon name="calendar-outline" class="icon-color-primary icon-font-md ion-padding-vertical"></ion-icon></span>
+      </ion-col>
+      <ion-col size="5">
+        <p class="text-color-primary text-nowrap ion-text-center ion-no-padding ion-no-margin">{{value.currentDay}}</p>
+        <p class="text-color-primary text-nowrap ion-text-center ion-no-padding ion-no-margin">{{ value.currentDate }}</p>
+      </ion-col>
+      <ion-col size="1">
+        <span><ion-icon name="stopwatch-outline" class="icon-color-primary icon-font-md ion-padding-vertical"></ion-icon></span>
+      </ion-col>
+      <ion-col size="5">
+        <p class="text-color-primary text-nowrap ion-no-padding ion-text-center ion-no-margin">{{value.requests}}</p>
+        <p class="text-color-primary text-nowrap ion-no-padding ion-text-center ion-no-margin">{{'lbl_upcoming_events' | translate}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="(data$ | async) == null && !(data$ | async)?.length && !isLoading">
+      <ion-col size="12" class="ion-padding-vertical text-size-sm text-color-primary ion-text-center"> {{'lbl_no_data_found' | translate}}</ion-col>
+    </ion-row>
+    <listing-skeleton *ngIf="isLoading" [itemsCount]="1"></listing-skeleton>
+    </ion-grid>
+  </ion-card-content>
+
+</ion-card>
+

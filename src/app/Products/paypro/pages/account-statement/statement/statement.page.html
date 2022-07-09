@@ -1,0 +1,234 @@
+<ion-app>
+    
+<!--filter Start-->
+<div>
+    <ion-menu contentId="filterMain" menu-id="filterMenuId" side="end" type="overlay">
+        <!-- Settings Toolbar -->
+        <ion-header>
+            <ion-toolbar class="background-accent">
+                <ion-buttons slot="start">
+                    <ion-button (click)="closeFilter()">
+                        <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+                <ion-title class="icon-font-sm ion-no-padding">{{'lbl_date_range' | translate}}</ion-title>
+                <ion-buttons slot="end">
+                <ion-button  (click)="clearFilter()">
+                    <ion-icon class="icon-font-md" name="Refresh" slot="icon-only"></ion-icon>
+                </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+        <!-- Content -->
+        <ion-content>
+
+
+            <ion-grid class="ion-no-padding">
+
+                <ion-list class="ion-no-padding ion-no-margin">
+                            <ion-radio-group [(ngModel)]="selectedFilter">
+                                <p class="ion-no-padding ion-no-margin ion-padding-start ion-padding-top"><span class="ion-padding-start">Select Date</span></p>
+                                <ion-item class="ion-no-padding ion-no-margin no-padding-top no-margin-top">
+                                   <!--<ion-row>-->
+                                            <ion-col class="ion-no-padding ion-no-margin" size="6">
+                                                <ion-item class="ion-no-padding ion-no-margin no-padding-top no-margin-top" lines="none">
+                                                    <span slot="start" class="smallPadding">
+                                                        <ion-radio mode="md" [value]="customFilter" selected></ion-radio>
+                                                    </span>
+                                                <ion-datetime class="ion-no-padding ion-no-margin no-padding-top no-margin-top" #inputRef1='ngModel'
+                                                              [(ngModel)]="customFilter.fromDate"
+                                                              [max]="maxYear"
+                                                              [min]="minYear"
+                                                              (ionFocus)="dateFocus(customFilter, 'fromDate')" 
+                                                              [ngModelOptions]="{standalone: true}"
+                                                              [displayFormat]="dateFormat"
+                                                              [pickerFormat]="dateFormat"
+                                                              (ionChange)="fromDateChanged()"
+                                                              placeholder="Start Date">
+                                                </ion-datetime>
+                                                </ion-item>
+                                            </ion-col>
+                                            <ion-col class="ion-no-padding ion-padding-start ion-no-margin" size="6">
+
+                                                <ion-datetime class="ion-no-padding ion-no-margin ion-padding-start no-padding-top no-margin-top" #inputRef2='ngModel'
+                                                              [(ngModel)]="customFilter.toDate"
+                                                              [max]="maxYear"
+                                                              (ionFocus)="dateFocus(customFilter, 'toDate')"
+                                                              [min]="inputRef1.value?inputRef1.value.toString(): minYear"
+                                                              [ngModelOptions]="{standalone: true}"
+                                                              [displayFormat]="dateFormat"
+                                                              [pickerFormat]="dateFormat"
+                                                              placeholder="End Date">
+                                                </ion-datetime>
+
+                                            </ion-col>
+<!--                                    </ion-row>-->
+<!--                                            <ion-col>-->
+<!--                                                <ion-datetime class="ion-no-padding ion-no-margin smallPaddingR" #inputRef1='ngModel'-->
+<!--                                                              [(ngModel)]="customFilter.fromDate"-->
+<!--                                                              [max]="maxYear"-->
+<!--                                                              [min]="minYear"-->
+<!--                                                              [ngModelOptions]="{standalone: true}"-->
+<!--                                                              [displayFormat]="dateFormat"-->
+<!--                                                              [pickerFormat]="dateFormat"-->
+<!--                                                              placeholder="{{'lbl_start_date' | translate}}">-->
+<!--                                                </ion-datetime>-->
+<!--                                            </ion-col>-->
+<!--                                            <ion-col class="ion-div-border"></ion-col>-->
+<!--                                            <ion-col>-->
+<!--                                                <ion-datetime class="ion-no-padding ion-no-margin smallPaddingL " #inputRef1='ngModel'-->
+<!--                                                              [(ngModel)]="customFilter.toDate"-->
+<!--                                                              [ngModelOptions]="{standalone: true}"-->
+<!--                                                              [displayFormat]="dateFormat"-->
+<!--                                                              [pickerFormat]="dateFormat"-->
+<!--                                                              placeholder="{{'lbl_select' | translate}} {{'lbl_end_date' | translate}}">-->
+<!--                                                </ion-datetime>-->
+<!--                                            </ion-col>-->
+
+                                </ion-item>
+                                <ion-item *ngFor="let ranges of this.dateRanges"  class="ion-no-padding ion-no-margin">
+
+                                    <span class="smallPadding">
+                                        <ion-radio mode="md" [value]="ranges.enrichments"></ion-radio>
+                                    </span>
+                                    <ion-row class="ion-no-padding ion-no-margin ion-margin-top ion-margin-bottom">
+                                        <ion-col>
+                                    <p class="text-color-primary text-size-p ion-no-padding ion-no-margin">{{ranges.displayName}}</p>
+
+
+                                    <p class="text-color-primary text-size-p ion-no-padding ion-no-margin">
+                                        {{ranges.enrichments.fromDate}} - {{ranges.enrichments.toDate}}</p>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-item>
+
+                            </ion-radio-group>
+
+                        </ion-list>
+            </ion-grid>
+        </ion-content>
+
+        <ion-footer>
+            <ion-toolbar>
+                <ion-buttons slot="end">
+                    <ion-button [disabled]="!selectedFilter || !selectedFilter.toDate || !selectedFilter.fromDate" (click)="applyFilter()">
+                        <!--<ion-icon class="ion-font-md" name="trash" slot="icon-only"></ion-icon>-->
+                        <label>{{'lbl_apply' | translate}}</label>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-footer>
+
+    </ion-menu>
+    <ion-router-outlet id="filterMain"></ion-router-outlet>
+</div>
+<!--filter End-->
+
+<ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button [defaultHref]="[backUrl]"></ion-back-button>
+            </ion-buttons>
+            <ion-title>{{'lbl_account_statement' | translate}}</ion-title>
+            <ion-buttons slot="end">
+                <ion-button (click)="openFilter()" *ngIf="filterApplicable">
+                    <ion-icon class="icon-font-md" name="funnel" slot="icon-only"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    <ion-grid  class="background-primary">
+        <ion-row>
+            <ion-col size="12" class="ion-no-padding">
+        <ion-slides class="ion-no-padding ion-no-margin" #wizardSlider pager="false" (ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideWillChange)="ionSlideWillChange($event)">
+          <ion-slide *ngFor="let item of allAccounts" class="ion-no-margin ion-no-padding">
+              <ion-col size="12" class="ion-no-padding">
+                  <ion-card class="box-shadow ion-no-margin ion-no-padding slideBox">
+                      <ion-card-content class="ion-text-center ion-no-margin ion-no-padding">
+                    <ion-row class="ion-align-items-center">
+                    <ion-col (click)="getStatement(currentIndex-1)"  size="1">
+                    <!-- <span [hidden]="currentIndex ===  0" ><</span> -->
+                    <ion-icon [hidden]="currentIndex ===  0" name="chevron-back-outline" class="icon-font-sm"></ion-icon>
+                    </ion-col>
+                    <ion-col size="10" (click)="showAccountDetails()">
+
+                    <h1 class="text-size-sm text-color-primary font-regular">{{selectedAccount['productName']?.value}}</h1>
+                    <h1 class="text-size-sm text-color-primary font-regular">{{selectedAccount['accountNo'].value}} - {{selectedAccount['currencyCode'].value}}</h1>
+                    <!--<h1 class="text-size-sm text-color-primary font-regular">{{selectedAccount['currencyCode'].value}}</h1>-->
+                    <!-- <span class="text-size-xs text-color-primary ion-text-capitalize ion-margin-top">Number of Accounts
+                    {{ tab.accounts.length }}</span> -->
+
+                    </ion-col>
+                    <ion-col (click)="getStatement(currentIndex+1)"  size="1">
+                    <!-- <span [hidden]="currentIndex ===  (allAccounts.length-1)" >></span> -->
+                    <ion-icon  [hidden]="currentIndex ===  (allAccounts.length-1)" name="chevron-forward-outline" class="icon-font-sm"></ion-icon>
+                    </ion-col>
+                    </ion-row>
+                      </ion-card-content>
+                  </ion-card>
+
+            </ion-col>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <div class="background-secondary alignCenter ion-margin-top">
+        <ion-label class="ion-text-wrap text-color-secondary font-regular">{{'lbl_transactions' | translate}}
+        </ion-label>
+    </div>
+    </ion-grid>
+    </ion-header>
+    <ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-down-outline"
+            pullingText="{{'lbl_pull_to_refresh' | translate}}"
+            refreshingSpinner="circles"
+            refreshingText="{{'lbl_refreshing' | translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+
+        <ion-grid class="ion-no-padding  background-primary ion-padding-bottom"  *ngIf="statementDetailsStatus === 'success'">
+          
+        <ion-row class="accounts-content" *ngFor="let item of statementDetails">
+          <ion-col>
+              <ion-card class="ion-no-padding accountDetailsCard" (click)="getStatementDetails(item)">
+             <ion-row>
+              <ion-col>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{'lbl_txn_date' | translate}}</p>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{ item.transactionDate || '-'}}</p>
+              </ion-col>
+              <ion-col>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{'lbl_value_date' | translate}}</p>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{ item.valueDate || '-'}}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-margin-top">
+              <ion-col>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{'lbl_reference_no' | translate}}</p>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{ item?.chequeNo || '-'}}</p>
+              </ion-col>
+              <ion-col>
+                <p class="text-color-primary ion-no-margin ion-no-padding">{{'lbl_transaction_amount' | translate}}</p>
+                <p class="text-color-primary ion-no-margin ion-no-padding"
+                   [ngClass]="{'credit-amt':item.creditAmount,'debit-amt':item.debitAmount}" appStyleAmount>
+                    {{item.creditAmount ? item.creditAmount : item.debitAmount}}</p>
+              </ion-col>
+            </ion-row>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    <listing-skeleton *ngIf="statementDetailsStatus === 'loading'"></listing-skeleton>
+    <ng-container *ngIf="statementDetailsStatus === 'notFound' || statementDetailsStatus === 'err'">
+        <app-no-record-found [err]='statementDetailsStatus' (refreshPageEventEmmiter)="doRefresh($event)"></app-no-record-found>
+    </ng-container>
+    </ion-content>
+
+
+
+</ion-app>
+
+
+

@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+            <ion-menu-button></ion-menu-button>
+
+        </ion-buttons>
+        <ion-title>Rates and FX</ion-title>
+        <ion-buttons slot="end">
+            <ion-button *ngIf="newsFlash" (click)="openNewsFlash()">
+                {{newsFlash.displayName}}
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-card>
+        <ion-item *ngIf="userService.isGroupSelected">
+            <!--<ion-label>Corporate</ion-label>-->
+            <ion-select [(ngModel)]="trasuryService.selectedCorporate"
+                        (ionChange)="getProductList()" [interface]="environment.SELECT_INTERFACE">
+                <ion-select-option
+                        *ngFor="let corporate of (trasuryService.groupCorprorateList$|async)"
+                        [value]="corporate">{{corporate.displayName}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-list class="ion-no-padding" *ngIf="productData">
+            <ion-item>
+                <ion-label class="text-size-p">{{"CIF"|apsTraslate}}</ion-label>
+                <p>{{productData.cif}}</p>
+            </ion-item>
+            <ion-item>
+                <ion-label class="text-size-p">{{"Counter party"|apsTraslate}}</ion-label>
+                <p>{{productData.counterParty}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+
+    <ion-grid class="ion-no-padding ion-padding-start ion-padding-end" *ngIf="productData">
+        <ion-row class="header-row">
+            <ion-col size="9" class="ion-padding-start text-size-sd"><p>{{"Product Name"|apsTraslate}}</p></ion-col>
+            <ion-col class="ion-text-center" ><p class="text-size-sd">{{"Record Count"|apsTraslate}}</p></ion-col>
+        </ion-row>
+        <ion-row *ngFor="let product of productData.productList">
+            <ion-col size="9" class="ion-no-padding" (click)="getToDetailsList(product)">
+                <p class="ion-padding-start">
+                    <ion-text class="text-color-accent">{{product.productName}}</ion-text></p>
+            </ion-col>
+            <ion-col class="ion-text-center ion-no-padding">
+                <ion-chip class="text-color-primary">{{product.reccount}}</ion-chip>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

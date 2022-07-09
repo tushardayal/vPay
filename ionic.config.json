@@ -1,0 +1,10 @@
+{
+  "name": "movieApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "hooks": {
+    "build:before": "./hooks/build-after.js"
+  }
+}

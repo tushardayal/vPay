@@ -1,0 +1,170 @@
+<ng-container *ngIf="lpoppRequestDetObj">
+    <ul class="ion-no-margin ion-no-padding">
+        <ion-radio-group [(ngModel)]="selectedChild" name="selectedInstitute" (ionChange)="onDetRadioChange($event)"><!--(ionChange)="confirm()"-->
+            <li *ngFor="let data of lpoppRequestDetObj.dataList;index as index">
+                <form #parentForm="ngForm">
+                    <div class="collapsible-header ion-no-padding">
+                    <ion-card
+                            [ngClass]="{'invalid-card': data.selected === 'Y' && !isCardValid(data,index,parentForm) ,'valid-card': data.selected === 'Y' && isCardValid(data,index,parentForm)}"
+                            class="ion-no-padding accountDetailsCard">
+                        <ion-row>
+                            <ion-col class="ion-align-self-center" size="1.3">
+                                <div *ngIf="this.lpoppService.singleSelection">
+                                    <ion-radio mode="md" [value]="data" slot="start"></ion-radio>
+                                </div>
+                                <div *ngIf="this.lpoppService.singleSelection === false">
+                                    <ion-checkbox [checked]="data.selected ==='Y'" name="selected" [(ngModel)]="data.selected" slot="start"></ion-checkbox><!--(ionChange)="onClickListingSel(data, $event, index)"-->
+                                </div>
+                            </ion-col>
+                            <ng-container *ngFor="let header of lpoppRequestDetObj.headers | slice:1:3; index as i">
+                                <ion-col *ngIf="header.methodName != 'Id' && header.methodName !='TransactionIdNo'" class=""
+                                         size="5">
+                                        <ion-label class="text-color-primary ion-margin-top">{{header.displayName}}</ion-label>
+                                        <p class="text-color-light ion-margin-top">{{data[i+1]}}</p>
+                                </ion-col>
+                            </ng-container>
+                            <ion-col size="0.2">
+                                <ion-icon (click)="toggleGroup($event,data)"
+                                          [name]="data.show?'chevron-up-outline':'chevron-down-outline'"
+                                          class="fav-item"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <div [hidden]="!data.show" >
+                            <ion-row>
+                                <ng-container *ngFor="let header of lpoppRequestDetObj.headers | slice:3:lpoppRequestDetObj.headers.length; index as j;let last = last">
+                                    <ion-col class="" [size]="(last && (j+3)%2 !== 0) ? 12 : 6" *ngIf="header.methodName != 'Id' && header.methodName !='TransactionIdNo'">
+                                        <ion-label
+                                                class="text-color-primary ion-margin-top">{{header.displayName}}</ion-label>
+                                        <ng-container *ngIf="header.isEditable != 'Y'">
+                                            <p class="text-color-light ion-margin-top">{{data[j+3]}}</p>
+                                        </ng-container>
+
+                                        <ng-container *ngIf="header.isEditable == 'Y'" [ngSwitch]="header.fieldType">
+                                            <ng-container *ngSwitchCase="'Amount'">
+                                                <ion-item class="">
+                                                    <ion-input type="text" class="custom-input ion-no-padding text-size-sd"
+                                                               [placeholder]="header.methodName" [(ngModel)]="data[j+3]"
+                                                               appCurrencyFormat inputmode="decimal" [pattern]="'^[0-9,.]*$'"
+                                                               [disabled]="data.selected !== 'Y'" [required]="header.mandatory === 'Y' && data.selected === 'Y'"
+                                                               name="Field_{{header.methodName}}_{{[index]}}"></ion-input>
+                                                </ion-item>
+                                                <errorMsg class="ion-no-padding ion-no-margin"
+                                                          [control]='parentForm.controls["Field_"+header.methodName+"_"+[index]]'
+                                                          errMsg="{{'Please Enter'|apsTraslate}} {{'Total Amount'|apsTraslate}}" >
+                                                </errorMsg>
+                                            </ng-container>
+                                            <ng-container *ngSwitchCase="'Date'">
+                                                <ion-item class="ion-padding-start">
+                                                    <ion-datetime [(ngModel)]="data[j+3].date" [displayFormat]="'DD/MM/YYYY'" placeholder="Select Date"></ion-datetime>
+                                                </ion-item>
+                                            </ng-container>
+                                            <!--TODO : Implement for select and date properly currently not in use
+                                            <ng-container *ngSwitchCase="'Select'">
+                                                <ion-item class="ion-no-padding ">
+                                                    <ion-label position="stacked">{{'Payments Type'|apsTraslate}}
+                                                        <ion-text color="danger">*</ion-text>
+                                                    </ion-label>
+                                                    <ion-select [interface]="environment.SELECT_INTERFACE"
+                                                                formControlName="paymentsType"
+                                                                class="text-size-p ion-text-capitalize" placeholder="Tax type">&lt;!&ndash;(ionChange)="onChangeTaxType()"&ndash;&gt;
+                                                        <ion-select-option *ngFor="let item of paymentsTypeList$|async"
+                                                                           [value]="item"
+                                                                           class="ion-no-padding text-size-p ion-text-capitalize">{{item.displayName}}
+                                                        </ion-select-option>
+                                                    </ion-select>
+                                                </ion-item>
+                                            </ng-container>-->
+
+                                        </ng-container>
+                                    </ion-col>
+                                </ng-container>
+                            </ion-row>
+                            <ng-container *ngIf="lpoppService.lpoppData.institutionType === 'IRDP'">
+                                <form [formGroup]="data.childForm">
+                                    <ion-item class="">
+                                        <ion-label position="stacked">
+                                            {{'Tax Payment Amount'|apsTraslate}}
+                                            <ion-text color="danger" *ngIf="lpoppService.lpoppDetailData.paymentType != 'NONSELFASSESSED'">*</ion-text>
+                                        </ion-label>
+                                        <ion-input class="custom-input ion-no-padding text-size-sd"
+                                                   formControlName="taxPaymentAmount" name="taxPaymentAmount"
+                                                   appCurrencyFormat inputmode="decimal"
+                                                   type="text"></ion-input>
+                                    </ion-item>
+                                    <errorMsg class="ion-no-padding ion-no-margin"
+                                              [control]="data.childForm.controls['taxPaymentAmount']"
+                                              errMsg="{{'Please Enter'|apsTraslate}} {{'Tax Payment Amount'|apsTraslate}}" >
+                                    </errorMsg>
+                                    <!--<ng-container *ngIf="lpoppService.lpoppDetailData.paymentType == 'NONSELFASSESSED'">
+                                        <div class="validation-errors" *ngIf="data.childForm.controls['taxPaymentAmount']?.invalid && data.childForm.controls['taxPaymentAmount']?.touched">
+                                            <div class="error-message ion-text-left" *ngIf="data.childForm.controls['taxPaymentAmount']?.errors?.pattern">
+                                                <span class="invalid-span text-size-sd ion-no-padding ion-no-margin error-color" >
+                                                  {{'Please Enter'|apsTraslate}} {{'Valid'|apsTraslate}} {{ "Tax Payment Amount" }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </ng-container>-->
+
+                                    <ng-container *ngIf="lpoppService.lpoppDetailData.paymentType === 'NONSELFASSESSED'">
+                                        <ion-item class="">
+                                            <ion-label position="stacked">
+                                                {{'Penalty Amount'|apsTraslate}}
+                                                <ion-text color="danger">*</ion-text>
+                                            </ion-label>
+                                            <ion-input class="custom-input ion-no-padding text-size-sd"
+                                                       formControlName="penaltyAmount" name="penaltyAmount"
+                                                       appCurrencyFormat inputmode="decimal"
+                                                       type="text"></ion-input>
+                                        </ion-item>
+                                        <errorMsg class="ion-no-padding ion-no-margin"
+                                                  [control]="data.childForm.controls['penaltyAmount']"
+                                                  errMsg="{{'Please Enter'|apsTraslate}} {{'Penalty Amount'|apsTraslate}}" >
+                                        </errorMsg>
+                                        <!--<div class="validation-errors" *ngIf="data.childForm.controls['penaltyAmount']?.invalid && data.childForm.controls['penaltyAmount']?.touched">
+                                            <div class="error-message ion-text-left" *ngIf="data.childForm.controls['penaltyAmount']?.errors?.pattern">
+                                                <span class="invalid-span text-size-sd ion-no-padding ion-no-margin error-color" >
+                                                  {{'Please Enter'|apsTraslate}} {{'Valid'|apsTraslate}} {{ "Penalty Amount" }}
+                                                </span>
+                                            </div>
+                                        </div>-->
+                                    </ng-container>
+                                    <ng-container *ngIf="lpoppService.lpoppDetailData.paymentType === 'NONSELFASSESSED'">
+                                        <ion-item class="" >
+                                            <ion-label position="stacked">
+                                                {{'Interest Amount'|apsTraslate}}
+                                                <ion-text color="danger">*</ion-text>
+                                            </ion-label>
+                                            <ion-input class="custom-input ion-no-padding text-size-sd"
+                                                       formControlName="interestAmount" name="interestAmount"
+                                                       appCurrencyFormat inputmode="decimal"
+                                                       type="text"></ion-input>
+                                        </ion-item>
+                                        <errorMsg class="ion-no-padding ion-no-margin"
+                                                  [control]="data.childForm.controls['interestAmount']"
+                                                  errMsg="{{'Please Enter'|apsTraslate}} {{'Interest Amount'|apsTraslate}}" >
+                                        </errorMsg>
+                                        <!--<div class="validation-errors" *ngIf="data.childForm.controls['interestAmount']?.invalid && data.childForm.controls['interestAmount']?.touched">
+                                            <div class="error-message ion-text-left" *ngIf="data.childForm.controls['interestAmount']?.errors?.pattern">
+                                                <span class="invalid-span text-size-sd ion-no-padding ion-no-margin error-color" >
+                                                  {{'Please Enter'|apsTraslate}} {{'Valid'|apsTraslate}} {{ "Interest Amount" }}
+                                                </span>
+                                            </div>
+                                        </div>-->
+                                    </ng-container>
+                                </form>
+                                <ion-text color="danger" *ngIf="lpoppService.lpoppDetailData.paymentType === 'NONSELFASSESSED'">
+                                    <ion-label class="text-size-sd">{{'Enter at least one type of Amount'|apsTraslate}}</ion-label>
+                                </ion-text>
+                            </ng-container>
+                            <ng-container *ngIf="lpoppService.lpoppData.institutionType === 'CICTP'">
+                                <!--<app-irdp #detForm></app-irdp>-->
+                            </ng-container>
+
+                        </div>
+                    </ion-card>
+                </div>
+                </form>
+            </li>
+        </ion-radio-group>
+    </ul>
+</ng-container>

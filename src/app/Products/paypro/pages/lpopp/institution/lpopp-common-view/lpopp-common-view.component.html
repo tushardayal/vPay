@@ -1,0 +1,30 @@
+<ng-container *ngIf="dataObj" >
+    <ion-list-header lines="full">
+        <ion-label>{{'Payment Details' | translate}}</ion-label>
+    </ion-list-header>
+
+    <ion-item class="ion-no-padding">
+        <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'Value Date' | apsTraslate}} </h3>
+            <p class="text-size-p font-regular ion-text-wrap">
+                {{ dataObj.valueDate || '-' }}</p>
+        </ion-label>
+    </ion-item>
+    <ion-item class="ion-no-padding">
+        <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'Institution Type' | apsTraslate}} </h3>
+            <p class="text-size-p font-regular ion-text-wrap">
+                {{ dataObj.institutionTypeValue || '-' }}</p>
+        </ion-label>
+    </ion-item>
+    <ion-item class="ion-no-padding">
+        <ion-label class="ion-no-padding">
+            <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+                {{'Debit From Account' | apsTraslate}} </h3>
+            <p class="text-size-p font-regular ion-text-wrap">
+                {{ dataObj.debitAccountNo || '-' }}</p>
+        </ion-label>
+    </ion-item>
+</ng-container>

@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{productDetails?.label}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="productDetails">
+    <ion-grid class="ion-no-padding">
+        <ion-row *ngIf="productDetails != null">
+            <ion-col size="12" class="ion-no-padding">
+                <ion-list class="ion-no-margin">
+                    <ul class="ion-no-margin ion-no-padding">
+                        <li *ngIf="productDetails.header">
+                            <div class="collapsible-header ion-no-padding">
+                                <ion-grid class="ion-padding bottom-border summary-header">
+                                    <ion-row>
+                                        <ion-col *ngFor="let header of productDetails.header| slice:0:2; let i=index">{{header}}</ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </div>
+                        </li>
+                        <li *ngFor="let group of productDetails.data;">
+                            <div class="collapsible-header ion-no-padding" >
+                                <ion-card class="ion-no-padding accountDetailsCard" (click)="toggleGroup(group)" [ngClass]="{'open-card': group.show }">
+                                    <!--<p>{{group[0]|json}}</p>-->
+                                    <ng-container ><!--*ngFor="let data of group; index as i"-->
+                                        <ion-grid class="ion-padding bottom-border" *ngIf="group[0] && group[1]">
+                                            <ion-row >
+                                                <ion-col><span>{{group[0].value || '-'}}</span></ion-col><!--(click)="getDetails(group)"-->
+                                                <ion-col *ngIf="productKey !=='GMO'">{{group[1].value || '-'}}</ion-col>
+                                                <ion-col *ngIf="productKey ==='GMO'" class="text-color-accent"
+                                                         (click)="onClickLinks(group[1])">{{group[1].value || '-'}}
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                        <div class="item-accordion"  [ngClass]="{'active': group.show }" [hidden]="!group.show">
+                                            <ion-row >
+                                                <ng-container *ngIf="productDetails?.header">
+                                                    <ion-col size="6" class="bottom-border"  *ngFor="let header of productDetails.header|slice:2:productDetails?.header?.length; let x=index">
+                                                        <ng-container *ngIf="group[x+2].isDisplay=='Y'">
+                                                            <p class="text-color-primary text-size-p ">{{header}}</p><!--margin-half-bottom-->
+                                                            <p class="" [ngClass]="{'text-color-accent': x===8 && group[0].value ==='FXSWAP', 'text-color-light': x !== 8}"
+                                                               (click)="showDeal($event, x , group)">{{ group[x+2].value|| '-'}}</p><!--ion-no-margin margin-half-->
+                                                        </ng-container>
+                                                    </ion-col>
+                                                </ng-container>
+                                            </ion-row>
+                                        </div>
+                                    </ng-container>
+                                </ion-card>
+                            </div>
+                        </li>
+                    </ul>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

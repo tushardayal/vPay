@@ -1,0 +1,13 @@
+<div class="validation-errors" *ngIf="errMsg && control?.invalid && control?.touched">
+  <div class="error-message ion-text-left" *ngIf="control?.errors?.required">
+    <span class="invalid-span text-size-sd ion-no-padding ion-no-margin error-color" >
+      {{ errMsg }}
+    </span>
+  </div>
+  <div class="error-message ion-text-left" *ngIf="control?.errors?.pattern">
+    <span class="invalid-span text-size-sd ion-no-padding ion-no-margin error-color" >
+      {{'Please Enter'|apsTraslate}} {{'Valid'|apsTraslate}} {{ errPatternMsg }}
+    </span>
+  </div>
+</div>
+

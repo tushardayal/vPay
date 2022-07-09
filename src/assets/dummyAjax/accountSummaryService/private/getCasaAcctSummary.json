@@ -1,0 +1,925 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "listOfAccountSummary": [
+    {
+      "total": [
+        "17,635.55"
+      ],
+      "customerName": "China National Petroleum",
+      "accountGroupSummaryList": [],
+      "accountGroupSummaryMap": [
+        {
+          "displayName": "Current and Savings Accounts",
+          "accountGroups": [
+            {
+              "currency": "LKR",
+              "totalAvailableBalance": "17,635.55",
+              "totalAvailableBalanceInBaseCurrency": "17,635.55",
+              "totalNetBalance": "17,635.55",
+              "totalNetBalanceInBaseCurrency": "17,635.55",
+              "casaCreditBalTotal": "17,635.55",
+              "casaDebitBalTotal": "0.00",
+              "accounts": [
+                {
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "1",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900005",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "100 - CURRENT ACCOUNT - LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "ODA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "16,859,334.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "16,859,334.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "965,863.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "qmmbcEhQbn8=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "16,859,334.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "16,859,334.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "A",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                },
+                {
+                  "fav":true,
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "2",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900006",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "100 - CURRENT ACCOUNT - LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "ODA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "321,125.47",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "321,125.47",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "785,965.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "jYa3+dMStGU=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "321,125.47",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "321,125.47",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "A",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                },
+                {
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "4",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900011",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "216 - NATIONS MEGA SAVER",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "SBA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "123,456.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "UbhEoAhwygQ=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "A",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                },
+                {
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "5",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900009",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "216 - NATIONS MEGA SAVER",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "SBA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "123,456.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "Pc3OOigXj1c=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "FC",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                },
+                {
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "6",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900010",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "216 - NATIONS MEGA SAVER",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "SBA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "123,456.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "A0EkMXvPFVA=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "FD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                },
+                {
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "7",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900008",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "216 - NATIONS MEGA SAVER",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "SBA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "LKR",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "123,456.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "Qb9/BHB512Y=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "113,794.52",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "D",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                }
+              ]
+            },
+            {
+              "currency": "GBP",
+              "totalAvailableBalance": "0.00",
+              "totalAvailableBalanceInBaseCurrency": "0.00",
+              "totalNetBalance": "0.00",
+              "totalNetBalanceInBaseCurrency": "0.00",
+              "casaCreditBalTotal": "17,635.55",
+              "casaDebitBalTotal": "0.00",
+              "accounts": [
+                {
+                  "indexNo": {
+                    "header": "Sr. No.",
+                    "value": "3",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountNo": {
+                    "header": "Account No",
+                    "value": "999001900007",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountTitle": {
+                    "header": "Account Name",
+                    "value": "THE FABULOUS GATEWAY (PVT) LTD",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "productName": {
+                    "header": "Account Type",
+                    "value": "171 - CURRENT ACCOUNT- OIA",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountType": {
+                    "header": "Account Type",
+                    "value": "ODA",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "currencyCode": {
+                    "header": "Currency",
+                    "value": "GBP",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "type": {
+                    "header": "Type",
+                    "value": "casa",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountIslamicType": {
+                    "header": "Account Islamic Type",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "accountSource": {
+                    "header": "Account Source",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "netBalance": {
+                    "header": "Net Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "unclearFunds": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "holdAmount": {
+                    "header": "Hold Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "fundsInClearing": {
+                    "header": "Funds In Clearing",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalanceBaseCurrency": {
+                    "header": "Available Balance(Base CCY)",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "odLimit": {
+                    "header": "OD Limit",
+                    "value": "4,856,525.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "accountId": {
+                    "header": "Account Id",
+                    "value": "VSWUXMR3EL8=",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "iban": {
+                    "header": "IBAN",
+                    "value": "-",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "availableBalance": {
+                    "header": "Account Balance",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "netBalanceBaseCurrency": {
+                    "header": "Net Balance (INR)",
+                    "value": "0.00",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "unClearedBal": {
+                    "header": "Unclear Funds",
+                    "type": "String",
+                    "isDisplay": "N"
+                  },
+                  "status": {
+                    "header": "Status",
+                    "value": "A",
+                    "type": "String",
+                    "isDisplay": "Y"
+                  },
+                  "fundsInClearingDetails": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "accountSummaryMap": {},
+      "cid": "999001"
+    }
+  ],
+  "baseCurrencyCode": "LKR",
+  "loggable": false,
+  "entityIdentifier": ""
+}

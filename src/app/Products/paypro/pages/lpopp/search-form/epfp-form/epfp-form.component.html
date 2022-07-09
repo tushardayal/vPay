@@ -1,0 +1,18 @@
+<section>
+    <form [formGroup]="epfpSearchForm">
+        <ion-item class="ion-no-padding">
+            <ion-label position="stacked">
+                {{'Payment Id'|apsTraslate}}
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input class="custom-input ion-no-padding text-size-sd" maxlength="15"
+                       formControlName="paymentIdNo" name="PaymentId"
+                       type="text"></ion-input>
+        </ion-item>
+        <errorMsg class="ion-no-padding ion-no-margin"
+                  [control]="epfpSearchForm.controls['paymentIdNo']"
+                  errMsg="{{'Please Enter'|apsTraslate}} {{'Payment Id'|apsTraslate}}" >
+        </errorMsg>
+
+    </form>
+</section>

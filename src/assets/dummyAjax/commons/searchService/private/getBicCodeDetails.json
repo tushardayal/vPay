@@ -1,0 +1,71 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "BIC Code",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Bank Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Branch Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "City",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "State",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Location",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Country",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Address1",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Address2",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Address3",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Routing Code",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Bank Code",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Branch Code",
+    "type": "String",
+    "isDisplay": "N"
+  }],
+  "dataList": [
+    ["+vAlL1BFSkU=", "AXIS2345", "AXIS", "AXIS", "mumbai", "-", "-", "-", "sdf", "-", "-", "-", "AXIS", "sfsd"],
+    ["WSZgZSLFjvk=", "BIC09873", "axis", "mumbai", "mumbai", "-", "-", "-", "adf", "-", "-", "-", "adf", "adf"],
+    ["SYYLdNXCGIw=", "AXISLKLX", "AXIS BANK LTD.", "COLOMBO BRANCH", "COLOMBO", "-", "-", "-", "COLOMBO", "-", "-", "-", "-", "-"],
+    ["GIiScIUR/cs=", "TESTLKLX", "AXIS BANK", "ANDHERI", "MUMBAI", "MAHARASHTRA", "-", "India", "340 Avenue Park", "JN ROAD", "-", "-", "-", "-"]
+  ],
+  "loggable": false,
+  "entityIdentifier": ""
+}

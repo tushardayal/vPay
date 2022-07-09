@@ -1,0 +1,49 @@
+<ion-app>
+  <ion-router-outlet id="footerLinks-content"></ion-router-outlet>
+  <ion-fab class="footerLinks-fab-button" [hidden]="(deviceService.isDeviceActivated$|async) && footerLinksOpen" vertical="bottom" [horizontal]="'start'" slot="fixed">
+    <ion-fab-button (click)="toggleFooterLinks()">
+      <ion-icon class="icon-font-sm icon-color-accent" [name]="footerLinksOpen?'chevron-back-outline':'chevron-forward-outline'"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <!-- <ion-footer [ngClass]="{'sliding-footer-close': showFooter,'sliding-footer-open': !showFooter}">
+    <ion-grid class="ion-no-padding">
+      <ion-row  class="ion-no-padding">
+        <ion-col [hidden]="!showFooter" class="ion-no-padding">
+          <ion-item lines="none" class="ion-no-padding">
+            <span  slot="start" (click)="showFooter=!showFooter">></span>
+          </ion-item>
+        </ion-col>
+        <ion-col  class="ion-no-padding" [hidden]="showFooter" size="11">
+          <ion-item lines="none">
+            <ion-text  *ngFor="let item of screenContent?.loginDetails?.linksDetailsList; let i=index" (click)="onClickLinks(item)">
+               {{ item.displayName }} 
+            </ion-text>
+          </ion-item>
+        </ion-col>
+        <ion-col  class="ion-no-padding" [hidden]="showFooter" size="1">
+          <ion-item class="ion-no-padding background-color-span" lines="none" >
+            <span [hidden]="showFooter" slot="end" (click)="showFooter=!showFooter"><</span>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer> -->
+  
+<ion-menu side="end"  class="footerLinks-menu" (ionDidClose)="ionFooterMenuDidClose()" contentId="footerLinks-content" type="overlay"  menu-id="footerLinksMenuId">
+  <ion-grid class="footerLinks-container ion-no-margin ion-no-padding ion-padding-top background-accent">
+    <ion-row  class="ion-no-padding ion-padding-start ion-no-margin" *ngIf="screenContent$|async">
+      <ion-col  class="ion-no-padding ion-padding-start ion-no-margin" *ngFor="let item of screenContent$|async; let i=index" (click)="onClickLinks(item)">
+          <ion-text class="text-color-secondary">
+            {{item?.displayName}}
+          </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-menu>
+  <ion-fab vertical="start" horizontal="start" *ngIf="(loadingSrv.showLoader$ | async)" class="custom-loader">
+    <div>
+      <ion-icon src="assets/svg/oval.svg"></ion-icon>
+    </div>
+  </ion-fab >
+</ion-app>

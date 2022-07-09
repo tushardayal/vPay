@@ -1,0 +1,107 @@
+<!-- lOGIN FROMA --COMPONENT 1 -->
+<ion-page class="ion-page">
+  <!-- Content -->
+  <ion-content *ngIf="data != null" class="transparent background-size login-background">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="login-logo-padding" >
+          <ion-img src="../../../assets/imgs/styleNtb/Nations-Direct-Enterprise.png" alt="Logo" ></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="data != null" class="ion-align-items-center">
+        <!--<ion-col class="ion-margin-bottom ">-->
+          <ion-col>
+          <!--<ion-item class="transparent " lines="none">
+            &lt;!&ndash;<img [src]="data.logo" />&ndash;&gt;
+           &lt;!&ndash; <ion-button class="button-clear ion-text-capitalize ion-float-end" slot="end" fill="clear" (click)="onForgotPassword()">
+              {{data.skip}}
+            </ion-button>&ndash;&gt;
+          </ion-item>-->
+
+          <!---Form-->
+          <form class="ion-text-center">
+            <ion-card class="ion-padding-top background-primary" *ngIf="isDeviceActivated">
+            <!--<h1 class="text-size-md text-color-primary font-bold ion-text-wrap ion-padding">
+              {{data.title}}</h1>-->
+            <!---Input field username-->
+            <ion-item class="transparent input ion-margin-end ion-margin-start">
+              <ion-label class="text-size-sd text-color-primary font-regular" position="floating">{{data.labelUsername|apsTraslate}}</ion-label>
+              <ion-input required type="text" autocomplete="off"[(ngModel)]="item.username" [ngModelOptions]="{standalone: true}">
+              </ion-input>
+              <ion-icon *ngIf="!isUsernameValid" class="icon-font-sm error-color" name="remove-circle"></ion-icon>
+            </ion-item>
+            <!---Input field password-->
+            <ion-item class="transparent input input ion-margin-end ion-margin-start">
+              <ion-label class="text-size-sd text-color-primary font-regular" position="floating">{{data.labelPassword|apsTraslate}}</ion-label>
+              <ion-input required [type]="showPassword?'text':'password'" autocomplete="off" [(ngModel)]="item.password" [ngModelOptions]="{standalone: true}">
+              </ion-input>
+              <ion-icon  class="icon-font-sm" [name]="showPassword?'eye':'eye-off-outline'" (click)="this.showPassword = !this.showPassword"></ion-icon>
+              <ion-icon *ngIf="!isPasswordValid" class="icon-font-sm error-color" name="remove-circle"></ion-icon>
+            </ion-item>
+
+            <div class="clearfix"></div>
+
+            <ion-row class="ion-padding ion-margin-top">
+              <ion-col size="6" class="ion-no-padding" >
+                <!--<ion-button class="default-button background-primary ion-text-capitalize text-si text-color-dark text" fill="clear" (click)="onForgotPassword()">
+                  {{data.forgotPassword}}
+                </ion-button>-->
+
+              </ion-col>
+
+              <ion-col size="6" class="ion-no-padding">
+                <!---Login ion-button-->
+                <ion-button class="default-button ion-text-capitalize" expand="block"  [disabled]="disableLoginClick$|async" (click)="onLoginFunc()">
+                  {{data.login|apsTraslate}}</ion-button>
+              </ion-col>
+
+              <!--<ion-button class="button-clear ion-text-capitalize text-color-dark" fill="clear" (click)="onForgotPassword()">
+                {{data.forgotPassword}}
+              </ion-button>-->
+              <div class="clearfix"></div>
+              <ion-col size="12" class="ion-text-center ion-padding" [hidden]="!useBiometricAuth">
+              <ion-button id="step1" class="button-clear ion-text-capitalize" expand="block" [disabled]="disableLoginClick$|async"  (click)="showBiomatric()">
+                <ion-icon name="finger-print-outline" class="icon-font-lg icon-color-primary"></ion-icon>
+                </ion-button>
+            </ion-col>
+            </ion-row>
+            </ion-card>
+
+            <ion-card class="ion-padding-top background-primary" *ngIf="!isDeviceActivated">
+            <!--<h1 class="text-size-md text-color-primary font-bold ion-text-wrap ion-padding">
+              {{data.title}}</h1>-->
+            <!---Input field username-->
+            <ion-item class="transparent input ion-margin-end ion-margin-start">
+              <ion-label class="text-size-sd text-color-primary font-regular" position="floating">{{data.labelUsername|apsTraslate}}</ion-label>
+              <ion-input required type="text" autocomplete="off" [(ngModel)]="activationObj.username" [ngModelOptions]="{standalone: true}">
+              </ion-input>
+              <ion-icon *ngIf="!isActivationUsernameValid" class="icon-font-sm error-color" name="remove-circle"></ion-icon>
+            </ion-item>
+            <!---Input field password-->
+            <ion-item class="transparent input ion-margin-end ion-margin-start">
+              <ion-label class="text-size-sd text-color-primary font-regular" position="floating">{{data.activationKey|apsTraslate}}</ion-label>
+              <ion-input required autocomplete="off" [type]="showPassword?'text':'password'" [(ngModel)]="activationObj.activationKey" [ngModelOptions]="{standalone: true}">
+              </ion-input>
+              <ion-icon class="icon-font-sm" [name]="showPassword?'eye':'eye-off-outline'" (click)="this.showPassword = !this.showPassword"></ion-icon>
+              <ion-icon *ngIf="!isActivationKeyValid" class="icon-font-sm error-color" name="remove-circle"></ion-icon>
+            </ion-item>
+
+            <div class="clearfix"></div>
+
+            <ion-row class="ion-padding ion-margin-top">
+              <ion-col class="ion-no-padding">
+                <!---Login ion-button-->
+                <ion-button class="default-button ion-text-capitalize"  [disabled]="disableLoginClick$|async" (click)="onRegisterFunc()">
+                  {{data.login|apsTraslate}}</ion-button>
+              </ion-col>
+            </ion-row>
+            </ion-card>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   <!-- <div class="ion-text-end ion-padding-end" style="background: white" *ngIf="!environment.production" (click)="changeRestContext()">
+      <p>v2.0</p>
+    </div>-->
+  </ion-content>
+</ion-page>

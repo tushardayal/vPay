@@ -1,0 +1,71 @@
+<ion-app>
+  <!-- Header -->
+  <!--<ion-header>
+    <ion-toolbar>
+      <ion-title class="ion-text-capitalize">IMEI##{{uid.IMEI}}</ion-title>
+      <ion-title class="ion-text-capitalize">UUID##{{uid.UUID}}</ion-title>
+      <ion-title class="ion-text-capitalize">myData.id##{{myDataF.id}}</ion-title>
+    </ion-toolbar>
+  </ion-header>-->
+<ion-menu class="ion-menu-transparent transparent broadcast-container" swipeGesture="false" side="end" contentId="broadcast-content" type="overlay" (ionDidClose)="ionMenuDidClose()"  menu-id="broadcastMenuId">
+  <ion-header class="transparent">
+    <ion-toolbar class="background-dark">
+      <ion-title class="text-size-sm text-color-secondary">{{'lbl_broadcast_messeges' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="transparent">
+    <ion-grid>
+      <ng-container *ngIf="broadCastMsgData">
+      <ion-row *ngFor="let item of broadCastMsgData.dataMap.broadcastMessages;
+      let i = index" >
+        <ion-col size="12" size-md="4"  (click)="viewBroadcastMsg(item)">
+          <ion-item class="">
+            <ion-label>
+              <h4 class="text-color-primary font-medium ion-text-wrap">
+                  {{item.briefMessage}}</h4>
+              <p>{{item.messageDescription}}</p>
+            </ion-label>
+            </ion-item> 
+        </ion-col>
+      </ion-row>
+    </ng-container>
+    </ion-grid>
+  </ion-content>
+</ion-menu>
+  <ion-content  id="broadcast-content">
+  <!-- PAGE 1-->
+  <aps-login-layout-1
+    *ngIf="isType(0)"
+    [data]="data"
+    (onLogin)="onLogin($event)"
+    (onRegister)="onRegister($event)">
+    <!--(onSkip)="onSkip()"
+    (onFacebook)="onFacebook($event)"
+    (onTwitter)="onTwitter($event)"
+    (onGoogle)="onGoogle($event)"
+    (onPinterest)="onPinterest($event)"-->
+  </aps-login-layout-1>
+
+  <!-- PAGE 2-->
+  <!--<aps-login-layout-2
+    *ngIf="isType(1)"
+    [data]="data"
+    (onLogin)="onLogin($event)"
+    (onRegister)="onRegister($event)">
+  </aps-login-layout-2>-->
+  <!--(onSkip)="onSkip()"
+    (onFacebook)="onFacebook($event)"
+    (onTwitter)="onTwitter($event)"
+    (onGoogle)="onGoogle($event)"
+    (onPinterest)="onPinterest($event)"-->
+  <!-- BROADCAST MSG-->
+  
+<ion-fab class="broadcast-fab-button" vertical="top" horizontal="end" slot="fixed" [hidden]="broadCastOpen">
+  <ion-fab-button (click)="toggleMenu()">
+    <ion-icon class="icon-font-sm icon-color-accent" [name]="broadCastOpen? 'chevron-forward-outline':'chevron-back-outline'"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>
+</ion-app>
+

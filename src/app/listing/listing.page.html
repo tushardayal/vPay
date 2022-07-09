@@ -1,0 +1,63 @@
+<ion-app>
+    <div *ngIf="filters$ | async">
+        <app-side-filter [filters]="filters$ | async" (applyFilter)="applyFilter($event)"></app-side-filter>
+    </div>
+    <ion-header>
+        <ion-toolbar [hidden]="multiSelectMode | async" >
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>{{'lbl_authorization' | translate}}</ion-title>
+            <ion-buttons slot="end">
+                <ion-button *ngIf="filterApplicable$ | async" (click)="showFilter()">
+                    <ion-icon slot="icon-only" name="funnel" class="icon-font-md"></ion-icon>
+                </ion-button>
+                <ion-button (click)="showHelpPage()">
+                    <ion-icon slot="icon-only" name="help-outline" class="icon-font-md"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+        <ion-toolbar [hidden]="!(multiSelectMode | async)" >
+            <ion-buttons slot="start">
+                <ion-icon slot="icon-only" (click)="cancelMultiSelectMode()" name="close-outline" class="icon-font-md"></ion-icon>
+            </ion-buttons>
+            <ion-title>{{listingService.selectedIds.length}} Selected</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <super-tabs  [activeTabIndex]="activeTabIndex" #superTabs (tabChange)="onTabChange($event)">
+            <super-tabs-toolbar slot="top" scrollable class="ion-no-padding">
+                <super-tab-button *ngFor="let tab of tabsArray">
+                    <ion-label class="icon-color-primary">{{tab.displayName|apsTraslate}}</ion-label>
+                </super-tab-button>
+            </super-tabs-toolbar>
+            <super-tabs-container swipe-enabled="false">
+            <ng-container  *ngFor="let tab of tabsArray; let i=index">
+                <super-tab *ngIf="i===activeTabIndex">
+                    <ion-content >
+                        <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+                            <ion-refresher-content
+                                    pullingIcon="arrow-down-outline"
+                                    pullingText="Pull to refresh"
+                                    refreshingSpinner="circles"
+                                    refreshingText="Refreshing...">
+                            </ion-refresher-content>
+                        </ion-refresher> -->
+                        <ion-nav *ngIf="listingState === 'success'" [root]="tab.page"></ion-nav>
+                         
+                        <listing-skeleton *ngIf="listingState === 'loading'"></listing-skeleton>
+                        <ng-container *ngIf="listingState === 'notFound' || listingState === 'err'">
+                            <app-no-record-found [err]='listingState' (refreshPageEventEmmiter)="this.listingService.refreshTab()"></app-no-record-found>
+                        </ng-container>
+                    </ion-content>
+                </super-tab>
+            </ng-container>
+            </super-tabs-container>
+        </super-tabs>
+        <app-authorize-reject-listing-btn [multiSelectMode]="(multiSelectMode|async)" (setSelectedListType)="setSelectedListType($event)"></app-authorize-reject-listing-btn>
+    </ion-content>
+
+
+</ion-app>
+

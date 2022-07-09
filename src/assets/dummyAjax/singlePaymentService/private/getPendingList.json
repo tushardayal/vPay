@@ -1,0 +1,282 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityName": "BSINGLEPAYMENTREQUEST",
+  "headers": [{
+    "displayName": "Id",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Batch No.",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Channel",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Payment Method",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Beneficiary Name",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Transaction Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Value Date",
+    "type": "Date",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Currency",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Amount",
+    "type": "Amount",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "Status",
+    "type": "String",
+    "isDisplay": "Y"
+  }, {
+    "displayName": "AuthorizationRule",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Modified By",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Debit Account No",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "Modified On",
+    "type": "String",
+    "isDisplay": "N"
+  }, {
+    "displayName": "requireVerifier",
+    "type": "String",
+    "isDisplay": "N"
+  }],
+  "dataList": [
+    ["eEDOMQ/2ZiY=,1", "01200719328", "MOBILE", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "21-Jul-2019", "LKR", "77.00", "Unauthorized", "T", "freshMaker1", "0001001000007", "2019-07-20 15:03:58.0", "N"],
+    ["zRP32TFzJNQ=,1", "01200719324", "MOBILE", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "21-Jul-2019", "LKR", "67.00", "Unauthorized", "T", "freshMaker1", "0001001000007", "2019-07-20 10:10:25.0", "N"],
+    ["nO9pMDfTFr0=,2", "01200719321", "MOBILE", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "21-Jul-2019", "LKR", "767.00", "Partially Authorized", "T", "freshMaker1", "0001001000007", "2019-07-20 17:50:39.0", "N"],
+    ["Tmso8FDJbNM=,1", "01200719313", "MOBILE", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "21-Jul-2019", "LKR", "44.00", "Unauthorized", "T", "freshMaker1", "0001001000007", "2019-07-20 16:28:25.0", "N"],
+    ["/gxAisz0E3Y=,1", "01200719310", "MOBILE", "SLIPS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "21-Jul-2019", "LKR", "21.00", "Unauthorized", "T", "freshMaker1", "0001001000007", "2019-07-20 16:07:20.0", "N"],
+    ["RTexlSN0ehA=,2", "01200719276", "WEB", "CEFTS", "fgfgfg", "20-Jul-2019", "20-Jul-2019", "LKR", "44.00", "Partially Authorized", "T", "freshMaker1", "0001001000001", "2019-07-20 18:27:05.0", "N"],
+    ["OzovB2p7s9Y=,3", "01200719273", "WEB", "Book Transfer", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "24.00", "Partially Authorized", "T", "freshMaker1", "0001001000001", "2019-07-20 18:01:08.0", "N"],
+    ["P2e9mqyOTG8=,3", "01200719256", "WEB", "CEFTS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "9.00", "Partially Authorized", "T", "freshMaker1", "0001001000003", "2019-07-20 17:44:30.0", "N"],
+    ["OufSQjXseTo=,3", "01200719252", "WEB", "CEFTS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "78.00", "Partially Authorized", "T", "freshMaker1", "0001001000003", "2019-07-20 16:12:39.0", "N"],
+    ["hJqJ6iQ3AzU=,3", "01200719251", "WEB", "CEFTS", "SriLankan Broadcasting Corp (SLBC)", "20-Jul-2019", "20-Jul-2019", "LKR", "7.00", "Partially Authorized", "T", "freshMaker1", "0001001000003", "2019-07-20 15:45:38.0", "N"]
+  ],
+  "filters": [{
+    "displayName": "Batch No.",
+    "name": "batchNo",
+    "type": "String"
+  }, {
+    "displayName": "Channel",
+    "name": "makerChannel",
+    "type": "String"
+  }, {
+    "displayName": "Beneficiary Name",
+    "name": "beneficiaryName",
+    "type": "String"
+  }],
+  "pageNumber": 1,
+  "totalPages": 5,
+  "totalRecords": 31,
+  "access": ["VIEW", "AUTHORIZE", "EXECUTE"],
+  "links": [
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('eEDOMQ/2ZiY=,1')"
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('eEDOMQ/2ZiY=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "delete('eEDOMQ/2ZiY=,1','B','T','unauthorized','freshMaker1','20-Jul-2019 15:03:58')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('eEDOMQ/2ZiY=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('zRP32TFzJNQ=,1')"
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('zRP32TFzJNQ=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('zRP32TFzJNQ=,1','B','T','unauthorized','freshMaker1','20-Jul-2019 10:10:25')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('zRP32TFzJNQ=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('nO9pMDfTFr0=,2')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('nO9pMDfTFr0=,2','B','T','unauthorized','freshMaker1','20-Jul-2019 17:50:39')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('Tmso8FDJbNM=,1')"
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('Tmso8FDJbNM=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('Tmso8FDJbNM=,1','B','T','unauthorized','freshMaker1','20-Jul-2019 16:28:25')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('Tmso8FDJbNM=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('/gxAisz0E3Y=,1')"
+    }, {
+      "index": 3,
+      "displayName": "Authorize",
+      "icon": "fa fa-check green",
+      "url": null,
+      "onClick": "authorize('/gxAisz0E3Y=,1')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('/gxAisz0E3Y=,1','B','T','unauthorized','freshMaker1','20-Jul-2019 16:07:20')"
+    }, {
+      "index": 4,
+      "displayName": "Reject",
+      "icon": "fa fa-times red",
+      "url": null,
+      "onClick": "reject('/gxAisz0E3Y=,1')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('RTexlSN0ehA=,2')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('RTexlSN0ehA=,2','B','T','unauthorized','freshMaker1','20-Jul-2019 18:27:05')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('OzovB2p7s9Y=,3')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('OzovB2p7s9Y=,3','B','T','unauthorized','freshMaker1','20-Jul-2019 18:01:08')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('P2e9mqyOTG8=,3')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('P2e9mqyOTG8=,3','B','T','unauthorized','freshMaker1','20-Jul-2019 17:44:30')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('OufSQjXseTo=,3')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('OufSQjXseTo=,3','B','T','unauthorized','freshMaker1','20-Jul-2019 16:12:39')"
+    }],
+    [{
+      "index": 1,
+      "displayName": "View",
+      "icon": "fa fa-eye",
+      "url": null,
+      "onClick": "view('hJqJ6iQ3AzU=,3')"
+    }, {
+      "index": 10,
+      "displayName": "ViewAuthorizer",
+      "icon": "fa fa-users",
+      "url": null,
+      "onClick": "nextAuthorizer('hJqJ6iQ3AzU=,3','B','T','unauthorized','freshMaker1','20-Jul-2019 15:45:38')"
+    }]
+  ],
+  "enrichments": {
+    "selectedAuthType": "SOFTTOKEN"
+  },
+  "entityIdentifier": "",
+  "loggable": false
+}

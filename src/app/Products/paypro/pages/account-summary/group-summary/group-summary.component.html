@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="ion-no-padding ion-no-margin" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{'lbl_account_summary' | translate}}</ion-title>
+    <ion-buttons slot="end" class="ion-no-padding">
+      <ion-button class="ion-no-padding ion-no-margin" *ngIf="false">
+        <ion-icon name="ellipsis-vertical-outline" class="icon-font-md"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <super-tabs>
+        <super-tabs-toolbar slot="top" scrollable class="ion-no-padding">
+            <super-tab-button *ngFor="let tab of groupSummary">
+                <ion-label class="icon-color-primary">{{tab.displayName}}</ion-label>
+            </super-tab-button>
+        </super-tabs-toolbar>
+        <super-tabs-container>
+            <super-tab *ngFor="let tab of groupSummary; let i=index">
+                <ion-content>
+                    <ul class="ion-no-margin ion-no-padding">
+                        <li *ngFor="let group of tab.data; index as corpIndex">
+                            <!-- List big image Header -->
+                            <div class="collapsible-header ion-no-padding" >
+                                <ion-card class="ion-no-padding accountDetailsCard">
+                                    <ion-row (click)="goToAccountSummary(tab.accountType, group[tab.headers[0]])" *ngFor="let header of tab.headers | slice:0:2; index as i">
+                                        <ion-col class="ion-no-padding">
+                                            <span class="text-color-primary ion-margin-top">{{header}}</span>
+                                        </ion-col>
+                                        <ion-col>
+                                            <span class="text-color-primary ion-margin-top">{{ group[header]}}</span>
+                                        </ion-col>
+                                        <ion-col *ngIf="i==0" size="0.5">
+                                            <ion-icon (click)="toggleGroup(group)" class="fav-item" [name]="group.show?'chevron-up-outline':'chevron-down-outline'"></ion-icon>
+                                        </ion-col>
+                                    </ion-row>
+                                    <ion-row *ngFor="let header of tab.headers | slice:3:tab.headers.length " [hidden]="!group.show">
+                                        <ion-col class="ion-no-padding">
+                                            <span class="text-color-primary ion-margin-top">{{header}}</span>
+                                        </ion-col>
+                                        <ion-col>
+                                            <span class="text-color-primary ion-margin-top">{{ group[header]}}</span>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-card>
+                            </div><!-- End List big image Header -->
+                        </li>
+                    </ul>
+
+                    <ng-container *ngIf="tab.data && tab.data.length===0">
+                        <app-no-record-found [err]='' (refreshPageEventEmmiter)="this.refreshTab()"></app-no-record-found>
+                    </ng-container>
+                </ion-content>
+            </super-tab>
+        </super-tabs-container>
+    </super-tabs>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ion-grid class="ion-no-padding" *ngIf="groupSummary">
+    <ion-row  *ngFor="let summary of groupSummary;">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-list class="ion-no-margin">
+          <!-- Header List Big Image src/app/Products/paypro/pages/account-summary-->
+          <ion-list-header>
+            <ion-label class="ion-padding-top ion-padding-bottom">
+              <h1 class="text-size-md font-regular text-color-primary ion-no-margin">{{summary.displayName}}</h1>
+            </ion-label>
+          </ion-list-header>
+          <ul class="collapsible ion-no-margin ion-no-padding">
+            <li *ngFor="let group of summary.data;">
+              <!-- List big image Header -->
+              <div class="collapsible-header ion-no-padding" >
+                <ion-card class="ion-no-padding accountDetailsCard">
+                  <ion-row  *ngFor="let header of summary.headers | slice:0:2; index as i">
+                    <ion-col class="ion-no-padding">
+                      <span class="text-color-primary ion-margin-top">{{header}}</span>
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-color-primary ion-margin-top">{{ group[header]}}</span>
+                    </ion-col>
+                    <ion-col *ngIf="i==0" size="0.5">
+                      <ion-icon (click)="toggleGroup(group)" class="fav-item" [name]="group.show?'chevron-up-outline':'chevron-down-outline'"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+                </ion-card>
+              </div><!-- End List big image Header -->
+              <!-- LIST OPEN ACCORDIAN BODY  -->
+              <div class="item-accordion" [ngClass]="{'active': group.show }" [hidden]="!group.show">
+                <ion-card class="ion-no-padding accountDetailsCard">
+                  <ion-row *ngFor="let header of summary.headers | slice:3:summary.headers.length ">
+                    <ion-col class="ion-no-padding">
+                      <span class="text-color-primary ion-margin-top">{{header}}</span>
+                    </ion-col>
+                    <ion-col>
+                      <span class="text-color-primary ion-margin-top">{{ group[header]}}</span>
+                    </ion-col>
+                  </ion-row>
+                </ion-card>
+              </div>
+              <!-- End List big image Body -->
+            </li>
+          </ul>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

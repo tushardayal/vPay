@@ -1,0 +1,6 @@
+<ion-list class="ion-no-padding">
+  <ion-item *ngFor="let item of moreActions" (click)="actionClicked(item.onClick,item)" class="background-accent"
+    lines="none">
+    <ion-text class="text-size-p text-color-secondary">{{item.displayName}}</ion-text>
+  </ion-item>
+</ion-list>

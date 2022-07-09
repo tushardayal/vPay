@@ -1,0 +1,160 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "listOfAccountSummary": [{
+    "total": [],
+    "customerName": "China National Petroleum",
+    "accountGroupSummaryList": [],
+    "accountGroupSummaryMap": [{
+      "displayName": "Fixed Deposits",
+      "accountGroups": [{
+        "currency": "LKR",
+        "accounts": [{
+          "indexNo": {
+            "header": "Sr. No.",
+            "value": "1",
+            "type": "String",
+            "isDisplay": "N"
+          },
+          "accountNo": {
+            "header": "Account No",
+            "value": "999001900003",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "accountTitle": {
+            "header": "Account Name",
+            "value": "THE FABULOUS GATEWAY (PVT) LTD",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "productName": {
+            "header": "Account Type",
+            "value": "300 - FD AT MATURITY-LKR",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "currencyCode": {
+            "header": "Currency",
+            "value": "LKR",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "depositAmount": {
+            "header": "Deposit Amount",
+            "value": "3,059,714.65",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "interestRate": {
+            "header": "Interest Rate",
+            "value": "11.55",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "tenure": {
+            "header": "Tenor (Months)",
+            "value": "12",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "maturityAmount": {
+            "header": "Maturity Amount",
+            "value": "3,664,343.03",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "maturityDate": {
+            "header": "Maturity Date",
+            "value": "15-NOV-2019",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "lienAmount": {
+            "header": "Lien Amount",
+            "value": "2,700,000.00",
+            "type": "String",
+            "isDisplay": "Y"
+          }
+        }, {
+          "indexNo": {
+            "header": "Sr. No.",
+            "value": "2",
+            "type": "String",
+            "isDisplay": "N"
+          },
+          "accountNo": {
+            "header": "Account No",
+            "value": "999001900012",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "accountTitle": {
+            "header": "Account Name",
+            "value": "THE FABULOUS GATEWAY (PVT) LTD",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "productName": {
+            "header": "Account Type",
+            "value": "300 - FD AT MATURITY-LKR",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "currencyCode": {
+            "header": "Currency",
+            "value": "LKR",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "depositAmount": {
+            "header": "Deposit Amount",
+            "value": "3,200,000.00",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "interestRate": {
+            "header": "Interest Rate",
+            "value": "11.00",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "tenure": {
+            "header": "Tenor (Months)",
+            "value": "12",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "maturityAmount": {
+            "header": "Maturity Amount",
+            "value": "0.00",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "maturityDate": {
+            "header": "Maturity Date",
+            "value": "14-MAR-2019",
+            "type": "String",
+            "isDisplay": "Y"
+          },
+          "lienAmount": {
+            "header": "Lien Amount",
+            "value": "3,200,000.00",
+            "type": "String",
+            "isDisplay": "Y"
+          }
+        }],
+        "fddepositAmtTotal": "6,259,714.65",
+        "fdlienAmtTotal": "5,900,000.00",
+        "fdmaturityAmtTotal": "3,664,343.03"
+      }]
+    }],
+    "accountSummaryMap": {},
+    "cid": "999001"
+  }],
+  "baseCurrencyCode": "LKR",
+  "loggable": false,
+  "entityIdentifier": ""
+}

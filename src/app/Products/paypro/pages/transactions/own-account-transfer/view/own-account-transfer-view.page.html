@@ -1,0 +1,209 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <!--<ion-back-button defaultHref="['/menu/paypro/listing/paypro']"></ion-back-button>-->
+        <ion-button (click)="transactionsSrv.closeModal()">
+          <ion-icon class="icon-font-md" name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{'lbl_view' | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- SWIPE TO DISMISS --COMPONENT 1 -->
+  <ion-content>
+    <ion-list *ngIf="dataObj" class="ion-no-padding ion-padding-end ion-padding-start">
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h4 class="font-bold text-color-primary ion-text-wrap">
+            {{'lbl_payment_details' | translate}}</h4>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_value_date' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.valueDate || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_corporate_reference_number' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.corporateRefNo || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_payment_method' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.paymentMethodName || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_credit_account' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.creditAccountNo || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_credit_account_title' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.creditAccountTitle || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_credit_amount' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap" appStyleAmount>
+            {{dataObj.creditCurrencyCode}} {{ dataObj.creditAmount || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_debit_account' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.debitAccountNo || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_debit_account_title' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.debitAccountTitle || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_debit_amount' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{dataObj.debitCurrencyCode}} <span appStyleAmount>{{ dataObj.debitAmount || '-' }}</span></p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_fx_rate' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.fxRate || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_exchange_deal_number' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.exchangeDealNo || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.rejectReason">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_reject_reason' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.rejectReason || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.postingReturnReason">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_failure_reason' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.postingReturnReason || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_remark' | translate}} </h3>
+          <p class="text-size-p font-regular ion-text-wrap">
+            {{ dataObj.remarks || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.paymentDetails1">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_payment_instructions' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.paymentDetails1 || '-' }}</p>
+          <p *ngIf="dataObj.paymentDetails2" class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.paymentDetails2}}</p>
+           <p *ngIf="dataObj.paymentDetails3" class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.paymentDetails3}}</p>
+           <p *ngIf="dataObj.paymentDetails4" class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.paymentDetails4}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.swiftCode">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_bic_code' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.swiftCode || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.bankName">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_beneficiary_bank' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.bankName || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.branchName">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_beneficiary_bank_branch' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.branchName || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item class="ion-no-padding" *ngIf="dataObj.chargeTo">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_charge' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.chargeTo || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-no-padding" *ngIf="dataObj.remittancePurposeCode">
+        <ion-label  class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_remittance_purpose' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap">
+            {{ dataObj.remittancePurposeCode || '-' }}</p>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item class="ion-no-padding" [hidden]="!dataObj.supportingMSTFileName">
+        <ion-label class="ion-no-padding">
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{'lbl_supporting_documents' | translate}} </h3>
+          <p class="text-size-p font-regular  ion-text-wrap" >
+            {{ dataObj.supportingMSTFileName || '-' }}</p>
+        </ion-label>
+        <ion-button (click)="donloadFile()" fill="clear">
+          <ion-icon  class="text-size-md icon-color-primary" slot="icon-only"  name="download-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+    </ion-list>
+    <ion-list class="ion-padding-end ion-padding-start" *ngIf="dataObj">
+      <maker-checker-details [data]="dataObj"></maker-checker-details>
+    </ion-list>
+  </ion-content>
+</ion-app>
+
